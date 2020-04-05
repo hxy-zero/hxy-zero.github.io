@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta name="referrer" content="never">
+		<meta charset="utf-8">
+		<title>第七世代</title>
+		<link rel="shortcut icon" href="V.ico" type="image/x-icon" />
+		<link href="style.css" type="text/css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width,inital-scale-1">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="swiper.min.css">
+		<!--加载动画-->
+		<link href="line.css" type="text/css" rel="stylesheet" />
+		<script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+		<style>
+			.menu{
+				z-index: 333;
+			}
+			.swiper-container{
+				border-bottom: 1px solid ;
+			}
+			.content{
+				margin: 10px 8%;
+				padding-top: 10px;
+			}
+			.content img{
+				float: left;
+				max-width: 450px;
+				margin: 0 20px 0 0;
+				padding-bottom: 30px;
+			}
+			.content p{
+				text-indent:2em;
+				padding: 3px 0;
+			}
+			.descri{
+				float: top;
+			}
+
+			.text:nth-child(4n + 1) {
+			  stroke: rgb(39, 135, 238);
+			  animation: text1 5s ease-in-out forwards;
+			}
+			.text:nth-child(4n + 2) {
+			  stroke: rgb(47, 169, 92);
+			  animation: text2 5s ease-in-out forwards;
+			}
+			.text:nth-child(4n + 3) {
+			  stroke: rgb(249, 189, 56);
+			  animation: text3 5s ease-in-out forwards;
+			}
+			.text:nth-child(4n + 4) {
+			  stroke: rgb(235, 61, 50);
+			  animation: text4 5s ease-in-out forwards;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<h2 class="logo">第七世代KMF</h2>
+			<input type="checkbox" id="chk">
+			<label for="chk" class="show-menu-btn">
+				<i class="fas fa-ellipsis-h"></i>
+			</label>
+
+			<ul class="menu">
+				<a href="index.html">KMF简介</a>
+				<a href="design.html">各国设计思路</a>
+				<a href="3rdGeneration.html">第三代KMF</a>
+				<a href="4thGeneration.html">第四代KMF</a>
+				<a href="5thGeneration.html">第五代KMF</a>
+				<a href="6thGeneration.html">第六代KMF</a>
+				<a href="7thGeneration.html">第七代KMF</a>
+				<a href="8thGeneration.html">第八代KMF</a>
+				<a href="9thGeneration.html">第九代KMF</a>
+				<label for="chk" class="hide-menu-btn">
+					<i class="fas fa-times"></i>
+				</label>
+			</ul>
+		</div>
+		<div class="swiper-container swiper1">
+	    <div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+	    <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="https://iknow-pic.cdn.bcebos.com/a50f4bfbfbedab64d89661d7f736afc378311ec4?x-bce-process=image/resize,m_lfit,w_600,h_800,limit_1" alt="" >
+							</center>
+							<h2>兰斯洛特</h2>
+							<p>Lancelot，朱雀专用（型式编号：Z-01）</p>
+							<p>向导兵器，由帝国洛伊德研制的最新型的第七世代KMF，以传说中亚瑟王手下最强的圆桌武士兰斯洛特为名，具有远远超过一般KMF的性能。但由于是原型机，没有安装逃脱装置（R1第17集被藤堂驾驶的月下机直接切开驾驶舱无法逃脱）</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/63df394e251f95ca7961b320c9177f3e650952e1.jpg" alt="">
+							</center>
+							<h2>兰斯洛特-边境</h2>
+							<p>Lancelot Frontier，C.C专用（型式编号：Z-01）</p>
+							<p>洛伊德与塞希尔以兰斯洛特的备用零件为基础，所组装的机体。驾驶员为C.C.，机体也因而漆成了粉红色。</p>
+							<p>整体性能较兰斯洛特略逊一筹。除了兰斯洛特的武器之外，还配备了帕西瓦尔的盾牌。</p>
+							<p>与没有逃生装置的兰斯洛特不同，此机体特别设置了逃生舱。</p>
+						</div>
+					</div>
+	    </div>
+			<!-- Add Pagination -->
+	    <div class="swiper-pagination swiper-pagination1"></div>
+	  </div>
+
+		<div class="swiper-container swiper2">
+	    <div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+	    <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/c49b2c1f95cad1c8178dc4b17f3e6709c83d5143.jpg" alt="">
+							</center>
+							<h2>文森特</h2>
+							<p>Vincent，罗洛专用（型式编号：RPI-212）</p>
+							<p>在量产前设计的试行机体，是基于兰斯洛特作战反馈数据设计的原型机，由罗洛驾驶，原本由布里塔尼亚设计，后落入黑色骑士团手中。</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/8c25fe36afc37931ebc7afbfebc4b74541a911ca.jpg" alt="">
+							</center>
+							<h2>文森特-可翔式</h2>
+							<p>Vincent，罗洛专用（型式编号：RPI-212）</p>
+							<p>装备了黑骑滑翔翼的文森特，同时装上了自爆系统，（鲁鲁想为夏利报仇的原因）</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/386a6581800a19d828eaad9333fa828ba41e4694.jpg" alt="">
+							</center>
+							<h2>文森特-飞行式</h2>
+							<p>Vincent Air，吉尔福德专用 。</p>
+							<p>在R2鲁鲁修抢夺娜娜莉时出现，可惜被红莲可翔式一炮解决。</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/97f26bd0f703918fb5f6155c513d269758eec452.jpg" alt="">
+							</center>
+							<h2>文森特-女武神</h2>
+							<p>Vincent，第十圆桌骑士路基亚诺的女武神部队机。</p>
+							<p>粉红涂装，第十圆桌骑士路基亚诺的手下部队使用，在R2中被红莲圣天八极式秒杀。</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/25c67af082025aaf7332565dfbedab64024f1a7d.jpg" alt="">
+							</center>
+							<h2>文森特-守望者</h2>
+							<p>Vincent Ward，帝国主力机。</p>
+							<p>文森特的改造型，战斗力相对文森特相同，速度较差，但容易操纵。自天帝八八陵之战以来，开始全面取代桑德兰和格洛斯特，逐渐成为不列颠尼亚帝国新一代主力机。</p>
+							<br>
+						</div>
+					</div>
+	    </div>
+			<!-- Add Pagination -->
+	    <div class="swiper-pagination swiper-pagination2"></div>
+	  </div>
+
+		<div class="swiper-container swiper3" style="background: #FFCCCC">
+	    <div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+	    <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/08d69b45d688d43f4e60ae647d1ed21b0cf43bb4.jpg" alt="">
+							</center>
+							<h2>钢髅-联邦制式</h2>
+							<p>中华联邦制式（型式编号：TQ-19）</p>
+							<p>有2只搭载固定武装的腕部，以及2只构造简略的机械手臂，合计四只手。武装有两组加农炮与两组机关枪。尾巴的车轮可以在使用高机走驱动轮行进时，提升机体的稳定性。整体来说，武器和装甲性能都很弱，因此大多是以集群齐射方式发挥最大的火力。没有弹射驾驶舱之类的逃生装置。</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/6f8546c2d562853577f809329bef76c6a6ef63db.jpg" alt="">
+							</center>
+							<h2>钢髅-红巾军式样</h2>
+							<p>
+								未知
+							</p>
+							<p>
+								外形与联邦制式相似，但似乎能变换形态。
+							</p>
+							<br>
+						</div>
+					</div>
+	    </div>
+			<!-- Add Pagination -->
+	    <div class="swiper-pagination swiper-pagination3"></div>
+	  </div>
+
+		<div class="swiper-container swiper4" style="background: #99CCFF">
+	    <div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+	    <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/39c47b8b4710b9120c83cb68c3fdfc039345223f.jpg" alt="">
+							</center>
+							<h2>野蜂-E.U.制式</h2>
+							<p>
+								Pantsafunmeru（Panzer Hummel？），E.U.的主力NMF。
+							</p>
+							<p>
+								第四世代相当，比起日本和布里塔尼亚机体的机动性和格斗性，是在注重火力的基础上制作出来的。
+							</p>
+							<p>NDS游戏与漫画中的Knightmare Frame。</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/8213aeefce1b9d1664ae4172f8deb48f8d54648a.jpg" alt="">
+							</center>
+							<h2>野蜂-东欧战线制式</h2>
+							<p>
+								未知。
+							</p>
+							<p>
+								似乎除了涂装颜色和E.U.相仿。
+							</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/eac28382b9014a90f9559daea2773912b21bee94.jpg" alt="">
+							</center>
+							<h2>守备机架</h2>
+							<p>
+								E.U.军正在使用的警卫用机动兵器。
+							</p>
+							<br>
+						</div>
+					</div>
+	    </div>
+			<!-- Add Pagination -->
+	    <div class="swiper-pagination swiper-pagination4"></div>
+	  </div>
+
+		<div class="swiper-container swiper5" style="background: #666">
+	    <div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+	    <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content"  style="color:white">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/b77c8b26cffc1e178c6f4d224190f603728de923.jpg" alt="">
+							</center>
+							<h2>红莲二式</h2>
+							<p>日本解放战线和黑色骑士团普通士兵使用的NMF（型式编号：Type-10R）</p>
+							<p>日本的反抗组织仿制Glasgow而成，头部与两臂增设防护装甲，两臂增设用于近战格斗的拳杠，胸部增设重机枪。性能优于Glasgow和钢髅，但要弱于桑德兰。不同组织的机体涂装不同。</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content"  style="color:white">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/5353c0177f3e670957de53693bc79f3dfadc559b.jpg" alt="">
+							</center>
+							<h2>浪徒-华莲专用</h2>
+							<p>机体的涂装是红色，华莲专用。</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content"  style="color:white">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/be3827738bd4b31c74ee822d87d6277f9c2ff8a8.jpg" alt="">
+							</center>
+							<h2>浪徒-ZERO专用</h2>
+							<p>机体除了有特别的涂装外，头部还设有2只长角，ZERO专用。</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content"  style="color:#dfd">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/63df394e251f95ca48388420c9177f3e650952a8.jpg" alt="">
+							</center>
+							<h2>浪徒改</h2>
+							<p>型式编号：Type-1R</p>
+							<p>京都以浪徒为原型，采用了格落斯特的部分零件，性能上升不少，另装备了日本KMF专用的镭射刀以及头部触角。</p>
+							<p>藤堂和四圣剑曾使用此种机突击柯内莉娅，成田一战后全部5台被遗弃，后被布里塔尼亚军摧毁。</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content"  style="color:#dfd">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/25dcbade9c82d158454e4f27800a19d8be3e42a9.jpg" alt="">
+							</center>
+							<h2>浪徒改-藤堂专用</h2>
+							<p>白色涂装，藤堂专用。</p>
+							<br>
+						</div>
+					</div>
+	    </div>
+			<!-- Add Pagination -->
+	    <div class="swiper-pagination swiper-pagination5"></div>
+	  </div>
+
+		<div class="swiper-container swiper6" style="background: #666">
+	    <div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+	    <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content"  style="color:white">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/0f27bb119313b07ea8236d9e0cd7912395dd8cdb.jpg" alt="">
+							</center>
+							<h2>晓</h2>
+							<p>量产机（型式编号：Type-10R）</p>
+							<p>黑色骑士团的量产机，忍耐（抗揍）性能好。</p>
+							<br>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content"  style="color:white">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/99f7464a20a446233e1e98f49822720e0ef3d7a1.jpg" alt="">
+							</center>
+							<h2>晓-直参使用</h2>
+							<p>是量产机晓的指挥官版，性能提升不少，驾驶员有朝比奈，千叶以及C.C.等。搭载可翔翼，辐射障壁系统以及辐射波动导弹。一般机体的配色为蓝色，C.C.专用机则为粉红色。</p>
+							<br>
+						</div>
+					</div>
+	    </div>
+			<!-- Add Pagination -->
+	    <div class="swiper-pagination swiper-pagination6"></div>
+	  </div>
+
+		<div class="container">
+	    <svg viewBox="0 0 1000 300">
+	      <symbol id="line-text">
+	        <text text-anchor="middle" x="50%" y="50%" dy=".4em">
+	          第七世代KMF
+	        </text>
+	      </symbol>
+
+	      <use xlink:href="#line-text" class="text"></use>
+	      <use xlink:href="#line-text" class="text"></use>
+	      <use xlink:href="#line-text" class="text"></use>
+	      <use xlink:href="#line-text" class="text"></use>
+	    </svg>
+	  </div>
+		<script type="text/javascript">
+		//注释部分是设置2秒的定时延迟，timeout结束后加载网页
+					setTimeout(() => {
+						 $(".container").hide();
+					}, 5600);
+		//这是根据js判断，页面加载完毕就显示
+					/*document.onreadystatechange = function () {
+						if (document.readyState == "complete") {
+								$(".container").hide();
+						}
+					}*/
+		</script>
+
+	  <script src="swiper.min.js"></script>
+	  <script>
+		 var swiper1 = new Swiper('.swiper1', {
+			 loop: true,
+	     navigation: {
+	      nextEl: '.swiper-button-next',
+	      prevEl: '.swiper-button-prev',
+	    },
+			 pagination: {
+         el: '.swiper-pagination1',
+         clickable: true,
+       },
+     });
+		 var swiper2 = new Swiper('.swiper2', {
+			 loop: true,
+	     navigation: {
+	      nextEl: '.swiper-button-next',
+	      prevEl: '.swiper-button-prev',
+	    },
+			 pagination: {
+         el: '.swiper-pagination2',
+         clickable: true,
+       },
+     });
+		 var swiper3 = new Swiper('.swiper3', {
+			 loop: true,
+	     navigation: {
+	      nextEl: '.swiper-button-next',
+	      prevEl: '.swiper-button-prev',
+	    },
+			 pagination: {
+         el: '.swiper-pagination3',
+         clickable: true,
+       },
+     });
+		 var swiper4 = new Swiper('.swiper4', {
+			 loop: true,
+	     navigation: {
+	      nextEl: '.swiper-button-next',
+	      prevEl: '.swiper-button-prev',
+	    },
+			 pagination: {
+         el: '.swiper-pagination4',
+         clickable: true,
+       },
+     });
+		 var swiper5 = new Swiper('.swiper5', {
+			 loop: true,
+	     navigation: {
+	      nextEl: '.swiper-button-next',
+	      prevEl: '.swiper-button-prev',
+	    },
+			 pagination: {
+         el: '.swiper-pagination5',
+         clickable: true,
+       },
+     });
+		 var swiper6 = new Swiper('.swiper6', {
+			 loop: true,
+	     navigation: {
+	      nextEl: '.swiper-button-next',
+	      prevEl: '.swiper-button-prev',
+	    },
+			 pagination: {
+         el: '.swiper-pagination6',
+         clickable: true,
+       },
+     });
+	  </script>
+	</body>
+</html>
