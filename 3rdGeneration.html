@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta name="referrer" content="never">
+		<meta charset="utf-8">
+		<title>第三世代</title>
+		<link rel="shortcut icon" href="V.ico" type="image/x-icon" />
+		<link href="style.css" type="text/css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width,inital-scale-1">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="swiper.min.css">
+		<!--加载动画-->
+		<link href="line.css" type="text/css" rel="stylesheet" />
+		<script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+		<style>
+			.menu{
+				z-index: 333;
+			}
+			.swiper-container{
+				//border-bottom: 1px solid ;
+			}
+			.content{
+				margin: 10px 8%;
+				padding-top: 10px;
+			}
+			.content img{
+				float: left;
+				max-width: 530px;
+				margin: 0 20px 0 0;
+				padding-bottom: 30px;
+			}
+			.content p{
+				text-indent:2em;
+				padding: 3px 0;
+			}
+			.descri{
+				float: top;
+			}
+
+			.text:nth-child(4n + 1) {
+			  stroke: rgb(39, 135, 238);
+			  animation: text1 2s ease-in-out forwards;
+			}
+			.text:nth-child(4n + 2) {
+			  stroke: rgb(47, 169, 92);
+			  animation: text2 2s ease-in-out forwards;
+			}
+			.text:nth-child(4n + 3) {
+			  stroke: rgb(249, 189, 56);
+			  animation: text3 2s ease-in-out forwards;
+			}
+			.text:nth-child(4n + 4) {
+			  stroke: rgb(235, 61, 50);
+			  animation: text4 2s ease-in-out forwards;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<h2 class="logo">第三世代KMF</h2>
+			<input type="checkbox" id="chk">
+			<label for="chk" class="show-menu-btn">
+				<i class="fas fa-ellipsis-h"></i>
+			</label>
+
+			<ul class="menu">
+				<a href="index.html">KMF简介</a>
+				<a href="design.html">各国设计思路</a>
+				<a href="3rdGeneration.html">第三代KMF</a>
+				<a href="4thGeneration.html">第四代KMF</a>
+				<a href="5thGeneration.html">第五代KMF</a>
+				<a href="6thGeneration.html">第六代KMF</a>
+				<a href="7thGeneration.html">第七代KMF</a>
+				<a href="8thGeneration.html">第八代KMF</a>
+				<a href="9thGeneration.html">第九代KMF</a>
+				<label for="chk" class="hide-menu-btn">
+					<i class="fas fa-times"></i>
+				</label>
+			</ul>
+		</div>
+<!--
+		<div class="swiper-container">
+	    <div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+	    <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/21ecbf003af33a87a3d5228cc65c10385143b5c5.jpg" alt="">
+							</center>
+							<h2>盖尼米德</h2>
+							<p>
+								作为战斗用实验机开发的第三世代KMF，由阿什弗德财团所主导开发。
+							</p>
+							<p>
+								驾驶员是鲁路修的母亲玛莉安娜，她因此被封为骑士侯。机体退役后在学园祭做超大披萨时使用。
+							</p>
+							<p>
+								兰斯洛特和红莲贰式等第七代KMF，在腿部组件的一部分都使用了与本机完全相同的设计。本设计最早是应用在通过医用神经机械技术开发出来的步行器具上的。
+							</p>
+							<br>
+						</div>
+					</div>
+
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/dce13d9b033b5bb59bdd1d6836d3d539b700bc77.jpg" alt="">
+							</center>
+							<h2>MR1</h2>
+							<p>
+								基本框架为KMF武装外部，贩售到民间的简易版KMF。机身紧凑便于收纳和运送。
+							</p>
+							<p>
+								ZERO首次登场——营救朱雀行动时，逃离纯血派护卫包围所使用的机体。
+							</p>
+						</div>
+					</div>
+	    </div>
+
+			<div class="swiper-pagination"></div>
+	  </div>
+-->
+		<div class="swiper-container">
+	    <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/21ecbf003af33a87a3d5228cc65c10385143b5c5.jpg" alt="">
+							</center>
+							<h2>盖尼米德</h2>
+							<p>
+								作为战斗用实验机开发的第三世代KMF，由阿什弗德财团所主导开发。
+							</p>
+							<p>
+								驾驶员是鲁路修的母亲玛莉安娜，她因此被封为骑士侯。机体退役后在学园祭做超大披萨时使用。
+							</p>
+							<p>
+								兰斯洛特和红莲贰式等第七代KMF，在腿部组件的一部分都使用了与本机完全相同的设计。本设计最早是应用在通过医用神经机械技术开发出来的步行器具上的。
+							</p>
+						</div>
+					</div>
+	    </div>
+	  </div>
+<!--
+		<div class="swiper-container">
+	    <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content">
+							<center>
+								<img src="http://imgsrc.baidu.com/forum/pic/item/dce13d9b033b5bb59bdd1d6836d3d539b700bc77.jpg" alt="">
+							</center>
+							<h2>MR1</h2>
+							<p>
+								基本框架为KMF武装外部，贩售到民间的简易版KMF。机身紧凑便于收纳和运送。
+							</p>
+							<p>
+								ZERO首次登场——营救朱雀行动时，逃离纯血派护卫包围所使用的机体。
+							</p>
+						</div>
+					</div>
+	    </div>
+	  </div>
+-->
+		<div class="container">
+	    <svg viewBox="0 0 1000 300">
+	      <symbol id="line-text">
+	        <text text-anchor="middle" x="50%" y="50%" dy=".4em">
+	          第三世代KMF
+	        </text>
+	      </symbol>
+
+	      <use xlink:href="#line-text" class="text"></use>
+	      <use xlink:href="#line-text" class="text"></use>
+	      <use xlink:href="#line-text" class="text"></use>
+	      <use xlink:href="#line-text" class="text"></use>
+	    </svg>
+	  </div>
+		<script type="text/javascript">
+		//注释部分是设置2秒的定时延迟，timeout结束后加载网页
+					setTimeout(() => {
+						 $(".container").hide();
+					}, 2600);
+		//这是根据js判断，页面加载完毕就显示
+					/*document.onreadystatechange = function () {
+						if (document.readyState == "complete") {
+								$(".container").hide();
+						}
+					}*/
+		</script>
+
+	  <script src="swiper.min.js"></script>
+	  <script>
+		 var swiper = new Swiper('.swiper-container',{
+	     loop: true,
+	     navigation: {
+	      nextEl: '.swiper-button-next',
+	      prevEl: '.swiper-button-prev',
+	    },
+			pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+	   });
+	  </script>
+	</body>
+</html>
