@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 		<link rel="stylesheet" href="swiper.min.css">
 		<!--加载动画-->
+		<link href="loader.css" type="text/css" rel="stylesheet" />
 		<link href="line.css" type="text/css" rel="stylesheet" />
 		<script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
 		<style>
@@ -127,19 +128,27 @@
 	      <use xlink:href="#line-text" class="text"></use>
 	    </svg>
 	  </div>
+
+		<div class="loader">
+			<div class="l_main">
+				<div class="l_square"><span></span><span></span><span></span></div>
+				<div class="l_square"><span></span><span></span><span></span></div>
+				<div class="l_square"><span></span><span></span><span></span></div>
+				<div class="l_square"><span></span><span></span><span></span></div>
+			</div>
+		</div>
+
 		<script type="text/javascript">
 		//注释部分是设置2秒的定时延迟，timeout结束后加载网页
-					setTimeout(function () {
-						if (document.readyState == "complete") {
-								$(".container").hide();
-						}
+					setTimeout(() => {
+						 $(".container").hide();
 					}, 4600);
 		//这是根据js判断，页面加载完毕就显示
-					/*document.onreadystatechange = function () {
+					document.onreadystatechange = function () {
 						if (document.readyState == "complete") {
-								$(".container").hide();
+								$(".loader").hide();
 						}
-					}*/
+					}
 		</script>
 	</body>
 </html>
