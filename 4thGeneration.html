@@ -14,9 +14,6 @@
 		<link href="line.css" type="text/css" rel="stylesheet" />
 		<script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
 		<style>
-			.menu{
-				z-index: 333;
-			}
 			.swiper-container{
 				border-bottom: 1px solid ;
 			}
@@ -27,15 +24,17 @@
 			.content img{
 				float: left;
 				max-width: 450px;
-				margin: 0 20px 0 0;
-				padding-bottom: 30px;
+				margin: 0 15px 25px 0;
+				padding: 5px;
+				//border:2px solid;
 			}
 			.content p{
 				text-indent:2em;
 				padding: 3px 0;
 			}
-			.descri{
-				float: top;
+
+			img.akito{
+				border:2px solid red;
 			}
 		</style>
 	</head>
@@ -69,9 +68,7 @@
 	    <div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/0b207e25ab18972bfa6a7facf1cd7b899e510a3f.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/0b207e25ab18972bfa6a7facf1cd7b899e510a3f.jpg" alt="">
 							<h2>格拉斯哥-帝国制式</h2>
 							<p>Glasgow，帝国制式（型式编号：RPI-11）</p>
 							<p>帝国侵略日本时用的第四代KM，已落后被淘汰。</p>
@@ -80,9 +77,7 @@
 					</div>
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/fe1ba32b2834349bc8507ae3deea15ce36d3be3e.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/fe1ba32b2834349bc8507ae3deea15ce36d3be3e.jpg" alt="">
 							<h2>格拉斯哥-警用</h2>
 							<p>由Glasgow改良而来的KMF，没有装备军队而是配备给警察使用，除了武器以外的性能与Glasgow没有区别。</p>
 							<p>出现过两次，第一次在R1的9集。第2次是在R2的第4集。</p>
@@ -91,20 +86,17 @@
 					</div>
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/5c37d68a87d6277f1344265e3f381f30e924fc3e.jpg" style="max-height:480px;height:auto;width:auto;" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/5c37d68a87d6277f1344265e3f381f30e924fc3e.jpg" style="max-height:480px;height:auto;width:auto;" alt="">
 							<h2>格拉斯哥-卡莲</h2>
 							<p>格拉斯哥，卡莲专用，红色涂装。</p>
 							<p>第一集逃跑无法脱身被迫应战，卡莲对战纯血派所使用的机体。</p>
 							<br>
 						</div>
 					</div>
+					<!--
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/6b678f188618367a5edf6bbb39738bd4b31ce53e.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/6b678f188618367a5edf6bbb39738bd4b31ce53e.jpg" alt="">
 							<h2>格拉斯哥-安保</h2>
 							<p>格拉斯哥，安全保卫部队，有一个盾。</p>
 							<br>
@@ -112,26 +104,24 @@
 					</div>
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/ed4cadb54aed2e730cbf924a9001a18b87d6fa3e.jpg" alt="">
-							</center>
+							<img class="akito" src="http://tiebapic.baidu.com/forum/pic/item/ed4cadb54aed2e730cbf924a9001a18b87d6fa3e.jpg" alt="">
 							<h2>格拉斯哥-欧菲</h2>
 							<p>格拉斯哥，欧菲专用。</p>
 							<br>
 						</div>
 					</div>
+				-->
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/973e19071d950a7b9a635aa21dd162d9f2d3c93e.jpg" alt="">
-							</center>
+							<img class="akito" src="http://tiebapic.baidu.com/forum/pic/item/973e19071d950a7b9a635aa21dd162d9f2d3c93e.jpg" alt="">
 							<h2>格拉斯哥-欧洲</h2>
-							<p>格拉斯哥，帝国和欧洲战线使用。</p>
+							<p>格拉斯哥，帝国和欧洲战线使用的旧式KMF。</p>
+							<p>在《亡国的阿基德》中出现，三人小队从黑帮手中获得。</p>
 							<br>
 						</div>
 					</div>
 	    </div>
-			<!-- Add Pagination -->
+
 	    <div class="swiper-pagination swiper-pagination1"></div>
 	  </div>
 
@@ -141,9 +131,7 @@
 	    <div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/0f1c5f35349b033b2f28b0bc02ce36d3d439bde8.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/0f1c5f35349b033b2f28b0bc02ce36d3d439bde8.jpg" alt="">
 							<h2>波特曼</h2>
 							<p>Port Man，帝国实验的水陆两用型KMF。</p>
 							<p>主要用于海洋和海底探察，也曾用于实战。驾驶员包括了海军陆战队骑士团与尤菲米亚公主等。</p>
@@ -152,9 +140,7 @@
 					</div>
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/ee1cb15d103853437a6fcb478413b07ecb8088e8.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/ee1cb15d103853437a6fcb478413b07ecb8088e8.jpg" alt="">
 							<h2>波特曼II</h2>
 							<p>Port Man II，帝国军试验用机体波特曼的改良版。</p>
 							<p>现已被正式使用的水陆两用型KMF。</p>
@@ -163,17 +149,15 @@
 					</div>
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/d2c1e7539822720ebaaaf69c6ccb0a46f21fab2c.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/d2c1e7539822720ebaaaf69c6ccb0a46f21fab2c.jpg" alt="">
 							<h2>波特曼II-飞行</h2>
 							<p>Port Man II Air，波特曼II加装悬浮飞行系统。</p>
-							<p>最终围攻战中出现。</p>
+							<p>R2最终围攻战中出现。</p>
 							<br>
 						</div>
 					</div>
 	    </div>
-			<!-- Add Pagination -->
+
 	    <div class="swiper-pagination swiper-pagination2"></div>
 	  </div>
 
@@ -183,57 +167,53 @@
 	    <div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/d215aa55564e9258ca4392888b82d158ccbf4e1c.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/d215aa55564e9258ca4392888b82d158ccbf4e1c.jpg" alt="">
 							<h2>MR1</h2>
 							<p>基本框架为KMF武装外部，贩售到民间的简易版KMF。机身紧凑便于收纳和运送。</p>
 						</div>
 					</div>
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/fb92312209f790522c6953581bf3d7ca7bcbd51e.jpg" style="max-height:450px;height:auto;width:auto;" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/fb92312209f790522c6953581bf3d7ca7bcbd51e.jpg" style="max-height:450px;height:auto;width:auto;" alt="">
 							<h2>MR1-黑骑</h2>
 							<p>MR1，黑色骑士团使用，为了隐蔽使用了黑色涂装。</p>
 							<p>ZERO首次登场——营救朱雀行动时，逃离纯血派护卫包围所使用的机体。</p>
 						</div>
 					</div>
 	    </div>
-			<!-- Add Pagination -->
+
 	    <div class="swiper-pagination swiper-pagination3"></div>
 	  </div>
 
 		<div class="swiper-container swiper4" style="background: #FFCCCC">
+			<!--
 	    <div class="swiper-button-next"></div>
 			<div class="swiper-button-prev"></div>
 	    <div class="swiper-wrapper">
 					<div class="swiper-slide">
+					-->
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/eecc91cc7b899e5153212e7255a7d933c9950de4.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/eecc91cc7b899e5153212e7255a7d933c9950de4.jpg" alt="">
 							<h2>钢髅-联邦制式</h2>
 							<p>中华联邦制式（型式编号：TQ-19）</p>
 							<p>有2只搭载固定武装的腕部，以及2只构造简略的机械手臂，合计四只手。武装有两组加农炮与两组机关枪。尾巴的车轮可以在使用高机走驱动轮行进时，提升机体的稳定性。整体来说，武器和装甲性能都很弱，因此大多是以集群齐射方式发挥最大的火力。没有弹射驾驶舱之类的逃生装置。</p>
 							<br>
 						</div>
+						<!--
 					</div>
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/d163c418ebc4b745373ba370d8fc1e178b8215e4.jpg" style="max-height:450px;height:auto;width:auto;" alt="">
-							</center>
+							<img class="akito" src="http://tiebapic.baidu.com/forum/pic/item/d163c418ebc4b745373ba370d8fc1e178b8215e4.jpg" style="max-height:450px;height:auto;width:auto;" alt="">
 							<h2>钢髅-红巾军</h2>
 							<p>将武器涂绿，面部有“红巾”涂装。</p>
 							<br>
 						</div>
 					</div>
 	    </div>
-			<!-- Add Pagination -->
-	    <div class="swiper-pagination swiper-pagination4"></div>
+
+	    <div class="swiper-pagination swiper-pagination4"></div>-->
 	  </div>
+
 
 		<div class="swiper-container swiper5" style="background: #99CCFF">
 	    <div class="swiper-button-next"></div>
@@ -241,36 +221,32 @@
 	    <div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/c6a37d7a02087bf4907f438fe5d3572c10dfcff9.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/c6a37d7a02087bf4907f438fe5d3572c10dfcff9.jpg" alt="">
 							<h2>野蜂-E.U.制式</h2>
-							<p>Pantsafunmeru（Panzer Hummel？），E.U.的主力NMF。</p>
+							<p>Panzer Hummel，E.U.的主力NMF。</p>
 							<p>第四世代相当，比起日本和布里塔尼亚机体的机动性和格斗性，是在注重火力的基础上制作出来的。</p>
 							<br>
 						</div>
 					</div>
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/682af000a18b87d6abd1bf79100828381e30fdf9.jpg" alt="">
-							</center>
+							<img class="akito" src="http://tiebapic.baidu.com/forum/pic/item/682af000a18b87d6abd1bf79100828381e30fdf9.jpg" alt="">
 							<h2>野蜂-东欧战线制式</h2>
+							<p>在《亡国的阿基德》中出现。</p>
 							<br>
 						</div>
 					</div>
 					<div class="swiper-slide">
 						<div class="content">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/5afd4edab6fd526683a22872bc18972bd5073686.jpg" alt="">
-							</center>
+							<img class="akito" src="http://tiebapic.baidu.com/forum/pic/item/26293635970a304e76a06e9cc6c8a786c8175c8a.jpg" alt="">
 							<h2>守备机架</h2>
-							<p>E.U.军正在使用的警卫用机动兵器。</p>
+							<p>Gardmare，E.U.军正在使用的警卫用机动兵器。</p>
+							<p>在《亡国的阿基德》中出现。</p>
 							<br>
 						</div>
 					</div>
 	    </div>
-			<!-- Add Pagination -->
+
 	    <div class="swiper-pagination swiper-pagination5"></div>
 	  </div>
 
@@ -280,9 +256,7 @@
 	    <div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<div class="content"  style="color:white">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/7ff40a1fd21b0ef4513f8f38cac451da80cb3ebc.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/7ff40a1fd21b0ef4513f8f38cac451da80cb3ebc.jpg" alt="">
 							<h2>浪徒-黑骑标配</h2>
 							<p>黑色骑士团普通士兵使用的NMF（型式编号：Type-10R）</p>
 							<p>日本的反抗组织仿制Glasgow而成，头部与两臂增设防护装甲，两臂增设用于近战格斗的拳杠，胸部增设重机枪。性能优于Glasgow和钢髅，但要弱于桑德兰。不同组织的机体涂装不同。</p>
@@ -291,9 +265,7 @@
 					</div>
 					<div class="swiper-slide">
 						<div class="content"  style="color:white">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/4c1da30635fae6cd2263bc0718b30f2443a70fbc.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/4c1da30635fae6cd2263bc0718b30f2443a70fbc.jpg" alt="">
 							<h2>浪徒-华莲专用</h2>
 							<p>机体的涂装是红色，华莲专用。</p>
 							<br>
@@ -301,9 +273,7 @@
 					</div>
 					<div class="swiper-slide">
 						<div class="content"  style="color:white">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/fc49e92e0708283890dacb72af99a9014d08f1bd.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/fc49e92e0708283890dacb72af99a9014d08f1bd.jpg" alt="">
 							<h2>浪徒王-ZERO专用</h2>
 							<p>机体除了有特别的涂装外，头部还设有2只长角，ZERO专用。</p>
 							<br>
@@ -311,9 +281,7 @@
 					</div>
 					<div class="swiper-slide">
 						<div class="content"  style="color:#dfd">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/a0bfe9500fb30f241f4dfb65df95d143ac4b03bc.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/a0bfe9500fb30f241f4dfb65df95d143ac4b03bc.jpg" alt="">
 							<h2>浪徒-日解标配</h2>
 							<p>日本解放战线普通士兵使用的NMF（型式编号：Type-10R）</p>
 							<p>绿色涂装。</p>
@@ -322,9 +290,7 @@
 					</div>
 					<div class="swiper-slide">
 						<div class="content"  style="color:#dfd">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/23eaa601baa1cd1149616546ae12c8fcc2ce2dbc.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/23eaa601baa1cd1149616546ae12c8fcc2ce2dbc.jpg" alt="">
 							<h2>浪徒改-四圣剑机</h2>
 							<p>型式编号：Type-1R</p>
 							<p>京都以浪徒为原型，采用了格落斯特的部分零件，性能上升不少，另装备了日本KMF专用的镭射刀以及头部触角。</p>
@@ -334,27 +300,25 @@
 					</div>
 					<div class="swiper-slide">
 						<div class="content"  style="color:#dfd">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/72414e13b31bb051a07ecc4e217adab44aede032.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/72414e13b31bb051a07ecc4e217adab44aede032.jpg" alt="">
 							<h2>浪徒改-藤堂专用</h2>
 							<p>白色涂装，藤堂专用。</p>
 							<br>
 						</div>
 					</div>
+					<!--
 					<div class="swiper-slide">
 						<div class="content"  style="color:#F66">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/7658aac551da81cb763194ab4566d016082431bc.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/7658aac551da81cb763194ab4566d016082431bc.jpg" alt="">
 							<h2>浪徒-红巾军</h2>
 							<p>红巾军使用的NMF（型式编号：Type-10R）</p>
 							<p>头部“红巾”涂装。</p>
 							<br>
 						</div>
 					</div>
+				-->
 	    </div>
-			<!-- Add Pagination -->
+
 	    <div class="swiper-pagination swiper-pagination6"></div>
 	  </div>
 
@@ -362,9 +326,7 @@
 	    <div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<div class="content"  style="color:#dfd">
-							<center>
-								<img src="http://tiebapic.baidu.com/forum/pic/item/e65b22fab2fb4316c1326c1c37a4462309f7d35b.jpg" alt="">
-							</center>
+							<img src="http://tiebapic.baidu.com/forum/pic/item/e65b22fab2fb4316c1326c1c37a4462309f7d35b.jpg" alt="">
 							<h2>雷光</h2>
 							<p>用4台格拉斯哥改造而成，以超电磁式散弹重炮为武器，在狭窄通道的极有利地形作为炮台使用。</p>
 							<p>在河口湖事件中首次登场，日本解放战线靠此击毁了帝国多台KMF，但仍然不敌朱雀驾驶之兰斯洛特的惊异性能而被击败。</p>
