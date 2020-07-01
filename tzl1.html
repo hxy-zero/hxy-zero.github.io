@@ -1,0 +1,142 @@
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>体脂率</title>
+  </head>
+  <body>
+    <form>
+      性别:
+      <br>
+      <select class="" id="sex">
+        <option value="male">男性</option>
+        <option value="female">女性</option>
+      </select>
+      <br>
+      腰围(cm):<br>
+      <input type="text" id="waistline">
+      <br>
+      体重(kg):<br>
+      <input type="text" id="weight">
+      <br>
+      年龄(year):<br>
+      <input type="text" id="age">
+    </form>
+    <br>
+    <button type="button" onclick="FatCalculate()">计算体脂率</button>
+    <br><br>
+    <span>a：</span>
+    <span id="a"></span>
+    <br>
+    <span>b：</span>
+    <span id="b"></span>
+    <br>
+    <span>a-b：</span>
+    <span id="ab"></span>
+    <br>
+    <span>体脂率：</span>
+    <span id="res"></span>
+    <br>
+    <span>评价：</span>
+    <span id="isfat"></span>
+
+    <script>
+      function FatCalculate(){
+        //alert('Hello World!');
+        var sex, waistline, weight, age, a, b, ab, res, isfat;
+        var ager = 0;
+        sex = document.getElementById("sex").value;
+        waistline = document.getElementById("waistline").value;
+        weight = document.getElementById("weight").value;
+        age = document.getElementById("age").value;
+
+        if(waistline == ""){
+          alert("请填写腰围！");
+          return false;
+        }
+        if(weight == ""){
+          alert("请填写体重！");
+          return false;
+        }
+        if(age == ""){
+          alert("请填写年龄！");
+          return false;
+        }
+
+        if(sex=="male"){
+          b = weight * 0.082 + 44.74;
+        }
+        if(sex=="female"){
+          b = weight * 0.082 + 34.89;
+        }
+        a = waistline * 0.74;
+        ab = a - b;
+        res = ab / weight * 100;
+
+        if(sex=="male"){
+          if(age >= 40 && age < 60){
+            ager = 1;
+          }
+          if(age >= 60){
+            ager = 3;
+          }
+
+          if(age < 18){
+            isfat = "未成年不建议参考此标准";
+          }else if(res < 5){
+              isfat = "警告：体脂率过低！";
+          }else if(res < 11 + ager){
+              isfat = "偏瘦";
+          }else if(res < 17 + ager){
+              isfat = "标准（健康型）";
+          }else if(res < 22 + ager){
+              isfat = "标准（警戒型）";
+          }else if(res < 27 + ager){
+              isfat = "轻度肥胖";
+          }else if(res < 46){
+              isfat = "重度肥胖";
+          }else{
+              isfat = "警告：体脂率过高！";
+          }
+        }
+
+        if(sex=="female"){
+          if(age >= 40 && age < 60){
+            ager = 1;
+          }
+          if(age >= 60){
+            ager = 2;
+          }
+
+          if(age < 18){
+            isfat = "未成年不建议参考此标准";
+          }else if(res < 5){
+              isfat = "警告：体脂率过低！";
+          }else if(res < 21 + ager){
+              isfat = "偏瘦";
+          }else if(res < 28 + ager){
+              isfat = "标准（健康型）";
+          }else if(res < 35 + ager){
+              isfat = "标准（警戒型）";
+          }else if(res < 40 + ager){
+              isfat = "轻度肥胖";
+          }else if(res < 46){
+              isfat = "重度肥胖";
+          }else{
+              isfat = "警告：体脂率过高！";
+          }
+        }
+
+        a = a.toFixed(2);
+        b = b.toFixed(2);
+        ab = ab.toFixed(2);
+        //res = res.toFixed(2);
+        document.getElementById("a").innerHTML = a;
+        document.getElementById("b").innerHTML = b;
+        document.getElementById("ab").innerHTML = ab;
+        document.getElementById("res").innerHTML = res+"%";
+        document.getElementById("isfat").innerHTML = isfat;
+      }
+    </script>
+  </body>
+</html>
