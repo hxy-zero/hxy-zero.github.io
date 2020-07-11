@@ -3,42 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title>体脂率</title>
+    <style>
+      body{
+        text-align: center;
+      }
+      .content{
+        margin:30px;
+        padding: 10px;
+        border:1px solid #F00;
+      }
+    </style>
   </head>
   <body>
-    <form>
-      性别:
+    <div class="content">
+      <form>
+        性别:
+        <br>
+        <select class="" id="sex">
+          <option value="male">男性</option>
+          <option value="female">女性</option>
+        </select>
+        <br>
+        腰围(cm):<br>
+        <input type="text" id="waistline">
+        <br>
+        体重(kg):<br>
+        <input type="text" id="weight">
+        <br>
+        年龄(year):<br>
+        <input type="text" id="age">
+      </form>
+      <button type="button" onclick="FatCalculate()">计算体脂率</button>
+      <br><br><!--
+      <span>a：</span>
+      <span id="a"></span>
       <br>
-      <select class="" id="sex">
-        <option value="male">男性</option>
-        <option value="female">女性</option>
-      </select>
+      <span>b：</span>
+      <span id="b"></span>
       <br>
-      腰围(cm):<br>
-      <input type="text" id="waistline">
+      <span>a-b：</span>
+      <span id="ab"></span>
+      <br>-->
+      <span>体脂率：</span>
+      <span id="res"></span>
       <br>
-      体重(kg):<br>
-      <input type="text" id="weight">
-      <br>
-      年龄(year):<br>
-      <input type="text" id="age">
-    </form>
-    <br>
-    <button type="button" onclick="FatCalculate()">计算体脂率</button>
-    <br><br>
-    <span>a：</span>
-    <span id="a"></span>
-    <br>
-    <span>b：</span>
-    <span id="b"></span>
-    <br>
-    <span>a-b：</span>
-    <span id="ab"></span>
-    <br>
-    <span>体脂率：</span>
-    <span id="res"></span>
-    <br>
-    <span>评价：</span>
-    <span id="isfat"></span>
+      <span>评价：</span>
+      <span id="isfat"></span>
+    </div>
+
 
     <script>
       function FatCalculate(){
@@ -50,16 +62,16 @@
         weight = document.getElementById("weight").value;
         age = document.getElementById("age").value;
 
-        if(waistline == ""){
-          alert("请填写腰围！");
+        if(isNaN(waistline) || waistline == ""){
+          alert("请正确填写腰围！");
           return false;
         }
-        if(weight == ""){
-          alert("请填写体重！");
+        if(isNaN(weight) || weight == ""){
+          alert("请正确填写体重！");
           return false;
         }
-        if(age == ""){
-          alert("请填写年龄！");
+        if(isNaN(age) || age == ""){
+          alert("请正确填写年龄！");
           return false;
         }
 
@@ -130,10 +142,11 @@
         a = a.toFixed(2);
         b = b.toFixed(2);
         ab = ab.toFixed(2);
+        res = res.toFixed(2);
         //res = res.toFixed(2);
-        document.getElementById("a").innerHTML = a;
+        /*document.getElementById("a").innerHTML = a;
         document.getElementById("b").innerHTML = b;
-        document.getElementById("ab").innerHTML = ab;
+        document.getElementById("ab").innerHTML = ab;*/
         document.getElementById("res").innerHTML = res+"%";
         document.getElementById("isfat").innerHTML = isfat;
       }
