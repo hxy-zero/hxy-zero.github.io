@@ -154,7 +154,7 @@
     async function loadItemsData() {
         try {
             // 使用相对路径引用JSON文件
-            const response = await fetch('../data/items.json');
+            const response = await fetch('/data/items.json');
 
             if (!response.ok) {
                 throw new Error(`数据加载失败: ${response.status} ${response.statusText}`);
