@@ -1,17 +1,11 @@
 [
   {
     "id": 1,
-    "name": "龙息之刃",
-    "type": "武器",
-    "category": "weapon",
+    "name": "豁口刀",
+    "type": "属性提升",
+    "category": "stat",
     "image": "images/1.1chipped_blade.png",
-    "description": "由古代红龙鳞片锻造而成的巨剑...",
-    "rarity": "传奇",
-    "stats": {
-      "attack": 85,
-      "defense": 10,
-      "value": 5000,
-      "weight": 18
+    "description": "我的攻击力增加了|My aggression is increased"
     }
   },
   {
