@@ -4,7 +4,7 @@
     "name": "龙息之刃",
     "type": "武器",
     "category": "weapon",
-    "image": "images/items/1.png",
+    "image": "images/1.1chipped_blade.png",
     "description": "由古代红龙鳞片锻造而成的巨剑...",
     "rarity": "传奇",
     "stats": {
@@ -19,7 +19,7 @@
     "name": "星辰法杖",
     "type": "武器",
     "category": "weapon",
-    "image": "images/items/2.png",
+    "image": "images/1.2crown.png",
     "description": "顶端镶嵌着星辰碎片的法杖...",
     "rarity": "史诗",
     "stats": {
@@ -34,7 +34,7 @@
     "name": "精灵护符",
     "type": "饰品",
     "category": "accessory",
-    "image": "images/items/3.png",
+    "image": "images/1.3broken_wing.png",
     "description": "古老精灵工艺打造的护身符...",
     "rarity": "稀有",
     "stats": {
