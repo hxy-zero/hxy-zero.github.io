@@ -8,8 +8,8 @@
       "category": "属性",
       "effect_cn": "我的攻击力增加了。",
       "effect_en": "My aggression is increased.",
-      "lore_cn": "一件传家宝，因使用不当而磨损。刀身上的豁口诉说着无数战斗的故事。",
-      "lore_en": "An heirloom, worn down by improper use. The chips on the blade tell stories of countless battles."
+      "lore_cn": "一件传家宝，因长久使用而磨损。",
+      "lore_en": "An heirloom,worn from honest use."
     },
     {
       "id": 2,
@@ -19,8 +19,8 @@
       "category": "抗性",
       "effect_cn": "我对劈砍攻击的抗性提高了。",
       "effect_en": "My resistance to slashing attacks is increased.",
-      "lore_cn": "肉体的最后论据。这片盔甲曾保护过一位勇敢的战士，如今只剩下残片。",
-      "lore_en": "The last argument of flesh. This piece of armor once protected a brave warrior, now only fragments remain."
+      "lore_cn": "肉体的最后抗争。",
+      "lore_en": "The last argument of flesh."
     }
   ]
 }
