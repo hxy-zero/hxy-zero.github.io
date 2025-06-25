@@ -3,30 +3,605 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏道具图鉴 - 外部JS引用示例</title>
+    <title>纪念品图鉴</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #6a5acd;
+            --primary-light: #7d6cd9;
+            --secondary: #9370db;
+            --dark: #1a1a2e;
+            --darker: #0f0f1f;
+            --light: #f0f0f7;
+            --accent: #ff7e5f;
+            --accent-light: #ff9a76;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --memento-bg: #81477F;
+            --memento-border: #d0a9cf;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 0;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 导航栏样式 */
+        .navbar {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo i {
+            background: linear-gradient(45deg, var(--accent), #feb47b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-content {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .categories-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--card-border);
+            color: var(--light);
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background: rgba(106, 90, 205, 0.5);
+            border-color: var(--primary-light);
+        }
+        
+        .category-btn i {
+            font-size: 0.9rem;
+        }
+        
+        .search-container {
+            position: relative;
+            display: flex;
+            min-width: 200px;
+        }
+        
+        .search-bar {
+            padding: 8px 15px;
+            padding-right: 40px;
+            border-radius: 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            width: 100%;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar:focus {
+            background: rgba(255, 255, 255, 0.15);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(106, 90, 205, 0.3);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: var(--light);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--light);
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        /* 头部区域 */
+        header {
+            text-align: center;
+            padding: 30px 0 20px;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--accent), #feb47b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #b0b0d0;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            padding: 12px 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--card-border);
+            min-width: 140px;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            color: #a0a0c0;
+            font-size: 0.9rem;
+        }
+        
+        /* 纪念品网格 */
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            padding: 10px 0 30px;
+        }
+        
+        .item {
+            background: var(--memento-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            aspect-ratio: 1/1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .item:hover {
+            background: #9a5c98;
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+        
+        .item-image {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        /* 模态框样式 */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--memento-bg);
+            width: 90%;
+            max-width: 700px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--memento-border);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        .close-btn:hover {
+            background: rgba(255, 100, 100, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+        }
+        
+        /* 名称区域 */
+        .modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-chinese-name {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .modal-english-name {
+            font-size: 1.2rem;
+            color: #e0d0df;
+            font-style: italic;
+        }
+        
+        /* 描述区域 */
+        .modal-description-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .description-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .description-title {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+        
+        .description-content {
+            line-height: 1.6;
+            color: #f0e6ef;
+        }
+        
+        /* 分类和图片区域 */
+        .modal-info-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-categories {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .category-tag {
+            background: rgba(106, 90, 205, 0.3);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            text-align: center;
+            color: #d1c7ff;
+        }
+        
+        .modal-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-image {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #2c2c54, #40407a);
+            padding: 10px;
+        }
+        
+        /* 移动端分类菜单 */
+        .mobile-categories {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 99;
+            padding: 12px 15px;
+            display: none;
+            flex-wrap: wrap;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-categories.active {
+            display: flex;
+        }
+        
+        /* 加载指示器 */
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(106, 90, 205, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid var(--accent);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 错误提示 */
+        .error-message {
+            background: rgba(255, 99, 71, 0.2);
+            border: 1px solid rgba(255, 99, 71, 0.5);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 30px auto;
+            max-width: 600px;
+        }
+        
+        .error-message i {
+            font-size: 2rem;
+            color: tomato;
+            margin-bottom: 15px;
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #a9a9c9;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 15, 31, 0.7);
+            margin-top: 20px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .categories-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            }
+            
+            .stat-card {
+                padding: 10px 18px;
+                min-width: 120px;
+            }
+            
+            .stat-value {
+                font-size: 1.6rem;
+            }
+            
+            .modal-description-container,
+            .modal-info-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .nav-container {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .search-bar {
+                padding: 7px 12px;
+                padding-right: 35px;
+                font-size: 0.9rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+            
+            .modal-body {
+                padding: 18px;
+            }
+            
+            .modal-image {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .modal-chinese-name {
+                font-size: 1.8rem;
+            }
+            
+            .stats {
+                gap: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+            
+            .modal-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-dragon"></i>
-                <span>道具图鉴</span>
+                <i class="fas fa-archive"></i>
+                <span>纪念品图鉴</span>
             </div>
 
             <div class="nav-content">
                 <div class="categories-nav">
                     <button class="category-btn active"><i class="fas fa-star"></i>全部</button>
+                    <button class="category-btn"><i class="fas fa-bolt"></i>属性</button>
+                    <button class="category-btn"><i class="fas fa-shield-alt"></i>抗性</button>
+                    <button class="category-btn"><i class="fas fa-heart"></i>血量</button>
+                    <button class="category-btn"><i class="fas fa-utensils"></i>饥饿</button>
+                    <button class="category-btn"><i class="fas fa-running"></i>耐力</button>
+                    <button class="category-btn"><i class="fas fa-fire"></i>激增</button>
+                    <button class="category-btn"><i class="fas fa-users"></i>同伴</button>
+                    <button class="category-btn"><i class="fas fa-skull"></i>敌人</button>
                     <button class="category-btn"><i class="fas fa-sword"></i>武器</button>
-                    <button class="category-btn"><i class="fas fa-shield-alt"></i>防具</button>
-                    <button class="category-btn"><i class="fas fa-ring"></i>饰品</button>
-                    <button class="category-btn"><i class="fas fa-wine-bottle"></i>消耗品</button>
+                    <button class="category-btn"><i class="fas fa-fist-raised"></i>攻击</button>
+                    <button class="category-btn"><i class="fas fa-shield-virus"></i>防御</button>
+                    <button class="category-btn"><i class="fas fa-hand-rock"></i>打击</button>
+                    <button class="category-btn"><i class="fas fa-hat-wizard"></i>法术</button>
+                    <button class="category-btn"><i class="fas fa-box-open"></i>项目</button>
+                    <button class="category-btn"><i class="fas fa-map"></i>探索</button>
+                    <button class="category-btn"><i class="fas fa-user-ninja"></i>隐形</button>
+                    <button class="category-btn"><i class="fas fa-meteor"></i>陷阱</button>
+                    <button class="category-btn"><i class="fas fa-trophy"></i>经验</button>
                 </div>
 
                 <div class="search-container">
-                    <input type="text" class="search-bar" placeholder="搜索道具...">
+                    <input type="text" class="search-bar" placeholder="搜索纪念品...">
                     <button class="search-btn"><i class="fas fa-search"></i></button>
                 </div>
 
@@ -40,42 +615,56 @@
     <!-- 移动端分类菜单 -->
     <div class="mobile-categories" id="mobileCategories">
         <button class="category-btn active"><i class="fas fa-star"></i>全部</button>
+        <button class="category-btn"><i class="fas fa-bolt"></i>属性</button>
+        <button class="category-btn"><i class="fas fa-shield-alt"></i>抗性</button>
+        <button class="category-btn"><i class="fas fa-heart"></i>血量</button>
+        <button class="category-btn"><i class="fas fa-utensils"></i>饥饿</button>
+        <button class="category-btn"><i class="fas fa-running"></i>耐力</button>
+        <button class="category-btn"><i class="fas fa-fire"></i>激增</button>
+        <button class="category-btn"><i class="fas fa-users"></i>同伴</button>
+        <button class="category-btn"><i class="fas fa-skull"></i>敌人</button>
         <button class="category-btn"><i class="fas fa-sword"></i>武器</button>
-        <button class="category-btn"><i class="fas fa-shield-alt"></i>防具</button>
-        <button class="category-btn"><i class="fas fa-ring"></i>饰品</button>
-        <button class="category-btn"><i class="fas fa-wine-bottle"></i>消耗品</button>
+        <button class="category-btn"><i class="fas fa-fist-raised"></i>攻击</button>
+        <button class="category-btn"><i class="fas fa-shield-virus"></i>防御</button>
+        <button class="category-btn"><i class="fas fa-hand-rock"></i>打击</button>
+        <button class="category-btn"><i class="fas fa-hat-wizard"></i>法术</button>
+        <button class="category-btn"><i class="fas fa-box-open"></i>项目</button>
+        <button class="category-btn"><i class="fas fa-map"></i>探索</button>
+        <button class="category-btn"><i class="fas fa-user-ninja"></i>隐形</button>
+        <button class="category-btn"><i class="fas fa-meteor"></i>陷阱</button>
+        <button class="category-btn"><i class="fas fa-trophy"></i>经验</button>
     </div>
 
     <div class="container">
         <header>
-            <!-- <h1>游戏道具图鉴</h1> -->
-            <!-- <p class="subtitle">使用外部JavaScript文件管理所有功能</p> -->
+            <h1>纪念品图鉴</h1>
+            <p class="subtitle">收集并探索游戏中的各种纪念品</p>
 
             <div class="stats" id="statsContainer">
                 <div class="stat-card">
                     <div class="stat-value" id="totalItems">0</div>
-                    <div class="stat-label">道具总数</div>
+                    <div class="stat-label">纪念品总数</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="legendaryItems">0</div>
-                    <div class="stat-label">传奇物品</div>
+                    <div class="stat-label">传奇纪念品</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="weaponItems">0</div>
-                    <div class="stat-label">武器数量</div>
+                    <div class="stat-label">武器类</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="consumableItems">0</div>
-                    <div class="stat-label">消耗品</div>
+                    <div class="stat-label">消耗品类</div>
                 </div>
             </div>
         </header>
 
-        <!-- 道具网格 -->
+        <!-- 纪念品网格 -->
         <div class="items-grid" id="itemsGrid">
             <div class="loader">
                 <div class="spinner"></div>
-                <p>正在加载道具数据...</p>
+                <p>正在加载纪念品数据...</p>
             </div>
         </div>
     </div>
@@ -87,31 +676,33 @@
                 <i class="fas fa-times"></i>
             </div>
             <div class="modal-body">
-                <div class="modal-image-container">
-                    <img src="" alt="道具大图" class="modal-image" id="modalImage">
+                <div class="modal-header">
+                    <div class="modal-chinese-name" id="modalChineseName">纪念品名称</div>
+                    <div class="modal-english-name" id="modalEnglishName">Memento Name</div>
                 </div>
-                <div class="modal-details">
-                    <h2 class="modal-title" id="modalTitle"></h2>
-                    <div class="modal-type" id="modalType"></div>
-                    <p class="modal-description" id="modalDescription"></p>
-
-                    <div class="modal-stats">
-                        <div class="modal-stat">
-                            <div class="modal-stat-value" id="modalPower">0</div>
-                            <div class="modal-stat-name">攻击力</div>
+                
+                <div class="modal-description-container">
+                    <div class="description-section">
+                        <div class="description-title">纪念品效果</div>
+                        <div class="description-content" id="modalEffect"></div>
+                    </div>
+                    
+                    <div class="description-section">
+                        <div class="description-title">背景故事</div>
+                        <div class="description-content" id="modalBackground"></div>
+                    </div>
+                </div>
+                
+                <div class="modal-info-container">
+                    <div class="modal-categories">
+                        <div class="description-title">所属分类</div>
+                        <div class="categories-grid" id="modalCategories">
+                            <div class="category-tag" id="modalCategory"></div>
                         </div>
-                        <div class="modal-stat">
-                            <div class="modal-stat-value" id="modalDefense">0</div>
-                            <div class="modal-stat-name">防御力</div>
-                        </div>
-                        <div class="modal-stat">
-                            <div class="modal-stat-value" id="modalValue">0</div>
-                            <div class="modal-stat-name">价值</div>
-                        </div>
-                        <div class="modal-stat">
-                            <div class="modal-stat-value" id="modalRarity">0%</div>
-                            <div class="modal-stat-name">稀有度</div>
-                        </div>
+                    </div>
+                    
+                    <div class="modal-image-container">
+                        <img src="" alt="纪念品大图" class="modal-image" id="modalImage">
                     </div>
                 </div>
             </div>
@@ -120,13 +711,12 @@
 
     <footer>
         <div class="container">
-            <p>© 2023 游戏道具图鉴 | 使用外部JavaScript文件</p>
+            <p>© 2023 纪念品图鉴 | 探索游戏中的珍贵收藏</p>
         </div>
     </footer>
 
-    <!-- 关键点：引用外部JavaScript文件 -->
     <script>
-    // 全局变量存储道具数据
+    // 全局变量存储纪念品数据
     let globalItemsData = [];
 
     // DOM元素引用
@@ -134,13 +724,11 @@
     const modal = document.getElementById('itemModal');
     const closeBtn = document.getElementById('closeModal');
     const modalImage = document.getElementById('modalImage');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalType = document.getElementById('modalType');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalPower = document.getElementById('modalPower');
-    const modalDefense = document.getElementById('modalDefense');
-    const modalValue = document.getElementById('modalValue');
-    const modalRarity = document.getElementById('modalRarity');
+    const modalChineseName = document.getElementById('modalChineseName');
+    const modalEnglishName = document.getElementById('modalEnglishName');
+    const modalEffect = document.getElementById('modalEffect');
+    const modalBackground = document.getElementById('modalBackground');
+    const modalCategory = document.getElementById('modalCategory');
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileCategories = document.getElementById('mobileCategories');
     const categoryBtns = document.querySelectorAll('.category-btn');
@@ -154,7 +742,7 @@
     async function loadItemsData() {
         try {
             // 使用相对路径引用JSON文件
-            const response = await fetch('/data/items.json');
+            const response = await fetch('items.json');
 
             if (!response.ok) {
                 throw new Error(`数据加载失败: ${response.status} ${response.statusText}`);
@@ -174,7 +762,7 @@
 
         } catch (error) {
             console.error('加载数据时出错:', error);
-            showError('加载道具数据失败，请刷新页面重试');
+            showError('加载纪念品数据失败，请刷新页面重试');
         }
     }
 
@@ -190,18 +778,18 @@
 
         // 统计武器数量
         const weapons = globalItemsData.filter(item =>
-            item.type === '武器' || item.type === 'weapon'
+            item.type === '武器' || item.category === '武器'
         ).length;
         weaponItems.textContent = weapons;
 
         // 统计消耗品数量
         const consumables = globalItemsData.filter(item =>
-            item.type === '消耗品' || item.type === 'consumable'
+            item.type === '消耗品' || item.category === '消耗品'
         ).length;
         consumableItems.textContent = consumables;
     }
 
-    // 生成道具网格
+    // 生成纪念品网格
     function generateItemsGrid(items) {
         itemsGrid.innerHTML = '';
 
@@ -215,7 +803,6 @@
 
             itemElement.innerHTML = `
                 <img src="${item.image}" alt="${item.name}" class="item-image">
-                <div class="item-name">${item.name}</div>
             `;
 
             itemsGrid.appendChild(itemElement);
@@ -279,7 +866,7 @@
         // 分类按钮点击事件
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                const categoryText = btn.textContent.trim();
+                const categoryText = btn.textContent.replace(/[^\u4e00-\u9fa5]/g, '').trim();
                 categoryBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
@@ -313,18 +900,16 @@
         });
     }
 
-    // 显示道具详情
+    // 显示纪念品详情
     function showItemDetails(itemData) {
         modalImage.src = itemData.image;
-        modalTitle.textContent = itemData.name;
-        modalType.textContent = itemData.type;
-        modalDescription.textContent = itemData.description;
-
-        // 设置属性值
-        modalPower.textContent = itemData.stats?.attack || 'N/A';
-        modalDefense.textContent = itemData.stats?.defense || 'N/A';
-        modalValue.textContent = itemData.stats?.value ? `${itemData.stats.value}G` : 'N/A';
-        modalRarity.textContent = itemData.stats?.rarity || 'N/A';
+        modalChineseName.textContent = itemData.name;
+        modalEnglishName.textContent = itemData.name_en;
+        modalEffect.textContent = itemData.effect;
+        modalBackground.textContent = itemData.background;
+        
+        // 设置分类
+        modalCategory.textContent = itemData.category || itemData.type;
 
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -339,11 +924,7 @@
         } else {
             // 根据按钮文本筛选道具
             filteredItems = globalItemsData.filter(item => {
-                if (category === "武器") return item.type === "武器" || item.category === "weapon";
-                if (category === "防具") return item.type === "防具" || item.category === "armor";
-                if (category === "饰品") return item.type === "饰品" || item.category === "accessory";
-                if (category === "消耗品") return item.type === "消耗品" || item.category === "consumable";
-                return true;
+                return item.category === category || item.type === category;
             });
         }
 
