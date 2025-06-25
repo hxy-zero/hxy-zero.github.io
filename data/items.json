@@ -2,39 +2,31 @@
   {
     "id": 1,
     "name": "豁口刀",
-    "type": "属性提升",
+    "name_en": "Chipped Blade",
+    "type": "属性",
     "category": "stat",
     "image": "images/1.1chipped_blade.png",
-    "description": "我的攻击力增加了|My aggression is increased"
+    "effect": "我的攻击力增加了|My aggression is increased",
+    "background": "一件传家宝，因使用不当而磨损。"
   },
   {
     "id": 2,
-    "name": "星辰法杖",
-    "type": "武器",
-    "category": "weapon",
+    "name": "皇冠",
+    "name_en": "Crown",
+    "type": "属性",
+    "category": "stat",
     "image": "images/1.2crown.png",
-    "description": "顶端镶嵌着星辰碎片的法杖...",
-    "rarity": "史诗",
-    "stats": {
-      "attack": 45,
-      "defense": 5,
-      "value": 3500,
-      "weight": 8
-    }
+    "effect": "我的力量增加了|My strength is increased",
+    "background": "领袖能给人们带来力量，这是暴君永远无法做到的。"
   },
   {
     "id": 3,
-    "name": "精灵护符",
-    "type": "饰品",
-    "category": "accessory",
+    "name": "断翅",
+    "name_en": "Broken Wing",
+    "type": "属性",
+    "category": "stat",
     "image": "images/1.3broken_wing.png",
-    "description": "古老精灵工艺打造的护身符...",
-    "rarity": "稀有",
-    "stats": {
-      "attack": 0,
-      "defense": 30,
-      "value": 2500,
-      "weight": 1
-    }
+    "effect": "我的速度增加了|My speed is increased",
+    "background": "有翼之神被人砍倒，云朵只能蹒跚而行。"
   }
 ]
