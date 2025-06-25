@@ -19,6 +19,10 @@
             --accent: #9C6F9A;
             --light: #E8D0E7;
             --text: #FFFFFF;
+            --common: #FFFFFF;     /* 常见 - 白色 */
+            --uncommon: #FF80FF;   /* 不常见 - 粉色 */
+            --rare: #77207B;       /* 罕见 - 深紫色 */
+            --doctor: #000000;     /* 医生 - 黑色 */
         }
         
         body {
@@ -35,26 +39,43 @@
         
         header {
             text-align: center;
-            padding: 30px 0 20px;
+            padding: 20px 0;
             position: relative;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
             margin-bottom: 10px;
-            background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 15px rgba(129, 71, 127, 0.5);
         }
         
         .subtitle {
-            font-size: 1.2rem;
-            color: var(--light);
-            max-width: 700px;
-            margin: 0 auto 20px;
-            opacity: 0.8;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+            line-height: 1.8;
+            background: rgba(45, 26, 44, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        .rarity-common {
+            color: var(--common);
+            font-weight: bold;
+        }
+        
+        .rarity-uncommon {
+            color: var(--uncommon);
+            font-weight: bold;
+        }
+        
+        .rarity-rare {
+            color: var(--rare);
+            font-weight: bold;
+        }
+        
+        .rarity-doctor {
+            color: var(--doctor);
+            background-color: white;
+            padding: 0 5px;
+            border-radius: 4px;
+            font-weight: bold;
         }
         
         /* 导航栏样式 */
@@ -63,7 +84,7 @@
             backdrop-filter: blur(5px);
             border-radius: 12px;
             padding: 15px 20px;
-            margin: 20px auto;
+            margin: 10px auto 20px;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-wrap: wrap;
@@ -76,18 +97,18 @@
         
         .search-container {
             flex: 1;
-            min-width: 250px;
+            min-width: 180px;
             position: relative;
         }
         
         .search-container input {
             width: 100%;
-            padding: 14px 20px 14px 50px;
+            padding: 12px 15px 12px 45px;
             border-radius: 50px;
             border: none;
             background: rgba(129, 71, 127, 0.3);
             color: white;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
         
@@ -99,10 +120,10 @@
         
         .search-icon {
             position: absolute;
-            left: 18px;
+            left: 15px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             opacity: 0.7;
         }
         
@@ -110,7 +131,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            flex: 2;
+            flex: 1;
+            min-width: 220px;
         }
         
         .filter-label {
@@ -123,13 +145,13 @@
         
         .category-select {
             flex: 1;
-            min-width: 200px;
-            padding: 14px 20px;
+            min-width: 160px;
+            padding: 12px 15px;
             border-radius: 50px;
             border: none;
             background: rgba(129, 71, 127, 0.3);
             color: white;
-            font-size: 1.1rem;
+            font-size: 1rem;
             appearance: none;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -185,7 +207,7 @@
             transform: scale(1.15);
         }
         
-        /* 详情弹窗 */
+        /* 详情弹窗 - 重点优化关闭按钮 */
         .modal {
             display: none;
             position: fixed;
@@ -204,29 +226,31 @@
             background: linear-gradient(145deg, #2D1A2C, #5A2F58);
             border-radius: 15px;
             width: 90%;
-            max-width: 750px;
+            max-width: 700px;
             max-height: 90vh;
             overflow-y: auto;
-            padding: 35px;
+            padding: 30px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
             position: relative;
             border: 2px solid var(--accent);
         }
         
+        /* 关闭按钮固定在右上角 */
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 32px;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
             color: var(--light);
             cursor: pointer;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             transition: all 0.3s ease;
+            z-index: 1100;
         }
         
         .close-btn:hover {
@@ -237,28 +261,29 @@
         .modal-header {
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
             border-bottom: 2px solid var(--accent);
+            position: relative;
         }
         
         .modal-image {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             background-color: rgba(129, 71, 127, 0.3);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 30px;
+            margin-right: 25px;
             flex-shrink: 0;
-            border: 3px solid var(--accent);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--accent);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
         
         .modal-image img {
-            width: 110px;
-            height: 110px;
+            width: 100px;
+            height: 100px;
             object-fit: contain;
         }
         
@@ -267,36 +292,36 @@
         }
         
         .modal-title h2 {
-            font-size: 2.4rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
             color: #ffd166;
         }
         
         .modal-title h3 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: #a6c1ee;
             font-weight: normal;
             opacity: 0.9;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         
         .modal-category {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 6px 15px;
             background: rgba(129, 71, 127, 0.6);
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #ff9a9e;
             font-weight: bold;
         }
         
         .modal-section {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .modal-section h4 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
             color: #06d6a0;
             display: flex;
             align-items: center;
@@ -307,17 +332,17 @@
             flex: 1;
             height: 2px;
             background: linear-gradient(90deg, #06d6a0, transparent);
-            margin-left: 20px;
+            margin-left: 15px;
         }
         
         .modal-section p {
-            margin-bottom: 18px;
-            font-size: 1.15rem;
-            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
         
         .modal-section p.chinese {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: #ffd166;
             font-weight: 500;
         }
@@ -340,8 +365,9 @@
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.8rem;
+            .subtitle {
+                font-size: 1.1rem;
+                padding: 12px;
             }
             
             .modal-header {
@@ -351,25 +377,36 @@
             
             .modal-image {
                 margin-right: 0;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
             }
             
             .modal-title h2 {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
             
             .modal-title h3 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
             
             .modal-section h4 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .filter-label {
+                display: none;
+            }
+            
+            .category-select {
+                min-width: 140px;
             }
         }
         
         @media (max-width: 480px) {
-            h1 {
-                font-size: 2.2rem;
+            .subtitle {
+                font-size: 0.95rem;
+                padding: 10px;
             }
             
             .gallery {
@@ -388,15 +425,40 @@
             }
             
             .modal-content {
-                padding: 25px 15px;
+                padding: 20px 15px;
             }
             
             .modal-section p {
-                font-size: 1.05rem;
+                font-size: 1rem;
             }
             
             .modal-section p.chinese {
-                font-size: 1.15rem;
+                font-size: 1.1rem;
+            }
+            
+            .search-container {
+                min-width: 150px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .subtitle {
+                font-size: 0.85rem;
+            }
+            
+            .search-container input {
+                padding: 10px 12px 10px 40px;
+                font-size: 0.9rem;
+            }
+            
+            .search-icon {
+                left: 12px;
+                font-size: 1rem;
+            }
+            
+            .category-select {
+                padding: 10px 12px;
+                font-size: 0.9rem;
             }
         }
         
@@ -451,21 +513,21 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 50px;
+            padding: 40px;
         }
         
         .loader .spinner {
-            width: 60px;
-            height: 60px;
-            border: 6px solid rgba(255, 255, 255, 0.3);
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            border-top: 6px solid var(--accent);
+            border-top: 5px solid var(--accent);
             animation: spin 1.2s linear infinite;
-            margin: 0 auto 25px;
+            margin: 0 auto 20px;
         }
         
         .loader p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--light);
         }
         
@@ -477,7 +539,7 @@
         /* 错误提示 */
         .error-message {
             text-align: center;
-            padding: 40px;
+            padding: 30px;
             background-color: rgba(255, 0, 0, 0.1);
             border-radius: 12px;
             margin: 20px 0;
@@ -486,23 +548,23 @@
         
         .error-message h3 {
             color: #ff6b6b;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
         }
         
         .error-message p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--light);
             margin-bottom: 20px;
         }
         
         .retry-btn {
-            padding: 12px 30px;
+            padding: 10px 25px;
             background-color: #ff6b6b;
             color: white;
             border: none;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -512,19 +574,69 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(255, 82, 82, 0.3);
         }
+        
+        /* 装饰元素 */
+        .decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .decoration::before {
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(129, 71, 127, 0.3) 0%, transparent 70%);
+            animation: float 15s infinite linear;
+        }
+        
+        .decoration::after {
+            content: "";
+            position: absolute;
+            bottom: 15%;
+            right: 10%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(90, 47, 88, 0.3) 0%, transparent 70%);
+            animation: float 18s infinite linear reverse;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, 30px) rotate(90deg); }
+            50% { transform: translate(0, 60px) rotate(180deg); }
+            75% { transform: translate(-20px, 30px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
     </style>
 </head>
 <body>
+    <div class="decoration"></div>
+    
     <div class="container">
         <header>
-            <h1>游戏纪念品图鉴</h1>
-            <p class="subtitle">收集所有124件独特的游戏纪念品，探索它们的故事与力量</p>
+            <p class="subtitle">游戏的124个纪念品稀有度：
+                <span class="rarity-common">常见</span>、
+                <span class="rarity-uncommon">不常见</span>和
+                <span class="rarity-rare">罕见</span>，
+                还有<span class="rarity-doctor">医生</span>级的芳香面罩。
+            </p>
         </header>
         
         <nav class="navbar">
             <div class="search-container">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" id="search-input" placeholder="搜索纪念品名称...">
+                <input type="text" id="search-input" placeholder="搜索纪念品...">
             </div>
             
             <div class="filter-container">
@@ -575,10 +687,12 @@
         </main>
     </div>
     
-    <!-- 纪念品详情弹窗 -->
+    <!-- 纪念品详情弹窗 - 关闭按钮固定在右上角 -->
     <div id="memento-modal" class="modal">
         <div class="modal-content">
+            <!-- 关闭按钮固定在右上角 -->
             <span class="close-btn">&times;</span>
+            
             <div class="modal-header">
                 <div class="modal-image">
                     <img id="modal-img" src="" alt="纪念品图片">
@@ -713,9 +827,7 @@
                 // 过滤逻辑
                 const filtered = mementosData.filter(memento => {
                     const matchesSearch = memento.name_cn.toLowerCase().includes(searchTerm) || 
-                                         memento.name_en.toLowerCase().includes(searchTerm) ||
-                                         memento.effect_cn.toLowerCase().includes(searchTerm) ||
-                                         memento.lore_cn.toLowerCase().includes(searchTerm);
+                                         memento.name_en.toLowerCase().includes(searchTerm);
                     const matchesCategory = selectedCategory === 'all' || memento.category === selectedCategory;
                     return matchesSearch && matchesCategory;
                 });
@@ -729,6 +841,19 @@
             
             // 初始加载数据
             loadMementos();
+            
+            // 添加键盘快捷键
+            document.addEventListener('keydown', (e) => {
+                // ESC键关闭模态框
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                }
+                // 搜索框聚焦
+                if (e.key === '/' && e.target !== searchInput) {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            });
         });
     </script>
 </body>
