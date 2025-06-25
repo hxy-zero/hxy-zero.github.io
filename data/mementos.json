@@ -6,32 +6,32 @@
       "name_en": "Chipped Blade",
       "image": "images/mementos/1.1chipped_blade.png",
       "category": "属性",
-      "effect_cn": "我的攻击力增加了。",
+      "effect_cn": "我的攻击性增强。",
       "effect_en": "My aggression is increased.",
-      "lore_cn": "一件传家宝，因长久使用而磨损。",
-      "lore_en": "An heirloom,worn from honest use."
+      "lore_cn": "代代相传的刀刃，因珍视使用而磨砺。",
+      "lore_en": "An heirloom, worn from honest use."
     },
     {
       "id": 2,
-      "name_cn": "皇冠",
+      "name_cn": "王冠",
       "name_en": "Crown",
       "image": "images/mementos/1.2crown.png",
       "category": "属性",
-      "effect_cn": "我的攻击力增加了。",
-      "effect_en": "My aggression is increased.",
-      "lore_cn": "一件传家宝，因长久使用而磨损。",
-      "lore_en": "An heirloom,worn from honest use."
+      "effect_cn": "我的力量增强。",
+      "effect_en": "My strength is increased.",
+      "lore_cn": "领袖通过无私的奉献赋予子民力量，暴君的压迫却永远无法激发这般潜能。",
+      "lore_en": "A leader lends strength to men the way a tyrant never could."
     },
     {
       "id": 3,
-      "name_cn": "断翅",
+      "name_cn": "断翼",
       "name_en": "Broken Wing",
       "image": "images/mementos/1.3broken_wing.png",
       "category": "属性",
-      "effect_cn": "我的攻击力增加了。",
-      "effect_en": "My aggression is increased.",
-      "lore_cn": "一件传家宝，因长久使用而磨损。",
-      "lore_en": "An heirloom,worn from honest use."
+      "effect_cn": "我的速度提升。",
+      "effect_en": "My speed is increased.",
+      "lore_cn": "有翼之神遭凡人斩击，残翼难支，踉跄遁去。",
+      "lore_en": "The winged god, cut down by men, could only hobble away."
     },
     {
       "id": 4,
@@ -39,21 +39,21 @@
       "name_en": "Autumn Leaf",
       "image": "images/mementos/1.4autumn_leaf.png",
       "category": "属性",
-      "effect_cn": "我的攻击力增加了。",
-      "effect_en": "My aggression is increased.",
-      "lore_cn": "一件传家宝，因长久使用而磨损。",
-      "lore_en": "An heirloom,worn from honest use."
+      "effect_cn": "我的机动性提升。",
+      "effect_en": "My mobility is increased.",
+      "lore_cn": "我追逐飘零的秋叶，却总被其迅捷所欺。",
+      "lore_en": "I spend hours trying to catch these leaves as they fall. They're usually too quick for me."
     },
     {
       "id": 5,
-      "name_cn": "远近两用眼镜",
+      "name_cn": "双焦眼镜",
       "name_en": "Bifocals",
       "image": "images/mementos/1.5bifocals.png",
       "category": "属性",
-      "effect_cn": "我的攻击力增加了。",
-      "effect_en": "My aggression is increased.",
-      "lore_cn": "一件传家宝，因长久使用而磨损。",
-      "lore_en": "An heirloom,worn from honest use."
+      "effect_cn": "我的感知增幅。",
+      "effect_en": "My perception is increased.",
+      "lore_cn": "双瞳重明，天地尽览！",
+      "lore_en": "I can see again!"
     },
     {
       "id": 6,
@@ -61,10 +61,10 @@
       "name_en": "Human Heart",
       "image": "images/mementos/1.6human_heart.png",
       "category": "属性",
-      "effect_cn": "我的攻击力增加了。",
-      "effect_en": "My aggression is increased.",
-      "lore_cn": "一件传家宝，因长久使用而磨损。",
-      "lore_en": "An heirloom,worn from honest use."
+      "effect_cn": "我的血量增加。",
+      "effect_en": "I am healthier.",
+      "lore_cn": "心火不灭，生生不息。",
+      "lore_en": "The center of life."
     },
     {
       "id": 7,
@@ -73,20 +73,20 @@
       "image": "images/mementos/1.7red_wine.png",
       "category": "属性",
       "effect_cn": "我的攻击力增加了。",
-      "effect_en": "My aggression is increased.",
+      "effect_en": "My stamina is increased.",
       "lore_cn": "一件传家宝，因长久使用而磨损。",
-      "lore_en": "An heirloom,worn from honest use."
+      "lore_en": "Just what I need to keep going."
     },
     {
       "id": 8,
-      "name_cn": "战旗",
+      "name_cn": "战争旗帜",
       "name_en": "War Banner",
       "image": "images/mementos/1.8war_banner.png",
       "category": "属性",
-      "effect_cn": "我的攻击力增加了。",
-      "effect_en": "My aggression is increased.",
-      "lore_cn": "一件传家宝，因长久使用而磨损。",
-      "lore_en": "An heirloom,worn from honest use."
+      "effect_cn": "我的坚韧力提升。",
+      "effect_en": "My fortitude is increased.",
+      "lore_cn": "乱世中激励士气、凝聚部队的象征。",
+      "lore_en": "A symbol of inspiration and solidarity amongst the chaos."
     },
     {
       "id": 9,
@@ -94,10 +94,10 @@
       "name_en": "Hourglass",
       "image": "images/mementos/1.9hourglass.png",
       "category": "属性",
-      "effect_cn": "我的攻击力增加了。",
-      "effect_en": "My aggression is increased.",
-      "lore_cn": "一件传家宝，因长久使用而磨损。",
-      "lore_en": "An heirloom,worn from honest use."
+      "effect_cn": "我的知识增加。",
+      "effect_en": "My knowledge is increased.",
+      "lore_cn": "沙粒以精准的节奏丈量求知之路。",
+      "lore_en": "The sands measure my studies in perfect intervals."
     },
     {
       "id": 10,
@@ -105,9 +105,9 @@
       "name_en": "Scrap of Armor",
       "image": "images/mementos/2.1scrap_of_armor.png",
       "category": "抗性",
-      "effect_cn": "我对劈砍攻击的抗性提高了。",
+      "effect_cn": "我对劈砍攻击的抗性提升。",
       "effect_en": "My resistance to slashing attacks is increased.",
-      "lore_cn": "肉体的最后抗争。",
+      "lore_cn": "血肉之躯的最后防线。",
       "lore_en": "The last argument of flesh."
     }
   ]
