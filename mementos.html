@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纪念品图鉴 - 稀有度系统</title>
+    <link rel="shortcut icon" href="images/暴力庆典.ico" />
+    <link rel="icon" href="images/暴力庆典.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #81477F;
+            --dark: #2D1A2C;
+            --accent: #9C6F9A;
+            --light: #E8D0E7;
+            --text: #FFFFFF;
+            --common: #FFFFFF;     /* 常见 - 白色 */
+            --uncommon: #FF80FF;   /* 不常见 - 粉色 */
+            --rare: #77207B;       /* 罕见 - 深紫色 */
+            --unique: #000000;     /* 独特 - 黑色 */
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a0c19, #2a1429);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+            line-height: 1.8;
+            background: rgba(45, 26, 44, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .rarity-common {
+            color: var(--common);
+            font-weight: bold;
+        }
+
+        .rarity-uncommon {
+            color: var(--uncommon);
+            font-weight: bold;
+        }
+
+        .rarity-rare {
+            color: var(--rare);
+            font-weight: bold;
+        }
+
+        .rarity-unique {
+            color: var(--unique);
+            background-color: white;
+            padding: 0 5px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            background-color: rgba(45, 26, 44, 0.95);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 10px auto 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .search-container {
+            flex: 1;
+            min-width: 180px;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(129, 71, 127, 0.3);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--accent);
+            background: rgba(90, 47, 88, 0.5);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .filter-label {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: var(--light);
+            white-space: nowrap;
+        }
+
+        .category-select {
+            flex: 1;
+            min-width: 160px;
+            padding: 12px 15px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(129, 71, 127, 0.3);
+            color: white;
+            font-size: 1rem;
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--accent);
+            background: rgba(90, 47, 88, 0.5);
+        }
+
+        /* 纪念品展示区 */
+        .gallery {
+            background-color: var(--primary);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 10px;
+            min-height: 500px;
+        }
+
+        .memento-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .memento-item:hover {
+            transform: translateY(-7px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            z-index: 10;
+        }
+
+        .memento-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .memento-item:hover img {
+            transform: scale(1.15);
+        }
+
+        /* 详情弹窗 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #2D1A2C, #5A2F58);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+            border: 2px solid var(--accent);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            color: var(--light);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 1100;
+        }
+
+        .close-btn:hover {
+            background-color: rgba(129, 71, 127, 0.4);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            border-bottom: none; /* 移除原来的下边框 */
+            margin-bottom: 15px; /* 调整间距 */
+            padding-bottom: 0; /* 移除底部内边距 */
+        }
+
+        /* 添加：图标样式 */
+        .modal-section h4 i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+            color: #06d6a0;
+        }
+
+        /* 添加：图标容器样式 */
+        .icon-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        /* 添加：图标标题样式 */
+        .icon-title {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: #06d6a0;
+        }
+
+        .modal-image {
+            width: 120px;
+            height: 120px;
+            background-color: rgba(129, 71, 127, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            flex-shrink: 0;
+            border: 2px solid var(--accent);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-image img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .modal-title {
+            flex: 1;
+        }
+
+        .modal-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: -8px;
+            color: #ffd166;
+        }
+
+        .modal-title h3 {
+            font-size: 1.5rem;
+            color: #a6c1ee;
+            font-weight: normal;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+
+        .info-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .modal-category {
+            display: inline-block;
+            padding: 6px 15px;
+            background: rgba(129, 71, 127, 0.6);
+            border-radius: 50px;
+            font-size: 1rem;
+            color: #ff9a9e;
+            font-weight: bold;
+        }
+
+        /* 稀有度标签样式 */
+        .modal-rarity {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .rarity-common-color {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .rarity-uncommon-color {
+            background-color: rgba(255, 128, 255, 0.3);
+            color: #FF80FF;
+        }
+
+        .rarity-rare-color {
+            background-color: rgba(119, 32, 123, 0.3);
+            color: #77207B;
+        }
+
+        .rarity-unique-color {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000000;
+        }
+
+        .modal-section {
+            margin-bottom: 25px;
+        }
+
+        .modal-section h4 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #06d6a0;
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-section h4::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #06d6a0, transparent);
+            margin-left: 15px;
+        }
+
+        .modal-section p {
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+
+        .modal-section p.chinese {
+            font-size: 1.2rem;
+            color: #ffd166;
+            font-weight: 500;
+        }
+
+        .modal-section p.english {
+            color: #a6c1ee;
+            font-style: italic;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .subtitle {
+                font-size: 1.1rem;
+                padding: 12px;
+            }
+
+            .modal-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .modal-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .modal-title h2 {
+                font-size: 1.9rem;
+            }
+
+            .modal-title h3 {
+                font-size: 1.3rem;
+            }
+
+            .modal-section h4 {
+                font-size: 1.3rem;
+            }
+
+            .info-tags {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .filter-label {
+                display: none;
+            }
+
+            .category-select {
+                min-width: 140px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .subtitle {
+                font-size: 0.95rem;
+                padding: 10px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                gap: 8px;
+                padding: 15px;
+            }
+
+            .memento-item {
+                height: 80px;
+            }
+
+            .memento-item img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .modal-content {
+                padding: 20px 15px;
+            }
+
+            .modal-section p {
+                font-size: 1rem;
+            }
+
+            .modal-section p.chinese {
+                font-size: 1.1rem;
+            }
+
+            .search-container {
+                min-width: 150px;
+            }
+
+            .modal-category,
+            .modal-rarity {
+                padding: 4px 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .subtitle {
+                font-size: 0.85rem;
+            }
+
+            .search-container input {
+                padding: 10px 12px 10px 40px;
+                font-size: 0.9rem;
+            }
+
+            .search-icon {
+                left: 12px;
+                font-size: 1rem;
+            }
+
+            .category-select {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .memento-item {
+            animation: fadeIn 0.4s ease-out;
+            animation-fill-mode: both;
+        }
+
+        /* 分类标签颜色 */
+        .category-属性 { background-color: rgba(255, 107, 107, 0.25); }
+        .category-抗性 { background-color: rgba(6, 214, 160, 0.25); }
+        .category-血量 { background-color: rgba(255, 157, 0, 0.25); }
+        .category-饥饿 { background-color: rgba(255, 209, 102, 0.25); }
+        .category-耐力 { background-color: rgba(118, 215, 196, 0.25); }
+        .category-激增 { background-color: rgba(239, 71, 111, 0.25); }
+        .category-同伴 { background-color: rgba(17, 138, 178, 0.25); }
+        .category-敌人 { background-color: rgba(155, 93, 229, 0.25); }
+        .category-武器 { background-color: rgba(255, 94, 91, 0.25); }
+        .category-攻击 { background-color: rgba(249, 65, 68, 0.25); }
+        .category-防御 { background-color: rgba(46, 196, 182, 0.25); }
+        .category-打击 { background-color: rgba(253, 167, 223, 0.25); }
+        .category-法术 { background-color: rgba(83, 51, 237, 0.25); }
+        .category-项目 { background-color: rgba(0, 187, 249, 0.25); }
+        .category-探索 { background-color: rgba(6, 214, 160, 0.25); }
+        .category-隐形 { background-color: rgba(179, 102, 255, 0.25); }
+        .category-陷阱 { background-color: rgba(255, 157, 0, 0.25); }
+        .category-经验 { background-color: rgba(17, 138, 178, 0.25); }
+
+        /* 计数器 */
+        .counter {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: var(--light);
+            opacity: 0.8;
+        }
+
+        /* 加载动画 */
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .loader .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid var(--accent);
+            animation: spin 1.2s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .loader p {
+            font-size: 1.1rem;
+            color: var(--light);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 错误提示 */
+        .error-message {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 0, 0, 0.1);
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .error-message h3 {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .error-message p {
+            font-size: 1rem;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .retry-btn {
+            padding: 10px 25px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .retry-btn:hover {
+            background-color: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 82, 82, 0.3);
+        }
+
+        /* 装饰元素 */
+        .decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .decoration::before {
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(129, 71, 127, 0.3) 0%, transparent 70%);
+            animation: float 15s infinite linear;
+        }
+
+        .decoration::after {
+            content: "";
+            position: absolute;
+            bottom: 15%;
+            right: 10%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(90, 47, 88, 0.3) 0%, transparent 70%);
+            animation: float 18s infinite linear reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, 30px) rotate(90deg); }
+            50% { transform: translate(0, 60px) rotate(180deg); }
+            75% { transform: translate(-20px, 30px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration"></div>
+
+    <div class="container">
+        <header>
+            <h1>游戏纪念品图鉴</h1>
+            <p class="subtitle">游戏的124个纪念品稀有度：
+                <span class="rarity-common">常见</span>、
+                <span class="rarity-uncommon">不常见</span>、
+                <span class="rarity-rare">罕见</span>和
+                <span class="rarity-unique">独特</span>
+            </p>
+        </header>
+
+        <nav class="navbar">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="搜索纪念品...">
+            </div>
+
+            <div class="filter-container">
+                <span class="filter-label">分类筛选:</span>
+                <select id="category-select" class="category-select">
+                    <option value="all">全部展示</option>
+                    <option value="属性">属性</option>
+                    <option value="抗性">抗性</option>
+                    <option value="血量">血量</option>
+                    <option value="饥饿">饥饿</option>
+                    <option value="耐力">耐力</option>
+                    <option value="激增">激增</option>
+                    <option value="同伴">同伴</option>
+                    <option value="敌人">敌人</option>
+                    <option value="武器">武器</option>
+                    <option value="攻击">攻击</option>
+                    <option value="防御">防御</option>
+                    <option value="打击">打击</option>
+                    <option value="法术">法术</option>
+                    <option value="项目">项目</option>
+                    <option value="探索">探索</option>
+                    <option value="隐形">隐形</option>
+                    <option value="陷阱">陷阱</option>
+                    <option value="经验">经验</option>
+                </select>
+            </div>
+
+            <!-- 新增排序下拉菜单 -->
+            <div class="filter-container">
+                <span class="filter-label">排序方式:</span>
+                <select id="sort-select" class="category-select">
+                    <option value="default">默认排序</option>
+                    <option value="name_en">英文首字母排序</option>
+                    <option value="rarity">稀有度排序</option>
+                </select>
+            </div>
+        </nav>
+
+        <main>
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p>加载纪念品数据中...</p>
+            </div>
+
+            <div class="gallery" id="memento-gallery">
+                <!-- 纪念品将通过JavaScript动态加载 -->
+            </div>
+
+            <div class="counter" id="counter">
+                显示 <span id="count">0</span> 个纪念品
+            </div>
+
+            <div class="error-message" id="error-message" style="display: none;">
+                <h3>数据加载失败</h3>
+                <p>无法加载纪念品数据，请检查网络连接或稍后再试。</p>
+                <button class="retry-btn" id="retry-btn">重新加载</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 纪念品详情弹窗 -->
+    <div id="memento-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+
+            <div class="modal-header">
+                <div class="modal-image">
+                    <img id="modal-img" src="" alt="纪念品图片">
+                </div>
+                <div class="modal-title">
+                    <h2 id="modal-name-cn"></h2>
+                    <h3 id="modal-name-en"></h3>
+                    <div class="info-tags">
+                        <span class="modal-category" id="modal-category"></span>
+                        <span class="modal-rarity" id="modal-rarity"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 修改：使用图标替代文字标题 -->
+            <div class="modal-section">
+                <div class="icon-container">
+                    <i class="fas fa-bolt"></i>
+                    <h4 class="icon-title">纪念品效果</h4>
+                </div>
+                <p class="chinese" id="modal-effect-cn"></p>
+                <p class="english" id="modal-effect-en"></p>
+            </div>
+
+            <div class="modal-section">
+                <div class="icon-container">
+                    <i class="fas fa-book"></i>
+                    <h4 class="icon-title">背景故事</h4>
+                </div>
+                <p class="chinese" id="modal-lore-cn"></p>
+                <p class="english" id="modal-lore-en"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            const gallery = document.getElementById('memento-gallery');
+            const modal = document.getElementById('memento-modal');
+            const closeBtn = document.querySelector('.close-btn');
+            const searchInput = document.getElementById('search-input');
+            const categorySelect = document.getElementById('category-select');
+            const sortSelect = document.getElementById('sort-select');
+            const loader = document.getElementById('loader');
+            const counter = document.getElementById('count');
+            const errorMessage = document.getElementById('error-message');
+            const retryBtn = document.getElementById('retry-btn');
+
+            let mementosData = []; // 存储加载的纪念品数据
+
+            // 加载纪念品数据
+            function loadMementos() {
+                // 显示加载动画
+                loader.style.display = 'flex';
+                gallery.style.display = 'none';
+                counter.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                // 使用fetch加载JSON文件
+                fetch('data/mementos.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('网络响应不正常');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        mementosData = data.mementos;
+                        sortMementos('default'); // 初始排序
+
+                        // 隐藏加载动画，显示内容
+                        loader.style.display = 'none';
+                        gallery.style.display = 'grid';
+                        counter.style.display = 'block';
+                    })
+                    .catch(error => {
+                        console.error('加载数据失败:', error);
+                        loader.style.display = 'none';
+                        errorMessage.style.display = 'block';
+                    });
+            }
+
+            // 渲染纪念品
+            function renderMementos(mementos) {
+                gallery.innerHTML = '';
+                counter.textContent = mementos.length;
+
+                // 添加动画延迟
+                const animationDelay = 0.05;
+
+                mementos.forEach((memento, index) => {
+                    const item = document.createElement('div');
+                    item.className = `memento-item category-${memento.category}`;
+                    item.style.animationDelay = `${index * animationDelay}s`;
+
+                    item.innerHTML = `
+                        <img src="${memento.image}" alt="${memento.name_cn}" data-id="${memento.id}">
+                    `;
+                    gallery.appendChild(item);
+
+                    // 添加点击事件
+                    item.querySelector('img').addEventListener('click', () => openModal(memento));
+                });
+            }
+
+            // 打开详情弹窗
+            function openModal(memento) {
+                document.getElementById('modal-img').src = memento.image;
+                document.getElementById('modal-name-cn').textContent = memento.name_cn;
+                document.getElementById('modal-name-en').textContent = memento.name_en;
+                document.getElementById('modal-category').textContent = memento.category;
+
+                // 设置稀有度显示 - 关键修复
+                const rarityElement = document.getElementById('modal-rarity');
+                rarityElement.textContent = memento.rarity; // 直接使用rarity字段
+
+                // 清除之前的样式
+                rarityElement.className = 'modal-rarity';
+
+                // 添加对应的样式
+                switch(memento.rarity) {
+                    case '常见':
+                        rarityElement.classList.add('rarity-common-color');
+                        break;
+                    case '不常见':
+                        rarityElement.classList.add('rarity-uncommon-color');
+                        break;
+                    case '罕见':
+                        rarityElement.classList.add('rarity-rare-color');
+                        break;
+                    case '独特':
+                        rarityElement.classList.add('rarity-unique-color');
+                        break;
+                }
+
+                document.getElementById('modal-effect-cn').textContent = memento.effect_cn;
+                document.getElementById('modal-effect-en').textContent = memento.effect_en;
+                document.getElementById('modal-lore-cn').textContent = memento.lore_cn;
+                document.getElementById('modal-lore-en').textContent = memento.lore_en || "Lore description text...";
+
+                modal.style.display = 'flex';
+
+                // 调试信息
+                console.log('纪念品详情:', memento);
+                console.log('稀有度:', memento.rarity);
+            }
+
+            // 关闭弹窗
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            // 点击弹窗外区域关闭
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // 搜索功能
+            searchInput.addEventListener('input', filterMementos);
+
+            // 分类筛选
+            categorySelect.addEventListener('change', filterMementos);
+
+            // 排序功能
+            sortSelect.addEventListener('change', function() {
+                sortMementos(this.value);
+            });
+
+            // 筛选纪念品
+            function filterMementos() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categorySelect.value;
+
+                // 过滤逻辑
+                const filtered = mementosData.filter(memento => {
+                    const matchesSearch = memento.name_cn.toLowerCase().includes(searchTerm) ||
+                                         memento.name_en.toLowerCase().includes(searchTerm);
+                    const matchesCategory = selectedCategory === 'all' || memento.category === selectedCategory;
+                    return matchesSearch && matchesCategory;
+                });
+
+                // 应用当前排序
+                sortMementos(sortSelect.value, filtered);
+            }
+
+            // 排序函数
+            function sortMementos(sortBy, data = mementosData) {
+                let sorted = [...data];
+
+                switch(sortBy) {
+                    case 'name_en':
+                        sorted.sort((a, b) => a.name_en.localeCompare(b.name_en));
+                        break;
+                    case 'rarity':
+                        // 稀有度排序权重：独特 > 罕见 > 不常见 > 常见
+                        const rarityWeights = {
+                            '独特': 0,
+                            '罕见': 1,
+                            '不常见': 2,
+                            '常见': 3
+                        };
+                        sorted.sort((a, b) => {
+                            return rarityWeights[a.rarity] - rarityWeights[b.rarity];
+                        });
+                        break;
+                    case 'default':
+                    default:
+                        sorted.sort((a, b) => a.id - b.id);
+                        break;
+                }
+
+                renderMementos(sorted);
+            }
+
+            // 重试按钮
+            retryBtn.addEventListener('click', loadMementos);
+
+            // 初始加载数据
+            loadMementos();
+
+            // 添加键盘快捷键
+            document.addEventListener('keydown', (e) => {
+                // ESC键关闭模态框
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                }
+                // 搜索框聚焦
+                if (e.key === '/' && e.target !== searchInput) {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
