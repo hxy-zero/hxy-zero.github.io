@@ -859,13 +859,13 @@
                 
                 // 设置稀有度显示
                 const rarityElement = document.getElementById('modal-rarity');
-                rarityElement.textContent = `稀有度: ${memento.rarity_cn}`;
+                rarityElement.textContent = memento.rarity; // 使用新的"rarity"字段
                 
                 // 清除之前的样式
                 rarityElement.className = 'modal-rarity';
                 
                 // 添加对应的样式
-                switch(memento.rarity_cn) {
+                switch(memento.rarity) {
                     case '常见':
                         rarityElement.classList.add('rarity-common-color');
                         break;
@@ -945,7 +945,7 @@
                             '常见': 3
                         };
                         sorted.sort((a, b) => {
-                            return rarityWeights[a.rarity_cn] - rarityWeights[b.rarity_cn];
+                            return rarityWeights[a.rarity] - rarityWeights[b.rarity];
                         });
                         break;
                     case 'default':
