@@ -1075,8 +1075,8 @@
       "image": "images/mementos/12.6burning_blood.png",
       "category": "打击",
       "rarity": "稀有",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "我溅洒的鲜血会灼烧踏足其上的敌人。",
+      "effect_en": "My spilt blood burns those who step upon it.",
       "lore_cn": "据说他们血脉燃火。且看是否属实。",
       "lore_en": "They are said to have fire in their veins. Let us see if that is true."
     },
@@ -1111,10 +1111,10 @@
       "image": "images/mementos/12.9broken_bottle.png",
       "category": "打击",
       "rarity": "稀有",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "",
-      "lore_en": ""
+      "effect_cn": "每次受击都会增强我的攻击性。",
+      "effect_en": "Every hit I take increses my aggression",
+      "lore_cn": "捍卫汝之荣耀，免受伤害汝者之辱。",
+      "lore_en": "Defend thine honor from those who hurt you."
     },
     {
       "id": 94,
