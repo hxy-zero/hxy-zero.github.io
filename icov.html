@@ -856,11 +856,10 @@
                 document.getElementById('modal-name-cn').textContent = memento.name_cn;
                 document.getElementById('modal-name-en').textContent = memento.name_en;
                 document.getElementById('modal-category').textContent = memento.category;
-                document.getElementById('modal-rarity').textContent = memento.rarity;
 
-                // 设置稀有度显示 - 修复部分
+                // 设置稀有度显示 - 关键修复
                 const rarityElement = document.getElementById('modal-rarity');
-                rarityElement.textContent = memento.rarity; // 确保文本内容被设置
+                rarityElement.textContent = memento.rarity; // 直接使用rarity字段
 
                 // 清除之前的样式
                 rarityElement.className = 'modal-rarity';
@@ -887,6 +886,10 @@
                 document.getElementById('modal-lore-en').textContent = memento.lore_en || "Lore description text...";
 
                 modal.style.display = 'flex';
+
+                // 调试信息
+                console.log('纪念品详情:', memento);
+                console.log('稀有度:', memento.rarity);
             }
 
             // 关闭弹窗
