@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>纪念品图鉴 - 稀有度系统</title>
+    <link rel="shortcut icon" href="images/暴力庆典.ico" />
+    <link rel="icon" href="images/暴力庆典.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -42,15 +44,6 @@
             padding: 20px 0;
             position: relative;
             margin-bottom: 10px;
-        }
-
-        .title {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, #ff9a9e, #fad0c4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .subtitle {
@@ -332,7 +325,7 @@
             font-weight: bold;
         }
 
-        /* 稀有度标签样式 - 修复后正确显示 */
+        /* 稀有度标签样式 */
         .modal-rarity {
             display: inline-block;
             padding: 6px 15px;
@@ -382,9 +375,8 @@
         }
 
         .modal-section p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 8px;
+            font-size: 0.9rem;
+            line-height: 1.2;
         }
 
         .modal-section p.chinese {
@@ -396,7 +388,6 @@
         .modal-section p.english {
             color: #a6c1ee;
             font-style: italic;
-            font-size: 1rem;
         }
 
         /* 响应式设计 */
@@ -412,10 +403,6 @@
         }
 
         @media (max-width: 768px) {
-            .title {
-                font-size: 2.2rem;
-            }
-
             .subtitle {
                 font-size: 1.1rem;
                 padding: 12px;
@@ -459,10 +446,6 @@
         }
 
         @media (max-width: 480px) {
-            .title {
-                font-size: 1.8rem;
-            }
-
             .subtitle {
                 font-size: 0.95rem;
                 padding: 10px;
@@ -507,10 +490,6 @@
         }
 
         @media (max-width: 360px) {
-            .title {
-                font-size: 1.6rem;
-            }
-
             .subtitle {
                 font-size: 0.85rem;
             }
@@ -687,31 +666,6 @@
             75% { transform: translate(-20px, 30px) rotate(270deg); }
             100% { transform: translate(0, 0) rotate(360deg); }
         }
-
-        .rarity-indicator {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .common-indicator {
-            background-color: var(--common);
-        }
-
-        .uncommon-indicator {
-            background-color: var(--uncommon);
-        }
-
-        .rare-indicator {
-            background-color: var(--rare);
-        }
-
-        .unique-indicator {
-            background-color: var(--unique);
-        }
     </style>
 </head>
 <body>
@@ -719,7 +673,7 @@
 
     <div class="container">
         <header>
-            <h1 class="title">游戏纪念品图鉴</h1>
+            <h1>游戏纪念品图鉴</h1>
             <p class="subtitle">游戏的124个纪念品稀有度：
                 <span class="rarity-common">常见</span>、
                 <span class="rarity-uncommon">不常见</span>、
@@ -812,13 +766,13 @@
             </div>
 
             <div class="modal-section">
-                <h4><i class="fas fa-magic"></i> 纪念品效果</h4>
+                <h4>纪念品效果</h4>
                 <p class="chinese" id="modal-effect-cn"></p>
                 <p class="english" id="modal-effect-en"></p>
             </div>
 
             <div class="modal-section">
-                <h4><i class="fas fa-book"></i> 背景故事</h4>
+                <h4>背景故事</h4>
                 <p class="chinese" id="modal-lore-cn"></p>
                 <p class="english" id="modal-lore-en"></p>
             </div>
@@ -858,10 +812,6 @@
                         return response.json();
                     })
                     .then(data => {
-                        if (!data.mementos || !Array.isArray(data.mementos)) {
-                            throw new Error('无效的数据格式');
-                        }
-
                         mementosData = data.mementos;
                         sortMementos('default'); // 初始排序
 
@@ -890,27 +840,26 @@
                     item.className = `memento-item category-${memento.category}`;
                     item.style.animationDelay = `${index * animationDelay}s`;
 
-                    // 移除稀有度指示器
                     item.innerHTML = `
                         <img src="${memento.image}" alt="${memento.name_cn}" data-id="${memento.id}">
                     `;
                     gallery.appendChild(item);
 
                     // 添加点击事件
-                    item.addEventListener('click', () => openModal(memento));
+                    item.querySelector('img').addEventListener('click', () => openModal(memento));
                 });
             }
 
-            // 打开详情弹窗 - 修复稀有度显示问题
+            // 打开详情弹窗
             function openModal(memento) {
                 document.getElementById('modal-img').src = memento.image;
                 document.getElementById('modal-name-cn').textContent = memento.name_cn;
                 document.getElementById('modal-name-en').textContent = memento.name_en;
                 document.getElementById('modal-category').textContent = memento.category;
 
-                // 设置稀有度显示 - 关键修复
+                // 设置稀有度显示 - 修复部分
                 const rarityElement = document.getElementById('modal-rarity');
-                rarityElement.textContent = memento.rarity; // 直接使用JSON中的rarity字段
+                rarityElement.textContent = memento.rarity; // 确保文本内容被设置
 
                 // 清除之前的样式
                 rarityElement.className = 'modal-rarity';
