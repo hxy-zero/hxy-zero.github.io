@@ -857,15 +857,15 @@
                 document.getElementById('modal-name-en').textContent = memento.name_en;
                 document.getElementById('modal-category').textContent = memento.category;
                 
-                // 设置稀有度显示 - 使用新的"rarity"字段
+                // 设置稀有度显示 - 关键修复
                 const rarityElement = document.getElementById('modal-rarity');
-                rarityElement.textContent = memento.rarity; // 关键修复：使用rarity字段
+                rarityElement.textContent = memento.rarity; // 直接使用rarity字段
                 
                 // 清除之前的样式
                 rarityElement.className = 'modal-rarity';
                 
                 // 添加对应的样式
-                switch(memento.rarity) { // 关键修复：使用rarity字段
+                switch(memento.rarity) {
                     case '常见':
                         rarityElement.classList.add('rarity-common-color');
                         break;
@@ -886,6 +886,10 @@
                 document.getElementById('modal-lore-en').textContent = memento.lore_en || "Lore description text...";
 
                 modal.style.display = 'flex';
+                
+                // 调试信息
+                console.log('纪念品详情:', memento);
+                console.log('稀有度:', memento.rarity);
             }
 
             // 关闭弹窗
@@ -945,7 +949,7 @@
                             '常见': 3
                         };
                         sorted.sort((a, b) => {
-                            return rarityWeights[a.rarity] - rarityWeights[b.rarity]; // 使用rarity字段
+                            return rarityWeights[a.rarity] - rarityWeights[b.rarity];
                         });
                         break;
                     case 'default':
