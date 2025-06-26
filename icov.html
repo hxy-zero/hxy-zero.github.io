@@ -308,6 +308,13 @@
             margin-bottom: 12px;
         }
 
+        .info-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
         .modal-category {
             display: inline-block;
             padding: 6px 15px;
@@ -325,7 +332,6 @@
             border-radius: 50px;
             font-size: 1rem;
             font-weight: bold;
-            margin-left: 10px;
         }
 
         .rarity-common-color {
@@ -423,6 +429,10 @@
             .modal-section h4 {
                 font-size: 1.3rem;
             }
+            
+            .info-tags {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 600px) {
@@ -470,6 +480,12 @@
 
             .search-container {
                 min-width: 150px;
+            }
+            
+            .modal-category,
+            .modal-rarity {
+                padding: 4px 10px;
+                font-size: 0.9rem;
             }
         }
 
@@ -650,35 +666,6 @@
             75% { transform: translate(-20px, 30px) rotate(270deg); }
             100% { transform: translate(0, 0) rotate(360deg); }
         }
-
-        /* 稀有度标签 */
-        .rarity-tag {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .rarity-common-tag {
-            color: #ffffff;
-        }
-
-        .rarity-uncommon-tag {
-            color: #FF80FF;
-        }
-
-        .rarity-rare-tag {
-            color: #77207B;
-        }
-
-        .rarity-unique-tag {
-            color: #000000;
-            background: rgba(255, 255, 255, 0.8);
-        }
     </style>
 </head>
 <body>
@@ -771,7 +758,7 @@
                 <div class="modal-title">
                     <h2 id="modal-name-cn"></h2>
                     <h3 id="modal-name-en"></h3>
-                    <div>
+                    <div class="info-tags">
                         <span class="modal-category" id="modal-category"></span>
                         <span class="modal-rarity" id="modal-rarity"></span>
                     </div>
@@ -800,7 +787,7 @@
             const closeBtn = document.querySelector('.close-btn');
             const searchInput = document.getElementById('search-input');
             const categorySelect = document.getElementById('category-select');
-            const sortSelect = document.getElementById('sort-select'); // 排序下拉菜单
+            const sortSelect = document.getElementById('sort-select');
             const loader = document.getElementById('loader');
             const counter = document.getElementById('count');
             const errorMessage = document.getElementById('error-message');
@@ -853,32 +840,8 @@
                     item.className = `memento-item category-${memento.category}`;
                     item.style.animationDelay = `${index * animationDelay}s`;
                     
-                    // 稀有度标签
-                    let rarityClass = '';
-                    let tagText = '';
-                    
-                    switch(memento.rarity_cn) {
-                        case '常见':
-                            rarityClass = 'rarity-common-tag';
-                            tagText = '常见';
-                            break;
-                        case '不常见':
-                            rarityClass = 'rarity-uncommon-tag';
-                            tagText = '不常见';
-                            break;
-                        case '罕见':
-                            rarityClass = 'rarity-rare-tag';
-                            tagText = '罕见';
-                            break;
-                        case '独特':
-                            rarityClass = 'rarity-unique-tag';
-                            tagText = '独特';
-                            break;
-                    }
-                    
                     item.innerHTML = `
                         <img src="${memento.image}" alt="${memento.name_cn}" data-id="${memento.id}">
-                        <span class="rarity-tag ${rarityClass}">${tagText}</span>
                     `;
                     gallery.appendChild(item);
 
@@ -896,7 +859,7 @@
                 
                 // 设置稀有度显示
                 const rarityElement = document.getElementById('modal-rarity');
-                rarityElement.textContent = memento.rarity_cn;
+                rarityElement.textContent = `稀有度: ${memento.rarity_cn}`;
                 
                 // 清除之前的样式
                 rarityElement.className = 'modal-rarity';
