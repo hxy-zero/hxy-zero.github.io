@@ -415,7 +415,7 @@
             .title {
                 font-size: 2.2rem;
             }
-            
+
             .subtitle {
                 font-size: 1.1rem;
                 padding: 12px;
@@ -462,7 +462,7 @@
             .title {
                 font-size: 1.8rem;
             }
-            
+
             .subtitle {
                 font-size: 0.95rem;
                 padding: 10px;
@@ -510,7 +510,7 @@
             .title {
                 font-size: 1.6rem;
             }
-            
+
             .subtitle {
                 font-size: 0.85rem;
             }
@@ -696,19 +696,19 @@
             height: 12px;
             border-radius: 50%;
         }
-        
+
         .common-indicator {
             background-color: var(--common);
         }
-        
+
         .uncommon-indicator {
             background-color: var(--uncommon);
         }
-        
+
         .rare-indicator {
             background-color: var(--rare);
         }
-        
+
         .unique-indicator {
             background-color: var(--unique);
         }
@@ -729,7 +729,45 @@
         </header>
 
         <nav class="navbar">
-            <!-- 导航栏保持不变... -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="搜索纪念品...">
+            </div>
+
+            <div class="filter-container">
+                <span class="filter-label">分类筛选:</span>
+                <select id="category-select" class="category-select">
+                    <option value="all">全部展示</option>
+                    <option value="属性">属性</option>
+                    <option value="抗性">抗性</option>
+                    <option value="血量">血量</option>
+                    <option value="饥饿">饥饿</option>
+                    <option value="耐力">耐力</option>
+                    <option value="激增">激增</option>
+                    <option value="同伴">同伴</option>
+                    <option value="敌人">敌人</option>
+                    <option value="武器">武器</option>
+                    <option value="攻击">攻击</option>
+                    <option value="防御">防御</option>
+                    <option value="打击">打击</option>
+                    <option value="法术">法术</option>
+                    <option value="项目">项目</option>
+                    <option value="探索">探索</option>
+                    <option value="隐形">隐形</option>
+                    <option value="陷阱">陷阱</option>
+                    <option value="经验">经验</option>
+                </select>
+            </div>
+
+            <!-- 新增排序下拉菜单 -->
+            <div class="filter-container">
+                <span class="filter-label">排序方式:</span>
+                <select id="sort-select" class="category-select">
+                    <option value="default">默认排序</option>
+                    <option value="name_en">英文首字母排序</option>
+                    <option value="rarity">稀有度排序</option>
+                </select>
+            </div>
         </nav>
 
         <main>
