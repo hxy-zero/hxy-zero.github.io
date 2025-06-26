@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>纪念品图鉴 - 稀有度系统</title>
+    <title>纪念品图鉴</title>
     <link rel="shortcut icon" href="images/暴力庆典.ico" />
     <link rel="icon" href="images/暴力庆典.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -235,6 +235,7 @@
             padding: 30px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
             position: relative;
+            border: 2px solid var(--accent);
         }
 
         .close-btn {
@@ -260,22 +261,30 @@
         }
 
         .modal-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            position: relative;
+            border-bottom: none; /* 移除原来的下边框 */
+            margin-bottom: 15px; /* 调整间距 */
+            padding-bottom: 0; /* 移除底部内边距 */
         }
 
-        /* 移除图片下方的浅紫色横线 */
-        .modal-header::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
+        /* 添加：图标样式 */
+        .modal-section h4 i {
+            margin-right: -10px;
+            font-size: 1.3rem;
+            color: #06d6a0;
+        }
+
+        /* 添加：图标容器样式 */
+        .icon-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        /* 添加：图标标题样式 */
+        .icon-title {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: #06d6a0;
         }
 
         .modal-image {
@@ -288,6 +297,7 @@
             justify-content: center;
             margin-right: 25px;
             flex-shrink: 0;
+            border: 2px solid var(--accent);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -369,6 +379,7 @@
         .modal-section h4 {
             font-size: 1.5rem;
             margin-bottom: 12px;
+            color: #06d6a0;
             display: flex;
             align-items: center;
         }
@@ -379,14 +390,6 @@
             height: 2px;
             background: linear-gradient(90deg, #06d6a0, transparent);
             margin-left: 15px;
-        }
-
-        .section-icon {
-            font-size: 1.3rem;
-            color: #06d6a0;
-            margin-right: 10px;
-            width: 30px;
-            text-align: center;
         }
 
         .modal-section p {
@@ -688,7 +691,6 @@
 
     <div class="container">
         <header>
-            <h1>游戏纪念品图鉴</h1>
             <p class="subtitle">游戏的124个纪念品稀有度：
                 <span class="rarity-common">常见</span>、
                 <span class="rarity-uncommon">不常见</span>、
@@ -782,7 +784,7 @@
 
             <div class="modal-section">
                 <h4>
-                    <i class="fas fa-bolt section-icon"></i>
+                  <i class="fas fa-bolt section-icon"></i>
                 </h4>
                 <p class="chinese" id="modal-effect-cn"></p>
                 <p class="english" id="modal-effect-en"></p>
@@ -812,129 +814,7 @@
             const errorMessage = document.getElementById('error-message');
             const retryBtn = document.getElementById('retry-btn');
 
-            // 示例数据（实际应用中应从JSON加载）
-            const mementosData = [
-                {
-                  "id": 1,
-                  "name_cn": "豁口刀",
-                  "name_en": "Chipped Blade",
-                  "image": "images/mementos/1.1chipped_blade.png",
-                  "category": "属性",
-                  "rarity": "常见",
-                  "effect_cn": "我的攻击性增强。",
-                  "effect_en": "My aggression is increased.",
-                  "lore_cn": "代代相传的刀刃，因珍视使用而磨砺。",
-                  "lore_en": "An heirloom, worn from honest use."
-                },
-                {
-                  "id": 2,
-                  "name_cn": "王冠",
-                  "name_en": "Crown",
-                  "image": "images/mementos/1.2crown.png",
-                  "category": "属性",
-                  "rarity": "常见",
-                  "effect_cn": "我的力量增强。",
-                  "effect_en": "My strength is increased.",
-                  "lore_cn": "领袖通过无私的奉献赋予子民力量，暴君的压迫却永远无法激发这般潜能。",
-                  "lore_en": "A leader lends strength to men the way a tyrant never could."
-                },
-                {
-                  "id": 3,
-                  "name_cn": "断翼",
-                  "name_en": "Broken Wing",
-                  "image": "images/mementos/1.3broken_wing.png",
-                  "category": "属性",
-                  "rarity": "常见",
-                  "effect_cn": "我的速度提升。",
-                  "effect_en": "My speed is increased.",
-                  "lore_cn": "有翼之神遭凡人斩击，残翼难支，踉跄遁去。",
-                  "lore_en": "The winged god, cut down by men, could only hobble away."
-                },
-                {
-                  "id": 4,
-                  "name_cn": "秋叶",
-                  "name_en": "Autumn Leaf",
-                  "image": "images/mementos/1.4autumn_leaf.png",
-                  "category": "属性",
-                  "rarity": "常见",
-                  "effect_cn": "我的机动性提升。",
-                  "effect_en": "My mobility is increased.",
-                  "lore_cn": "我追逐飘零的秋叶，却总被其迅捷所欺。",
-                  "lore_en": "I spend hours trying to catch these leaves as they fall. They're usually too quick for me."
-                },
-                {
-                  "id": 5,
-                  "name_cn": "双焦眼镜",
-                  "name_en": "Bifocals",
-                  "image": "images/mementos/1.5bifocals.png",
-                  "category": "属性",
-                  "rarity": "常见",
-                  "effect_cn": "我的感知增幅。",
-                  "effect_en": "My perception is increased.",
-                  "lore_cn": "双瞳重明，天地尽览！",
-                  "lore_en": "I can see again!"
-                },
-                {
-                  "id": 6,
-                  "name_cn": "人心",
-                  "name_en": "Human Heart",
-                  "image": "images/mementos/1.6human_heart.png",
-                  "category": "属性",
-                  "rarity": "常见",
-                  "effect_cn": "我的血量增加。",
-                  "effect_en": "I am healthier.",
-                  "lore_cn": "心火不灭，生生不息。",
-                  "lore_en": "The center of life."
-                },
-                {
-                  "id": 7,
-                  "name_cn": "红酒",
-                  "name_en": "Red Wine",
-                  "image": "images/mementos/1.7red_wine.png",
-                  "category": "属性",
-                  "rarity": "常见",
-                  "effect_cn": "我的攻击力增加了。",
-                  "effect_en": "My stamina is increased.",
-                  "lore_cn": "一件传家宝，因长久使用而磨损。",
-                  "lore_en": "Just what I need to keep going."
-                },
-                {
-                  "id": 8,
-                  "name_cn": "战争旗帜",
-                  "name_en": "War Banner",
-                  "image": "images/mementos/1.8war_banner.png",
-                  "category": "属性",
-                  "rarity": "常见",
-                  "effect_cn": "我的坚韧力提升。",
-                  "effect_en": "My fortitude is increased.",
-                  "lore_cn": "乱世中激励士气、凝聚部队的象征。",
-                  "lore_en": "A symbol of inspiration and solidarity amongst the chaos."
-                },
-                {
-                  "id": 9,
-                  "name_cn": "沙漏",
-                  "name_en": "Hourglass",
-                  "image": "images/mementos/1.9hourglass.png",
-                  "category": "属性",
-                  "rarity": "常见",
-                  "effect_cn": "我的知识增加。",
-                  "effect_en": "My knowledge is increased.",
-                  "lore_cn": "沙粒以精准的节奏丈量求知之路。",
-                  "lore_en": "The sands measure my studies in perfect intervals."
-                },
-                {
-                  "id": 10,
-                  "name_cn": "盔甲碎片",
-                  "name_en": "Scrap of Armor",
-                  "image": "images/mementos/2.1scrap_of_armor.png",
-                  "category": "抗性",
-                  "rarity": "不常见",
-                  "effect_cn": "我对劈砍攻击的抗性提升。",
-                  "effect_en": "My resistance to slashing attacks is increased.",
-                  "lore_cn": "血肉之躯的最后防线。",
-                  "lore_en": "The last argument of flesh."
-                }
-            ];
+            let mementosData = []; // 存储加载的纪念品数据
 
             // 加载纪念品数据
             function loadMementos() {
@@ -944,16 +824,28 @@
                 counter.style.display = 'none';
                 errorMessage.style.display = 'none';
 
-                // 模拟加载延迟
-                setTimeout(() => {
-                    // 隐藏加载动画，显示内容
-                    loader.style.display = 'none';
-                    gallery.style.display = 'grid';
-                    counter.style.display = 'block';
-                    
-                    // 使用示例数据
-                    sortMementos('default'); // 初始排序
-                }, 1000);
+                // 使用fetch加载JSON文件
+                fetch('data/mementos.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('网络响应不正常');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        mementosData = data.mementos;
+                        sortMementos('default'); // 初始排序
+
+                        // 隐藏加载动画，显示内容
+                        loader.style.display = 'none';
+                        gallery.style.display = 'grid';
+                        counter.style.display = 'block';
+                    })
+                    .catch(error => {
+                        console.error('加载数据失败:', error);
+                        loader.style.display = 'none';
+                        errorMessage.style.display = 'block';
+                    });
             }
 
             // 渲染纪念品
@@ -969,53 +861,26 @@
                     item.className = `memento-item category-${memento.category}`;
                     item.style.animationDelay = `${index * animationDelay}s`;
 
-                    // 创建图片占位符
-                    const placeholderColor = memento.rarity === '常见' ? 'rgba(255,255,255,0.3)' : 
-                                          memento.rarity === '不常见' ? 'rgba(255,128,255,0.3)' : 
-                                          'rgba(119,32,123,0.3)';
-                    
-                    // 使用图片占位符代替实际图片
-                    const imgPlaceholder = document.createElement('div');
-                    imgPlaceholder.style.width = '80px';
-                    imgPlaceholder.style.height = '80px';
-                    imgPlaceholder.style.borderRadius = '6px';
-                    imgPlaceholder.style.backgroundColor = placeholderColor;
-                    imgPlaceholder.style.display = 'flex';
-                    imgPlaceholder.style.alignItems = 'center';
-                    imgPlaceholder.style.justifyContent = 'center';
-                    
-                    const rarityText = document.createElement('span');
-                    rarityText.textContent = memento.rarity.charAt(0);
-                    rarityText.style.fontSize = '24px';
-                    rarityText.style.fontWeight = 'bold';
-                    rarityText.style.color = 'rgba(255,255,255,0.5)';
-                    imgPlaceholder.appendChild(rarityText);
-                    
-                    imgPlaceholder.setAttribute('data-id', memento.id);
-                    item.appendChild(imgPlaceholder);
-
+                    item.innerHTML = `
+                        <img src="${memento.image}" alt="${memento.name_cn}" data-id="${memento.id}">
+                    `;
                     gallery.appendChild(item);
 
                     // 添加点击事件
-                    item.addEventListener('click', () => openModal(memento));
+                    item.querySelector('img').addEventListener('click', () => openModal(memento));
                 });
             }
 
             // 打开详情弹窗
             function openModal(memento) {
-                // 设置图片占位符
-                const placeholderColor = memento.rarity === '常见' ? 'rgba(255,255,255,0.3)' : 
-                                      memento.rarity === '不常见' ? 'rgba(255,128,255,0.3)' : 
-                                      'rgba(119,32,123,0.3)';
-                
-                document.getElementById('modal-img').style.backgroundColor = placeholderColor;
+                document.getElementById('modal-img').src = memento.image;
                 document.getElementById('modal-name-cn').textContent = memento.name_cn;
                 document.getElementById('modal-name-en').textContent = memento.name_en;
                 document.getElementById('modal-category').textContent = memento.category;
 
-                // 设置稀有度显示
+                // 设置稀有度显示 - 关键修复
                 const rarityElement = document.getElementById('modal-rarity');
-                rarityElement.textContent = memento.rarity;
+                rarityElement.textContent = memento.rarity; // 直接使用rarity字段
 
                 // 清除之前的样式
                 rarityElement.className = 'modal-rarity';
@@ -1039,9 +904,13 @@
                 document.getElementById('modal-effect-cn').textContent = memento.effect_cn;
                 document.getElementById('modal-effect-en').textContent = memento.effect_en;
                 document.getElementById('modal-lore-cn').textContent = memento.lore_cn;
-                document.getElementById('modal-lore-en').textContent = memento.lore_en;
+                document.getElementById('modal-lore-en').textContent = memento.lore_en || "Lore description text...";
 
                 modal.style.display = 'flex';
+
+                // 调试信息
+                console.log('纪念品详情:', memento);
+                console.log('稀有度:', memento.rarity);
             }
 
             // 关闭弹窗
