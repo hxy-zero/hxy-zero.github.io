@@ -410,6 +410,20 @@
             color: #a6c1ee;
             font-style: italic;
         }
+        
+        /* 新增：note样式 */
+        .note-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+        
+        .note-text {
+            font-size: 0.85rem;
+            color: #b5b5b5;
+            font-style: italic;
+            line-height: 1.4;
+        }
 
         /* 响应式设计 */
         @media (max-width: 900px) {
@@ -453,6 +467,10 @@
 
             .info-tags {
                 justify-content: center;
+            }
+            
+            .note-text {
+                font-size: 0.8rem;
             }
         }
 
@@ -507,6 +525,10 @@
             .modal-rarity {
                 padding: 4px 10px;
                 font-size: 0.9rem;
+            }
+            
+            .note-text {
+                font-size: 0.75rem;
             }
         }
 
@@ -800,6 +822,11 @@
                 <p class="chinese" id="modal-lore-cn"></p>
                 <p class="english" id="modal-lore-en"></p>
             </div>
+            
+            <!-- 新增note部分 -->
+            <div class="note-section" id="modal-note-section" style="display: none;">
+                <p class="note-text" id="modal-note"></p>
+            </div>
         </div>
     </div>
 
@@ -816,6 +843,8 @@
             const counter = document.getElementById('count');
             const errorMessage = document.getElementById('error-message');
             const retryBtn = document.getElementById('retry-btn');
+            const noteSection = document.getElementById('modal-note-section');
+            const noteElement = document.getElementById('modal-note');
 
             let mementosData = []; // 存储加载的纪念品数据
 
@@ -908,6 +937,14 @@
                 document.getElementById('modal-effect-en').textContent = memento.effect_en;
                 document.getElementById('modal-lore-cn').textContent = memento.lore_cn;
                 document.getElementById('modal-lore-en').textContent = memento.lore_en || "Lore description text...";
+
+                // 处理note部分
+                if (memento.note && memento.note.trim() !== '') {
+                    noteElement.textContent = memento.note;
+                    noteSection.style.display = 'block';
+                } else {
+                    noteSection.style.display = 'none';
+                }
 
                 modal.style.display = 'flex';
 
