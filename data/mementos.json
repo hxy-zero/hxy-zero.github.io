@@ -46,7 +46,8 @@
       "effect_cn": "我的机动性提升。",
       "effect_en": "My mobility is increased.",
       "lore_cn": "我追逐飘零的秋叶，却总被其迅捷所欺。",
-      "lore_en": "I spend hours trying to catch these leaves as they fall. They're usually too quick for me."
+      "lore_en": "I spend hours trying to catch these leaves as they fall. They're usually too quick for me.",
+      "note":"获得10%机动性增幅。"
     },
     {
       "id": 5,
@@ -283,8 +284,8 @@
       "image": "images/mementos/3.7tailless_rat.png",
       "category": "血量",
       "rarity": "不常见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "我随着最大生命值降低变得更危险，随着其增加而变弱。",
+      "effect_en": "I become more dangerous as my maximum health decreases and weaker as it increases.",
       "lore_cn": "累累旧伤愈合不良，既已无物可失，鼠辈便无所保留。",
       "lore_en": "Riddled with a lifetime of wounds poorly healed, with little left to lose, the vermin held nothing back."
     },
@@ -295,8 +296,8 @@
       "image": "images/mementos/3.8heroic_medal.png",
       "category": "血量",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "我越健康，我的攻击造成的伤害和力量就越大。但当我的生命值低时，我会变得更弱。",
+      "effect_en": "The healthier I am, the more damage and power my attacks will hit with. But I become weaker when my health is low.",
       "lore_cn": "众人皆为无敌英雄欢呼。我只见一个健壮青年，能把我撕成两半。",
       "lore_en": "Everybody is cheering for our invincible hero. All I see is a healthy young man who could break me in half."
     },
@@ -331,9 +332,9 @@
       "image": "images/mementos/3.11sacred_breastplate.png",
       "category": "血量",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "这真是天使。身披赐福金属，愈痕如初。美得真挚。我难逃此劫。",
+      "effect_cn": "当生命值恢复至常规限制以上时将获得护甲。",
+      "effect_en": "Restoring my health beyond its normal limitations will grant me armor.",
+      "lore_cn": "天使身着神佑金属，细微划痕瞬间愈合，纯粹之美非凡人可承。",
       "lore_en": "It truly is an angel. Adorned in blessed metals that mend any scratch. Sincerely beautiful. I will not survive this."
     },
     {
@@ -406,7 +407,8 @@
       "effect_cn": "雨中我的耐力恢复更快。",
       "effect_en": "I regain my stamina quicker in the rain.",
       "lore_cn": "我爱雨！能在水坑里玩上几小时！",
-      "lore_en": "I love the rain! I could play in these puddles for hours!"
+      "lore_en": "I love the rain! I could play in these puddles for hours!",
+      "note":"在室内失效"
     },
     {
       "id": 35,
@@ -463,8 +465,8 @@
       "image": "images/mementos/6.2horn_of_the_northern_wind.png",
       "category": "激增",
       "rarity": "常见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "我的能量涌动强化为冰霜伤害​",
+      "effect_en": "My surges are augmented to deal ice damage.",
       "lore_cn": "风暴般的士兵将战争覆盖大地。",
       "lore_en": "A storm of soldiers to blanket the land in war."
     },
@@ -523,9 +525,9 @@
       "image": "images/mementos/7.4enchanted_bow.png",
       "category": "同伴",
       "rarity": "不常见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "无名英雄执此弓一箭射落有翼之神。",
+      "effect_cn": "一名神射手之魂加入我的队伍。",
+      "effect_en": "The ghost of a skilled archer joins me as an ally。",
+      "lore_cn": "无名英豪执此神弓，一箭诛天翼神明。",
       "lore_en": "An unknown hero wielding this bow brought down the winged god with a single shot."
     },
     {
@@ -571,8 +573,8 @@
       "image": "images/mementos/8.2scalpel.png",
       "category": "敌人",
       "rarity": "常见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "受伤的敌人更易遭受暴击。",
+      "effect_en": "Injured enemies are more susceptible to critical hits.",
       "lore_cn": "对将死之人，精准至关重要。",
       "lore_en": "For the dying, precision is vital."
     },
@@ -595,8 +597,8 @@
       "image": "images/mementos/8.4stiletto.png",
       "category": "敌人",
       "rarity": "不常见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "被眩晕的敌人会受到更多伤害。",
+      "effect_en": "Stunned enemies take more damage.",
       "lore_cn": "有人称之为作弊。那些人死到临头犹不自知。",
       "lore_en": "Some people call it cheating. Those people missed their own deaths."
     },
@@ -619,8 +621,8 @@
       "image": "images/mementos/8.6faded_mittens.png",
       "category": "敌人",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "附近的敌人逐渐冻结。",
+      "effect_en": "Nearby enemies slowly freeze.",
       "lore_cn": "该死的风暴。几乎看不见眼前的双手。太冷了……也许该在此歇息片刻。",
       "lore_en": "Damn this storm. I can barely see my hands before my eyes. It is so cold... Maybe I will rest here for a moment."
     },
@@ -643,9 +645,9 @@
       "image": "images/mementos/8.8plague_tick.png",
       "category": "敌人",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "疫病蔓延永续，终使帝国倾覆。",
+      "effect_cn": "触碰我的敌人很快就会发现自己及其盟友都死于瘟疫。",
+      "effect_en": "Enemies who touch me will soon find themselves and their allies dying of the plague.",
+      "lore_cn": "疾病无尽蔓延，终将倾覆帝国。",
       "lore_en": "The sickness spread everlasting, eventually toppling an empire."
     },
     {
@@ -655,9 +657,9 @@
       "image": "images/mementos/8.9piece_of_nothing.png",
       "category": "敌人",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "它……不该如此！",
+      "effect_cn": "敌人可能会逃离我的攻击。",
+      "effect_en": "Enemies may flee from my attacks.",
+      "lore_cn": "它……本不该存于世！",
       "lore_en": "It... it should not be!"
     },
     {
@@ -667,21 +669,21 @@
       "image": "images/mementos/8.10scary_eyes.png",
       "category": "敌人",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "当我们的目光相遇时，我的对手移动速度会变慢。",
+      "effect_en": "My opponents move slower when our eyes meet.",
       "lore_cn": "别看！否则你将永世沉沦。",
       "lore_en": "Do not look! Do not look or you may never look away."
     },
     {
       "id": 57,
-      "name_cn": "叛徒烙印",
+      "name_cn": "叛徒印记",
       "name_en": "Traitor's Brand",
       "image": "images/mementos/8.11traitors_brand.png",
       "category": "敌人",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "被标叛徒也强过客死异乡战场。我以烙印为智慧徽章。",
+      "effect_cn": "逃跑的敌人可能会选择加入我而非赴死。",
+      "effect_en": "Fleeing enemies may choose to join me instead of dying.",
+      "lore_cn": "与其在异国战场腐烂，不如被标为叛徒——我将此烙印视作智慧的象征。",
       "lore_en": "Better to be marked a turncoat than rot on some foreign battlefield. I wear my new brand as a symbol of wisdom."
     },
     {
@@ -727,8 +729,8 @@
       "image": "images/mementos/9.4ghost_blade.png",
       "category": "武器",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "一个幽灵的武器与我的武器同步攻击。",
+      "effect_en": "A ghostly weapon attacks in sync with my own.",
       "lore_cn": "这缥缈刀刃是我亲手锻造，还是某位玄奥幽灵的干预？",
       "lore_en": "Is this ethereal blade of my own making or the intervention of some enigmatic spirit?"
     },
@@ -746,14 +748,14 @@
     },
     {
       "id": 63,
-      "name_cn": "踏脚石",
+      "name_cn": "垫脚石",
       "name_en": "Stepping Stone",
       "image": "images/mementos/10.2stepping_stone.png",
       "category": "攻击",
       "rarity": "常见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "我在花园耗费数小时练习步法。",
+      "effect_cn": "攻击期间移动加速。",
+      "effect_en": "I move quicker while attacking.",
+      "lore_cn": "我在园中耗费数时，精练步法。",
       "lore_en": "I spent hours in the garden practicing my footwork."
     },
     {
@@ -883,20 +885,20 @@
       "image": "images/mementos/10.13fang_of_the_beast.png",
       "category": "攻击",
       "rarity": "不常见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "非人之物将比我们更久存续。",
+      "effect_cn": "攻击可愈命脉之竭。",
+      "effect_en": "Attacks will recover my depleting health.",
+      "lore_cn": "非人者亘古长存。",
       "lore_en": "Inhumanity will outlast us all."
     },
     {
       "id": 75,
-      "name_cn": "雕像之首",
+      "name_cn": "雕像头部",
       "name_en": "Head of a Statue",
       "image": "images/mementos/10.14head_of_a_statue.png",
       "category": "攻击",
       "rarity": "不常见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "暴击会伤害对手周围的所有人。",
+      "effect_en": "Critical hits hurt all those around my opponent.",
       "lore_cn": "他锤击地裂之猛烈，连附近未触石像也轰然倒地。",
       "lore_en": "He rent the ground with such ferocity that even nearby statues untouched by his hammer toppled to the ground."
     },
@@ -955,9 +957,9 @@
       "image": "images/mementos/10.19headsmans_axe.png",
       "category": "攻击",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "迅捷处决，终结痛苦。",
+      "effect_cn": "​​我可处决濒死之敌。",
+      "effect_en": "I may execute a dying enemy.",
+      "lore_cn": "斩立决以终结其苦痛。",
       "lore_en": "A swift execution to end their pain."
     },
     {
@@ -968,7 +970,7 @@
       "category": "攻击",
       "rarity": "罕见",
       "effect_cn": "每次击杀增加生命。",
-      "effect_en": "Every kill increses my health.",
+      "effect_en": "Every kill increases my health.",
       "lore_cn": "他们能永生。所需不过鲜血。",
       "lore_en": "They can live forever. All they need is blood."
     },
@@ -979,8 +981,8 @@
       "image": "images/mementos/11.1scarred_buckler.png",
       "category": "防御",
       "rarity": "常见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "成功格挡对手的攻击将强化我下次挥砍的威力。",
+      "effect_en": "Successfully blocking an opponent's attack increases the power of my next swing.",
       "lore_cn": "举盾格挡。他们的冲力即成你的武器。",
       "lore_en": "Dig in and take it on your shield. Their momentum is now your weapon."
     },
@@ -991,22 +993,22 @@
       "image": "images/mementos/11.2dancing_shoe.png",
       "category": "防御",
       "rarity": "不常见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "我是优雅的化身。",
+      "effect_cn": "成功躲避对手的攻击会增加我下一次挥击的速度",
+      "effect_en": "Successfully dodging an opponent's attack increases the speed of my next swing.",
+      "lore_cn": "我乃优雅之典范。",
       "lore_en": "I am the epitome of grace."
     },
     {
       "id": 84,
-      "name_cn": "决斗柄",
+      "name_cn": "决斗剑柄",
       "name_en": "Dueling Hilt",
       "image": "images/mementos/11.3dueling_hilt.png",
       "category": "防御",
       "rarity": "不常见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "",
-      "lore_en": ""
+      "effect_cn": "成功格挡攻击将强化下次挥击伤害。",
+      "effect_en": "Successfully parrying an opponent's attack increases the damage of my next swing.",
+      "lore_cn": "精妙反击可化百炼钢为绕指柔。",
+      "lore_en": "The riposte, if performed correctly, will be vastly more effective than brute force."
     },
     {
       "id": 85,
@@ -1022,14 +1024,14 @@
     },
     {
       "id": 86,
-      "name_cn": "空杯",
+      "name_cn": "空酒杯",
       "name_en": "Empty Tankard",
       "image": "images/mementos/12.2empty_tankard.png",
       "category": "打击",
       "rarity": "常见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "饮酒时勿碰我。",
+      "effect_cn": "伤害触碰到的敌人。",
+      "effect_en": "I hurt any enemy I touch.",
+      "lore_cn": "喝酒勿扰!",
       "lore_en": "Do not touch me while I'm drinking."
     },
     {
@@ -1042,7 +1044,8 @@
       "effect_cn": "受击可能获得少量护甲。",
       "effect_en": "Getting hit may grant me a small amount of armor.",
       "lore_cn": "我的钢铁救星。",
-      "lore_en": "My steel savior."
+      "lore_en": "My steel savior.",
+      "note":"当你格挡时也会使你的盾流血，非常适合鲜血仪式。"
     },
     {
       "id": 88,
@@ -1112,7 +1115,7 @@
       "category": "打击",
       "rarity": "罕见",
       "effect_cn": "每次受击都会增强我的攻击性。",
-      "effect_en": "Every hit I take increses my aggression",
+      "effect_en": "Every hit I take increases my aggression",
       "lore_cn": "捍卫汝之荣耀，免受伤害汝者之辱。",
       "lore_en": "Defend thine honor from those who hurt you."
     },
@@ -1207,9 +1210,9 @@
       "image": "images/mementos/14.1empty_vial.png",
       "category": "项目",
       "rarity": "常见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "里面是什么？",
+      "effect_cn": "我将自动接收并识别未知药水。",
+      "effect_en": "I automatically receive and identify an unknown potion.",
+      "lore_cn": "瓶中何物？",
       "lore_en": "What's in here?"
     },
     {
@@ -1231,9 +1234,9 @@
       "image": "images/mementos/14.3doorknob.png",
       "category": "项目",
       "rarity": "常见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "该死！每次都被这蠢金属电到。",
+      "effect_cn": "拿起金属物体会导致触电。",
+      "effect_en": "Picking up metal objects will cause a electric shock.（发现语法错误了吗）",
+      "lore_cn": "真见鬼！这破铁疙瘩天天漏电电我！。",
       "lore_en": "Dammit! This stupid piece of metal shocks me every time."
     },
     {
@@ -1243,8 +1246,8 @@
       "image": "images/mementos/14.4propeller.png",
       "category": "项目",
       "rarity": "常见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "捡起金属物体会让我短暂漂浮。",
+      "effect_en": "Picking up metal objects will cause me to float for a brief time.",
       "lore_cn": "快完工了！只需再找点金属。",
       "lore_en": "Almost finished! Only need to find a little more metal."
     },
@@ -1303,9 +1306,9 @@
       "image": "images/mementos/14.9pickaxe.png",
       "category": "项目",
       "rarity": "常见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "破石。熔矿。破石。熔矿。",
+      "effect_cn": "石制物品被摧毁时可能掉落金属。",
+      "effect_en": "Objects made of stone may drop metal when destroyed.",
+      "lore_cn": "敲石碎矿，熔炼不断。",
       "lore_en": "Break the stone. Smelt the ore. Break the stone. Smelt the ore."
     },
     {
@@ -1363,9 +1366,9 @@
       "image": "images/mementos/15.5faulty_timepiece.png",
       "category": "探索",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "它不断变慢。",
+      "effect_cn": "不动的时候，时间流动变慢。",
+      "effect_en": "Time slows when I am not moving.",
+      "lore_cn": "机枢渐滞。",
       "lore_en": "It keeps slowing down."
     },
     {
@@ -1387,9 +1390,9 @@
       "image": "images/mementos/16.2ordinary_cloak.png",
       "category": "隐形",
       "rarity": "常见",
-      "effect_cn": "",
-      "effect_en": "",
-      "lore_cn": "披寻常斗篷的寻常人。无需在意。",
+      "effect_cn": "敌人需更靠近才能察觉我。",
+      "effect_en": "Enemies will need to get closer to notice me.",
+      "lore_cn": "只是个穿普通斗篷的普通人，何必在意",
       "lore_en": "Just an ordinary guy in an ordinary cloak. No need to pay me any mind."
     },
     {
@@ -1423,8 +1426,8 @@
       "image": "images/mementos/16.5red_leather_belt.png",
       "category": "隐形",
       "rarity": "罕见",
-      "effect_cn": "",
-      "effect_en": "",
+      "effect_cn": "当敌人攻击我时，我可能会隐形。",
+      "effect_en": "I may turn invisible when an enemy hits me.",
       "lore_cn": "我需即刻藏身。",
       "lore_en": "I need to hide right now."
     },
