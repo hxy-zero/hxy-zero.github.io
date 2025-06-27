@@ -22,7 +22,7 @@
       "rarity": "常见",
       "effect_cn": "我的力量增强。",
       "effect_en": "My strength is increased.",
-      "lore_c极": "领袖通过无私的奉献赋予子民力量，暴君的压迫却永远无法激发这般潜能。",
+      "lore_cn": "领袖通过无私的奉献赋予子民力量，暴君的压迫却永远无法激发这般潜能。",
       "lore_en": "A leader lends strength to men the way a tyrant never could.",
       "note": "增加10%能量。"
     },
@@ -468,7 +468,7 @@
       "name_en": "Blackened Horn",
       "image": "images/mementos/6.1blackened_horn.png",
       "category": "激增",
-      "rar极": "常见",
+      "rarity": "常见",
       "effect_cn": "我的激增附加火焰伤害。",
       "effect_en": "My surges are augmented to deal fire damage.",
       "lore_cn": "他们心怀狂怒，血脉燃火而来。",
