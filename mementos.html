@@ -963,9 +963,13 @@
                     item.style.animationDelay = `${index * animationDelay}s`;
 
                     item.innerHTML = `
-                        <img src="${memento.image}" alt="${memento.name_cn}" data-id="${memento.id}">
+                        <img src="${memento.image}" alt="${memento.name_cn}">
                         <span class="category-tag">${memento.category}</span>
                     `;
+                    
+                    // 为整个纪念品项目添加点击事件
+                    item.addEventListener('click', () => openModal(memento));
+                    
                     gallery.appendChild(item);
 
                     item.querySelector('img').addEventListener('click', () => openModal(memento));
