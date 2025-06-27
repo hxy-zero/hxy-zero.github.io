@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>纪念品图鉴</title>
-    <link rel="shortcut icon" href="images/暴力庆典.ico" />
-    <link rel="icon" href="images/暴力庆典.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -32,11 +30,15 @@
             color: var(--text);
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
         }
 
         header {
@@ -701,7 +703,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1;
+            z-index: 1;
             overflow: hidden;
         }
 
@@ -743,14 +745,27 @@
             width: 100%;
         }
         
-        /* 新增：导航栏标签 */
-        .nav-label {
+        /* 新增：页面标题 */
+        .page-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(156, 111, 154, 0.8);
+            background: linear-gradient(90deg, #ffd166, #ef476f, #118ab2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* 新增：分类标签 */
+        .category-tag {
             position: absolute;
-            top: -20px;
-            left: 15px;
-            font-size: 0.8rem;
-            color: var(--light);
-            opacity: 0.7;
+            bottom: 5px;
+            right: 5px;
+            font-size: 0.7rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2px 5px;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -759,6 +774,7 @@
 
     <div class="container">
         <header>
+            <h1 class="page-title">纪念品图鉴</h1>
             <p class="subtitle">纪念品稀有度：
                 <span class="rarity-common">常见</span>、
                 <span class="rarity-uncommon">不常见</span>、
@@ -774,7 +790,7 @@
                     <i class="fas fa-search search-icon"></i>
                     <input type="text" id="search-input" placeholder="搜索纪念品...">
                 </div>
-                <button id="sort-direction" class="direction-btn">
+                <button id="sort-direction" class="direction-btn" title="切换排序方向">
                     <i class="fas fa-sort-amount-down"></i>
                 </button>
             </div>
@@ -864,6 +880,7 @@
             <div class="modal-section">
                 <h4>
                   <i class="fas fa-bolt section-icon"></i>
+                  <span>效果</span>
                 </h4>
                 <p class="chinese" id="modal-effect-cn"></p>
                 <p class="english" id="modal-effect-en"></p>
@@ -872,6 +889,7 @@
             <div class="modal-section">
                 <h4>
                     <i class="fas fa-book section-icon"></i>
+                    <span>背景故事</span>
                 </h4>
                 <p class="chinese" id="modal-lore-cn"></p>
                 <p class="english" id="modal-lore-en"></p>
@@ -910,29 +928,28 @@
                 counter.style.display = 'none';
                 errorMessage.style.display = 'none';
 
-                // 模拟数据加载
-                setTimeout(() => {
-                    try {
-                        // 使用提供的JSON数据
-                        const data = {
-                            "mementos": [
-                                // 这里包含您提供的124个纪念品数据
-                                // 由于篇幅限制，实际代码中应使用完整数据
-                            ]
-                        };
-                        
+                // 使用fetch加载JSON文件
+                fetch('data/mementos.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('网络响应不正常');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
                         mementosData = data.mementos;
-                        sortMementos('default');
-                        
+                        sortMementos('default'); // 初始排序
+
+                        // 隐藏加载动画，显示内容
                         loader.style.display = 'none';
                         gallery.style.display = 'grid';
                         counter.style.display = 'block';
-                    } catch (error) {
+                    })
+                    .catch(error => {
                         console.error('加载数据失败:', error);
                         loader.style.display = 'none';
                         errorMessage.style.display = 'block';
-                    }
-                }, 800);
+                    });
             }
 
             // 渲染纪念品
@@ -949,6 +966,7 @@
 
                     item.innerHTML = `
                         <img src="${memento.image}" alt="${memento.name_cn}" data-id="${memento.id}">
+                        <span class="category-tag">${memento.category}</span>
                     `;
                     gallery.appendChild(item);
 
