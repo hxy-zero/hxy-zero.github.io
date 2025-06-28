@@ -97,14 +97,14 @@
             top: 10px;
             z-index: 100;
         }
-        
+
         /* 新增：搜索组容器 */
         .search-group {
             display: flex;
             flex: 1;
             min-width: 200px;
         }
-        
+
         .search-container {
             flex: 1;
             position: relative;
@@ -135,7 +135,7 @@
             font-size: 1.2rem;
             opacity: 0.7;
         }
-        
+
         /* 方向按钮样式 */
         .direction-btn {
             width: 50px;
@@ -163,7 +163,7 @@
             flex: 1;
             min-width: 160px;
         }
-        
+
         /* 优化后的选择框样式 */
         .category-select {
             width: 100%;
@@ -183,7 +183,7 @@
             box-shadow: 0 0 0 2px var(--accent);
             background: rgba(90, 47, 88, 0.5);
         }
-        
+
         /* 新增：选择框图标 */
         .select-icon {
             position: absolute;
@@ -454,17 +454,17 @@
             .navbar {
                 gap: 10px;
             }
-            
+
             .search-group {
                 flex: 100%;
                 order: 1;
             }
-            
+
             .filter-container {
                 flex: 1;
                 min-width: calc(50% - 10px);
             }
-            
+
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
             }
@@ -738,13 +738,13 @@
             75% { transform: translate(-20px, 30px) rotate(270deg); }
             100% { transform: translate(0, 0) rotate(360deg); }
         }
-        
+
         /* 新增：选择容器 */
         .select-container {
             position: relative;
             width: 100%;
         }
-        
+
         /* 新增：页面标题 */
         .page-title {
             text-align: center;
@@ -756,12 +756,12 @@
             background-clip: text;
             color: transparent;
         }
-        
+
         /* 新增：分类标签 */
         .category-tag {
             position: absolute;
-            /* bottom: 5px; */
-            /* right: 5px; */
+            bottom: 0px;
+            right: 0px;
             font-size: 0.7rem;
             background: rgba(0, 0, 0, 0.5);
             padding: 2px 5px;
@@ -794,7 +794,7 @@
                     <i class="fas fa-sort-amount-down"></i>
                 </button>
             </div>
-            
+
             <!-- 分类筛选 -->
             <div class="filter-container">
                 <div class="select-container">
@@ -822,7 +822,7 @@
                     <i class="fas fa-chevron-down select-icon"></i>
                 </div>
             </div>
-            
+
             <!-- 排序方式 -->
             <div class="filter-container">
                 <div class="select-container">
@@ -966,10 +966,10 @@
                         <img src="${memento.image}" alt="${memento.name_cn}">
                         <span class="category-tag">${memento.category}</span>
                     `;
-                    
+
                     // 为整个纪念品项目添加点击事件
                     item.addEventListener('click', () => openModal(memento));
-                    
+
                     gallery.appendChild(item);
 
                     item.querySelector('img').addEventListener('click', () => openModal(memento));
@@ -1043,7 +1043,7 @@
             // 排序方向按钮点击事件
             directionBtn.addEventListener('click', function() {
                 sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-                
+
                 const icon = directionBtn.querySelector('i');
                 if (sortDirection === 'asc') {
                     icon.classList.remove('fa-sort-amount-down');
@@ -1052,8 +1052,9 @@
                     icon.classList.remove('fa-sort-amount-up');
                     icon.classList.add('fa-sort-amount-down');
                 }
-                
-                sortMementos(sortSelect.value);
+
+                // 调用filterMementos()而不是sortMementos()
+                filterMementos();
             });
 
             // 筛选纪念品
@@ -1063,11 +1064,12 @@
 
                 const filtered = mementosData.filter(memento => {
                     const matchesSearch = memento.name_cn.toLowerCase().includes(searchTerm) ||
-                                 memento.name_en.toLowerCase().includes(searchTerm);
+                                         memento.name_en.toLowerCase().includes(searchTerm);
                     const matchesCategory = selectedCategory === 'all' || memento.category === selectedCategory;
                     return matchesSearch && matchesCategory;
                 });
 
+                // 应用当前排序方向和排序类型
                 sortMementos(sortSelect.value, filtered);
             }
 
@@ -1095,7 +1097,7 @@
                         sorted.sort((a, b) => a.id - b.id);
                         break;
                 }
-                
+
                 if (sortDirection === 'asc') {
                     sorted.reverse();
                 }
