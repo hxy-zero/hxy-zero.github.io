@@ -901,227 +901,227 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const gallery = document.getElementById('memento-gallery');
-            const modal = document.getElementById('memento-modal');
-            const closeBtn = document.querySelector('.close-btn');
-            const searchInput = document.getElementById('search-input');
-            const categorySelect = document.getElementById('category-select');
-            const sortSelect = document.getElementById('sort-select');
-            const loader = document.getElementById('loader');
-            const counter = document.getElementById('count');
-            const errorMessage = document.getElementById('error-message');
-            const retryBtn = document.getElementById('retry-btn');
-            const noteSection = document.getElementById('modal-note-section');
-            const noteElement = document.getElementById('modal-note');
-            const directionBtn = document.getElementById('sort-direction');
-
-            let mementosData = [];
-            let sortDirection = 'desc';
-
-            // 加载纪念品数据
-            function loadMementos() {
-                loader.style.display = 'flex';
-                gallery.style.display = 'none';
-                counter.style.display = 'none';
-                errorMessage.style.display = 'none';
-
-                // 使用fetch加载JSON文件
-                fetch('data/mementos.json')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('网络响应不正常');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        mementosData = data.mementos;
-                        sortMementos('default'); // 初始排序
-
-                        // 隐藏加载动画，显示内容
-                        loader.style.display = 'none';
-                        gallery.style.display = 'grid';
-                        counter.style.display = 'block';
-                    })
-                    .catch(error => {
-                        console.error('加载数据失败:', error);
-                        loader.style.display = 'none';
-                        errorMessage.style.display = 'block';
-                    });
-            }
-
-            // 渲染纪念品
-            function renderMementos(mementos) {
-                gallery.innerHTML = '';
-                counter.textContent = mementos.length;
-
-                const animationDelay = 0.05;
-
-                mementos.forEach((memento, index) => {
-                    const item = document.createElement('div');
-                    item.className = `memento-item category-${memento.category}`;
-                    item.style.animationDelay = `${index * animationDelay}s`;
-
-                    item.innerHTML = `
-                        <img src="${memento.image}" alt="${memento.name_cn}">
-                        <span class="category-tag">${memento.category}</span>
-                    `;
-
-                    // 为整个纪念品项目添加点击事件
-                    item.addEventListener('click', () => openModal(memento));
-
-                    gallery.appendChild(item);
-
-                    item.querySelector('img').addEventListener('click', () => openModal(memento));
+    document.addEventListener('DOMContentLoaded', function() {
+        const gallery = document.getElementById('memento-gallery');
+        const modal = document.getElementById('memento-modal');
+        const closeBtn = document.querySelector('.close-btn');
+        const searchInput = document.getElementById('search-input');
+        const categorySelect = document.getElementById('category-select');
+        const sortSelect = document.getElementById('sort-select');
+        const loader = document.getElementById('loader');
+        const counter = document.getElementById('count');
+        const errorMessage = document.getElementById('error-message');
+        const retryBtn = document.getElementById('retry-btn');
+        const noteSection = document.getElementById('modal-note-section');
+        const noteElement = document.getElementById('modal-note');
+        const directionBtn = document.getElementById('sort-direction');
+    
+        let mementosData = [];
+        let currentFilteredData = []; // 存储当前筛选结果
+        let sortDirection = 'desc';
+    
+        // 加载纪念品数据
+        function loadMementos() {
+            loader.style.display = 'flex';
+            gallery.style.display = 'none';
+            counter.style.display = 'none';
+            errorMessage.style.display = 'none';
+    
+            // 使用fetch加载JSON文件
+            fetch('data/mementos.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应不正常');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    mementosData = data.mementos;
+                    currentFilteredData = [...mementosData]; // 初始化为全部数据
+                    sortMementos('default'); // 初始排序
+    
+                    // 隐藏加载动画，显示内容
+                    loader.style.display = 'none';
+                    gallery.style.display = 'grid';
+                    counter.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('加载数据失败:', error);
+                    loader.style.display = 'none';
+                    errorMessage.style.display = 'block';
                 });
+        }
+    
+        // 渲染纪念品
+        function renderMementos(mementos) {
+            gallery.innerHTML = '';
+            counter.textContent = mementos.length;
+    
+            const animationDelay = 0.05;
+    
+            mementos.forEach((memento, index) => {
+                const item = document.createElement('div');
+                item.className = `memento-item category-${memento.category}`;
+                item.style.animationDelay = `${index * animationDelay}s`;
+    
+                item.innerHTML = `
+                    <img src="${memento.image}" alt="${memento.name_cn}">
+                    <span class="category-tag">${memento.category}</span>
+                `;
+    
+                // 为整个纪念品项目添加点击事件
+                item.addEventListener('click', () => openModal(memento));
+    
+                gallery.appendChild(item);
+    
+                item.querySelector('img').addEventListener('click', () => openModal(memento));
+            });
+        }
+    
+        // 打开详情弹窗
+        function openModal(memento) {
+            document.getElementById('modal-img').src = memento.image;
+            document.getElementById('modal-name-cn').textContent = memento.name_cn;
+            document.getElementById('modal-name-en').textContent = memento.name_en;
+            document.getElementById('modal-category').textContent = memento.category;
+    
+            const rarityElement = document.getElementById('modal-rarity');
+            rarityElement.textContent = memento.rarity;
+            rarityElement.className = 'modal-rarity';
+    
+            switch(memento.rarity) {
+                case '常见':
+                    rarityElement.classList.add('rarity-common-color');
+                    break;
+                case '不常见':
+                    rarityElement.classList.add('rarity-uncommon-color');
+                    break;
+                case '罕见':
+                    rarityElement.classList.add('rarity-rare-color');
+                    break;
+                case '独特':
+                    rarityElement.classList.add('rarity-unique-color');
+                    break;
             }
-
-            // 打开详情弹窗
-            function openModal(memento) {
-                document.getElementById('modal-img').src = memento.image;
-                document.getElementById('modal-name-cn').textContent = memento.name_cn;
-                document.getElementById('modal-name-en').textContent = memento.name_en;
-                document.getElementById('modal-category').textContent = memento.category;
-
-                const rarityElement = document.getElementById('modal-rarity');
-                rarityElement.textContent = memento.rarity;
-                rarityElement.className = 'modal-rarity';
-
-                switch(memento.rarity) {
-                    case '常见':
-                        rarityElement.classList.add('rarity-common-color');
-                        break;
-                    case '不常见':
-                        rarityElement.classList.add('rarity-uncommon-color');
-                        break;
-                    case '罕见':
-                        rarityElement.classList.add('rarity-rare-color');
-                        break;
-                    case '独特':
-                        rarityElement.classList.add('rarity-unique-color');
-                        break;
-                }
-
-                document.getElementById('modal-effect-cn').textContent = memento.effect_cn;
-                document.getElementById('modal-effect-en').textContent = memento.effect_en;
-                document.getElementById('modal-lore-cn').textContent = memento.lore_cn;
-                document.getElementById('modal-lore-en').textContent = memento.lore_en || "Lore description text...";
-
-                if (memento.note && memento.note.trim() !== '') {
-                    noteElement.textContent = memento.note;
-                    noteSection.style.display = 'block';
-                } else {
-                    noteSection.style.display = 'none';
-                }
-
-                modal.style.display = 'flex';
+    
+            document.getElementById('modal-effect-cn').textContent = memento.effect_cn;
+            document.getElementById('modal-effect-en').textContent = memento.effect_en;
+            document.getElementById('modal-lore-cn').textContent = memento.lore_cn;
+            document.getElementById('modal-lore-en').textContent = memento.lore_en || "Lore description text...";
+    
+            if (memento.note && memento.note.trim() !== '') {
+                noteElement.textContent = memento.note;
+                noteSection.style.display = 'block';
+            } else {
+                noteSection.style.display = 'none';
             }
-
-            // 关闭弹窗
-            closeBtn.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
-
-            // 点击弹窗外区域关闭
-            window.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-
-            // 搜索功能
-            searchInput.addEventListener('input', filterMementos);
-
-            // 分类筛选
-            categorySelect.addEventListener('change', filterMementos);
-
-            // 排序功能
-            sortSelect.addEventListener('change', function() {
-                sortMementos(this.value);
-            });
-
-            // 排序方向按钮点击事件
-            directionBtn.addEventListener('click', function() {
-                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-
-                const icon = directionBtn.querySelector('i');
-                if (sortDirection === 'asc') {
-                    icon.classList.remove('fa-sort-amount-down');
-                    icon.classList.add('fa-sort-amount-up');
-                } else {
-                    icon.classList.remove('fa-sort-amount-up');
-                    icon.classList.add('fa-sort-amount-down');
-                }
-
-                // 调用filterMementos()而不是sortMementos()
-                filterMementos();
-            });
-
-            // 筛选纪念品
-            function filterMementos() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const selectedCategory = categorySelect.value;
-
-                const filtered = mementosData.filter(memento => {
-                    const matchesSearch = memento.name_cn.toLowerCase().includes(searchTerm) ||
-                                         memento.name_en.toLowerCase().includes(searchTerm);
-                    const matchesCategory = selectedCategory === 'all' || memento.category === selectedCategory;
-                    return matchesSearch && matchesCategory;
-                });
-
-                // 应用当前排序方向和排序类型
-                sortMementos(sortSelect.value, filtered);
-            }
-
-            // 排序函数
-            function sortMementos(sortBy, data = mementosData) {
-                let sorted = [...data];
-
-                switch(sortBy) {
-                    case 'name_en':
-                        sorted.sort((a, b) => a.name_en.localeCompare(b.name_en));
-                        break;
-                    case 'rarity':
-                        const rarityWeights = {
-                            '独特': 0,
-                            '罕见': 1,
-                            '不常见': 2,
-                            '常见': 3
-                        };
-                        sorted.sort((a, b) => {
-                            return rarityWeights[a.rarity] - rarityWeights[b.rarity];
-                        });
-                        break;
-                    case 'default':
-                    default:
-                        sorted.sort((a, b) => a.id - b.id);
-                        break;
-                }
-
-                if (sortDirection === 'asc') {
-                    sorted.reverse();
-                }
-
-                renderMementos(sorted);
-            }
-
-            // 重试按钮
-            retryBtn.addEventListener('click', loadMementos);
-
-            // 初始加载数据
-            loadMementos();
-
-            // 添加键盘快捷键
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modal.style.display === 'flex') {
-                    modal.style.display = 'none';
-                }
-                if (e.key === '/' && e.target !== searchInput) {
-                    e.preventDefault();
-                    searchInput.focus();
-                }
-            });
+    
+            modal.style.display = 'flex';
+        }
+    
+        // 关闭弹窗
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
         });
+    
+        // 点击弹窗外区域关闭
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    
+        // 搜索功能
+        searchInput.addEventListener('input', filterMementos);
+    
+        // 分类筛选
+        categorySelect.addEventListener('change', filterMementos);
+    
+        // 排序功能 - 修改为调用filterMementos
+        sortSelect.addEventListener('change', filterMementos);
+    
+        // 排序方向按钮点击事件
+        directionBtn.addEventListener('click', function() {
+            sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+    
+            const icon = directionBtn.querySelector('i');
+            if (sortDirection === 'asc') {
+                icon.classList.remove('fa-sort-amount-down');
+                icon.classList.add('fa-sort-amount-up');
+            } else {
+                icon.classList.remove('fa-sort-amount-up');
+                icon.classList.add('fa-sort-amount-down');
+            }
+    
+            // 调用filterMementos()以保留当前筛选条件
+            filterMementos();
+        });
+    
+        // 筛选纪念品
+        function filterMementos() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categorySelect.value;
+    
+            const filtered = mementosData.filter(memento => {
+                const matchesSearch = memento.name_cn.toLowerCase().includes(searchTerm) ||
+                                     memento.name_en.toLowerCase().includes(searchTerm);
+                const matchesCategory = selectedCategory === 'all' || memento.category === selectedCategory;
+                return matchesSearch && matchesCategory;
+            });
+    
+            currentFilteredData = filtered; // 保存当前筛选结果
+            sortMementos(sortSelect.value, filtered); // 应用当前排序
+        }
+    
+        // 排序函数 - 修改后使用当前筛选结果
+        function sortMementos(sortBy, data = currentFilteredData) {
+            let sorted = [...data];
+    
+            switch(sortBy) {
+                case 'name_en':
+                    sorted.sort((a, b) => a.name_en.localeCompare(b.name_en));
+                    break;
+                case 'rarity':
+                    const rarityWeights = {
+                        '独特': 0,
+                        '罕见': 1,
+                        '不常见': 2,
+                        '常见': 3
+                    };
+                    sorted.sort((a, b) => {
+                        return rarityWeights[a.rarity] - rarityWeights[b.rarity];
+                    });
+                    break;
+                case 'default':
+                default:
+                    sorted.sort((a, b) => a.id - b.id);
+                    break;
+            }
+    
+            if (sortDirection === 'asc') {
+                sorted.reverse();
+            }
+    
+            renderMementos(sorted);
+        }
+    
+        // 重试按钮
+        retryBtn.addEventListener('click', loadMementos);
+    
+        // 初始加载数据
+        loadMementos();
+    
+        // 添加键盘快捷键
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            }
+            if (e.key === '/' && e.target !== searchInput) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+    });
     </script>
 </body>
 </html>
