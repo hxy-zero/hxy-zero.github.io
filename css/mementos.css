@@ -5,27 +5,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-:root {
-    --primary: #81477F;
-    --dark: #2D1A2C;
-    --accent: #9C6F9A;
-    --light: #E8D0E7;
-    --text: #FFFFFF;
-    --common: #FFFFFF;     /* 常见 - 白色 */
-    --uncommon: #FF80FF;   /* 不常见 - 粉色 */
-    --rare: #77207B;       /* 罕见 - 深紫色 */
-    --unique: #000000;     /* 独特 - 黑色 */
-}
-
-body {
-    background: linear-gradient(135deg, #1a0c19, #2a1429);
-    color: var(--text);
-    min-height: 100vh;
-    padding: 20px;
-    position: relative;
-    overflow-x: hidden;
-}
-
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -616,31 +595,6 @@ header {
     font-size: 1.1rem;
     color: var(--light);
     opacity: 0.8;
-}
-
-/* 加载动画 */
-.loader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px;
-}
-
-.loader .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top: 5px solid var(--accent);
-    animation: spin 1.2s linear infinite;
-    margin: 0 auto 20px;
-}
-
-.loader p {
-    font-size: 1.1rem;
-    color: var(--light);
 }
 
 @keyframes spin {
