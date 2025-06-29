@@ -976,7 +976,13 @@
             counter.textContent = mementos.length;
     
             const animationDelay = 0.05;
-    
+
+            // 根据屏幕尺寸确定步长
+            let step;
+            if (window.innerWidth < 360) step = 65;
+            else if (window.innerWidth < 480) step = 70;
+            else step = 80;
+            
             mementos.forEach((memento, index) => {
                 const item = document.createElement('div');
                 item.className = `memento-item category-${memento.category}`;
@@ -984,7 +990,7 @@
     
                 const sprite = document.createElement('div');
                 sprite.className = 'memento-sprite';
-                const position = -(memento.id - 1) * 80;
+                const position = -(memento.id - 1) * step; // 动态计算位置
                 sprite.style.backgroundPosition = `0 ${position}px`;
     
                 const tag = document.createElement('span');
@@ -1054,6 +1060,10 @@
             if (e.target === modal) {
                 modal.style.display = 'none';
             }
+        });
+
+        window.addEventListener('resize', function() {
+            filterMementos(); // 窗口大小变化时重新渲染
         });
     
         // 搜索功能
