@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>纪念品图鉴 - 移动端优化版</title>
+    <title>纪念品图鉴</title>
+    <link rel="shortcut icon" href="images/icov.ico" />
+    <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="css/mementos.css?v=1.0.0" type="text/css" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -81,7 +84,7 @@
             font-weight: bold;
         }
 
-        /* 导航栏样式 - 优化后 */
+        /* 导航栏样式 */
         .navbar {
             background-color: rgba(45, 26, 44, 0.95);
             backdrop-filter: blur(5px);
@@ -97,7 +100,6 @@
             z-index: 100;
         }
 
-        /* 新增：搜索组容器 */
         .search-group {
             display: flex;
             flex: 1;
@@ -135,7 +137,6 @@
             opacity: 0.7;
         }
 
-        /* 方向按钮样式 */
         .direction-btn {
             width: 50px;
             margin-left: 10px;
@@ -162,7 +163,6 @@
             min-width: 160px;
         }
 
-        /* 优化后的选择框样式 */
         .category-select {
             width: 100%;
             padding: 12px 15px;
@@ -182,7 +182,6 @@
             background: rgba(90, 47, 88, 0.5);
         }
 
-        /* 新增：选择框图标 */
         .select-icon {
             position: absolute;
             right: 15px;
@@ -192,7 +191,7 @@
             opacity: 0.7;
         }
 
-        /* 纪念品展示区 */
+        /* 纪念品展示区 - 确保正方形 */
         .gallery {
             background-color: var(--primary);
             border-radius: 12px;
@@ -204,12 +203,11 @@
             min-height: 500px;
         }
 
-        /* 修复：确保在所有设备上保持90px正方形 */
         .memento-item {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            width: 90px; /* 固定宽度 */
-            height: 90px; /* 固定高度 */
+            width: 90px; 
+            height: 90px; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -218,7 +216,7 @@
             overflow: hidden;
             position: relative;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 0 auto; /* 居中显示 */
+            margin: 0 auto; 
         }
 
         .memento-item:hover {
@@ -228,7 +226,6 @@
             z-index: 10;
         }
 
-        /* 雪碧图样式 */
         .memento-sprite {
             width: 80px;
             height: 80px;
@@ -304,18 +301,6 @@
         .modal-section h4 i {
             margin-right: -10px;
             font-size: 1.3rem;
-            color: #06d6a0;
-        }
-
-        .icon-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .icon-title {
-            font-size: 1.5rem;
-            margin-bottom: 0;
             color: #06d6a0;
         }
 
@@ -454,7 +439,7 @@
             line-height: 1.4;
         }
 
-        /* 响应式设计 - 优化后 */
+        /* 响应式设计 */
         @media (max-width: 900px) {
             .navbar {
                 gap: 10px;
@@ -468,11 +453,6 @@
             .filter-container {
                 flex: 1;
                 min-width: calc(50% - 10px);
-            }
-
-            /* 移动端保持90px正方形 */
-            .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
             }
         }
 
@@ -512,15 +492,9 @@
                 font-size: 0.8rem;
             }
             
-            /* 移动端图库保持90px正方形 */
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
                 gap: 12px;
-            }
-            
-            .memento-item {
-                width: 90px;
-                height: 90px;
             }
         }
 
@@ -551,16 +525,6 @@
                 padding: 15px;
             }
 
-            .memento-item {
-                width: 90px;
-                height: 90px;
-            }
-
-            .memento-sprite {
-                width: 80px;
-                height: 80px;
-            }
-
             .modal-content {
                 padding: 20px 15px;
             }
@@ -587,7 +551,6 @@
                 font-size: 0.75rem;
             }
             
-            /* 移动端分类标签优化 */
             .category-tag {
                 font-size: 0.6rem;
                 padding: 1px 3px;
@@ -687,6 +650,7 @@
             border-radius: 12px;
             margin: 20px 0;
             border: 1px solid rgba(255, 0, 0, 0.3);
+            display: none;
         }
 
         .error-message h3 {
@@ -762,13 +726,13 @@
             100% { transform: translate(0, 0) rotate(360deg); }
         }
 
-        /* 新增：选择容器 */
+        /* 选择容器 */
         .select-container {
             position: relative;
             width: 100%;
         }
 
-        /* 新增：页面标题 */
+        /* 页面标题 */
         .page-title {
             text-align: center;
             font-size: 2.8rem;
@@ -780,7 +744,7 @@
             color: transparent;
         }
 
-        /* 新增：分类标签 */
+        /* 分类标签 */
         .category-tag {
             position: absolute;
             bottom: 0px;
@@ -832,7 +796,6 @@
         </header>
 
         <nav class="navbar">
-            <!-- 搜索框组 -->
             <div class="search-group">
                 <div class="search-container">
                     <i class="fas fa-search search-icon"></i>
@@ -843,7 +806,6 @@
                 </button>
             </div>
 
-            <!-- 分类筛选 -->
             <div class="filter-container">
                 <div class="select-container">
                     <select id="category-select" class="category-select">
@@ -871,7 +833,6 @@
                 </div>
             </div>
 
-            <!-- 排序方式 -->
             <div class="filter-container">
                 <div class="select-container">
                     <select id="sort-select" class="category-select">
@@ -892,46 +853,13 @@
 
             <div class="gallery" id="memento-gallery">
                 <!-- 纪念品将通过JavaScript动态加载 -->
-                <!-- 示例纪念品卡片 -->
-                <div class="memento-item category-属性">
-                    <div class="memento-sprite" style="background-position: 0 0;"></div>
-                    <span class="category-tag">属性</span>
-                </div>
-                <div class="memento-item category-血量">
-                    <div class="memento-sprite" style="background-position: 0 -80px;"></div>
-                    <span class="category-tag">血量</span>
-                </div>
-                <div class="memento-item category-抗性">
-                    <div class="memento-sprite" style="background-position: 0 -160px;"></div>
-                    <span class="category-tag">抗性</span>
-                </div>
-                <div class="memento-item category-耐力">
-                    <div class="memento-sprite" style="background-position: 0 -240px;"></div>
-                    <span class="category-tag">耐力</span>
-                </div>
-                <div class="memento-item category-攻击">
-                    <div class="memento-sprite" style="background-position: 0 -320px;"></div>
-                    <span class="category-tag">攻击</span>
-                </div>
-                <div class="memento-item category-防御">
-                    <div class="memento-sprite" style="background-position: 0 -400px;"></div>
-                    <span class="category-tag">防御</span>
-                </div>
-                <div class="memento-item category-法术">
-                    <div class="memento-sprite" style="background-position: 0 -480px;"></div>
-                    <span class="category-tag">法术</span>
-                </div>
-                <div class="memento-item category-探索">
-                    <div class="memento-sprite" style="background-position: 0 -560px;"></div>
-                    <span class="category-tag">探索</span>
-                </div>
             </div>
 
             <div class="counter" id="counter">
-                显示 <span id="count">8</span> 个纪念品
+                显示 <span id="count">0</span> 个纪念品
             </div>
 
-            <div class="error-message" id="error-message" style="display: none;">
+            <div class="error-message" id="error-message">
                 <h3>数据加载失败</h3>
                 <p>无法加载纪念品数据，请检查网络连接或稍后再试。</p>
                 <button class="retry-btn" id="retry-btn">重新加载</button>
@@ -946,14 +874,14 @@
 
             <div class="modal-header">
                 <div class="modal-image">
-                    <div class="modal-sprite" id="modal-img" style="background-position: 0 -100px;"></div>
+                    <div class="modal-sprite" id="modal-img"></div>
                 </div>
                 <div class="modal-title">
-                    <h2 id="modal-name-cn">生命符文</h2>
-                    <h3 id="modal-name-en">Rune of Life</h3>
+                    <h2 id="modal-name-cn"></h2>
+                    <h3 id="modal-name-en"></h3>
                     <div class="info-tags">
-                        <span class="modal-category" id="modal-category">血量</span>
-                        <span class="modal-rarity rarity-common-color" id="modal-rarity">常见</span>
+                        <span class="modal-category" id="modal-category"></span>
+                        <span class="modal-rarity" id="modal-rarity"></span>
                     </div>
                 </div>
             </div>
@@ -962,21 +890,20 @@
                 <h4>
                   <i class="fas fa-bolt section-icon"></i>
                 </h4>
-                <p class="chinese" id="modal-effect-cn">增加最大生命值15%</p>
-                <p class="english" id="modal-effect-en">Increases maximum HP by 15%</p>
+                <p class="chinese" id="modal-effect-cn"></p>
+                <p class="english" id="modal-effect-en"></p>
             </div>
 
             <div class="modal-section">
                 <h4>
                     <i class="fas fa-book section-icon"></i>
                 </h4>
-                <p class="chinese" id="modal-lore-cn">远古战士的护身符，蕴含着生命的能量</p>
-                <p class="english" id="modal-lore-en">An ancient warrior's talisman containing the energy of life</p>
+                <p class="chinese" id="modal-lore-cn"></p>
+                <p class="english" id="modal-lore-en"></p>
             </div>
 
-            <!-- 新增note部分 -->
-            <div class="note-section" id="modal-note-section">
-                <p class="note-text" id="modal-note">注意：此效果可与其他生命加成叠加</p>
+            <div class="note-section" id="modal-note-section" style="display: none;">
+                <p class="note-text" id="modal-note"></p>
             </div>
         </div>
     </div>
@@ -997,167 +924,85 @@
         const noteElement = document.getElementById('modal-note');
         const directionBtn = document.getElementById('sort-direction');
     
-        // 模拟纪念品数据
-        const mementosData = [
-            {
-                id: 1,
-                name_cn: "力量徽章",
-                name_en: "Badge of Strength",
-                category: "属性",
-                rarity: "常见",
-                effect_cn: "增加5%力量属性",
-                effect_en: "Increases Strength by 5%",
-                lore_cn: "战士公会的入门徽章",
-                lore_en: "Entry badge of the Warriors Guild",
-                note: ""
-            },
-            {
-                id: 2,
-                name_cn: "生命符文",
-                name_en: "Rune of Life",
-                category: "血量",
-                rarity: "常见",
-                effect_cn: "增加最大生命值15%",
-                effect_en: "Increases maximum HP by 15%",
-                lore_cn: "远古战士的护身符，蕴含着生命的能量",
-                lore_en: "An ancient warrior's talisman containing the energy of life",
-                note: "注意：此效果可与其他生命加成叠加"
-            },
-            {
-                id: 3,
-                name_cn: "冰霜抵抗",
-                name_en: "Frost Resistance",
-                category: "抗性",
-                rarity: "不常见",
-                effect_cn: "增加25%冰霜抗性",
-                effect_en: "Increases Frost Resistance by 25%",
-                lore_cn: "北方部落用来抵御严寒的护身符",
-                lore_en: "Talisman used by northern tribes to withstand extreme cold",
-                note: ""
-            },
-            {
-                id: 4,
-                name_cn: "耐力之环",
-                name_en: "Ring of Endurance",
-                category: "耐力",
-                rarity: "常见",
-                effect_cn: "增加20%耐力恢复速度",
-                effect_en: "Increases Stamina regeneration by 20%",
-                lore_cn: "长途旅行者的必备之物",
-                lore_en: "Essential for long-distance travelers",
-                note: ""
-            },
-            {
-                id: 5,
-                name_cn: "精准打击",
-                name_en: "Precision Strike",
-                category: "攻击",
-                rarity: "罕见",
-                effect_cn: "暴击伤害增加30%",
-                effect_en: "Increases critical damage by 30%",
-                lore_cn: "刺客大师的传家宝",
-                lore_en: "Heirloom of the Master Assassin",
-                note: ""
-            },
-            {
-                id: 6,
-                name_cn: "元素护盾",
-                name_en: "Elemental Shield",
-                category: "防御",
-                rarity: "不常见",
-                effect_cn: "所有元素抗性增加15%",
-                effect_en: "Increases all elemental resistances by 15%",
-                lore_cn: "古代法师用来抵御元素攻击的护符",
-                lore_en: "Ancient mages' charm to resist elemental attacks",
-                note: ""
-            },
-            {
-                id: 7,
-                name_cn: "奥术精华",
-                name_en: "Arcane Essence",
-                category: "法术",
-                rarity: "独特",
-                effect_cn: "法术伤害增加40%，冷却时间减少15%",
-                effect_en: "Increases spell damage by 40% and reduces cooldown by 15%",
-                lore_cn: "蕴含纯粹魔法能量的水晶",
-                lore_en: "Crystal containing pure magical energy",
-                note: "独特物品，每个角色只能携带一个"
-            },
-            {
-                id: 8,
-                name_cn: "探索者指南针",
-                name_en: "Explorer's Compass",
-                category: "探索",
-                rarity: "常见",
-                effect_cn: "小地图显示隐藏宝箱位置",
-                effect_en: "Reveals hidden chests on mini-map",
-                lore_cn: "著名探险家卡特的遗物",
-                lore_en: "Relic of the famous explorer Carter",
-                note: ""
-            }
-        ];
-        
-        let currentFilteredData = [...mementosData];
+        let mementosData = [];
+        let currentFilteredData = [];
         let sortDirection = 'desc';
-
-        // 初始化页面
-        function initPage() {
-            loader.style.display = 'none';
-            gallery.style.display = 'grid';
-            counter.style.display = 'block';
-            renderMementos(currentFilteredData);
+    
+        // 加载纪念品数据
+        function loadMementos() {
+            loader.style.display = 'flex';
+            gallery.style.display = 'none';
+            counter.style.display = 'none';
+            errorMessage.style.display = 'none';
+    
+            // 使用fetch加载JSON文件
+            fetch('data/mementos.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应不正常');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    mementosData = data.mementos;
+                    currentFilteredData = [...mementosData];
+                    sortMementos('default');
+    
+                    loader.style.display = 'none';
+                    gallery.style.display = 'grid';
+                    counter.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('加载数据失败:', error);
+                    loader.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                });
         }
-
+    
         // 渲染纪念品
         function renderMementos(mementos) {
             gallery.innerHTML = '';
             counter.textContent = mementos.length;
-
+    
             const animationDelay = 0.05;
-
+    
             mementos.forEach((memento, index) => {
                 const item = document.createElement('div');
                 item.className = `memento-item category-${memento.category}`;
                 item.style.animationDelay = `${index * animationDelay}s`;
-
-                // 创建雪碧图容器
+    
                 const sprite = document.createElement('div');
                 sprite.className = 'memento-sprite';
-                // 计算背景位置：每个图标80px高度，id从1开始
                 const position = -(memento.id - 1) * 80;
                 sprite.style.backgroundPosition = `0 ${position}px`;
-
-                // 分类标签
+    
                 const tag = document.createElement('span');
                 tag.className = 'category-tag';
                 tag.textContent = memento.category;
-
+    
                 item.appendChild(sprite);
                 item.appendChild(tag);
-
-                // 为整个纪念品项目添加点击事件
+    
                 item.addEventListener('click', () => openModal(memento));
-
+    
                 gallery.appendChild(item);
             });
         }
-
+    
         // 打开详情弹窗
         function openModal(memento) {
-            // 设置雪碧图位置
             const modalSprite = document.getElementById('modal-img');
             const position = -(memento.id - 1) * 100;
             modalSprite.style.backgroundPosition = `0 ${position}px`;
             
-            // 设置其他数据
             document.getElementById('modal-name-cn').textContent = memento.name_cn;
             document.getElementById('modal-name-en').textContent = memento.name_en;
             document.getElementById('modal-category').textContent = memento.category;
-
+    
             const rarityElement = document.getElementById('modal-rarity');
             rarityElement.textContent = memento.rarity;
             rarityElement.className = 'modal-rarity';
-
+    
             switch(memento.rarity) {
                 case '常见':
                     rarityElement.classList.add('rarity-common-color');
@@ -1172,47 +1017,47 @@
                     rarityElement.classList.add('rarity-unique-color');
                     break;
             }
-
+    
             document.getElementById('modal-effect-cn').textContent = memento.effect_cn;
             document.getElementById('modal-effect-en').textContent = memento.effect_en;
             document.getElementById('modal-lore-cn').textContent = memento.lore_cn;
-            document.getElementById('modal-lore-en').textContent = memento.lore_en;
-
+            document.getElementById('modal-lore-en').textContent = memento.lore_en || "Lore description text...";
+    
             if (memento.note && memento.note.trim() !== '') {
                 noteElement.textContent = memento.note;
                 noteSection.style.display = 'block';
             } else {
                 noteSection.style.display = 'none';
             }
-
+    
             modal.style.display = 'flex';
         }
-
+    
         // 关闭弹窗
         closeBtn.addEventListener('click', () => {
             modal.style.display = 'none';
         });
-
+    
         // 点击弹窗外区域关闭
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
             }
         });
-
+    
         // 搜索功能
         searchInput.addEventListener('input', filterMementos);
-
+    
         // 分类筛选
         categorySelect.addEventListener('change', filterMementos);
-
+    
         // 排序功能
         sortSelect.addEventListener('change', filterMementos);
-
+    
         // 排序方向按钮点击事件
         directionBtn.addEventListener('click', function() {
             sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-
+    
             const icon = directionBtn.querySelector('i');
             if (sortDirection === 'asc') {
                 icon.classList.remove('fa-sort-amount-down');
@@ -1221,30 +1066,30 @@
                 icon.classList.remove('fa-sort-amount-up');
                 icon.classList.add('fa-sort-amount-down');
             }
-
+    
             filterMementos();
         });
-
+    
         // 筛选纪念品
         function filterMementos() {
             const searchTerm = searchInput.value.toLowerCase();
             const selectedCategory = categorySelect.value;
-
+    
             const filtered = mementosData.filter(memento => {
                 const matchesSearch = memento.name_cn.toLowerCase().includes(searchTerm) ||
                                      memento.name_en.toLowerCase().includes(searchTerm);
                 const matchesCategory = selectedCategory === 'all' || memento.category === selectedCategory;
                 return matchesSearch && matchesCategory;
             });
-
+    
             currentFilteredData = filtered;
             sortMementos(sortSelect.value, filtered);
         }
-
+    
         // 排序函数
         function sortMementos(sortBy, data = currentFilteredData) {
             let sorted = [...data];
-
+    
             switch(sortBy) {
                 case 'name_en':
                     sorted.sort((a, b) => a.name_en.localeCompare(b.name_en));
@@ -1265,20 +1110,20 @@
                     sorted.sort((a, b) => a.id - b.id);
                     break;
             }
-
+    
             if (sortDirection === 'asc') {
                 sorted.reverse();
             }
-
+    
             renderMementos(sorted);
         }
-
+    
         // 重试按钮
-        retryBtn.addEventListener('click', initPage);
-
+        retryBtn.addEventListener('click', loadMementos);
+    
         // 初始加载数据
-        setTimeout(initPage, 1000);
-
+        loadMementos();
+    
         // 添加键盘快捷键
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.style.display === 'flex') {
