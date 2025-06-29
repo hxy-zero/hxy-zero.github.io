@@ -223,16 +223,15 @@
             z-index: 10;
         }
 
-        .memento-sprite {
-            width: 75px;
+        .memento-img {
+            width: 75px; /* 初始大小 */
             height: 75px;
-            background-image: url('https://s21.ax1x.com/2025/06/29/pVnYuJf.png');
-            background-repeat: no-repeat;
+            object-fit: contain;
             transition: all 0.3s ease;
             border-radius: 6px;
         }
 
-        .memento-item:hover .memento-sprite {
+        .memento-item:hover .memento-img {
             transform: scale(1.15);
         }
 
@@ -315,13 +314,11 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .modal-sprite {
+        .modal-img {
             width: 100px;
             height: 100px;
-            background-image: url('https://s21.ax1x.com/2025/06/29/pVnYuJf.png');
-            background-repeat: no-repeat;
+            object-fit: contain;
             border-radius: 6px;
-            background-size: 100px auto;
         }
 
         .modal-title {
@@ -456,6 +453,16 @@
                 grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
                 gap: 8px;
             }
+            
+            .memento-item {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .memento-img {
+                width: 70px;
+                height: 70px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -474,7 +481,7 @@
                 height: 75px;
             }
             
-            .memento-sprite {
+            .memento-img {
                 width: 65px;
                 height: 65px;
             }
@@ -542,7 +549,7 @@
                 height: 70px;
             }
             
-            .memento-sprite {
+            .memento-img {
                 width: 60px;
                 height: 60px;
             }
@@ -590,7 +597,7 @@
                 height: 65px;
             }
             
-            .memento-sprite {
+            .memento-img {
                 width: 55px;
                 height: 55px;
             }
@@ -611,7 +618,7 @@
                 height: 60px;
             }
             
-            .memento-sprite {
+            .memento-img {
                 width: 50px;
                 height: 50px;
             }
@@ -891,53 +898,53 @@
             </div>
 
             <div class="gallery" id="memento-gallery">
-                <!-- 纪念品将通过JavaScript动态加载 -->
+                <!-- 示例纪念品 -->
                 <div class="memento-item category-属性">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/ff6b6b/ffffff?text=属性" class="memento-img" alt="属性纪念品">
                     <span class="category-tag">属性</span>
                 </div>
                 <div class="memento-item category-抗性">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/06d6a0/ffffff?text=抗性" class="memento-img" alt="抗性纪念品">
                     <span class="category-tag">抗性</span>
                 </div>
                 <div class="memento-item category-血量">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/ff9d00/ffffff?text=血量" class="memento-img" alt="血量纪念品">
                     <span class="category-tag">血量</span>
                 </div>
                 <div class="memento-item category-饥饿">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/ffd166/ffffff?text=饥饿" class="memento-img" alt="饥饿纪念品">
                     <span class="category-tag">饥饿</span>
                 </div>
                 <div class="memento-item category-耐力">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/76d7c4/ffffff?text=耐力" class="memento-img" alt="耐力纪念品">
                     <span class="category-tag">耐力</span>
                 </div>
                 <div class="memento-item category-激增">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/ef476f/ffffff?text=激增" class="memento-img" alt="激增纪念品">
                     <span class="category-tag">激增</span>
                 </div>
                 <div class="memento-item category-同伴">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/118ab2/ffffff?text=同伴" class="memento-img" alt="同伴纪念品">
                     <span class="category-tag">同伴</span>
                 </div>
                 <div class="memento-item category-敌人">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/9b5de5/ffffff?text=敌人" class="memento-img" alt="敌人纪念品">
                     <span class="category-tag">敌人</span>
                 </div>
                 <div class="memento-item category-武器">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/ff5e5b/ffffff?text=武器" class="memento-img" alt="武器纪念品">
                     <span class="category-tag">武器</span>
                 </div>
                 <div class="memento-item category-攻击">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/f94144/ffffff?text=攻击" class="memento-img" alt="攻击纪念品">
                     <span class="category-tag">攻击</span>
                 </div>
                 <div class="memento-item category-防御">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/2ec4b6/ffffff?text=防御" class="memento-img" alt="防御纪念品">
                     <span class="category-tag">防御</span>
                 </div>
                 <div class="memento-item category-打击">
-                    <div class="memento-sprite"></div>
+                    <img src="https://via.placeholder.com/80/fda7df/ffffff?text=打击" class="memento-img" alt="打击纪念品">
                     <span class="category-tag">打击</span>
                 </div>
             </div>
@@ -961,7 +968,7 @@
 
             <div class="modal-header">
                 <div class="modal-image">
-                    <div class="modal-sprite" id="modal-img"></div>
+                    <img src="https://via.placeholder.com/100/ffd166/000000?text=守护之心" class="modal-img" id="modal-img" alt="纪念品图片">
                 </div>
                 <div class="modal-title">
                     <h2 id="modal-name-cn">守护之心</h2>
@@ -1022,28 +1029,68 @@
             counter.style.display = 'none';
             errorMessage.style.display = 'none';
     
-            // 使用fetch加载JSON文件
-            fetch('data/mementos.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('网络响应不正常');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    mementosData = data.mementos;
-                    currentFilteredData = [...mementosData];
-                    sortMementos('default');
+            // 模拟数据加载
+            setTimeout(() => {
+                // 这里模拟加载数据
+                mementosData = [
+                    { id: 1, name_cn: "力量之石", name_en: "Stone of Strength", category: "属性", rarity: "常见", 
+                      effect_cn: "增加5%力量", effect_en: "Increases strength by 5%", 
+                      lore_cn: "蕴含大地力量的石头", lore_en: "A stone imbued with the power of the earth", 
+                      note: "可叠加效果", image: "https://via.placeholder.com/80/ff6b6b/ffffff?text=属性" },
+                    { id: 2, name_cn: "抗性护符", name_en: "Resistance Amulet", category: "抗性", rarity: "不常见", 
+                      effect_cn: "增加10%全抗性", effect_en: "Increases all resistances by 10%", 
+                      lore_cn: "古老护符，抵御各种伤害", lore_en: "An ancient amulet that wards off various damages", 
+                      note: "对元素伤害尤其有效", image: "https://via.placeholder.com/80/06d6a0/ffffff?text=抗性" },
+                    { id: 3, name_cn: "生命水晶", name_en: "Life Crystal", category: "血量", rarity: "罕见", 
+                      effect_cn: "增加15%最大生命值", effect_en: "Increases max HP by 15%", 
+                      lore_cn: "蕴含生命能量的水晶", lore_en: "A crystal imbued with life energy", 
+                      note: "不可叠加", image: "https://via.placeholder.com/80/ff9d00/ffffff?text=血量" },
+                    { id: 4, name_cn: "饱食之戒", name_en: "Ring of Satiety", category: "饥饿", rarity: "常见", 
+                      effect_cn: "减缓饥饿速度20%", effect_en: "Slows hunger rate by 20%", 
+                      lore_cn: "永不满足的象征", lore_en: "A symbol of insatiable hunger", 
+                      note: "持续时间无限", image: "https://via.placeholder.com/80/ffd166/ffffff?text=饥饿" },
+                    { id: 5, name_cn: "耐力腰带", name_en: "Stamina Belt", category: "耐力", rarity: "不常见", 
+                      effect_cn: "增加30%耐力恢复速度", effect_en: "Increases stamina recovery by 30%", 
+                      lore_cn: "冒险者必备装备", lore_en: "Essential gear for adventurers", 
+                      note: "战斗外效果翻倍", image: "https://via.placeholder.com/80/76d7c4/ffffff?text=耐力" },
+                    { id: 6, name_cn: "激增药剂", name_en: "Surge Potion", category: "激增", rarity: "独特", 
+                      effect_cn: "临时提升50%攻击速度", effect_en: "Temporarily increases attack speed by 50%", 
+                      lore_cn: "危险但强大的药剂", lore_en: "A dangerous but powerful potion", 
+                      note: "持续15秒，冷却2分钟", image: "https://via.placeholder.com/80/ef476f/ffffff?text=激增" },
+                    { id: 7, name_cn: "同伴哨子", name_en: "Companion Whistle", category: "同伴", rarity: "罕见", 
+                      effect_cn: "召唤一位战斗同伴", effect_en: "Summons a battle companion", 
+                      lore_cn: "失传的召唤术工具", lore_en: "A tool of lost summoning arts", 
+                      note: "同伴持续5分钟", image: "https://via.placeholder.com/80/118ab2/ffffff?text=同伴" },
+                    { id: 8, name_cn: "敌意图腾", name_en: "Hostility Totem", category: "敌人", rarity: "不常见", 
+                      effect_cn: "降低周围敌人攻击力", effect_en: "Reduces attack power of nearby enemies", 
+                      lore_cn: "原始部落的战争图腾", lore_en: "A war totem from primitive tribes", 
+                      note: "效果半径5米", image: "https://via.placeholder.com/80/9b5de5/ffffff?text=敌人" },
+                    { id: 9, name_cn: "武器磨刀石", name_en: "Weapon Whetstone", category: "武器", rarity: "常见", 
+                      effect_cn: "提升武器伤害10%", effect_en: "Increases weapon damage by 10%", 
+                      lore_cn: "旅行铁匠的必备工具", lore_en: "Essential tool for traveling blacksmiths", 
+                      note: "持续30分钟", image: "https://via.placeholder.com/80/ff5e5b/ffffff?text=武器" },
+                    { id: 10, name_cn: "攻击徽章", name_en: "Attack Badge", category: "攻击", rarity: "不常见", 
+                      effect_cn: "增加15%暴击率", effect_en: "Increases critical hit chance by 15%", 
+                      lore_cn: "精英战士的荣誉徽章", lore_en: "A badge of honor for elite warriors", 
+                      note: "可与其他暴击效果叠加", image: "https://via.placeholder.com/80/f94144/ffffff?text=攻击" },
+                    { id: 11, name_cn: "防御护盾", name_en: "Defense Shield", category: "防御", rarity: "罕见", 
+                      effect_cn: "格挡成功时恢复生命", effect_en: "Restores HP when blocking successfully", 
+                      lore_cn: "古代骑士团的制式装备", lore_en: "Standard equipment of ancient knights", 
+                      note: "恢复量为伤害的20%", image: "https://via.placeholder.com/80/2ec4b6/ffffff?text=防御" },
+                    { id: 12, name_cn: "打击手套", name_en: "Strike Gloves", category: "打击", rarity: "独特", 
+                      effect_cn: "增加30%近战伤害", effect_en: "Increases melee damage by 30%", 
+                      lore_cn: "传奇拳击手的遗物", lore_en: "Relic of a legendary boxer", 
+                      note: "对重型武器效果减半", image: "https://via.placeholder.com/80/fda7df/ffffff?text=打击" }
+                ];
+                
+                currentFilteredData = [...mementosData];
+                sortMementos('default');
     
-                    loader.style.display = 'none';
-                    gallery.style.display = 'grid';
-                    counter.style.display = 'block';
-                })
-                .catch(error => {
-                    console.error('加载数据失败:', error);
-                    loader.style.display = 'none';
-                    errorMessage.style.display = 'block';
-                });
+                loader.style.display = 'none';
+                gallery.style.display = 'grid';
+                counter.style.display = 'block';
+                renderMementos(mementosData);
+            }, 1500);
         }
     
         // 渲染纪念品
@@ -1058,16 +1105,16 @@
                 item.className = `memento-item category-${memento.category}`;
                 item.style.animationDelay = `${index * animationDelay}s`;
     
-                const sprite = document.createElement('div');
-                sprite.className = 'memento-sprite';
-                const position = -(memento.id - 1) * 80;
-                sprite.style.backgroundPosition = `0 ${position}px`;
+                const img = document.createElement('img');
+                img.src = memento.image;
+                img.alt = memento.name_cn;
+                img.className = 'memento-img';
     
                 const tag = document.createElement('span');
                 tag.className = 'category-tag';
                 tag.textContent = memento.category;
     
-                item.appendChild(sprite);
+                item.appendChild(img);
                 item.appendChild(tag);
     
                 item.addEventListener('click', () => openModal(memento));
@@ -1078,10 +1125,7 @@
     
         // 打开详情弹窗
         function openModal(memento) {
-            const modalSprite = document.getElementById('modal-img');
-            const position = -(memento.id - 1) * 100;
-            modalSprite.style.backgroundPosition = `0 ${position}px`;
-            
+            document.getElementById('modal-img').src = memento.image;
             document.getElementById('modal-name-cn').textContent = memento.name_cn;
             document.getElementById('modal-name-en').textContent = memento.name_en;
             document.getElementById('modal-category').textContent = memento.category;
