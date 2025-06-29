@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>纪念品图鉴</title>
-    <link rel="shortcut icon" href="images/icov.ico" />
-    <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -194,19 +192,19 @@
         .gallery {
             background-color: var(--primary);
             border-radius: 12px;
-            padding: 10px;
+            padding: 20px;
             box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-            gap: 5px;
+            grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+            gap: 10px;
             min-height: 500px;
         }
 
         .memento-item {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            width: 90px; 
-            height: 90px; 
+            width: 85px; 
+            height: 85px; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -226,8 +224,8 @@
         }
 
         .memento-sprite {
-            width: 80px;
-            height: 80px;
+            width: 75px;
+            height: 75px;
             background-image: url('https://s21.ax1x.com/2025/06/29/pVnYuJf.png');
             background-repeat: no-repeat;
             transition: all 0.3s ease;
@@ -438,7 +436,7 @@
             line-height: 1.4;
         }
 
-        /* 响应式设计 */
+        /* 响应式设计 - 优化后 */
         @media (max-width: 900px) {
             .navbar {
                 gap: 10px;
@@ -453,12 +451,32 @@
                 flex: 1;
                 min-width: calc(50% - 10px);
             }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 8px;
+            }
         }
 
         @media (max-width: 768px) {
             .subtitle {
                 font-size: 1.1rem;
                 padding: 12px;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                gap: 7px;
+            }
+            
+            .memento-item {
+                width: 75px;
+                height: 75px;
+            }
+            
+            .memento-sprite {
+                width: 65px;
+                height: 65px;
             }
 
             .modal-header {
@@ -490,11 +508,6 @@
             .note-text {
                 font-size: 0.8rem;
             }
-            
-            .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-                gap: 12px;
-            }
         }
 
         @media (max-width: 600px) {
@@ -519,9 +532,19 @@
             }
 
             .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-                gap: 10px;
+                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+                gap: 6px;
                 padding: 15px;
+            }
+            
+            .memento-item {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .memento-sprite {
+                width: 60px;
+                height: 60px;
             }
 
             .modal-content {
@@ -556,9 +579,41 @@
             }
         }
 
+        @media (max-width: 400px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+                gap: 5px;
+            }
+            
+            .memento-item {
+                width: 65px;
+                height: 65px;
+            }
+            
+            .memento-sprite {
+                width: 55px;
+                height: 55px;
+            }
+        }
+
         @media (max-width: 360px) {
             .subtitle {
                 font-size: 0.85rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+                gap: 4px;
+            }
+            
+            .memento-item {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .memento-sprite {
+                width: 50px;
+                height: 50px;
             }
 
             .search-container input {
@@ -574,21 +629,6 @@
             .category-select {
                 padding: 10px 12px;
                 font-size: 0.9rem;
-            }
-            
-            .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
-                gap: 8px;
-            }
-            
-            .memento-item {
-                width: 85px;
-                height: 85px;
-            }
-            
-            .memento-sprite {
-                width: 75px;
-                height: 75px;
             }
         }
 
@@ -852,10 +892,58 @@
 
             <div class="gallery" id="memento-gallery">
                 <!-- 纪念品将通过JavaScript动态加载 -->
+                <div class="memento-item category-属性">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">属性</span>
+                </div>
+                <div class="memento-item category-抗性">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">抗性</span>
+                </div>
+                <div class="memento-item category-血量">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">血量</span>
+                </div>
+                <div class="memento-item category-饥饿">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">饥饿</span>
+                </div>
+                <div class="memento-item category-耐力">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">耐力</span>
+                </div>
+                <div class="memento-item category-激增">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">激增</span>
+                </div>
+                <div class="memento-item category-同伴">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">同伴</span>
+                </div>
+                <div class="memento-item category-敌人">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">敌人</span>
+                </div>
+                <div class="memento-item category-武器">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">武器</span>
+                </div>
+                <div class="memento-item category-攻击">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">攻击</span>
+                </div>
+                <div class="memento-item category-防御">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">防御</span>
+                </div>
+                <div class="memento-item category-打击">
+                    <div class="memento-sprite"></div>
+                    <span class="category-tag">打击</span>
+                </div>
             </div>
 
             <div class="counter" id="counter">
-                显示 <span id="count">0</span> 个纪念品
+                显示 <span id="count">12</span> 个纪念品
             </div>
 
             <div class="error-message" id="error-message">
@@ -876,11 +964,11 @@
                     <div class="modal-sprite" id="modal-img"></div>
                 </div>
                 <div class="modal-title">
-                    <h2 id="modal-name-cn"></h2>
-                    <h3 id="modal-name-en"></h3>
+                    <h2 id="modal-name-cn">守护之心</h2>
+                    <h3 id="modal-name-en">Heart of Protection</h3>
                     <div class="info-tags">
-                        <span class="modal-category" id="modal-category"></span>
-                        <span class="modal-rarity" id="modal-rarity"></span>
+                        <span class="modal-category" id="modal-category">防御</span>
+                        <span class="modal-rarity rarity-rare-color" id="modal-rarity">罕见</span>
                     </div>
                 </div>
             </div>
@@ -889,20 +977,20 @@
                 <h4>
                   <i class="fas fa-bolt section-icon"></i>
                 </h4>
-                <p class="chinese" id="modal-effect-cn"></p>
-                <p class="english" id="modal-effect-en"></p>
+                <p class="chinese" id="modal-effect-cn">受到伤害时，有15%几率获得一个吸收伤害的护盾</p>
+                <p class="english" id="modal-effect-en">When taking damage, 15% chance to gain a damage-absorbing shield</p>
             </div>
 
             <div class="modal-section">
                 <h4>
                     <i class="fas fa-book section-icon"></i>
                 </h4>
-                <p class="chinese" id="modal-lore-cn"></p>
-                <p class="english" id="modal-lore-en"></p>
+                <p class="chinese" id="modal-lore-cn">这颗心曾属于一位无畏的守护者，如今它将守护新的主人</p>
+                <p class="english" id="modal-lore-en">This heart once belonged to a fearless guardian, now it will protect its new owner</p>
             </div>
 
-            <div class="note-section" id="modal-note-section" style="display: none;">
-                <p class="note-text" id="modal-note"></p>
+            <div class="note-section" id="modal-note-section">
+                <p class="note-text" id="modal-note">护盾值相当于最大生命值的10%，持续5秒</p>
             </div>
         </div>
     </div>
