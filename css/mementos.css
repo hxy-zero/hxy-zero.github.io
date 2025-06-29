@@ -1,10 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -27,7 +20,7 @@ header {
     line-height: 1.8;
     background: rgba(45, 26, 44, 0.7);
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(0,  0, 0, 0.4);
 }
 
 .rarity-common {
@@ -53,7 +46,7 @@ header {
     font-weight: bold;
 }
 
-/* 导航栏样式 - 优化后 */
+/* 导航栏样式 */
 .navbar {
     background-color: rgba(45, 26, 44, 0.95);
     backdrop-filter: blur(5px);
@@ -69,7 +62,6 @@ header {
     z-index: 100;
 }
 
-/* 新增：搜索组容器 */
 .search-group {
     display: flex;
     flex: 1;
@@ -107,10 +99,8 @@ header {
     opacity: 0.7;
 }
 
-/* 方向按钮样式 */
 .direction-btn {
     width: 50px;
-    /* height: 50px; */
     margin-left: 10px;
     border-radius: 50%;
     border: none;
@@ -135,7 +125,6 @@ header {
     min-width: 160px;
 }
 
-/* 优化后的选择框样式 */
 .category-select {
     width: 100%;
     padding: 12px 15px;
@@ -155,7 +144,6 @@ header {
     background: rgba(90, 47, 88, 0.5);
 }
 
-/* 新增：选择框图标 */
 .select-icon {
     position: absolute;
     right: 15px;
@@ -165,7 +153,7 @@ header {
     opacity: 0.7;
 }
 
-/* 纪念品展示区 */
+/* 纪念品展示区 - 确保正方形 */
 .gallery {
     background-color: var(--primary);
     border-radius: 12px;
@@ -173,14 +161,15 @@ header {
     box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: 5px;
+    gap: 10px;
     min-height: 500px;
 }
 
 .memento-item {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    height: 90px;
+    width: 90px; 
+    height: 90px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -189,6 +178,7 @@ header {
     overflow: hidden;
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; 
 }
 
 .memento-item:hover {
@@ -198,15 +188,16 @@ header {
     z-index: 10;
 }
 
-.memento-item img {
+.memento-sprite {
     width: 80px;
     height: 80px;
-    object-fit: contain;
+    background-image: url('https://s21.ax1x.com/2025/06/29/pVnYuJf.png');
+    background-repeat: no-repeat;
     transition: all 0.3s ease;
     border-radius: 6px;
 }
 
-.memento-item:hover img {
+.memento-item:hover .memento-sprite {
     transform: scale(1.15);
 }
 
@@ -275,18 +266,6 @@ header {
     color: #06d6a0;
 }
 
-.icon-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.icon-title {
-    font-size: 1.5rem;
-    margin-bottom: 0;
-    color: #06d6a0;
-}
-
 .modal-image {
     width: 120px;
     height: 120px;
@@ -301,11 +280,13 @@ header {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-.modal-image img {
+.modal-sprite {
     width: 100px;
     height: 100px;
-    object-fit: contain;
+    background-image: url('https://s21.ax1x.com/2025/06/29/pVnYuJf.png');
+    background-repeat: no-repeat;
     border-radius: 6px;
+    background-size: 100px auto;
 }
 
 .modal-title {
@@ -420,7 +401,7 @@ header {
     line-height: 1.4;
 }
 
-/* 响应式设计 - 优化后 */
+/* 响应式设计 */
 @media (max-width: 900px) {
     .navbar {
         gap: 10px;
@@ -434,10 +415,6 @@ header {
     .filter-container {
         flex: 1;
         min-width: calc(50% - 10px);
-    }
-
-    .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
     }
 }
 
@@ -476,11 +453,26 @@ header {
     .note-text {
         font-size: 0.8rem;
     }
+    
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 8px;
+        padding: 20px;
+    }
 }
 
 @media (max-width: 600px) {
     .filter-container {
         min-width: 140px;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-group {
+        margin-bottom: 10px;
     }
 }
 
@@ -491,18 +483,9 @@ header {
     }
 
     .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-        gap: 8px;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 5px;
         padding: 15px;
-    }
-
-    .memento-item {
-        height: 80px;
-    }
-
-    .memento-item img {
-        width: 70px;
-        height: 70px;
     }
 
     .modal-content {
@@ -530,6 +513,22 @@ header {
     .note-text {
         font-size: 0.75rem;
     }
+    
+    .category-tag {
+        font-size: 0.6rem;
+        padding: 1px 3px;
+    }
+                
+    .memento-item {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .memento-sprite {
+        width: 70px;
+        height: 70px;
+        background-size: 70px auto; /* 关键：添加背景图尺寸适配 */
+    }
 }
 
 @media (max-width: 360px) {
@@ -550,6 +549,23 @@ header {
     .category-select {
         padding: 10px 12px;
         font-size: 0.9rem;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+        gap: 3px;
+        padding: 5px;
+    }
+    
+    .memento-item {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .memento-sprite {
+        width: 65px;
+        height: 65px;
+        background-size: 65px auto; /* 关键：添加背景图尺寸适配 */
     }
 }
 
@@ -610,6 +626,7 @@ header {
     border-radius: 12px;
     margin: 20px 0;
     border: 1px solid rgba(255, 0, 0, 0.3);
+    display: none;
 }
 
 .error-message h3 {
@@ -685,13 +702,13 @@ header {
     100% { transform: translate(0, 0) rotate(360deg); }
 }
 
-/* 新增：选择容器 */
+/* 选择容器 */
 .select-container {
     position: relative;
     width: 100%;
 }
 
-/* 新增：页面标题 */
+/* 页面标题 */
 .page-title {
     text-align: center;
     font-size: 2.8rem;
@@ -703,7 +720,7 @@ header {
     color: transparent;
 }
 
-/* 新增：分类标签 */
+/* 分类标签 */
 .category-tag {
     position: absolute;
     bottom: 0px;
