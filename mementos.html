@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>纪念品图鉴</title>
+    <title>纪念品图鉴 - 移动端优化版</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -204,10 +204,12 @@
             min-height: 500px;
         }
 
+        /* 修复：确保在所有设备上保持90px正方形 */
         .memento-item {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            height: 90px;
+            width: 90px; /* 固定宽度 */
+            height: 90px; /* 固定高度 */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -216,6 +218,7 @@
             overflow: hidden;
             position: relative;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto; /* 居中显示 */
         }
 
         .memento-item:hover {
@@ -467,8 +470,9 @@
                 min-width: calc(50% - 10px);
             }
 
+            /* 移动端保持90px正方形 */
             .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
             }
         }
 
@@ -508,19 +512,15 @@
                 font-size: 0.8rem;
             }
             
-            /* 移动端图库图片尺寸调整为80x80 */
+            /* 移动端图库保持90px正方形 */
             .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
                 gap: 12px;
             }
             
             .memento-item {
-                height: 80px;
-            }
-            
-            .memento-sprite {
-                width: 80px;
-                height: 80px;
+                width: 90px;
+                height: 90px;
             }
         }
 
@@ -546,13 +546,14 @@
             }
 
             .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
                 gap: 10px;
                 padding: 15px;
             }
 
             .memento-item {
-                height: 80px;
+                width: 90px;
+                height: 90px;
             }
 
             .memento-sprite {
@@ -614,8 +615,18 @@
             }
             
             .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
                 gap: 8px;
+            }
+            
+            .memento-item {
+                width: 85px;
+                height: 85px;
+            }
+            
+            .memento-sprite {
+                width: 75px;
+                height: 75px;
             }
         }
 
