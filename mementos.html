@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>纪念品图鉴</title>
+    <title>遗物图鉴</title>
     <link rel="shortcut icon" href="images/icov.ico" />
     <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="css/mementos.css?v=2.0.0" type="text/css" rel="stylesheet" />
+    <link href="css/mementos.css?v=2.0.1" type="text/css" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -68,8 +68,8 @@
 
     <div class="container">
         <header>
-            <h1 class="page-title">纪念品图鉴</h1>
-            <p class="subtitle">纪念品稀有度：
+            <h1 class="page-title">遗物图鉴</h1>
+            <p class="subtitle">遗物稀有度：
                 <span class="rarity-common">常见</span>、
                 <span class="rarity-uncommon">不常见</span>、
                 <span class="rarity-rare">罕见</span>和
@@ -81,7 +81,7 @@
             <div class="search-group">
                 <div class="search-container">
                     <i class="fas fa-search search-icon"></i>
-                    <input type="text" id="search-input" placeholder="搜索纪念品...">
+                    <input type="text" id="search-input" placeholder="搜索遗物...">
                 </div>
                 <button id="sort-direction" class="direction-btn" title="切换排序方向">
                     <i class="fas fa-sort-amount-down"></i>
@@ -97,7 +97,7 @@
                         <option value="血量">血量</option>
                         <option value="饥饿">饥饿</option>
                         <option value="耐力">耐力</option>
-                        <option value="激增">激增</option>
+                        <option value="治疗波">治疗波</option>
                         <option value="同伴">同伴</option>
                         <option value="敌人">敌人</option>
                         <option value="武器">武器</option>
@@ -105,7 +105,7 @@
                         <option value="防御">防御</option>
                         <option value="打击">打击</option>
                         <option value="法术">法术</option>
-                        <option value="项目">项目</option>
+                        <option value="掉落">掉落</option>
                         <option value="探索">探索</option>
                         <option value="隐形">隐形</option>
                         <option value="陷阱">陷阱</option>
@@ -130,26 +130,26 @@
         <main>
             <div class="loader" id="loader">
                 <div class="spinner"></div>
-                <p>加载纪念品数据中...</p>
+                <p>加载遗物数据中...</p>
             </div>
 
             <div class="gallery" id="memento-gallery">
-                <!-- 纪念品将通过JavaScript动态加载 -->
+                <!-- 遗物将通过JavaScript动态加载 -->
             </div>
 
             <div class="counter" id="counter">
-                显示 <span id="count">0</span> 个纪念品
+                显示 <span id="count">0</span> 个遗物
             </div>
 
             <div class="error-message" id="error-message">
                 <h3>数据加载失败</h3>
-                <p>无法加载纪念品数据，请检查网络连接或稍后再试。</p>
+                <p>无法加载遗物数据，请检查网络连接或稍后再试。</p>
                 <button class="retry-btn" id="retry-btn">重新加载</button>
             </div>
         </main>
     </div>
 
-    <!-- 纪念品详情弹窗 -->
+    <!-- 遗物详情弹窗 -->
     <div id="memento-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -210,7 +210,7 @@
         let currentFilteredData = [];
         let sortDirection = 'desc';
     
-        // 加载纪念品数据
+        // 加载遗物数据
         function loadMementos() {
             loader.style.display = 'flex';
             gallery.style.display = 'none';
@@ -241,7 +241,7 @@
                 });
         }
     
-        // 渲染纪念品
+        // 渲染遗物
         function renderMementos(mementos) {
             gallery.innerHTML = '';
             counter.textContent = mementos.length;
@@ -362,7 +362,7 @@
             filterMementos();
         });
     
-        // 筛选纪念品
+        // 筛选遗物
         function filterMementos() {
             const searchTerm = searchInput.value.toLowerCase();
             const selectedCategory = categorySelect.value;
