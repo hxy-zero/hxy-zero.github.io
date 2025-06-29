@@ -200,7 +200,7 @@
             box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-            gap: 5px;
+            gap: 15px;
             min-height: 500px;
         }
 
@@ -336,7 +336,6 @@
             background-image: url('https://s21.ax1x.com/2025/06/29/pVnYuJf.png');
             background-repeat: no-repeat;
             border-radius: 6px;
-            /* 修复：添加背景尺寸属性以正确放大 */
             background-size: 100px auto;
         }
 
@@ -508,11 +507,35 @@
             .note-text {
                 font-size: 0.8rem;
             }
+            
+            /* 移动端图库图片尺寸调整为80x80 */
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 12px;
+            }
+            
+            .memento-item {
+                height: 80px;
+            }
+            
+            .memento-sprite {
+                width: 80px;
+                height: 80px;
+            }
         }
 
         @media (max-width: 600px) {
             .filter-container {
                 min-width: 140px;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-group {
+                margin-bottom: 10px;
             }
         }
 
@@ -523,8 +546,8 @@
             }
 
             .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-                gap: 8px;
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 10px;
                 padding: 15px;
             }
 
@@ -533,8 +556,8 @@
             }
 
             .memento-sprite {
-                width: 70px;
-                height: 70px;
+                width: 80px;
+                height: 80px;
             }
 
             .modal-content {
@@ -562,6 +585,12 @@
             .note-text {
                 font-size: 0.75rem;
             }
+            
+            /* 移动端分类标签优化 */
+            .category-tag {
+                font-size: 0.6rem;
+                padding: 1px 3px;
+            }
         }
 
         @media (max-width: 360px) {
@@ -582,6 +611,11 @@
             .category-select {
                 padding: 10px 12px;
                 font-size: 0.9rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                gap: 8px;
             }
         }
 
@@ -1244,17 +1278,6 @@
                 searchInput.focus();
             }
         });
-        
-        // 添加演示用的弹窗打开按钮
-        const demoBtn = document.createElement('button');
-        demoBtn.textContent = '查看弹窗示例';
-        demoBtn.className = 'retry-btn';
-        demoBtn.style.margin = '20px auto';
-        demoBtn.style.display = 'block';
-        demoBtn.addEventListener('click', () => {
-            openModal(mementosData[1]);
-        });
-        document.querySelector('main').appendChild(demoBtn);
     });
     </script>
 </body>
