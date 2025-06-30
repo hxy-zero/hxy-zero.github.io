@@ -10,7 +10,7 @@
       "effect_en": "My aggression is increased.",
       "lore_cn": "代代相传的刀刃，因珍视使用而磨砺。",
       "lore_en": "An heirloom, worn from honest use.",
-      "note": "攻击性 + 10%"
+      "note": "攻击性（武器伤害） + 10%"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "effect_en": "My strength is increased.",
       "lore_cn": "领袖通过无私的奉献赋予子民力量，暴君的压迫却永远无法激发这般潜能。",
       "lore_en": "A leader lends strength to men the way a tyrant never could.",
-      "note": "能量 + 10%"
+      "note": "力量（武器威能） + 10%"
     },
     {
       "id": 3,
@@ -34,7 +34,7 @@
       "effect_en": "My speed is increased.",
       "lore_cn": "有翼之神遭凡人斩击，残翼难支，踉跄遁去。",
       "lore_en": "The winged god, cut down by men, could only hobble away.",
-      "note": "速度 + 10%"
+      "note": "速度（移动速度） + 10%"
     },
     {
       "id": 4,
@@ -46,7 +46,7 @@
       "effect_en": "My mobility is increased.",
       "lore_cn": "我追逐飘零的秋叶，却总被其迅捷所欺。",
       "lore_en": "I spend hours trying to catch these leaves as they fall. They're usually too quick for me.",
-      "note": "机动性 + 10%"
+      "note": "机动性（闪避效果·耐力恢复速度） + 10%"
     },
     {
       "id": 5,
@@ -77,7 +77,7 @@
       "name_en": "Red Wine",
       "category": "属性",
       "rarity": "常见",
-      "effect_cn": "我的耐力增强了。",
+      "effect_cn": "我的耐力上限增强了。",
       "effect_en": "My stamina is increased.",
       "lore_cn": "饮此琼浆，续我前行之力。",
       "lore_en": "Just what I need to keep going."
@@ -92,7 +92,7 @@
       "effect_en": "My fortitude is increased.",
       "lore_cn": "乱世中激励士气、凝聚部队的象征。",
       "lore_en": "A symbol of inspiration and solidarity amongst the chaos.",
-      "note": "坚韧 + 10%，治疗波容量 + 1"
+      "note": "坚韧（治疗波效果·抗性） + 10%，治疗波容量 + 1"
     },
     {
       "id": 9,
@@ -104,7 +104,7 @@
       "effect_en": "My knowledge is increased.",
       "lore_cn": "沙粒以精准的节奏丈量求知之路。",
       "lore_en": "The sands measure my studies in perfect intervals.",
-      "note": "知识 + 10%"
+      "note": "知识（魔法效果·充能速度） + 10%"
     },
     {
       "id": 10,
