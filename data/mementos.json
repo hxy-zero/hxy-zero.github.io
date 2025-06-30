@@ -54,10 +54,11 @@
       "name_en": "Bifocals",
       "category": "属性",
       "rarity": "常见",
-      "effect_cn": "我的感知增幅。",
+      "effect_cn": "我的感知增长。",
       "effect_en": "My perception is increased.",
       "lore_cn": "双瞳重明，天地尽览！",
-      "lore_en": "I can see again!"
+      "lore_en": "I can see again!",
+      "note": "感知（视野距离·虔信感知）"
     },
     {
       "id": 6,
