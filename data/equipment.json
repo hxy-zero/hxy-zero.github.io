@@ -1,0 +1,123 @@
+{
+  "equipment": [
+    {
+      "id": 1,
+      "name_cn": "豁口刀",
+      "name_en": "Chipped Blade",
+      "effect_cn": "我的攻击性增强。",
+      "effect_en": "My aggression is increased."
+    },
+    {
+      "id": 2,
+      "name_cn": "钢盾",
+      "name_en": "Steel Shield",
+      "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+      "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+    },
+    {
+      "id": 3,
+      "name_cn": "水晶护符",
+      "name_en": "Crystal Amulet",
+      "effect_cn": "提升元素抗性，但会削弱物理防御。",
+      "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+    },
+    {
+      "id": 4,
+      "name_cn": "钢盾",
+      "name_en": "Steel Shield",
+      "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+      "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+    },
+    {
+      "id": 5,
+      "name_cn": "水晶护符",
+      "name_en": "Crystal Amulet",
+      "effect_cn": "提升元素抗性，但会削弱物理防御。",
+      "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+    },
+    {
+      "id": 6,
+      "name_cn": "钢盾",
+      "name_en": "Steel Shield",
+      "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+      "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+    },
+    {
+      "id": 7,
+      "name_cn": "水晶护符",
+      "name_en": "Crystal Amulet",
+      "effect_cn": "提升元素抗性，但会削弱物理防御。",
+      "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+    },
+    {
+      "id": 8,
+      "name_cn": "钢盾",
+      "name_en": "Steel Shield",
+      "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+      "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+    },
+    {
+      "id": 9,
+      "name_cn": "水晶护符",
+      "name_en": "Crystal Amulet",
+      "effect_cn": "提升元素抗性，但会削弱物理防御。",
+      "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+    },
+    {
+      "id": 10,
+      "name_cn": "钢盾",
+      "name_en": "Steel Shield",
+      "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+      "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+    },
+    {
+      "id": 11,
+      "name_cn": "水晶护符",
+      "name_en": "Crystal Amulet",
+      "effect_cn": "提升元素抗性，但会削弱物理防御。",
+      "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+    },
+    {
+      "id": 12,
+      "name_cn": "钢盾",
+      "name_en": "Steel Shield",
+      "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+      "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+    },
+    {
+      "id": 13,
+      "name_cn": "水晶护符",
+      "name_en": "Crystal Amulet",
+      "effect_cn": "提升元素抗性，但会削弱物理防御。",
+      "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+    },
+    {
+      "id": 14,
+      "name_cn": "钢盾",
+      "name_en": "Steel Shield",
+      "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+      "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+    },
+    {
+      "id": 15,
+      "name_cn": "水晶护符",
+      "name_en": "Crystal Amulet",
+      "effect_cn": "提升元素抗性，但会削弱物理防御。",
+      "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+    },
+    {
+      "id": 16,
+      "name_cn": "钢盾",
+      "name_en": "Steel Shield",
+      "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+      "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+    },
+    {
+      "id": 17,
+      "name_cn": "水晶护符",
+      "name_en": "Crystal Amulet",
+      "effect_cn": "提升元素抗性，但会削弱物理防御。",
+      "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+    }
+  ]
+}
