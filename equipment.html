@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>装备图鉴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #979486;
+            color: #2d251c;
+            line-height: 1.6;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>装备图鉴</h1>
+        </header>
+        
+        <div class="equipment-list" id="equipmentList">
+            <!-- 装备列表将由JavaScript动态生成 -->
+        </div>
+        
+        <footer>
+            <p>共收录 17 件装备 | 数据更新时间: 2025年7月</p>
+        </footer>
+    </div>
+
+    <script>
+        // 装备数据
+        const equipmentData = {
+            "equipment": [
+                {
+                    "id": 1,
+                    "name_cn": "豁口刀",
+                    "name_en": "Chipped Blade",
+                    "effect_cn": "我的攻击性增强。",
+                    "effect_en": "My aggression is increased."
+                },
+                {
+                    "id": 2,
+                    "name_cn": "钢盾",
+                    "name_en": "Steel Shield",
+                    "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+                    "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+                },
+                {
+                    "id": 3,
+                    "name_cn": "水晶护符",
+                    "name_en": "Crystal Amulet",
+                    "effect_cn": "提升元素抗性，但会削弱物理防御。",
+                    "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+                },
+                {
+                    "id": 4,
+                    "name_cn": "钢盾",
+                    "name_en": "Steel Shield",
+                    "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+                    "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+                },
+                {
+                    "id": 5,
+                    "name_cn": "水晶护符",
+                    "name_en": "Crystal Amulet",
+                    "effect_cn": "提升元素抗性，但会削弱物理防御。",
+                    "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+                },
+                {
+                    "id": 6,
+                    "name_cn": "钢盾",
+                    "name_en": "Steel Shield",
+                    "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+                    "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+                },
+                {
+                    "id": 7,
+                    "name_cn": "水晶护符",
+                    "name_en": "Crystal Amulet",
+                    "effect_cn": "提升元素抗性，但会削弱物理防御。",
+                    "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+                },
+                {
+                    "id": 8,
+                    "name_cn": "钢盾",
+                    "name_en": "Steel Shield",
+                    "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+                    "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+                },
+                {
+                    "id": 9,
+                    "name_cn": "水晶护符",
+                    "name_en": "Crystal Amulet",
+                    "effect_cn": "提升元素抗性，但会削弱物理防御。",
+                    "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+                },
+                {
+                    "id": 10,
+                    "name_cn": "钢盾",
+                    "name_en": "Steel Shield",
+                    "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+                    "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+                },
+                {
+                    "id": 11,
+                    "name_cn": "水晶护符",
+                    "name_en": "Crystal Amulet",
+                    "effect_cn": "提升元素抗性，但会削弱物理防御。",
+                    "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+                },
+                {
+                    "id": 12,
+                    "name_cn": "钢盾",
+                    "name_en": "Steel Shield",
+                    "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+                    "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+                },
+                {
+                    "id": 13,
+                    "name_cn": "水晶护符",
+                    "name_en": "Crystal Amulet",
+                    "effect_cn": "提升元素抗性，但会削弱物理防御。",
+                    "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+                },
+                {
+                    "id": 14,
+                    "name_cn": "钢盾",
+                    "name_en": "Steel Shield",
+                    "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+                    "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+                },
+                {
+                    "id": 15,
+                    "name_cn": "水晶护符",
+                    "name_en": "Crystal Amulet",
+                    "effect_cn": "提升元素抗性，但会削弱物理防御。",
+                    "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+                },
+                {
+                    "id": 16,
+                    "name_cn": "钢盾",
+                    "name_en": "Steel Shield",
+                    "effect_cn": "一面标准钢盾。能格挡大多数物理攻击，却会让我暴露在闪电之下。",
+                    "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
+                },
+                {
+                    "id": 17,
+                    "name_cn": "水晶护符",
+                    "name_en": "Crystal Amulet",
+                    "effect_cn": "提升元素抗性，但会削弱物理防御。",
+                    "effect_en": "Enhances elemental resistance at the cost of reduced physical defense."
+                }
+            ]
+        };
+
+        // 生成装备列表
+        function renderEquipmentList() {
+            const listContainer = document.getElementById('equipmentList');
+            listContainer.innerHTML = '';
+            
+            equipmentData.equipment.forEach(item => {
+                const equipmentItem = document.createElement('div');
+                equipmentItem.className = 'equipment-item';
+                
+                // 创建图片和名称容器
+                const equipmentHeader = document.createElement('div');
+                equipmentHeader.className = 'equipment-header';
+                
+                // 装备图片
+                const equipmentImage = document.createElement('div');
+                equipmentImage.className = `equipment-image equipment-${item.id}`;
+                
+                // 装备名称
+                const equipmentInfo = document.createElement('div');
+                equipmentInfo.className = 'equipment-info';
+                equipmentInfo.innerHTML = `
+                    <div class="equipment-name">
+                        <div class="name-cn">${item.name_cn}</div>
+                        <div class="name-en">${item.name_en}</div>
+                    </div>
+                `;
+                
+                // 将图片和名称添加到header容器
+                equipmentHeader.appendChild(equipmentImage);
+                equipmentHeader.appendChild(equipmentInfo);
+                
+                // 装备效果
+                const equipmentEffect = document.createElement('div');
+                equipmentEffect.className = 'equipment-effect';
+                equipmentEffect.innerHTML = `
+                    <div class="effect-cn">${item.effect_cn}</div>
+                    <div class="effect-en">${item.effect_en}</div>
+                `;
+                
+                // 将元素添加到装备项中
+                equipmentItem.appendChild(equipmentHeader);
+                equipmentItem.appendChild(equipmentEffect);
+                
+                listContainer.appendChild(equipmentItem);
+            });
+        }
+
+        // 页面加载完成后渲染装备列表
+        document.addEventListener('DOMContentLoaded', renderEquipmentList);
+    </script>
+</body>
+</html>
