@@ -215,6 +215,7 @@
         let mementosData = [];
         let currentFilteredData = [];
         let sortDirection = 'desc';
+        let lastWindowWidth = window.innerWidth; // 记录初始宽度
     
         // 加载遗物数据
         function loadMementos() {
@@ -339,8 +340,14 @@
             }
         });
 
+        // 修改：只在宽度变化时刷新
         window.addEventListener('resize', function() {
-            filterMementos(); // 窗口大小变化时重新渲染
+            const currentWidth = window.innerWidth;
+            // 只有当宽度变化超过1像素时才刷新
+            if (Math.abs(currentWidth - lastWindowWidth) > 1) {
+                filterMementos();
+                lastWindowWidth = currentWidth; // 更新记录的宽度
+            }
         });
     
         // 搜索功能
