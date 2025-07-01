@@ -15,8 +15,8 @@ header {
 /* 新增：首页按钮样式 */
 .home-button {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 40px;
+    right: 40px;
     background: rgba(129, 71, 127, 0.6);
     color: white;
     padding: 8px 15px;
@@ -508,6 +508,7 @@ header {
 @media (max-width: 480px) {
     .home-button {
         top: 6px;
+        right: 20px;
     }
     
     .subtitle {
