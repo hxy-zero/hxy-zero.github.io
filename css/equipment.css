@@ -1,0 +1,198 @@
+.container {
+    /* max-width: 900px; */
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #b0a896, #c8bfaa);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid #8a7f6c;
+}
+
+header {
+    text-align: center;
+    margin-top: -6px;
+    padding: 15px 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #3a3225;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.equipment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.equipment-item {
+    background: linear-gradient(to right, #c8bfaa, #d8d0bd);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid #a0947e;
+}
+
+.equipment-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* 图片和名称容器 */
+.equipment-header {
+    display: flex;
+    align-items: center;
+    flex: 0 0 260px;
+}
+
+.equipment-image {
+    width: 80px;
+    height: 80px;
+    background: url('https://s21.ax1x.com/2025/07/01/pVuAXin.png') no-repeat;
+    background-size: 80px auto;
+    border-radius: 8px;
+    border: 2px solid #8a7f6c;
+    margin-right: 20px;
+}
+
+.equipment-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.equipment-name {
+    margin-bottom: 6px;
+}
+
+.name-cn {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2d251c;
+}
+
+.name-en {
+    font-size: 0.95rem;
+    color: #5a4f3a;
+    font-style: italic;
+}
+
+.equipment-effect {
+    flex: 1;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid rgba(138, 127, 108, 0.4);
+}
+
+.effect-cn {
+    font-size: 1.1rem;
+    color: #2d251c;
+    margin-bottom: 8px;
+    line-height: 120%;
+}
+
+.effect-en {
+    font-size: 0.9rem;
+    color: #5a4f3a;
+    font-style: italic;
+    line-height: 90%;
+}
+
+/* 移动端适配 */
+@media (max-width: 480px) {
+    body {
+        padding: 0px;
+    }
+
+    .container {
+        padding: 12px;
+        border-radius: 0px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .equipment-item {
+        flex-direction: column;
+        padding: 8px;
+        gap: 8px;
+    }
+    
+    .equipment-header {
+        flex: 0 0 auto;
+        width: 100%;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(138, 127, 108, 0.4);
+    }
+    
+    .equipment-image {
+        width: 70px;
+        height: 70px;
+        background-size: 70px auto;
+        margin-right: 16px;
+    }
+    
+    .name-cn {
+        font-size: 1.3rem;
+    }
+    
+    .equipment-effect {
+        border-left: none;
+        padding: 0;
+    }
+}
+
+/* 雪碧图位置设置 */
+.equipment-1 { background-position: 0 0; }
+.equipment-2 { background-position: 0 -80px; }
+.equipment-3 { background-position: 0 -160px; }
+.equipment-4 { background-position: 0 -240px; }
+.equipment-5 { background-position: 0 -320px; }
+.equipment-6 { background-position: 0 -400px; }
+.equipment-7 { background-position: 0 -480px; }
+.equipment-8 { background-position: 0 -560px; }
+.equipment-9 { background-position: 0 -640px; }
+.equipment-10 { background-position: 0 -720px; }
+.equipment-11 { background-position: 0 -800px; }
+.equipment-12 { background-position: 0 -880px; }
+.equipment-13 { background-position: 0 -960px; }
+.equipment-14 { background-position: 0 -1040px; }
+.equipment-15 { background-position: 0 -1120px; }
+.equipment-16 { background-position: 0 -1200px; }
+.equipment-17 { background-position: 0 -1280px; }
+
+@media (max-width: 480px) {
+    .equipment-1 { background-position: 0 0; }
+    .equipment-2 { background-position: 0 -70px; }
+    .equipment-3 { background-position: 0 -140px; }
+    .equipment-4 { background-position: 0 -210px; }
+    .equipment-5 { background-position: 0 -280px; }
+    .equipment-6 { background-position: 0 -350px; }
+    .equipment-7 { background-position: 0 -420px; }
+    .equipment-8 { background-position: 0 -490px; }
+    .equipment-9 { background-position: 0 -560px; }
+    .equipment-10 { background-position: 0 -630px; }
+    .equipment-11 { background-position: 0 -700px; }
+    .equipment-12 { background-position: 0 -770px; }
+    .equipment-13 { background-position: 0 -840px; }
+    .equipment-14 { background-position: 0 -910px; }
+    .equipment-15 { background-position: 0 -980px; }
+    .equipment-16 { background-position: 0 -1050px; }
+    .equipment-17 { background-position: 0 -1120px; }
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    color: #5a4f3a;
+    font-size: 0.9rem;
+    border-top: 1px solid #8a7f6c;
+}
