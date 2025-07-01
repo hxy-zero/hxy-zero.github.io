@@ -10,7 +10,7 @@
       "effect_en": "My aggression is increased.",
       "lore_cn": "代代相传的刀刃，因珍视使用而磨砺。",
       "lore_en": "An heirloom, worn from honest use.",
-      "note": "增加10%攻击性。"
+      "note": "攻击性（武器伤害） + 10%"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "effect_en": "My strength is increased.",
       "lore_cn": "领袖通过无私的奉献赋予子民力量，暴君的压迫却永远无法激发这般潜能。",
       "lore_en": "A leader lends strength to men the way a tyrant never could.",
-      "note": "增加10%能量。"
+      "note": "力量（武器威能） + 10%"
     },
     {
       "id": 3,
@@ -34,7 +34,7 @@
       "effect_en": "My speed is increased.",
       "lore_cn": "有翼之神遭凡人斩击，残翼难支，踉跄遁去。",
       "lore_en": "The winged god, cut down by men, could only hobble away.",
-      "note": "增加10%速度"
+      "note": "速度（移动速度） + 10%"
     },
     {
       "id": 4,
@@ -46,7 +46,7 @@
       "effect_en": "My mobility is increased.",
       "lore_cn": "我追逐飘零的秋叶，却总被其迅捷所欺。",
       "lore_en": "I spend hours trying to catch these leaves as they fall. They're usually too quick for me.",
-      "note": "增加10%机动性。"
+      "note": "机动性（闪避效果·耐力恢复速度） + 10%"
     },
     {
       "id": 5,
@@ -54,10 +54,11 @@
       "name_en": "Bifocals",
       "category": "属性",
       "rarity": "常见",
-      "effect_cn": "我的感知增幅。",
+      "effect_cn": "我的感知增长。",
       "effect_en": "My perception is increased.",
       "lore_cn": "双瞳重明，天地尽览！",
-      "lore_en": "I can see again!"
+      "lore_en": "I can see again!",
+      "note": "感知（视野距离·虔信感知）"
     },
     {
       "id": 6,
@@ -69,7 +70,7 @@
       "effect_en": "I am healthier.",
       "lore_cn": "心火不灭，生生不息。",
       "lore_en": "The center of life.",
-      "note": "增加20点最大生命值。"
+      "note": "最大生命值 + 20"
     },
     {
       "id": 7,
@@ -77,22 +78,22 @@
       "name_en": "Red Wine",
       "category": "属性",
       "rarity": "常见",
-      "effect_cn": "我的攻击力增加了。",
+      "effect_cn": "我的耐力上限增强了。",
       "effect_en": "My stamina is increased.",
-      "lore_cn": "一件传家宝，因长久使用而磨损。",
+      "lore_cn": "饮此琼浆，续我前行之力。",
       "lore_en": "Just what I need to keep going."
     },
     {
       "id": 8,
-      "name_cn": "战争旗帜",
+      "name_cn": "战旗",
       "name_en": "War Banner",
       "category": "属性",
       "rarity": "常见",
-      "effect_cn": "我的坚韧力提升。",
+      "effect_cn": "我的坚韧提升。",
       "effect_en": "My fortitude is increased.",
       "lore_cn": "乱世中激励士气、凝聚部队的象征。",
       "lore_en": "A symbol of inspiration and solidarity amongst the chaos.",
-      "note": "获得+10%坚韧，同时+1激增容量。"
+      "note": "坚韧（治疗波效果·抗性） + 10%，治疗波容量 + 1"
     },
     {
       "id": 9,
@@ -104,7 +105,7 @@
       "effect_en": "My knowledge is increased.",
       "lore_cn": "沙粒以精准的节奏丈量求知之路。",
       "lore_en": "The sands measure my studies in perfect intervals.",
-      "note": "增加10%知识"
+      "note": "知识（魔法效果·充能速度） + 10%"
     },
     {
       "id": 10,
@@ -204,7 +205,7 @@
       "effect_en": "I bleed out slower.",
       "lore_cn": "止血……我尚未终结。",
       "lore_en": "Stanch the bleeding... I am not done yet.",
-      "note": "殉道者开局携带4个。"
+      "note": "殉道者开局携带4个"
     },
     {
       "id": 19,
@@ -216,7 +217,7 @@
       "effect_en": "My health depletes slower.",
       "lore_cn": "咬住它。能暂缓痛楚。现在开始干活吧。",
       "lore_en": "Bite this. It will delay the pain. Now let's get to work.",
-      "note": "影响黄色可恢复的生命值。"
+      "note": "影响黄色的可恢复的生命值"
     },
     {
       "id": 20,
@@ -235,11 +236,11 @@
       "name_en": "First Aid Kit",
       "category": "血量",
       "rarity": "常见",
-      "effect_cn": "进入新区域时自我治疗并恢复少量生命。",
+      "effect_cn": "进入新区域时自我治疗，恢复少量生命。",
       "effect_en": "I patch myself up and regain a little health whenever I enter a new area.",
       "lore_cn": "绝不能忘！每隔几里我就停下包扎自己。",
       "lore_en": "Can't forget this! I'll stop every few miles and patch myself up.",
-      "note": "恢复10%最大生命值。"
+      "note": "恢复10%最大生命值"
     },
     {
       "id": 22,
@@ -258,11 +259,11 @@
       "name_en": "Rat Tail",
       "category": "血量",
       "rarity": "不常见",
-      "effect_cn": "生命越低我越危险，生命越高我越虚弱。",
+      "effect_cn": "生命越低我越强壮，生命越高我越虚弱。",
       "effect_en": "I become more dangerous when my health decreases and weaker as it increases.",
       "lore_cn": "负伤困兽，鼠辈尤凶。",
       "lore_en": "When wounded and cornered, the vermin became even more aggressive.",
-      "note": "殉道者开局携带3个。"
+      "note": "殉道者开局携带3个"
     },
     {
       "id": 24,
@@ -270,7 +271,7 @@
       "name_en": "Tailless Rat",
       "category": "血量",
       "rarity": "不常见",
-      "effect_cn": "我随着最大生命值降低变得更危险，随着其增加而变弱。",
+      "effect_cn": "我随着最大生命值降低变得更强壮，随着其增加而变虚弱。",
       "effect_en": "I become more dangerous as my maximum health decreases and weaker as it increases.",
       "lore_cn": "累累旧伤愈合不良，既已无物可失，鼠辈便无所保留。",
       "lore_en": "Riddled with a lifetime of wounds poorly healed, with little left to lose, the vermin held nothing back.",
@@ -286,7 +287,7 @@
       "effect_en": "The healthier I am, the more damage and power my attacks will hit with. But I become weaker when my health is low.",
       "lore_cn": "众人皆为无敌英雄欢呼。我只见一个健壮青年，能把我撕成两半。",
       "lore_en": "Everybody is cheering for our invincible hero. All I see is a healthy young man who could break me in half.",
-      "note": "根据当前生命值百分比动态调整伤害值：生命值高时伤害增加，生命值低时伤害减少。"
+      "note": "根据当前生命值百分比动态调整伤害值：生命值高时伤害增加，生命值低时伤害减少"
     },
     {
       "id": 26,
@@ -320,7 +321,7 @@
       "effect_en": "Restoring my health beyond its normal limitations will grant me armor.",
       "lore_cn": "天使身着神佑金属，细微划痕瞬间愈合，纯粹之美非凡人可承。",
       "lore_en": "It truly is an angel. Adorned in blessed metals that mend any scratch. Sincerely beautiful. I will not survive this.",
-      "note": "当治疗超过生命上限时，获得一些护甲。"
+      "note": "治疗超过生命上限时获得护甲"
     },
     {
       "id": 29,
@@ -332,7 +333,7 @@
       "effect_en": "Healing increases poison buildup, and health can only be recovered by poison damage.",
       "lore_cn": "我久浸于这病态甜香，如今维系生命只需一场永恒顽疾。",
       "lore_en": "I spent so long breathing these sickly sweet perfumes that now all I need to sustain myself is an everlasting illness.",
-      "note": "仅限医生使用；开局携带此物品。"
+      "note": "医生专属，开局携带此物品"
     },
     {
       "id": 30,
@@ -366,7 +367,7 @@
       "effect_en": "My hunger is satiated easier.",
       "lore_cn": "我不后悔多添一份。",
       "lore_en": "I don't regret the extra helping.",
-      "note": "吃东西的效果增强。"
+      "note": "进食效果增强"
     },
     {
       "id": 33,
@@ -429,9 +430,9 @@
       "id": 38,
       "name_cn": "焦黑之角",
       "name_en": "Blackened Horn",
-      "category": "激增",
+      "category": "治疗波",
       "rarity": "常见",
-      "effect_cn": "我的激增附加火焰伤害。",
+      "effect_cn": "我的治疗波附加火焰伤害。",
       "effect_en": "My surges are augmented to deal fire damage.",
       "lore_cn": "他们心怀狂怒，血脉燃火而来。",
       "lore_en": "They came with fury in their hearts and fire in their veins."
@@ -440,9 +441,9 @@
       "id": 39,
       "name_cn": "北风号角",
       "name_en": "Horn of the Northern Wind",
-      "category": "激增",
+      "category": "治疗波",
       "rarity": "常见",
-      "effect_cn": "我的能量涌动强化为冰霜伤害​",
+      "effect_cn": "我的治疗波强化为冰霜伤害​",
       "effect_en": "My surges are augmented to deal ice damage.",
       "lore_cn": "风暴般的士兵将战争覆盖大地。",
       "lore_en": "A storm of soldiers to blanket the land in war."
@@ -451,13 +452,13 @@
       "id": 40,
       "name_cn": "集结号角",
       "name_en": "Rallying Horn",
-      "category": "激增",
+      "category": "治疗波",
       "rarity": "不常见",
-      "effect_cn": "我的激增范围更大且数量更多。",
+      "effect_cn": "我的治疗波范围更大且数量更多。",
       "effect_en": "My surges are larger and more numerous.",
       "lore_cn": "为国王！为荣耀与尊严！",
       "lore_en": "For the king! For glory and honor!",
-      "note": "+1激增容量，+1激增...？"
+      "note": "治疗波容量 + 1，治疗波 + 1...？"
     },
     {
       "id": 41,
@@ -491,7 +492,7 @@
       "effect_en": "A small sawblade circles around the character, damaging enemies.",
       "lore_cn": "呸。不用戴手套，很快就切完。",
       "lore_en": "Bah. I don't need to get the gloves, this'll be a quick cut.",
-      "note": "每次命中造成4点伤害。"
+      "note": "每次命中造成4点伤害"
     },
     {
       "id": 44,
@@ -617,7 +618,7 @@
       "effect_en": "Enemies who touch me will soon find themselves and their allies dying of the plague.",
       "lore_cn": "疾病无尽蔓延，终将倾覆帝国。",
       "lore_en": "The sickness spread everlasting, eventually toppling an empire.",
-      "note": "触碰敌人会使其中毒。"
+      "note": "触碰敌人会使其中毒"
     },
     {
       "id": 55,
@@ -663,7 +664,7 @@
       "effect_en": "My weapons are larger.",
       "lore_cn": "其武器大如成人。我们毫无胜算。",
       "lore_en": "Its weapon was the size of a grown man. We had no chance.",
-      "note": "增加攻击范围，且不改变挥动速度。"
+      "note": "增加攻击范围，且不改变挥动速度"
     },
     {
       "id": 59,
@@ -675,7 +676,7 @@
       "effect_en": "I can swing my weapons faster.",
       "lore_cn": "看我挥得多快！",
       "lore_en": "Look how fast I can swing it!",
-      "note": "获得+10%敏捷。"
+      "note": "敏捷 + 10%"
     },
     {
       "id": 60,
@@ -765,7 +766,7 @@
       "effect_en": "Enemies will spill more blood with every hit.",
       "lore_cn": "此处之血远多于我所需。",
       "lore_en": "There is more blood here than I could ever need.",
-      "note": "与依赖血液的纪念品（如'红酒？'）协同增效，并辅助仪式。邪教徒初始携带此道具。"
+      "note": "与依赖血液的纪念品（如'红酒？'）协同增效，并辅助仪式。邪教徒初始携带此道具"
     },
     {
       "id": 68,
@@ -843,7 +844,7 @@
       "effect_en": "Attacks will recover my depleting health.",
       "lore_cn": "非人者亘古长存。",
       "lore_en": "Inhumanity will outlast us all.",
-      "note": "恢复尚未消逝的生命值（黄色生命值）。"
+      "note": "恢复尚未消逝的生命值（黄色生命值）"
     },
     {
       "id": 75,
@@ -895,11 +896,11 @@
       "name_en": "Crusader's Medallion",
       "category": "攻击",
       "rarity": "罕见",
-      "effect_cn": "攻击有小概率刷新激增充能。",
+      "effect_cn": "攻击有小概率刷新治疗波充能。",
       "effect_en": "Attacks have a small chance to refresh Surge charges.",
       "lore_cn": "信仰使然，每次挥击皆如最后一击。",
       "lore_en": "Such is my faith that every blow strikes as if it's my last.",
-      "note": "每携带一枚增加1%触发概率。"
+      "note": "每携带一枚增加1%触发概率"
     },
     {
       "id": 80,
@@ -922,7 +923,7 @@
       "effect_en": "Every kill increases my health.",
       "lore_cn": "他们能永生。所需不过鲜血。",
       "lore_en": "They can live forever. All they need is blood.",
-      "note": "当有人死亡时，增加0.5点最大生命值。"
+      "note": "当有人死亡时，增加0.5点最大生命值"
     },
     {
       "id": 82,
@@ -978,7 +979,7 @@
       "effect_en": "I hurt any enemy I touch.",
       "lore_cn": "喝酒勿扰!",
       "lore_en": "Do not touch me while I'm drinking.",
-      "note": "对接触到的敌人造成2点伤害（包括格挡时，至少在使用盾牌格挡的情况下）。"
+      "note": "对接触到的敌人造成2点伤害（包括格挡时，至少在使用盾牌格挡的情况下）"
     },
     {
       "id": 87,
@@ -990,7 +991,7 @@
       "effect_en": "Getting hit may grant me a small amount of armor.",
       "lore_cn": "我的钢铁救星。",
       "lore_en": "My steel savior.",
-      "note": "此外，格挡时会使盾牌流血，非常适合血祭仪式。"
+      "note": "此外，格挡时会使盾牌流血，非常适合血祭仪式"
     },
     {
       "id": 88,
@@ -1024,7 +1025,7 @@
       "effect_en": "My spilt blood burns those who step upon it.",
       "lore_cn": "据说他们血脉燃火。且看是否属实。",
       "lore_en": "They are said to have fire in their veins. Let us see if that is true.",
-      "note": "被击中时流落橙红色血泊，对踏入其中的敌人造成伤害。"
+      "note": "被击中时流落橙红色血泊，对踏入其中的敌人造成伤害"
     },
     {
       "id": 91,
@@ -1036,7 +1037,7 @@
       "effect_en": "I am considerably more dangerous while bleeding out.",
       "lore_cn": "你们全跟我走！",
       "lore_en": "You're all coming with me!",
-      "note": "殉道者开局携带此物品。"
+      "note": "殉道者开局携带此物品"
     },
     {
       "id": 92,
@@ -1081,7 +1082,7 @@
       "effect_en": "I accumulate experience to recharge spells yet cast.",
       "lore_cn": "学者的武器。",
       "lore_en": "The scholar's weapon.",
-      "note": "可储存1点经验值以过载法术，拾取经验时不会消耗（若无法术充能中）。"
+      "note": "可储存1点经验值以过载法术，拾取经验时不会消耗（若无法术充能中）"
     },
     {
       "id": 96,
@@ -1126,7 +1127,7 @@
       "effect_en": "A spell may recharge immediately after being cast.",
       "lore_cn": "据说能将法术存于其中。这次或许不必久等。",
       "lore_en": "They said I could store a spell in one of these. Maybe I won't have to wait so long this time.",
-      "note": "每次施法都有10%的几率使法术立即充能完毕。"
+      "note": "每次施法都有10%的几率使法术立即充能完毕"
     },
     {
       "id": 100,
@@ -1143,19 +1144,19 @@
       "id": 101,
       "name_cn": "空瓶",
       "name_en": "Empty Vial",
-      "category": "项目",
+      "category": "掉落",
       "rarity": "常见",
       "effect_cn": "我将自动接收并识别未知药水。",
       "effect_en": "I automatically receive and identify an unknown potion.",
       "lore_cn": "瓶中何物？",
       "lore_en": "What's in here?",
-      "note": "随机识别一种药水。化学家开局自带3个。"
+      "note": "随机识别一种药水。化学家开局自带3个"
     },
     {
       "id": 102,
       "name_cn": "灵钥",
       "name_en": "Ethereal Key",
-      "category": "项目",
+      "category": "掉落",
       "rarity": "常见",
       "effect_cn": "钥匙使用后可能不会消失。",
       "effect_en": "There is a chance that keys will not be lost upon use.",
@@ -1166,7 +1167,7 @@
       "id": 103,
       "name_cn": "门把手",
       "name_en": "Doorknob",
-      "category": "项目",
+      "category": "掉落",
       "rarity": "常见",
       "effect_cn": "拿起金属物体会导致触电。",
       "effect_en": "Picking up metal objects will cause a electric shock.",
@@ -1178,7 +1179,7 @@
       "id": 104,
       "name_cn": "螺旋桨",
       "name_en": "Propeller",
-      "category": "项目",
+      "category": "掉落",
       "rarity": "常见",
       "effect_cn": "捡起金属物体会让我短暂漂浮。",
       "effect_en": "Picking up metal objects will cause me to float for a brief time.",
@@ -1190,7 +1191,7 @@
       "id": 105,
       "name_cn": "腐肉",
       "name_en": "Spoiled Meat",
-      "category": "项目",
+      "category": "掉落",
       "rarity": "常见",
       "effect_cn": "破坏板条箱和木桶会生成果蝇援助。",
       "effect_en": "Destroying crates and barrels will spawn fruit flies to aid me.",
@@ -1201,19 +1202,19 @@
       "id": 106,
       "name_cn": "单片镜",
       "name_en": "Monocle",
-      "category": "项目",
+      "category": "掉落",
       "rarity": "常见",
       "effect_cn": "破坏板条箱和木桶可能获得经验。",
       "effect_en": "Crates and barrels may carry experience.",
       "lore_cn": "别傻站着，伙计！砸开看看里面藏着什么奥秘。",
       "lore_en": "Well don't just stand there, man! Break it open and let us see what mysteries lie within.",
-      "note": "板条箱和木桶通常（总是？）包含经验值。"
+      "note": "板条箱和木桶通常（总是？）包含经验值"
     },
     {
       "id": 107,
       "name_cn": "放大镜",
       "name_en": "Magnifying Glass",
-      "category": "项目",
+      "category": "掉落",
       "rarity": "常见",
       "effect_cn": "破坏板条箱和木桶可能发现有用物资。",
       "effect_en": "Crates and barrels may reveal useful supplies when destroyed.",
@@ -1224,7 +1225,7 @@
       "id": 108,
       "name_cn": "肉钩",
       "name_en": "Meat Hook",
-      "category": "项目",
+      "category": "掉落",
       "rarity": "常见",
       "effect_cn": "人类可能掉落生肉。",
       "effect_en": "Humans have a chance to drop raw meat.",
@@ -1235,7 +1236,7 @@
       "id": 109,
       "name_cn": "镐",
       "name_en": "Pickaxe",
-      "category": "项目",
+      "category": "掉落",
       "rarity": "常见",
       "effect_cn": "石制物品被摧毁时可能掉落金属。",
       "effect_en": "Objects made of stone may drop metal when destroyed.",
@@ -1286,7 +1287,7 @@
       "effect_en": "I can always find a treasure map when I venture to a new area.",
       "lore_cn": "甚怪……每次展开都现新地图。",
       "lore_en": "Very odd... Each time I unfurl it a new map is drawn.",
-      "note": "进入新区域时自动获得一张藏宝图（首次拾取不触发）。探索者角色初始携带此道具。"
+      "note": "进入新区域时自动获得一张藏宝图（首次拾取不触发）。探索者角色初始携带此道具"
     },
     {
       "id": 114,
@@ -1298,7 +1299,7 @@
       "effect_en": "Time slows when I am not moving.",
       "lore_cn": "机枢渐滞。",
       "lore_en": "It keeps slowing down.",
-      "note": "站立不动时减缓时间流动。"
+      "note": "站立不动时减缓时间流动"
     },
     {
       "id": 115,
@@ -1321,7 +1322,7 @@
       "effect_en": "Enemies will need to get closer to notice me.",
       "lore_cn": "只是个穿普通斗篷的普通人，何必在意",
       "lore_en": "Just an ordinary guy in an ordinary cloak. No need to pay me any mind.",
-      "note": "若完成'幽灵'成就，厌世者开局携带此物品。"
+      "note": "若完成'幽灵'成就，厌世者开局携带此物品"
     },
     {
       "id": 117,
@@ -1355,7 +1356,7 @@
       "effect_en": "I may turn invisible when an enemy hits me.",
       "lore_cn": "我需即刻藏身。",
       "lore_en": "I need to hide right now.",
-      "note": "受到攻击时有较高几率进入隐形状态。"
+      "note": "受到攻击时有较高几率进入隐形状态"
     },
     {
       "id": 120,
@@ -1387,7 +1388,7 @@
       "rarity": "常见",
       "effect_cn": "用经验购买物品可能获部分退款。",
       "effect_en": "Purchases I make using experience may be partially refunded.",
-      "lore_cn": "天呐，似乎误对我有利。真走运！",
+      "lore_cn": "天呐，似乎错误对我有利。真走运！",
       "lore_en": "My word, there appears to have been an error in my favor. How lucky!"
     },
     {
@@ -1400,7 +1401,7 @@
       "effect_en": "The experience expelled from dying enemies will injure others.",
       "lore_cn": "他的死忆犹痛。切肤之痛。",
       "lore_en": "The memory of his death is still painful. Physically painful.",
-      "note": "每携带一件纪念品，对敌人造成1点伤害。"
+      "note": "每携带一件纪念品，对敌人造成1点伤害"
     },
     {
       "id": 124,
