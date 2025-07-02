@@ -155,237 +155,237 @@
     }
     {
       "id": 18,
-      "name_en": "FIREWAVE",
-      "name_cn": "火浪",
-      "spell_series": "火",
-      "charge": 10,
-      "description_en": "A wave of Flame that can set fire to enemies before me.",
-      "description_cn": "一股能够点燃面前敌人的火焰之波。"
+      "name_en": "THUNDER LIGHTNING",
+      "name_cn": "雷电",
+      "spell_series": "闪电",
+      "charge": 22,
+      "description_en": "A bolt of lightning called from the sky to strike the target area.",
+      "description_cn": "一道闪电从天空召唤而来，打击目标区域。"
     },
     {
       "id": 19,
-      "name_en": "FIREBALL",
-      "name_cn": "火球",
-      "spell_series": "火",
-      "charge": 12,
-      "description_en": "A simple fireball projectile. May light enemies on fire.",
-      "description_cn": "一个简单的火球投射物，可能点燃敌人。"
+      "name_en": "THUNDERSTORM LIGHTNING",
+      "name_cn": "雷暴闪电",
+      "spell_series": "闪电",
+      "charge": 40,
+      "description_en": "Summon a storm of terrible proportions.",
+      "description_cn": "召唤一场规模可怕的雷暴。"
     },
     {
       "id": 20,
-      "name_en": "SUMMON FIREFLIES",
-      "name_cn": "召唤萤火虫",
-      "spell_series": "火",
-      "charge": 14,
-      "description_en": "I summon a few fireflies to aid me in battle.",
-      "description_cn": "我召唤少量萤火虫在战斗中协助我。"
+      "name_en": "MAGIC BULLET",
+      "name_cn": "魔法子弹",
+      "spell_series": "魔法",
+      "charge": 1,
+      "description_en": "A quick magic projectile. Weak, but easy to cast.",
+      "description_cn": "一个快速的魔法投射物。威力较弱，但易于施放。"
     },
     {
       "id": 21,
-      "name_en": "TRAIL OF FIRE",
-      "name_cn": "火焰轨迹",
-      "spell_series": "火",
-      "charge": 14,
-      "description_en": "Flames erupt along the targeted path for a brief time.",
-      "description_cn": "在目标路径上短暂地喷发出火焰。"
+      "name_en": "STEELHEART",
+      "name_cn": "钢铁之心",
+      "spell_series": "魔法",
+      "charge": 1,
+      "description_en": "Converts health into armor.",
+      "description_cn": "将生命值转化为护甲。"
     },
     {
       "id": 22,
-      "name_en": "COMBUST",
-      "name_cn": "爆燃",
-      "spell_series": "火",
-      "charge": 14,
-      "description_en": "Any source of fire in the target area is consumed and explodes.",
-      "description_cn": "目标区域内的任何火源都会被消耗并爆炸。"
+      "name_en": "FLY",
+      "name_cn": "飞行",
+      "spell_series": "魔法",
+      "charge": 7,
+      "description_en": "Float for a period of time.",
+      "description_cn": "悬浮一段时间。"
     },
     {
       "id": 23,
-      "name_en": "GRENADE",
-      "name_cn": "手榴弹",
-      "spell_series": "火",
-      "charge": 17,
-      "description_en": "A small projectile that explodes upon contact.",
-      "description_cn": "一个小型投射物，接触时爆炸。"
+      "name_en": "MAGIC BEAM",
+      "name_cn": "魔法光束",
+      "spell_series": "魔法",
+      "charge": 10,
+      "description_en": "A beam of magic that hits everything in its path after a brief charge.",
+      "description_cn": "一束魔法光束，在短暂充能后击中路径上的所有目标。"
     },
     {
       "id": 24,
-      "name_en": "CIRCLE OF FROST",
-      "name_cn": "冰霜之环",
-      "spell_series": "冰",
-      "charge": 8,
-      "description_en": "An icy shockwave chills all enemies around me.",
-      "description_cn": "一股冰冷的冲击波会冻结我周围的所有敌人。"
+      "name_en": "SUMMON MAGIFLIES",
+      "name_cn": "召唤玛吉弗莱",
+      "spell_series": "魔法",
+      "charge": 14,
+      "description_en": "Summon a fel magiflies to aid me in battle.",
+      "description_cn": "召唤一个邪能玛吉弗莱来协助我战斗。"
     },
     {
       "id": 25,
-      "name_en": "ICE BEAM",
-      "name_cn": "冰光束",
-      "spell_series": "冰",
-      "charge": 12,
-      "description_en": "A beam of ice that freezes everything in its path.",
-      "description_cn": "一道冰光束，冻结路径上的一切。"
+      "name_en": "SUMMON BLADEFLIES",
+      "name_cn": "召唤刀锋飞蝇",
+      "spell_series": "魔法",
+      "charge": 16,
+      "description_en": "Summon a fel bladeflies to aid me in battle.",
+      "description_cn": "召唤邪能刀锋飞蝇协助我战斗。"
     },
     {
       "id": 26,
-      "name_en": "SUMMON ICEFLIES",
-      "name_cn": "召唤冰萤",
-      "spell_series": "冰",
-      "charge": 14,
-      "description_en": "Summon a few iceflies to aid me in battle.",
-      "description_cn": "召唤少量冰萤在战斗中协助我。"
+      "name_en": "MAGIFLY STORM",
+      "name_cn": "玛吉弗莱风暴",
+      "spell_series": "魔法",
+      "charge": 25,
+      "description_en": "Summon a cloud of magiflies and immediately command them to attack.",
+      "description_cn": "召唤一群玛吉弗莱并立即命令它们发动攻击。"
     },
     {
       "id": 27,
-      "name_en": "STONE SKIN",
-      "name_cn": "石肤",
-      "spell_series": "土",
-      "charge": 5,
-      "description_en": "My skin becomes like stone, deflecting the next attack.",
-      "description_cn": "我的皮肤变得如石头般坚硬，能偏转下一次攻击。"
+      "name_en": "SUMMON DIARY",
+      "name_cn": "召唤日记",
+      "spell_series": "魔法",
+      "charge": 50,
+      "description_en": "Summon a diary to record my experience.",
+      "description_cn": "召唤一本日记记录我的经历。"
     },
     {
       "id": 28,
-      "name_en": "POISON WEAPON",
-      "name_cn": "淬毒武器",
-      "spell_series": "土",
-      "charge": 7,
-      "description_en": "All attacks with the coated weapon may poison my opponent. Lost when sheathed.",
-      "description_cn": "使用涂毒武器攻击时可能使敌人中毒。收刀时效果消失。"
+      "name_en": "DIVINE INTERVENTION",
+      "name_cn": "神圣干预",
+      "spell_series": "魔法",
+      "charge": 50,
+      "description_en": "Summon the god Liho favored by me to intervene on my behalf.",
+      "description_cn": "召唤我所信奉的神灵Liho代表我进行干预。"
     },
     {
       "id": 29,
-      "name_en": "CAGE",
-      "name_cn": "牢笼",
-      "spell_series": "土",
-      "charge": 12,
-      "description_en": "A cage of sharp roots surrounds my target.",
-      "description_cn": "用尖锐的树根形成的牢笼困住目标。"
+      "name_en": "RICKEOEKET",
+      "name_cn": "经验剥夺",
+      "spell_series": "无",
+      "charge": 2,
+      "description_en": "Enemies in the target area lose their experience.",
+      "description_cn": "目标区域内的敌人失去其经验值。"
     },
     {
       "id": 30,
-      "name_en": "GROLI THORNS",
-      "name_cn": "格罗利荆棘",
-      "spell_series": "土",
-      "charge": 18,
-      "description_en": "Thorned bushes sprout along the targeted area for a brief moment.",
-      "description_cn": "在目标区域短暂地生长出带刺的灌木丛。"
+      "name_en": "DUST",
+      "name_cn": "尘埃",
+      "spell_series": "无",
+      "charge": 8,
+      "description_en": "Enemies hit by the cloud of dust will be stunned for a few seconds.",
+      "description_cn": "被尘埃云击中的敌人将被眩晕数秒。"
     },
     {
       "id": 31,
-      "name_en": "TOXIC SLIME",
-      "name_cn": "剧毒粘液",
-      "spell_series": "土",
-      "charge": 20,
-      "description_en": "Corrupts blood slimes into acidic oozes and compels both slimes and oozes to join me.",
-      "description_cn": "将血粘液腐蚀成酸性粘液怪，并驱使粘液和粘液怪加入我方。"
+      "name_en": "POWER ATTACK",
+      "name_cn": "强力攻击",
+      "spell_series": "无",
+      "charge": 8,
+      "description_en": "My next attack is substantially stronger.",
+      "description_cn": "我的下一次攻击将大幅增强。"
     },
     {
       "id": 32,
-      "name_en": "ANIMATE PLANTS",
-      "name_cn": "活化植物",
-      "spell_series": "土",
-      "charge": 30,
-      "description_en": "Nearby foliage comes to life and defends for a short period of time.",
-      "description_cn": "使附近的植物活化，在短时间内为我方提供防御。"
+      "name_en": "CHARGE",
+      "name_cn": "冲锋",
+      "spell_series": "无",
+      "charge": 9,
+      "description_en": "A swift charge forward. This can also destroy objects.",
+      "description_cn": "快速向前冲锋，此效果也可破坏物体。"
     },
     {
       "id": 33,
-      "name_en": "BLINK",
-      "name_cn": "闪现",
-      "spell_series": "闪电",
-      "charge": 8,
-      "description_en": "Teleport to the target location. This will also confuse my opponents.",
-      "description_cn": "传送到目标位置。此举还会使敌人困惑。"
+      "name_en": "SHOCKWAVE",
+      "name_cn": "冲击波",
+      "spell_series": "无",
+      "charge": 9,
+      "description_en": "A circle of force pushes away all those around me.",
+      "description_cn": "释放力量圆环，推开周围所有敌人。"
     },
     {
       "id": 34,
-      "name_en": "SUMMON LIGHTNING ELEMENTAL",
-      "name_cn": "召唤闪电元素",
-      "spell_series": "闪电",
-      "charge": 18,
-      "description_en": "Summon a lightning elemental to aid me.",
-      "description_cn": "召唤一个闪电元素来协助我。"
+      "name_en": "STEALTH",
+      "name_cn": "潜行",
+      "spell_series": "无",
+      "charge": 10,
+      "description_en": "Turn invisible for a short period.",
+      "description_cn": "短时间内进入隐形状态。"
     }
     {
       "id": 35,
-      "name_en": "FIREWAVE",
-      "name_cn": "火浪",
-      "spell_series": "火",
+      "name_en": "BERSERK",
+      "name_cn": "狂暴",
+      "spell_series": "无",
       "charge": 10,
-      "description_en": "A wave of Flame that can set fire to enemies before me.",
-      "description_cn": "一股能够点燃面前敌人的火焰之波。"
+      "description_en": "Become enraged, increasing my aggression, speed, and strength.",
+      "description_cn": "陷入狂怒状态，提升攻击性、速度和力量。"
     },
     {
       "id": 36,
-      "name_en": "FIREBALL",
-      "name_cn": "火球",
-      "spell_series": "火",
-      "charge": 12,
-      "description_en": "A simple fireball projectile. May light enemies on fire.",
-      "description_cn": "一个简单的火球投射物，可能点燃敌人。"
+      "name_en": "HEAL",
+      "name_cn": "治疗",
+      "spell_series": "生命",
+      "charge": 20,
+      "description_en": "Some of my wounds are healed.",
+      "description_cn": "治愈我的一部分伤势。"
     },
     {
       "id": 37,
-      "name_en": "SUMMON FIREFLIES",
-      "name_cn": "召唤萤火虫",
-      "spell_series": "火",
-      "charge": 14,
-      "description_en": "I summon a few fireflies to aid me in battle.",
-      "description_cn": "我召唤少量萤火虫在战斗中协助我。"
+      "name_en": "DRAIN LIFE",
+      "name_cn": "生命吸取",
+      "spell_series": "生命",
+      "charge": 24,
+      "description_en": "Enemies and plants are sapped of life, which I add to my own.",
+      "description_cn": "吸取敌人和植物的生命力，转化为自身的生命值。"
     },
     {
       "id": 38,
-      "name_en": "TRAIL OF FIRE",
-      "name_cn": "火焰轨迹",
-      "spell_series": "火",
-      "charge": 14,
-      "description_en": "Flames erupt along the targeted path for a brief time.",
-      "description_cn": "在目标路径上短暂地喷发出火焰。"
+      "name_en": "CANNIBALIZE",
+      "name_cn": "吞噬",
+      "spell_series": "生命",
+      "charge": 32,
+      "description_en": "I consume nearby corpses to feed myself.",
+      "description_cn": "吞噬附近的尸体以恢复自身。"
     },
     {
       "id": 39,
-      "name_en": "COMBUST",
-      "name_cn": "爆燃",
-      "spell_series": "火",
-      "charge": 14,
-      "description_en": "Any source of fire in the target area is consumed and explodes.",
-      "description_cn": "目标区域内的任何火源都会被消耗并爆炸。"
+      "name_en": "RAISE UNDEAD",
+      "name_cn": "唤起亡灵",
+      "spell_series": "生命",
+      "charge": 40,
+      "description_en": "Nearby human corpses are raised as ravenous undead zombies.",
+      "description_cn": "将附近的人类尸体复活为贪婪的亡灵僵尸。"
     },
     {
       "id": 40,
-      "name_en": "GRENADE",
-      "name_cn": "手榴弹",
-      "spell_series": "火",
-      "charge": 17,
-      "description_en": "A small projectile that explodes upon contact.",
-      "description_cn": "一个小型投射物，接触时爆炸。"
+      "name_en": "RAISE DEAD",
+      "name_cn": "复活死尸",
+      "spell_series": "生命",
+      "charge": 50,
+      "description_en": "Nearby corpses are raised to fight alongside me.",
+      "description_cn": "复活附近的尸体协助我作战。"
     },
     {
       "id": 41,
-      "name_en": "CIRCLE OF FROST",
-      "name_cn": "冰霜之环",
-      "spell_series": "冰",
-      "charge": 8,
-      "description_en": "An icy shockwave chills all enemies around me.",
-      "description_cn": "一股冰冷的冲击波会冻结我周围的所有敌人。"
+      "name_en": "TERRIFY",
+      "name_cn": "恐惧术",
+      "spell_series": "死亡",
+      "charge": 12,
+      "description_en": "Nearby enemies flee in terror.",
+      "description_cn": "附近的敌人因恐惧而逃跑。"
     },
     {
       "id": 42,
-      "name_en": "ICE BEAM",
-      "name_cn": "冰光束",
-      "spell_series": "冰",
-      "charge": 12,
-      "description_en": "A beam of ice that freezes everything in its path.",
-      "description_cn": "一道冰光束，冻结路径上的一切。"
+      "name_en": "PLAGUE",
+      "name_cn": "瘟疫",
+      "spell_series": "死亡",
+      "charge": 16,
+      "description_en": "Nearby corpses will spread a plague.",
+      "description_cn": "附近的尸体将传播瘟疫。"
     },
     {
       "id": 43,
-      "name_en": "SUMMON ICEFLIES",
-      "name_cn": "召唤冰萤",
-      "spell_series": "冰",
-      "charge": 14,
-      "description_en": "Summon a few iceflies to aid me in battle.",
-      "description_cn": "召唤少量冰萤在战斗中协助我。"
+      "name_en": "CORPSE EXPLOSION",
+      "name_cn": "尸体爆炸",
+      "spell_series": "死亡",
+      "charge": 18,
+      "description_en": "Nearby corpses explode over the next few seconds.",
+      "description_cn": "附近的尸体将在接下来的几秒内爆炸。"
     }
   ]
 }
