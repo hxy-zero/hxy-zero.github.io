@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>法术图鉴</title>
+    <link rel="shortcut icon" href="images/icov.ico" />
+    <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,27 +16,24 @@
         }
         
         :root {
-            --primary: #6a7ca8;
-            --dark: #3c4a6b;
-            --accent: #7e8fb9;
-            --light: #d1d9e9;
-            --text: #FFFFFF;
-            --common: #FFFFFF;     /* 常见 - 白色 */
-            --uncommon: #FF80FF;   /* 不常见 - 粉色 */
-            --rare: #77207B;       /* 罕见 - 深紫色 */
-            --unique: #000000;     /* 独特 - 黑色 */
+            --primary: #96a5bf;
+            --dark: #6b7a9a;
+            --accent: #7a8aaf;
+            --light: #d5e0f0;
+            --text: #2c3e50;
+            --common: #ffffff;     /* 常见 - 白色 */
+            --uncommon: #a8d8ff;   /* 不常见 - 淡蓝色 */
+            --rare: #5a7fcc;       /* 罕见 - 蓝色 */
+            --unique: #2c3e50;     /* 独特 - 深蓝色 */
         }
 
         body {
-            background: #96a5bf;
+            background: linear-gradient(135deg, #5a6b8c, #96a5bf);
             color: var(--text);
             min-height: 100vh;
             padding: 20px;
             position: relative;
             overflow-x: hidden;
-            background-image: linear-gradient(rgba(150, 165, 191, 0.9), rgba(106, 124, 168, 0.8)), 
-                              radial-gradient(circle at top left, rgba(255,255,255,0.1) 0%, transparent 20%),
-                              radial-gradient(circle at bottom right, rgba(255,255,255,0.1) 0%, transparent 20%);
         }
         
         .container {
@@ -50,12 +49,13 @@
             position: relative;
             margin-bottom: 10px;
         }
-        
+
+        /* 新增：首页按钮样式 */
         .home-button {
             position: absolute;
             top: 40px;
             right: 40px;
-            background: rgba(106, 124, 168, 0.6);
+            background: rgba(122, 138, 175, 0.6);
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
@@ -70,24 +70,13 @@
         }
 
         .home-button:hover {
-            background: rgba(126, 143, 185, 0.8);
+            background: rgba(149, 169, 210, 0.8);
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .home-button i {
             margin-right: 5px;
-        }
-        
-        .page-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(156, 111, 154, 0.8);
-            background: linear-gradient(90deg, #ffd166, #ef476f, #118ab2);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
 
         .subtitle {
@@ -96,9 +85,10 @@
             margin: 0 auto;
             padding: 15px;
             line-height: 1.8;
-            background: rgba(60, 74, 107, 0.7);
+            background: rgba(107, 122, 154, 0.7);
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,  0, 0, 0.4);
+            color: white;
         }
 
         .rarity-common {
@@ -123,9 +113,10 @@
             border-radius: 4px;
             font-weight: bold;
         }
-        
+
+        /* 导航栏样式 */
         .navbar {
-            background-color: rgba(60, 74, 107, 0.95);
+            background-color: rgba(107, 122, 154, 0.95);
             backdrop-filter: blur(5px);
             border-radius: 12px;
             padding: 15px 20px;
@@ -137,6 +128,7 @@
             gap: 15px;
             top: 10px;
             z-index: 100;
+            color: white;
         }
 
         .search-group {
@@ -155,7 +147,7 @@
             padding: 12px 15px 12px 45px;
             border-radius: 50px;
             border: none;
-            background: rgba(106, 124, 168, 0.3);
+            background: rgba(122, 138, 175, 0.3);
             color: white;
             font-size: 1rem;
             transition: all 0.3s ease;
@@ -164,7 +156,7 @@
         .search-container input:focus {
             outline: none;
             box-shadow: 0 0 0 2px var(--accent);
-            background: rgba(90, 107, 150, 0.5);
+            background: rgba(90, 107, 140, 0.5);
         }
 
         .search-icon {
@@ -174,6 +166,7 @@
             transform: translateY(-50%);
             font-size: 1.2rem;
             opacity: 0.7;
+            color: white;
         }
 
         .direction-btn {
@@ -181,7 +174,7 @@
             margin-left: 10px;
             border-radius: 50%;
             border: none;
-            background: rgba(106, 124, 168, 0.3);
+            background: rgba(122, 138, 175, 0.3);
             color: white;
             font-size: 1.3rem;
             cursor: pointer;
@@ -193,7 +186,7 @@
         }
 
         .direction-btn:hover {
-            background: rgba(106, 124, 168, 0.5);
+            background: rgba(122, 138, 175, 0.5);
             transform: scale(1.1);
         }
 
@@ -207,7 +200,7 @@
             padding: 12px 15px;
             border-radius: 50px;
             border: none;
-            background: rgba(106, 124, 168, 0.3);
+            background: rgba(122, 138, 175, 0.3);
             color: white;
             font-size: 1rem;
             appearance: none;
@@ -218,7 +211,7 @@
         .category-select:focus {
             outline: none;
             box-shadow: 0 0 0 2px var(--accent);
-            background: rgba(90, 107, 150, 0.5);
+            background: rgba(90, 107, 140, 0.5);
         }
 
         .select-icon {
@@ -228,25 +221,28 @@
             transform: translateY(-50%);
             pointer-events: none;
             opacity: 0.7;
+            color: white;
         }
-        
+
+        /* 法术展示区 */
         .gallery {
             background-color: var(--primary);
             border-radius: 12px;
             padding: 25px;
             box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
             min-height: 500px;
         }
 
         .spell-item {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            width: 90px; 
-            height: 90px; 
+            width: 100px; 
+            height: 120px; 
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -254,7 +250,6 @@
             overflow: hidden;
             position: relative;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 0 auto; 
         }
 
         .spell-item:hover {
@@ -276,19 +271,21 @@
         .spell-item:hover .spell-sprite {
             transform: scale(1.15);
         }
-        
-        .counter {
-            display: inline-block;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
+
+        .spell-name {
+            font-size: 0.85rem;
             text-align: center;
-            margin-top: 20px;
-            font-size: 1.1rem;
-            color: var(--light);
-            opacity: 0.8;
+            margin-top: 5px;
+            color: var(--text);
+            font-weight: bold;
+            padding: 0 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
         }
-        
+
+        /* 详情弹窗 */
         .modal {
             display: none;
             position: fixed;
@@ -304,7 +301,7 @@
         }
 
         .modal-content {
-            background: linear-gradient(145deg, #3c4a6b, #5a6d9e);
+            background: linear-gradient(145deg, #5a6b8c, #7a8aaf);
             border-radius: 15px;
             width: 90%;
             max-width: 700px;
@@ -334,7 +331,7 @@
         }
 
         .close-btn:hover {
-            background-color: rgba(106, 124, 168, 0.4);
+            background-color: rgba(122, 138, 175, 0.4);
             transform: rotate(90deg);
         }
 
@@ -356,7 +353,7 @@
         .modal-image {
             width: 120px;
             height: 120px;
-            background-color: rgba(106, 124, 168, 0.3);
+            background-color: rgba(122, 138, 175, 0.3);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -404,21 +401,39 @@
         .modal-category {
             display: inline-block;
             padding: 6px 15px;
-            background: rgba(106, 124, 168, 0.6);
+            background: rgba(122, 138, 175, 0.6);
             border-radius: 50px;
             font-size: 1rem;
-            color: #ff9a9e;
+            color: #ffd166;
             font-weight: bold;
         }
 
-        .modal-charge {
+        .modal-rarity {
             display: inline-block;
             padding: 6px 15px;
             border-radius: 50px;
             font-size: 1rem;
             font-weight: bold;
-            background-color: rgba(255, 209, 102, 0.3);
-            color: #ffd166;
+        }
+
+        .rarity-common-color {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .rarity-uncommon-color {
+            background-color: rgba(168, 216, 255, 0.3);
+            color: #a8d8ff;
+        }
+
+        .rarity-rare-color {
+            background-color: rgba(90, 127, 204, 0.3);
+            color: #5a7fcc;
+        }
+
+        .rarity-unique-color {
+            background-color: rgba(44, 62, 80, 0.8);
+            color: #ffffff;
         }
 
         .modal-section {
@@ -444,6 +459,7 @@
         .modal-section p {
             font-size: 0.9rem;
             line-height: 1.2;
+            color: #f0f0f0;
         }
 
         .modal-section p.chinese {
@@ -456,38 +472,20 @@
             color: #a6c1ee;
             font-style: italic;
         }
-        
-        .category-tag {
-            position: absolute;
-            bottom: 0px;
-            right: 0px;
-            font-size: 0.7rem;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 2px 5px;
-            border-radius: 4px;
-        }
-        
-        /* 分类标签颜色 */
-        .category-火 { background-color: rgba(255, 107, 107, 0.25); }
-        .category-冰 { background-color: rgba(6, 214, 160, 0.25); }
-        .category-土 { background-color: rgba(255, 157, 0, 0.25); }
-        .category-闪电 { background-color: rgba(155, 93, 229, 0.25); }
-        
-        /* 动画效果 */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .note-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
         }
 
-        .gallery {
-            animation: fadeIn 0.6s ease-out;
+        .note-text {
+            font-size: 0.85rem;
+            color: #b5b5b5;
+            font-style: italic;
+            line-height: 1.4;
         }
 
-        .spell-item {
-            animation: fadeIn 0.4s ease-out;
-            animation-fill-mode: both;
-        }
-        
         /* 响应式设计 */
         @media (max-width: 900px) {
             .navbar {
@@ -536,6 +534,10 @@
             .info-tags {
                 justify-content: center;
             }
+
+            .note-text {
+                font-size: 0.8rem;
+            }
             
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
@@ -563,6 +565,8 @@
             .home-button {
                 top: 6px;
                 right: 20px;
+                font-size: 0.8rem;
+                padding: 6px 12px;
             }
             
             .subtitle {
@@ -593,9 +597,13 @@
             }
 
             .modal-category,
-            .modal-charge {
+            .modal-rarity {
                 padding: 4px 10px;
                 font-size: 0.9rem;
+            }
+
+            .note-text {
+                font-size: 0.75rem;
             }
             
             .category-tag {
@@ -605,13 +613,13 @@
                         
             .spell-item {
                 width: 80px;
-                height: 80px;
+                height: 100px;
             }
             
             .spell-sprite {
                 width: 70px;
                 height: 70px;
-                background-size: 70px auto; /* 关键：添加背景图尺寸适配 */
+                background-size: 70px auto;
             }
         }
 
@@ -643,88 +651,60 @@
             
             .spell-item {
                 width: 75px;
-                height: 75px;
+                height: 95px;
             }
             
             .spell-sprite {
                 width: 65px;
                 height: 65px;
-                background-size: 65px auto; /* 关键：添加背景图尺寸适配 */
+                background-size: 65px auto;
             }
         }
-        
-        .decoration {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .decoration::before {
-            content: "";
-            position: absolute;
-            top: 20%;
-            left: 10%;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(129, 71, 127, 0.3) 0%, transparent 70%);
-            animation: float 15s infinite linear;
+        .gallery {
+            animation: fadeIn 0.6s ease-out;
         }
 
-        .decoration::after {
-            content: "";
-            position: absolute;
-            bottom: 15%;
-            right: 10%;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(90, 47, 88, 0.3) 0%, transparent 70%);
-            animation: float 18s infinite linear reverse;
+        .spell-item {
+            animation: fadeIn 0.4s ease-out;
+            animation-fill-mode: both;
         }
 
-        @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(20px, 30px) rotate(90deg); }
-            50% { transform: translate(0, 60px) rotate(180deg); }
-            75% { transform: translate(-20px, 30px) rotate(270deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
-        }
-        
-        .select-container {
+        /* 系列标签颜色 */
+        .series-火 { background-color: rgba(255, 107, 107, 0.25); }
+        .series-冰 { background-color: rgba(118, 215, 196, 0.25); }
+        .series-土 { background-color: rgba(155, 93, 229, 0.25); }
+        .series-闪电 { background-color: rgba(255, 209, 102, 0.25); }
+        .series-魔法 { background-color: rgba(239, 71, 111, 0.25); }
+        .series-无 { background-color: rgba(6, 214, 160, 0.25); }
+        .series-生命 { background-color: rgba(17, 138, 178, 0.25); }
+        .series-死亡 { background-color: rgba(255, 157, 0, 0.25); }
+
+        /* 计数器 */
+        .counter {
+            display: inline-block;
             position: relative;
-            width: 100%;
-        }
-        
-        .loader {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1rem;
             color: var(--light);
+            opacity: 0.8;
         }
-        
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 4px solid #ffd166;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 15px;
-        }
-        
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
+
+        /* 错误提示 */
         .error-message {
             text-align: center;
             padding: 30px;
@@ -733,6 +713,7 @@
             margin: 20px 0;
             border: 1px solid rgba(255, 0, 0, 0.3);
             display: none;
+            color: white;
         }
 
         .error-message h3 {
@@ -763,12 +744,109 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(255, 82, 82, 0.3);
         }
+
+        /* 装饰元素 */
+        .decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .decoration::before {
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(122, 138, 175, 0.3) 0%, transparent 70%);
+            animation: float 15s infinite linear;
+        }
+
+        .decoration::after {
+            content: "";
+            position: absolute;
+            bottom: 15%;
+            right: 10%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(90, 107, 140, 0.3) 0%, transparent 70%);
+            animation: float 18s infinite linear reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, 30px) rotate(90deg); }
+            50% { transform: translate(0, 60px) rotate(180deg); }
+            75% { transform: translate(-20px, 30px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        /* 选择容器 */
+        .select-container {
+            position: relative;
+            width: 100%;
+        }
+
+        /* 页面标题 */
+        .page-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(149, 169, 210, 0.8);
+            background: linear-gradient(90deg, #a8d8ff, #5a7fcc, #2c3e50);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            display: none;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+        
+        .loader p {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .charge-value {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 0.8rem;
+            padding: 2px 5px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="decoration"></div>
     
-    <!-- 新增：首页按钮 -->
+    <!-- 首页按钮 -->
     <a href="https://hxy-zero.github.io/ICOV.html" class="home-button">
         <i class="fas fa-home"></i>首页
     </a>
@@ -776,7 +854,7 @@
     <div class="container">
         <header>
             <h1 class="page-title">法术图鉴</h1>
-            <p class="subtitle">探索神秘的法术世界，掌握火焰、寒冰、大地与闪电的力量</p>
+            <p class="subtitle">充能值代表法术施放所需的能量点数，数值越高法术威力通常越强</p>
         </header>
 
         <nav class="navbar">
@@ -793,11 +871,15 @@
             <div class="filter-container">
                 <div class="select-container">
                     <select id="category-select" class="category-select">
-                        <option value="all">全部展示</option>
+                        <option value="all">全部法术</option>
                         <option value="火">火系</option>
                         <option value="冰">冰系</option>
                         <option value="土">土系</option>
-                        <option value="闪电">闪电</option>
+                        <option value="闪电">闪电系</option>
+                        <option value="魔法">魔法系</option>
+                        <option value="无">无属性</option>
+                        <option value="生命">生命系</option>
+                        <option value="死亡">死亡系</option>
                     </select>
                     <i class="fas fa-chevron-down select-icon"></i>
                 </div>
@@ -807,8 +889,8 @@
                 <div class="select-container">
                     <select id="sort-select" class="category-select">
                         <option value="default">默认排序</option>
-                        <option value="name_en">英文首字母排序</option>
-                        <option value="charge">按消耗排序</option>
+                        <option value="name_en">英文首字母</option>
+                        <option value="charge">充能值排序</option>
                     </select>
                     <i class="fas fa-sort select-icon"></i>
                 </div>
@@ -828,7 +910,7 @@
             <div class="counter" id="counter">
                 显示 <span id="count">0</span> 个法术
             </div>
-            
+
             <div class="error-message" id="error-message">
                 <h3>数据加载失败</h3>
                 <p>无法加载法术数据，请检查网络连接或稍后再试。</p>
@@ -851,15 +933,22 @@
                     <h3 id="modal-name-en"></h3>
                     <div class="info-tags">
                         <span class="modal-category" id="modal-category"></span>
-                        <span class="modal-charge" id="modal-charge"></span>
+                        <span class="modal-rarity" id="modal-charge"></span>
                     </div>
                 </div>
             </div>
 
             <div class="modal-section">
                 <h4>
-                    <i class="fas fa-scroll section-icon"></i>
-                    法术描述
+                  <i class="fas fa-bolt section-icon"></i> 法术效果
+                </h4>
+                <p class="chinese" id="modal-effect-cn"></p>
+                <p class="english" id="modal-effect-en"></p>
+            </div>
+
+            <div class="modal-section">
+                <h4>
+                    <i class="fas fa-book section-icon"></i> 法术描述
                 </h4>
                 <p class="chinese" id="modal-description-cn"></p>
                 <p class="english" id="modal-description-en"></p>
@@ -868,7 +957,8 @@
     </div>
     
     <nav class="navbar">
-        法术是魔法师的核心能力，分为火、冰、土和闪电四大系别。每个法术都有不同的能量消耗和效果，合理搭配法术组合是战斗胜利的关键。
+        法术是ICOV世界中的核心战斗手段，通过消耗充能值施放。不同系列的法术有各自的特色：
+        火系擅长范围伤害和持续燃烧，冰系提供控制和减速，土系注重防御和召唤，闪电系拥有高爆发和位移能力。
     </nav>
     
     <script>
@@ -881,9 +971,9 @@
         const sortSelect = document.getElementById('sort-select');
         const loader = document.getElementById('loader');
         const counter = document.getElementById('count');
-        const directionBtn = document.getElementById('sort-direction');
         const errorMessage = document.getElementById('error-message');
         const retryBtn = document.getElementById('retry-btn');
+        const directionBtn = document.getElementById('sort-direction');
     
         let spellsData = [];
         let currentFilteredData = [];
@@ -906,7 +996,6 @@
                     return response.json();
                 })
                 .then(data => {
-                    // 只取前43个法术（雪碧图只有43个位置）
                     spellsData = data.spells;
                     currentFilteredData = [...spellsData];
                     sortSpells('default');
@@ -928,29 +1017,30 @@
             counter.textContent = spells.length;
     
             const animationDelay = 0.04;
-            
-            // 根据屏幕尺寸确定步长
-            let step;
-            if (window.innerWidth < 360) step = 65;
-            else if (window.innerWidth < 480) step = 70;
-            else step = 80;
+            const step = 80; // 雪碧图每个图标高度为80px
             
             spells.forEach((spell, index) => {
                 const item = document.createElement('div');
-                item.className = `spell-item category-${spell.spell_series}`;
+                item.className = `spell-item series-${spell.spell_series}`;
                 item.style.animationDelay = `${index * animationDelay}s`;
     
                 const sprite = document.createElement('div');
                 sprite.className = 'spell-sprite';
                 const position = -(spell.id - 1) * step; // 动态计算位置
                 sprite.style.backgroundPosition = `0 ${position}px`;
+                
+                // 添加充能值标签
+                const chargeTag = document.createElement('span');
+                chargeTag.className = 'charge-value';
+                chargeTag.textContent = `充能: ${spell.charge}`;
+                sprite.appendChild(chargeTag);
     
-                const tag = document.createElement('span');
-                tag.className = 'category-tag';
-                tag.textContent = spell.spell_series;
+                const name = document.createElement('div');
+                name.className = 'spell-name';
+                name.textContent = spell.name_cn;
     
                 item.appendChild(sprite);
-                item.appendChild(tag);
+                item.appendChild(name);
     
                 item.addEventListener('click', () => openModal(spell));
     
@@ -961,13 +1051,30 @@
         // 打开详情弹窗
         function openModal(spell) {
             const modalSprite = document.getElementById('modal-img');
-            const position = -(spell.id - 1) * 100; // 弹窗中图标大小为100px
+            const position = -(spell.id - 1) * 100; // 弹窗中的图标位置
             modalSprite.style.backgroundPosition = `0 ${position}px`;
             
             document.getElementById('modal-name-cn').textContent = spell.name_cn;
             document.getElementById('modal-name-en').textContent = spell.name_en;
-            document.getElementById('modal-category').textContent = spell.spell_series;
-            document.getElementById('modal-charge').textContent = `消耗: ${spell.charge}`;
+            document.getElementById('modal-category').textContent = spell.spell_series + "系法术";
+            
+            const chargeElement = document.getElementById('modal-charge');
+            chargeElement.textContent = `充能值: ${spell.charge}`;
+            chargeElement.className = 'modal-rarity';
+    
+            // 根据充能值设置颜色
+            if (spell.charge <= 5) {
+                chargeElement.classList.add('rarity-common-color');
+            } else if (spell.charge <= 15) {
+                chargeElement.classList.add('rarity-uncommon-color');
+            } else if (spell.charge <= 30) {
+                chargeElement.classList.add('rarity-rare-color');
+            } else {
+                chargeElement.classList.add('rarity-unique-color');
+            }
+    
+            document.getElementById('modal-effect-cn').textContent = spell.description_cn;
+            document.getElementById('modal-effect-en').textContent = spell.description_en;
             document.getElementById('modal-description-cn').textContent = spell.description_cn;
             document.getElementById('modal-description-en').textContent = spell.description_en;
     
@@ -1059,7 +1166,7 @@
     
             renderSpells(sorted);
         }
-        
+    
         // 重试按钮
         retryBtn.addEventListener('click', loadSpells);
     
