@@ -907,7 +907,7 @@
                 })
                 .then(data => {
                     // 只取前43个法术（雪碧图只有43个位置）
-                    spellsData = data.spells.slice(0, 43);
+                    spellsData = data.spells;
                     currentFilteredData = [...spellsData];
                     sortSpells('default');
     
