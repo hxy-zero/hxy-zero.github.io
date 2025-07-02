@@ -153,5 +153,239 @@
       "description_en": "Summon a lightning elemental to aid me.",
       "description_cn": "召唤一个闪电元素来协助我。"
     }
+    {
+      "id": 18,
+      "name_en": "FIREWAVE",
+      "name_cn": "火浪",
+      "spell_series": "火",
+      "charge": 10,
+      "description_en": "A wave of Flame that can set fire to enemies before me.",
+      "description_cn": "一股能够点燃面前敌人的火焰之波。"
+    },
+    {
+      "id": 19,
+      "name_en": "FIREBALL",
+      "name_cn": "火球",
+      "spell_series": "火",
+      "charge": 12,
+      "description_en": "A simple fireball projectile. May light enemies on fire.",
+      "description_cn": "一个简单的火球投射物，可能点燃敌人。"
+    },
+    {
+      "id": 20,
+      "name_en": "SUMMON FIREFLIES",
+      "name_cn": "召唤萤火虫",
+      "spell_series": "火",
+      "charge": 14,
+      "description_en": "I summon a few fireflies to aid me in battle.",
+      "description_cn": "我召唤少量萤火虫在战斗中协助我。"
+    },
+    {
+      "id": 21,
+      "name_en": "TRAIL OF FIRE",
+      "name_cn": "火焰轨迹",
+      "spell_series": "火",
+      "charge": 14,
+      "description_en": "Flames erupt along the targeted path for a brief time.",
+      "description_cn": "在目标路径上短暂地喷发出火焰。"
+    },
+    {
+      "id": 22,
+      "name_en": "COMBUST",
+      "name_cn": "爆燃",
+      "spell_series": "火",
+      "charge": 14,
+      "description_en": "Any source of fire in the target area is consumed and explodes.",
+      "description_cn": "目标区域内的任何火源都会被消耗并爆炸。"
+    },
+    {
+      "id": 23,
+      "name_en": "GRENADE",
+      "name_cn": "手榴弹",
+      "spell_series": "火",
+      "charge": 17,
+      "description_en": "A small projectile that explodes upon contact.",
+      "description_cn": "一个小型投射物，接触时爆炸。"
+    },
+    {
+      "id": 24,
+      "name_en": "CIRCLE OF FROST",
+      "name_cn": "冰霜之环",
+      "spell_series": "冰",
+      "charge": 8,
+      "description_en": "An icy shockwave chills all enemies around me.",
+      "description_cn": "一股冰冷的冲击波会冻结我周围的所有敌人。"
+    },
+    {
+      "id": 25,
+      "name_en": "ICE BEAM",
+      "name_cn": "冰光束",
+      "spell_series": "冰",
+      "charge": 12,
+      "description_en": "A beam of ice that freezes everything in its path.",
+      "description_cn": "一道冰光束，冻结路径上的一切。"
+    },
+    {
+      "id": 26,
+      "name_en": "SUMMON ICEFLIES",
+      "name_cn": "召唤冰萤",
+      "spell_series": "冰",
+      "charge": 14,
+      "description_en": "Summon a few iceflies to aid me in battle.",
+      "description_cn": "召唤少量冰萤在战斗中协助我。"
+    },
+    {
+      "id": 27,
+      "name_en": "STONE SKIN",
+      "name_cn": "石肤",
+      "spell_series": "土",
+      "charge": 5,
+      "description_en": "My skin becomes like stone, deflecting the next attack.",
+      "description_cn": "我的皮肤变得如石头般坚硬，能偏转下一次攻击。"
+    },
+    {
+      "id": 28,
+      "name_en": "POISON WEAPON",
+      "name_cn": "淬毒武器",
+      "spell_series": "土",
+      "charge": 7,
+      "description_en": "All attacks with the coated weapon may poison my opponent. Lost when sheathed.",
+      "description_cn": "使用涂毒武器攻击时可能使敌人中毒。收刀时效果消失。"
+    },
+    {
+      "id": 29,
+      "name_en": "CAGE",
+      "name_cn": "牢笼",
+      "spell_series": "土",
+      "charge": 12,
+      "description_en": "A cage of sharp roots surrounds my target.",
+      "description_cn": "用尖锐的树根形成的牢笼困住目标。"
+    },
+    {
+      "id": 30,
+      "name_en": "GROLI THORNS",
+      "name_cn": "格罗利荆棘",
+      "spell_series": "土",
+      "charge": 18,
+      "description_en": "Thorned bushes sprout along the targeted area for a brief moment.",
+      "description_cn": "在目标区域短暂地生长出带刺的灌木丛。"
+    },
+    {
+      "id": 31,
+      "name_en": "TOXIC SLIME",
+      "name_cn": "剧毒粘液",
+      "spell_series": "土",
+      "charge": 20,
+      "description_en": "Corrupts blood slimes into acidic oozes and compels both slimes and oozes to join me.",
+      "description_cn": "将血粘液腐蚀成酸性粘液怪，并驱使粘液和粘液怪加入我方。"
+    },
+    {
+      "id": 32,
+      "name_en": "ANIMATE PLANTS",
+      "name_cn": "活化植物",
+      "spell_series": "土",
+      "charge": 30,
+      "description_en": "Nearby foliage comes to life and defends for a short period of time.",
+      "description_cn": "使附近的植物活化，在短时间内为我方提供防御。"
+    },
+    {
+      "id": 33,
+      "name_en": "BLINK",
+      "name_cn": "闪现",
+      "spell_series": "闪电",
+      "charge": 8,
+      "description_en": "Teleport to the target location. This will also confuse my opponents.",
+      "description_cn": "传送到目标位置。此举还会使敌人困惑。"
+    },
+    {
+      "id": 34,
+      "name_en": "SUMMON LIGHTNING ELEMENTAL",
+      "name_cn": "召唤闪电元素",
+      "spell_series": "闪电",
+      "charge": 18,
+      "description_en": "Summon a lightning elemental to aid me.",
+      "description_cn": "召唤一个闪电元素来协助我。"
+    }
+    {
+      "id": 35,
+      "name_en": "FIREWAVE",
+      "name_cn": "火浪",
+      "spell_series": "火",
+      "charge": 10,
+      "description_en": "A wave of Flame that can set fire to enemies before me.",
+      "description_cn": "一股能够点燃面前敌人的火焰之波。"
+    },
+    {
+      "id": 36,
+      "name_en": "FIREBALL",
+      "name_cn": "火球",
+      "spell_series": "火",
+      "charge": 12,
+      "description_en": "A simple fireball projectile. May light enemies on fire.",
+      "description_cn": "一个简单的火球投射物，可能点燃敌人。"
+    },
+    {
+      "id": 37,
+      "name_en": "SUMMON FIREFLIES",
+      "name_cn": "召唤萤火虫",
+      "spell_series": "火",
+      "charge": 14,
+      "description_en": "I summon a few fireflies to aid me in battle.",
+      "description_cn": "我召唤少量萤火虫在战斗中协助我。"
+    },
+    {
+      "id": 38,
+      "name_en": "TRAIL OF FIRE",
+      "name_cn": "火焰轨迹",
+      "spell_series": "火",
+      "charge": 14,
+      "description_en": "Flames erupt along the targeted path for a brief time.",
+      "description_cn": "在目标路径上短暂地喷发出火焰。"
+    },
+    {
+      "id": 39,
+      "name_en": "COMBUST",
+      "name_cn": "爆燃",
+      "spell_series": "火",
+      "charge": 14,
+      "description_en": "Any source of fire in the target area is consumed and explodes.",
+      "description_cn": "目标区域内的任何火源都会被消耗并爆炸。"
+    },
+    {
+      "id": 40,
+      "name_en": "GRENADE",
+      "name_cn": "手榴弹",
+      "spell_series": "火",
+      "charge": 17,
+      "description_en": "A small projectile that explodes upon contact.",
+      "description_cn": "一个小型投射物，接触时爆炸。"
+    },
+    {
+      "id": 41,
+      "name_en": "CIRCLE OF FROST",
+      "name_cn": "冰霜之环",
+      "spell_series": "冰",
+      "charge": 8,
+      "description_en": "An icy shockwave chills all enemies around me.",
+      "description_cn": "一股冰冷的冲击波会冻结我周围的所有敌人。"
+    },
+    {
+      "id": 42,
+      "name_en": "ICE BEAM",
+      "name_cn": "冰光束",
+      "spell_series": "冰",
+      "charge": 12,
+      "description_en": "A beam of ice that freezes everything in its path.",
+      "description_cn": "一道冰光束，冻结路径上的一切。"
+    },
+    {
+      "id": 43,
+      "name_en": "SUMMON ICEFLIES",
+      "name_cn": "召唤冰萤",
+      "spell_series": "冰",
+      "charge": 14,
+      "description_en": "Summon a few iceflies to aid me in battle.",
+      "description_cn": "召唤少量冰萤在战斗中协助我。"
+    }
   ]
 }
