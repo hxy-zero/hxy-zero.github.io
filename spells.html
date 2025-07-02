@@ -50,7 +50,7 @@
             margin-bottom: 10px;
         }
 
-        /* 新增：首页按钮样式 */
+        /* 首页按钮样式 */
         .home-button {
             position: absolute;
             top: 40px;
@@ -240,7 +240,7 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             width: 100px; 
-            height: 120px; 
+            height: 100px; /* 高度调整 */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -266,23 +266,11 @@
             background-repeat: no-repeat;
             transition: all 0.3s ease;
             border-radius: 6px;
+            background-size: 80px auto; /* 添加背景图尺寸适配 */
         }
 
         .spell-item:hover .spell-sprite {
             transform: scale(1.15);
-        }
-
-        .spell-name {
-            font-size: 0.85rem;
-            text-align: center;
-            margin-top: 5px;
-            color: var(--text);
-            font-weight: bold;
-            padding: 0 5px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 100%;
         }
 
         /* 详情弹窗 */
@@ -606,20 +594,15 @@
                 font-size: 0.75rem;
             }
             
-            .category-tag {
-                font-size: 0.6rem;
-                padding: 1px 3px;
-            }
-                        
             .spell-item {
                 width: 80px;
-                height: 100px;
+                height: 80px; /* 高度调整 */
             }
             
             .spell-sprite {
                 width: 70px;
                 height: 70px;
-                background-size: 70px auto;
+                background-size: 70px auto; /* 关键：添加背景图尺寸适配 */
             }
         }
 
@@ -651,13 +634,13 @@
             
             .spell-item {
                 width: 75px;
-                height: 95px;
+                height: 75px; /* 高度调整 */
             }
             
             .spell-sprite {
                 width: 65px;
                 height: 65px;
-                background-size: 65px auto;
+                background-size: 65px auto; /* 关键：添加背景图尺寸适配 */
             }
         }
 
@@ -837,9 +820,16 @@
             right: 5px;
             background: rgba(0, 0, 0, 0.5);
             color: white;
-            font-size: 0.8rem;
-            padding: 2px 5px;
+            font-size: 0.9rem;
+            padding: 2px 8px;
             border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        /* 移除法术名称显示 */
+        .spell-name {
+            display: none;
         }
     </style>
 </head>
@@ -854,7 +844,7 @@
     <div class="container">
         <header>
             <h1 class="page-title">法术图鉴</h1>
-            <p class="subtitle">充能值代表法术施放所需的能量点数，数值越高法术威力通常越强</p>
+            <p class="subtitle">充能值代表法术施放所需的能量点数</p>
         </header>
 
         <nav class="navbar">
@@ -979,19 +969,32 @@
         let currentFilteredData = [];
         let sortDirection = 'desc';
         let lastWindowWidth = window.innerWidth;
-    
+        
+        // 获取仓库名称（从URL自动提取）
+        function getRepoName() {
+            const path = window.location.pathname;
+            // 匹配格式：/username/repo-name/
+            const match = path.match(/^\/([^\/]+)\/([^\/]+)\//);
+            return match ? match[2] : '';
+        }
+
         // 加载法术数据
         function loadSpells() {
             loader.style.display = 'flex';
             gallery.style.display = 'none';
             counter.style.display = 'none';
             errorMessage.style.display = 'none';
-    
+            
+            const repoName = getRepoName();
+            const jsonPath = repoName 
+                ? `/${repoName}/data/spells.json?t=${Date.now()}`
+                : 'data/spells.json?t=${Date.now()}';
+
             // 使用fetch加载JSON文件
-            fetch('data/spells.json')
+            fetch(jsonPath, { mode: 'cors' })
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error('网络响应不正常');
+                        throw new Error(`网络响应不正常 (状态码: ${response.status})`);
                     }
                     return response.json();
                 })
@@ -999,13 +1002,17 @@
                     spellsData = data.spells;
                     currentFilteredData = [...spellsData];
                     sortSpells('default');
-    
+
                     loader.style.display = 'none';
                     gallery.style.display = 'grid';
                     counter.style.display = 'block';
                 })
                 .catch(error => {
                     console.error('加载数据失败:', error);
+                    // 显示详细错误信息
+                    const errorText = document.querySelector('#error-message p');
+                    errorText.innerHTML = `无法加载法术数据，请检查网络连接或稍后再试。<br>
+                                          <small>错误详情: ${error.message}</small>`;
                     loader.style.display = 'none';
                     errorMessage.style.display = 'block';
                 });
@@ -1017,7 +1024,12 @@
             counter.textContent = spells.length;
     
             const animationDelay = 0.04;
-            const step = 80; // 雪碧图每个图标高度为80px
+            
+            // 根据屏幕尺寸确定步长 - 修复小屏幕定位问题
+            let step;
+            if (window.innerWidth < 360) step = 65;
+            else if (window.innerWidth < 480) step = 70;
+            else step = 80;
             
             spells.forEach((spell, index) => {
                 const item = document.createElement('div');
@@ -1026,21 +1038,19 @@
     
                 const sprite = document.createElement('div');
                 sprite.className = 'spell-sprite';
+                
+                // 设置背景位置
                 const position = -(spell.id - 1) * step; // 动态计算位置
                 sprite.style.backgroundPosition = `0 ${position}px`;
+                sprite.style.backgroundSize = `${step}px auto`; // 关键：添加背景图尺寸适配
                 
-                // 添加充能值标签
+                // 添加充能值标签（只显示数字）
                 const chargeTag = document.createElement('span');
                 chargeTag.className = 'charge-value';
-                chargeTag.textContent = `充能: ${spell.charge}`;
+                chargeTag.textContent = spell.charge;
+    
                 sprite.appendChild(chargeTag);
-    
-                const name = document.createElement('div');
-                name.className = 'spell-name';
-                name.textContent = spell.name_cn;
-    
                 item.appendChild(sprite);
-                item.appendChild(name);
     
                 item.addEventListener('click', () => openModal(spell));
     
