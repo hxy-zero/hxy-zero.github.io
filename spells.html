@@ -240,7 +240,7 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             width: 100px; 
-            height: 100px; /* 高度调整 */
+            height: 100px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -266,7 +266,7 @@
             background-repeat: no-repeat;
             transition: all 0.3s ease;
             border-radius: 6px;
-            background-size: 80px auto; /* 添加背景图尺寸适配 */
+            background-size: 80px auto;
         }
 
         .spell-item:hover .spell-sprite {
@@ -461,19 +461,6 @@
             font-style: italic;
         }
 
-        .note-section {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.2);
-        }
-
-        .note-text {
-            font-size: 0.85rem;
-            color: #b5b5b5;
-            font-style: italic;
-            line-height: 1.4;
-        }
-
         /* 响应式设计 */
         @media (max-width: 900px) {
             .navbar {
@@ -521,10 +508,6 @@
 
             .info-tags {
                 justify-content: center;
-            }
-
-            .note-text {
-                font-size: 0.8rem;
             }
             
             .gallery {
@@ -589,20 +572,16 @@
                 padding: 4px 10px;
                 font-size: 0.9rem;
             }
-
-            .note-text {
-                font-size: 0.75rem;
-            }
             
             .spell-item {
                 width: 80px;
-                height: 80px; /* 高度调整 */
+                height: 80px;
             }
             
             .spell-sprite {
                 width: 70px;
                 height: 70px;
-                background-size: 70px auto; /* 关键：添加背景图尺寸适配 */
+                background-size: 70px auto;
             }
         }
 
@@ -634,13 +613,13 @@
             
             .spell-item {
                 width: 75px;
-                height: 75px; /* 高度调整 */
+                height: 75px;
             }
             
             .spell-sprite {
                 width: 65px;
                 height: 65px;
-                background-size: 65px auto; /* 关键：添加背景图尺寸适配 */
+                background-size: 65px auto;
             }
         }
 
@@ -814,6 +793,7 @@
             font-size: 1.2rem;
         }
         
+        /* 充能标签 - 固定位置 */
         .charge-value {
             position: absolute;
             top: 5px;
@@ -825,11 +805,31 @@
             border-radius: 10px;
             font-weight: bold;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 5;
+            pointer-events: none; /* 防止干扰点击 */
         }
         
-        /* 移除法术名称显示 */
-        .spell-name {
-            display: none;
+        /* 系列标签 */
+        .spell-series-tag {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            font-size: 0.7rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: white;
+            z-index: 5;
+            pointer-events: none;
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: var(--light);
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -935,14 +935,6 @@
                 <p class="chinese" id="modal-effect-cn"></p>
                 <p class="english" id="modal-effect-en"></p>
             </div>
-
-            <div class="modal-section">
-                <h4>
-                    <i class="fas fa-book section-icon"></i> 法术描述
-                </h4>
-                <p class="chinese" id="modal-description-cn"></p>
-                <p class="english" id="modal-description-en"></p>
-            </div>
         </div>
     </div>
     
@@ -950,6 +942,10 @@
         法术是ICOV世界中的核心战斗手段，通过消耗充能值施放。不同系列的法术有各自的特色：
         火系擅长范围伤害和持续燃烧，冰系提供控制和减速，土系注重防御和召唤，闪电系拥有高爆发和位移能力。
     </nav>
+    
+    <div class="footer">
+        ICOV 法术图鉴 v2.0 | 数据更新于 2025年7月
+    </div>
     
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1025,7 +1021,7 @@
     
             const animationDelay = 0.04;
             
-            // 根据屏幕尺寸确定步长 - 修复小屏幕定位问题
+            // 根据屏幕尺寸确定步长
             let step;
             if (window.innerWidth < 360) step = 65;
             else if (window.innerWidth < 480) step = 70;
@@ -1040,20 +1036,26 @@
                 sprite.className = 'spell-sprite';
                 
                 // 设置背景位置
-                const position = -(spell.id - 1) * step; // 动态计算位置
+                const position = -(spell.id - 1) * step;
                 sprite.style.backgroundPosition = `0 ${position}px`;
-                sprite.style.backgroundSize = `${step}px auto`; // 关键：添加背景图尺寸适配
+                sprite.style.backgroundSize = `${step}px auto`;
                 
-                // 添加充能值标签（只显示数字）
+                // 添加充能值标签 - 固定在item容器上
                 const chargeTag = document.createElement('span');
                 chargeTag.className = 'charge-value';
                 chargeTag.textContent = spell.charge;
-    
-                sprite.appendChild(chargeTag);
+                item.appendChild(chargeTag);
+                
+                // 添加系列标签
+                const seriesTag = document.createElement('span');
+                seriesTag.className = 'spell-series-tag';
+                seriesTag.textContent = spell.spell_series;
+                item.appendChild(seriesTag);
+                
+                // 将sprite添加到item
                 item.appendChild(sprite);
-    
+
                 item.addEventListener('click', () => openModal(spell));
-    
                 gallery.appendChild(item);
             });
         }
@@ -1061,7 +1063,7 @@
         // 打开详情弹窗
         function openModal(spell) {
             const modalSprite = document.getElementById('modal-img');
-            const position = -(spell.id - 1) * 100; // 弹窗中的图标位置
+            const position = -(spell.id - 1) * 100;
             modalSprite.style.backgroundPosition = `0 ${position}px`;
             
             document.getElementById('modal-name-cn').textContent = spell.name_cn;
@@ -1085,8 +1087,6 @@
     
             document.getElementById('modal-effect-cn').textContent = spell.description_cn;
             document.getElementById('modal-effect-en').textContent = spell.description_en;
-            document.getElementById('modal-description-cn').textContent = spell.description_cn;
-            document.getElementById('modal-description-en').textContent = spell.description_en;
     
             modal.style.display = 'flex';
         }
