@@ -139,7 +139,7 @@
       "id": 16,
       "name_en": "BLINK",
       "name_cn": "闪现",
-      "spell_series": "闪电",
+      "spell_series": "雷",
       "charge": 8,
       "description_en": "Teleport to the target location. This will also confuse my opponents.",
       "description_cn": "传送到目标位置。此举还会使敌人困惑。"
@@ -148,7 +148,7 @@
       "id": 17,
       "name_en": "SUMMON LIGHTNING ELEMENTAL",
       "name_cn": "召唤闪电元素",
-      "spell_series": "闪电",
+      "spell_series": "雷",
       "charge": 18,
       "description_en": "Summon a lightning elemental to aid me.",
       "description_cn": "召唤一个闪电元素来协助我。"
@@ -157,7 +157,7 @@
       "id": 18,
       "name_en": "THUNDER LIGHTNING",
       "name_cn": "雷电",
-      "spell_series": "闪电",
+      "spell_series": "雷",
       "charge": 22,
       "description_en": "A bolt of lightning called from the sky to strike the target area.",
       "description_cn": "一道闪电从天空召唤而来，打击目标区域。"
@@ -166,7 +166,7 @@
       "id": 19,
       "name_en": "THUNDERSTORM LIGHTNING",
       "name_cn": "雷暴闪电",
-      "spell_series": "闪电",
+      "spell_series": "雷",
       "charge": 40,
       "description_en": "Summon a storm of terrible proportions.",
       "description_cn": "召唤一场规模可怕的雷暴。"
@@ -175,7 +175,7 @@
       "id": 20,
       "name_en": "MAGIC BULLET",
       "name_cn": "魔法子弹",
-      "spell_series": "魔法",
+      "spell_series": "奥术",
       "charge": 1,
       "description_en": "A quick magic projectile. Weak, but easy to cast.",
       "description_cn": "一个快速的魔法投射物。威力较弱，但易于施放。"
@@ -184,7 +184,7 @@
       "id": 21,
       "name_en": "STEELHEART",
       "name_cn": "钢铁之心",
-      "spell_series": "魔法",
+      "spell_series": "奥术",
       "charge": 1,
       "description_en": "Converts health into armor.",
       "description_cn": "将生命值转化为护甲。"
@@ -193,7 +193,7 @@
       "id": 22,
       "name_en": "FLY",
       "name_cn": "飞行",
-      "spell_series": "魔法",
+      "spell_series": "奥术",
       "charge": 7,
       "description_en": "Float for a period of time.",
       "description_cn": "悬浮一段时间。"
@@ -202,7 +202,7 @@
       "id": 23,
       "name_en": "MAGIC BEAM",
       "name_cn": "魔法光束",
-      "spell_series": "魔法",
+      "spell_series": "奥术",
       "charge": 10,
       "description_en": "A beam of magic that hits everything in its path after a brief charge.",
       "description_cn": "一束魔法光束，在短暂充能后击中路径上的所有目标。"
@@ -211,7 +211,7 @@
       "id": 24,
       "name_en": "SUMMON MAGIFLIES",
       "name_cn": "召唤玛吉弗莱",
-      "spell_series": "魔法",
+      "spell_series": "奥术",
       "charge": 14,
       "description_en": "Summon a fel magiflies to aid me in battle.",
       "description_cn": "召唤一个邪能玛吉弗莱来协助我战斗。"
@@ -220,7 +220,7 @@
       "id": 25,
       "name_en": "SUMMON BLADEFLIES",
       "name_cn": "召唤刀锋飞蝇",
-      "spell_series": "魔法",
+      "spell_series": "奥术",
       "charge": 16,
       "description_en": "Summon a fel bladeflies to aid me in battle.",
       "description_cn": "召唤邪能刀锋飞蝇协助我战斗。"
@@ -229,7 +229,7 @@
       "id": 26,
       "name_en": "MAGIFLY STORM",
       "name_cn": "玛吉弗莱风暴",
-      "spell_series": "魔法",
+      "spell_series": "奥术",
       "charge": 25,
       "description_en": "Summon a cloud of magiflies and immediately command them to attack.",
       "description_cn": "召唤一群玛吉弗莱并立即命令它们发动攻击。"
@@ -238,7 +238,7 @@
       "id": 27,
       "name_en": "SUMMON DIARY",
       "name_cn": "召唤日记",
-      "spell_series": "魔法",
+      "spell_series": "奥术",
       "charge": 50,
       "description_en": "Summon a diary to record my experience.",
       "description_cn": "召唤一本日记记录我的经历。"
@@ -247,7 +247,7 @@
       "id": 28,
       "name_en": "DIVINE INTERVENTION",
       "name_cn": "神圣干预",
-      "spell_series": "魔法",
+      "spell_series": "奥术",
       "charge": 50,
       "description_en": "Summon the god Liho favored by me to intervene on my behalf.",
       "description_cn": "召唤我所信奉的神灵Liho代表我进行干预。"
@@ -256,7 +256,7 @@
       "id": 29,
       "name_en": "RICKEOEKET",
       "name_cn": "经验剥夺",
-      "spell_series": "无",
+      "spell_series": "无属性",
       "charge": 2,
       "description_en": "Enemies in the target area lose their experience.",
       "description_cn": "目标区域内的敌人失去其经验值。"
@@ -265,7 +265,7 @@
       "id": 30,
       "name_en": "DUST",
       "name_cn": "尘埃",
-      "spell_series": "无",
+      "spell_series": "无属性",
       "charge": 8,
       "description_en": "Enemies hit by the cloud of dust will be stunned for a few seconds.",
       "description_cn": "被尘埃云击中的敌人将被眩晕数秒。"
@@ -274,7 +274,7 @@
       "id": 31,
       "name_en": "POWER ATTACK",
       "name_cn": "强力攻击",
-      "spell_series": "无",
+      "spell_series": "无属性",
       "charge": 8,
       "description_en": "My next attack is substantially stronger.",
       "description_cn": "我的下一次攻击将大幅增强。"
@@ -283,7 +283,7 @@
       "id": 32,
       "name_en": "CHARGE",
       "name_cn": "冲锋",
-      "spell_series": "无",
+      "spell_series": "无属性",
       "charge": 9,
       "description_en": "A swift charge forward. This can also destroy objects.",
       "description_cn": "快速向前冲锋，此效果也可破坏物体。"
@@ -292,7 +292,7 @@
       "id": 33,
       "name_en": "SHOCKWAVE",
       "name_cn": "冲击波",
-      "spell_series": "无",
+      "spell_series": "无属性",
       "charge": 9,
       "description_en": "A circle of force pushes away all those around me.",
       "description_cn": "释放力量圆环，推开周围所有敌人。"
@@ -301,7 +301,7 @@
       "id": 34,
       "name_en": "STEALTH",
       "name_cn": "潜行",
-      "spell_series": "无",
+      "spell_series": "无属性",
       "charge": 10,
       "description_en": "Turn invisible for a short period.",
       "description_cn": "短时间内进入隐形状态。"
@@ -310,7 +310,7 @@
       "id": 35,
       "name_en": "BERSERK",
       "name_cn": "狂暴",
-      "spell_series": "无",
+      "spell_series": "无属性",
       "charge": 10,
       "description_en": "Become enraged, increasing my aggression, speed, and strength.",
       "description_cn": "陷入狂怒状态，提升攻击性、速度和力量。"
