@@ -152,7 +152,7 @@
       "charge": 18,
       "description_en": "Summon a lightning elemental to aid me.",
       "description_cn": "召唤一个闪电元素来协助我。"
-    }
+    },
     {
       "id": 18,
       "name_en": "THUNDER LIGHTNING",
@@ -305,7 +305,7 @@
       "charge": 10,
       "description_en": "Turn invisible for a short period.",
       "description_cn": "短时间内进入隐形状态。"
-    }
+    },
     {
       "id": 35,
       "name_en": "BERSERK",
