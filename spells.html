@@ -419,9 +419,11 @@
             color: #5a7fcc;
         }
 
+        /* 修改高充能值颜色为亮黄色并添加阴影 */
         .rarity-unique-color {
             background-color: rgba(44, 62, 80, 0.8);
-            color: #ffffff;
+            color: #ffd700; /* 亮黄色 */
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); /* 添加阴影增强可读性 */
         }
 
         .modal-section {
@@ -797,20 +799,6 @@
             pointer-events: none; /* 防止干扰点击 */
         }
         
-        /* 系列标签 */
-        .spell-series-tag {
-            position: absolute;
-            bottom: 5px;
-            left: 5px;
-            font-size: 0.7rem;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 2px 5px;
-            border-radius: 4px;
-            color: white;
-            z-index: 5;
-            pointer-events: none;
-        }
-        
         /* 页脚样式 */
         .footer {
             text-align: center;
@@ -1033,11 +1021,7 @@
                 chargeTag.textContent = spell.charge;
                 item.appendChild(chargeTag);
                 
-                // 添加系列标签
-                const seriesTag = document.createElement('span');
-                seriesTag.className = 'spell-series-tag';
-                seriesTag.textContent = spell.spell_series;
-                item.appendChild(seriesTag);
+                // 已删除系列标签代码
                 
                 // 将sprite添加到item
                 item.appendChild(sprite);
