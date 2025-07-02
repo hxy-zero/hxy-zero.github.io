@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法术图鉴</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #6a7ca8;
+            --dark: #3c4a6b;
+            --accent: #7e8fb9;
+            --light: #d1d9e9;
+            --text: #FFFFFF;
+            --common: #FFFFFF;     /* 常见 - 白色 */
+            --uncommon: #FF80FF;   /* 不常见 - 粉色 */
+            --rare: #77207B;       /* 罕见 - 深紫色 */
+            --unique: #000000;     /* 独特 - 黑色 */
+        }
+
+        body {
+            background: #96a5bf;
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            background-image: linear-gradient(rgba(150, 165, 191, 0.9), rgba(106, 124, 168, 0.8)), 
+                              radial-gradient(circle at top left, rgba(255,255,255,0.1) 0%, transparent 20%),
+                              radial-gradient(circle at bottom right, rgba(255,255,255,0.1) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .home-button {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: rgba(106, 124, 168, 0.6);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            z-index: 20;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .home-button:hover {
+            background: rgba(126, 143, 185, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .home-button i {
+            margin-right: 5px;
+        }
+        
+        .page-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(156, 111, 154, 0.8);
+            background: linear-gradient(90deg, #ffd166, #ef476f, #118ab2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+            line-height: 1.8;
+            background: rgba(60, 74, 107, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,  0, 0, 0.4);
+        }
+
+        .rarity-common {
+            color: var(--common);
+            font-weight: bold;
+        }
+
+        .rarity-uncommon {
+            color: var(--uncommon);
+            font-weight: bold;
+        }
+
+        .rarity-rare {
+            color: var(--rare);
+            font-weight: bold;
+        }
+
+        .rarity-unique {
+            color: var(--unique);
+            background-color: white;
+            padding: 0 5px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .navbar {
+            background-color: rgba(60, 74, 107, 0.95);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 10px auto 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .search-group {
+            display: flex;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .search-container {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(106, 124, 168, 0.3);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--accent);
+            background: rgba(90, 107, 150, 0.5);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .direction-btn {
+            width: 50px;
+            margin-left: 10px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(106, 124, 168, 0.3);
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .direction-btn:hover {
+            background: rgba(106, 124, 168, 0.5);
+            transform: scale(1.1);
+        }
+
+        .filter-container {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .category-select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(106, 124, 168, 0.3);
+            color: white;
+            font-size: 1rem;
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--accent);
+            background: rgba(90, 107, 150, 0.5);
+        }
+
+        .select-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .gallery {
+            background-color: var(--primary);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 10px;
+            min-height: 500px;
+        }
+
+        .spell-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 90px; 
+            height: 90px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto; 
+        }
+
+        .spell-item:hover {
+            transform: translateY(-7px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            z-index: 10;
+        }
+
+        .spell-sprite {
+            width: 80px;
+            height: 80px;
+            background-image: url('https://s21.ax1x.com/2025/07/02/pVu7za4.webp');
+            background-repeat: no-repeat;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .spell-item:hover .spell-sprite {
+            transform: scale(1.15);
+        }
+        
+        .counter {
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: var(--light);
+            opacity: 0.8;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #3c4a6b, #5a6d9e);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+            border: 2px solid var(--accent);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            color: var(--light);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 1100;
+        }
+
+        .close-btn:hover {
+            background-color: rgba(106, 124, 168, 0.4);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 0;
+            border-bottom: none;
+            position: relative;
+        }
+
+        .modal-section h4 i {
+            margin-right: -10px;
+            font-size: 1.3rem;
+            color: #06d6a0;
+        }
+
+        .modal-image {
+            width: 120px;
+            height: 120px;
+            background-color: rgba(106, 124, 168, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            flex-shrink: 0;
+            border: 2px solid var(--accent);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-sprite {
+            width: 100px;
+            height: 100px;
+            background-image: url('https://s21.ax1x.com/2025/07/02/pVu7za4.webp');
+            background-repeat: no-repeat;
+            border-radius: 6px;
+            background-size: 100px auto;
+        }
+
+        .modal-title {
+            flex: 1;
+        }
+
+        .modal-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: -8px;
+            color: #ffd166;
+        }
+
+        .modal-title h3 {
+            font-size: 1.5rem;
+            color: #a6c1ee;
+            font-weight: normal;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+
+        .info-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .modal-category {
+            display: inline-block;
+            padding: 6px 15px;
+            background: rgba(106, 124, 168, 0.6);
+            border-radius: 50px;
+            font-size: 1rem;
+            color: #ff9a9e;
+            font-weight: bold;
+        }
+
+        .modal-charge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: rgba(255, 209, 102, 0.3);
+            color: #ffd166;
+        }
+
+        .modal-section {
+            margin-bottom: 25px;
+        }
+
+        .modal-section h4 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #06d6a0;
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-section h4::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #06d6a0, transparent);
+            margin-left: 15px;
+        }
+
+        .modal-section p {
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+
+        .modal-section p.chinese {
+            font-size: 1.2rem;
+            color: #ffd166;
+            font-weight: 500;
+        }
+
+        .modal-section p.english {
+            color: #a6c1ee;
+            font-style: italic;
+        }
+        
+        .category-tag {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            font-size: 0.7rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        
+        /* 分类标签颜色 */
+        .category-火 { background-color: rgba(255, 107, 107, 0.25); }
+        .category-冰 { background-color: rgba(6, 214, 160, 0.25); }
+        .category-土 { background-color: rgba(255, 157, 0, 0.25); }
+        .category-闪电 { background-color: rgba(155, 93, 229, 0.25); }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .spell-item {
+            animation: fadeIn 0.4s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .navbar {
+                gap: 10px;
+            }
+
+            .search-group {
+                flex: 100%;
+                order: 1;
+            }
+
+            .filter-container {
+                flex: 1;
+                min-width: calc(50% - 10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .subtitle {
+                font-size: 1.1rem;
+                padding: 12px;
+            }
+
+            .modal-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .modal-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .modal-title h2 {
+                font-size: 1.9rem;
+            }
+
+            .modal-title h3 {
+                font-size: 1.3rem;
+            }
+
+            .modal-section h4 {
+                font-size: 1.3rem;
+            }
+
+            .info-tags {
+                justify-content: center;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+                gap: 8px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .filter-container {
+                min-width: 140px;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-group {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .home-button {
+                top: 6px;
+                right: 20px;
+            }
+            
+            .subtitle {
+                font-size: 0.95rem;
+                padding: 10px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 5px;
+                padding: 15px;
+            }
+
+            .modal-content {
+                padding: 20px 15px;
+            }
+
+            .modal-section p {
+                font-size: 1rem;
+            }
+
+            .modal-section p.chinese {
+                font-size: 1.1rem;
+            }
+
+            .search-container {
+                min-width: 150px;
+            }
+
+            .modal-category,
+            .modal-charge {
+                padding: 4px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .category-tag {
+                font-size: 0.6rem;
+                padding: 1px 3px;
+            }
+                        
+            .spell-item {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .spell-sprite {
+                width: 70px;
+                height: 70px;
+                background-size: 70px auto; /* 关键：添加背景图尺寸适配 */
+            }
+        }
+
+        @media (max-width: 360px) {
+            .subtitle {
+                font-size: 0.85rem;
+            }
+
+            .search-container input {
+                padding: 10px 12px 10px 40px;
+                font-size: 0.9rem;
+            }
+
+            .search-icon {
+                left: 12px;
+                font-size: 1rem;
+            }
+
+            .category-select {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                gap: 3px;
+                padding: 5px;
+            }
+            
+            .spell-item {
+                width: 75px;
+                height: 75px;
+            }
+            
+            .spell-sprite {
+                width: 65px;
+                height: 65px;
+                background-size: 65px auto; /* 关键：添加背景图尺寸适配 */
+            }
+        }
+        
+        .decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .decoration::before {
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(129, 71, 127, 0.3) 0%, transparent 70%);
+            animation: float 15s infinite linear;
+        }
+
+        .decoration::after {
+            content: "";
+            position: absolute;
+            bottom: 15%;
+            right: 10%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(90, 47, 88, 0.3) 0%, transparent 70%);
+            animation: float 18s infinite linear reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, 30px) rotate(90deg); }
+            50% { transform: translate(0, 60px) rotate(180deg); }
+            75% { transform: translate(-20px, 30px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        .select-container {
+            position: relative;
+            width: 100%;
+        }
+        
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            color: var(--light);
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #ffd166;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error-message {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 0, 0, 0.1);
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            display: none;
+        }
+
+        .error-message h3 {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .error-message p {
+            font-size: 1rem;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .retry-btn {
+            padding: 10px 25px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .retry-btn:hover {
+            background-color: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 82, 82, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration"></div>
+    
+    <a href="#" class="home-button">
+        <i class="fas fa-home"></i>首页
+    </a>
+
+    <div class="container">
+        <header>
+            <h1 class="page-title">法术图鉴</h1>
+            <p class="subtitle">探索神秘的法术世界，掌握火焰、寒冰、大地与闪电的力量</p>
+        </header>
+
+        <nav class="navbar">
+            <div class="search-group">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="搜索法术...">
+                </div>
+                <button id="sort-direction" class="direction-btn" title="切换排序方向">
+                    <i class="fas fa-sort-amount-down"></i>
+                </button>
+            </div>
+
+            <div class="filter-container">
+                <div class="select-container">
+                    <select id="category-select" class="category-select">
+                        <option value="all">全部展示</option>
+                        <option value="火">火系</option>
+                        <option value="冰">冰系</option>
+                        <option value="土">土系</option>
+                        <option value="闪电">闪电</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-icon"></i>
+                </div>
+            </div>
+
+            <div class="filter-container">
+                <div class="select-container">
+                    <select id="sort-select" class="category-select">
+                        <option value="default">默认排序</option>
+                        <option value="name_en">英文首字母排序</option>
+                        <option value="charge">按消耗排序</option>
+                    </select>
+                    <i class="fas fa-sort select-icon"></i>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p>加载法术数据中...</p>
+            </div>
+
+            <div class="gallery" id="spell-gallery">
+                <!-- 法术将通过JavaScript动态加载 -->
+            </div>
+
+            <div class="counter" id="counter">
+                显示 <span id="count">0</span> 个法术
+            </div>
+            
+            <div class="error-message" id="error-message">
+                <h3>数据加载失败</h3>
+                <p>无法加载法术数据，请检查网络连接或稍后再试。</p>
+                <button class="retry-btn" id="retry-btn">重新加载</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 法术详情弹窗 -->
+    <div id="spell-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+
+            <div class="modal-header">
+                <div class="modal-image">
+                    <div class="modal-sprite" id="modal-img"></div>
+                </div>
+                <div class="modal-title">
+                    <h2 id="modal-name-cn"></h2>
+                    <h3 id="modal-name-en"></h3>
+                    <div class="info-tags">
+                        <span class="modal-category" id="modal-category"></span>
+                        <span class="modal-charge" id="modal-charge"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>
+                    <i class="fas fa-scroll section-icon"></i>
+                    法术描述
+                </h4>
+                <p class="chinese" id="modal-description-cn"></p>
+                <p class="english" id="modal-description-en"></p>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="navbar">
+        法术是魔法师的核心能力，分为火、冰、土和闪电四大系别。每个法术都有不同的能量消耗和效果，合理搭配法术组合是战斗胜利的关键。
+    </nav>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const gallery = document.getElementById('spell-gallery');
+        const modal = document.getElementById('spell-modal');
+        const closeBtn = document.querySelector('.close-btn');
+        const searchInput = document.getElementById('search-input');
+        const categorySelect = document.getElementById('category-select');
+        const sortSelect = document.getElementById('sort-select');
+        const loader = document.getElementById('loader');
+        const counter = document.getElementById('count');
+        const directionBtn = document.getElementById('sort-direction');
+        const errorMessage = document.getElementById('error-message');
+        const retryBtn = document.getElementById('retry-btn');
+    
+        let spellsData = [];
+        let currentFilteredData = [];
+        let sortDirection = 'desc';
+        let lastWindowWidth = window.innerWidth;
+    
+        // 加载法术数据
+        function loadSpells() {
+            loader.style.display = 'flex';
+            gallery.style.display = 'none';
+            counter.style.display = 'none';
+            errorMessage.style.display = 'none';
+    
+            // 使用fetch加载JSON文件
+            fetch('spells.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应不正常');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // 只取前43个法术（雪碧图只有43个位置）
+                    spellsData = data.equipment.slice(0, 43);
+                    currentFilteredData = [...spellsData];
+                    sortSpells('default');
+    
+                    loader.style.display = 'none';
+                    gallery.style.display = 'grid';
+                    counter.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('加载数据失败:', error);
+                    loader.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                });
+        }
+    
+        // 渲染法术
+        function renderSpells(spells) {
+            gallery.innerHTML = '';
+            counter.textContent = spells.length;
+    
+            const animationDelay = 0.04;
+            
+            // 根据屏幕尺寸确定步长
+            let step;
+            if (window.innerWidth < 360) step = 65;
+            else if (window.innerWidth < 480) step = 70;
+            else step = 80;
+            
+            spells.forEach((spell, index) => {
+                const item = document.createElement('div');
+                item.className = `spell-item category-${spell.spell_series}`;
+                item.style.animationDelay = `${index * animationDelay}s`;
+    
+                const sprite = document.createElement('div');
+                sprite.className = 'spell-sprite';
+                const position = -(spell.id - 1) * step; // 动态计算位置
+                sprite.style.backgroundPosition = `0 ${position}px`;
+    
+                const tag = document.createElement('span');
+                tag.className = 'category-tag';
+                tag.textContent = spell.spell_series;
+    
+                item.appendChild(sprite);
+                item.appendChild(tag);
+    
+                item.addEventListener('click', () => openModal(spell));
+    
+                gallery.appendChild(item);
+            });
+        }
+    
+        // 打开详情弹窗
+        function openModal(spell) {
+            const modalSprite = document.getElementById('modal-img');
+            const position = -(spell.id - 1) * 100; // 弹窗中图标大小为100px
+            modalSprite.style.backgroundPosition = `0 ${position}px`;
+            
+            document.getElementById('modal-name-cn').textContent = spell.name_cn;
+            document.getElementById('modal-name-en').textContent = spell.name_en;
+            document.getElementById('modal-category').textContent = spell.spell_series;
+            document.getElementById('modal-charge').textContent = `消耗: ${spell.charge}`;
+            document.getElementById('modal-description-cn').textContent = spell.description_cn;
+            document.getElementById('modal-description-en').textContent = spell.description_en;
+    
+            modal.style.display = 'flex';
+        }
+    
+        // 关闭弹窗
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    
+        // 点击弹窗外区域关闭
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // 只在宽度变化时刷新
+        window.addEventListener('resize', function() {
+            const currentWidth = window.innerWidth;
+            if (Math.abs(currentWidth - lastWindowWidth) > 1) {
+                filterSpells();
+                lastWindowWidth = currentWidth;
+            }
+        });
+    
+        // 搜索功能
+        searchInput.addEventListener('input', filterSpells);
+    
+        // 分类筛选
+        categorySelect.addEventListener('change', filterSpells);
+    
+        // 排序功能
+        sortSelect.addEventListener('change', filterSpells);
+    
+        // 排序方向按钮点击事件
+        directionBtn.addEventListener('click', function() {
+            sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+    
+            const icon = directionBtn.querySelector('i');
+            if (sortDirection === 'asc') {
+                icon.classList.remove('fa-sort-amount-down');
+                icon.classList.add('fa-sort-amount-up');
+            } else {
+                icon.classList.remove('fa-sort-amount-up');
+                icon.classList.add('fa-sort-amount-down');
+            }
+    
+            filterSpells();
+        });
+    
+        // 筛选法术
+        function filterSpells() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categorySelect.value;
+    
+            const filtered = spellsData.filter(spell => {
+                const matchesSearch = spell.name_cn.toLowerCase().includes(searchTerm) ||
+                                     spell.name_en.toLowerCase().includes(searchTerm);
+                const matchesCategory = selectedCategory === 'all' || spell.spell_series === selectedCategory;
+                return matchesSearch && matchesCategory;
+            });
+    
+            currentFilteredData = filtered;
+            sortSpells(sortSelect.value, filtered);
+        }
+    
+        // 排序函数
+        function sortSpells(sortBy, data = currentFilteredData) {
+            let sorted = [...data];
+    
+            switch(sortBy) {
+                case 'name_en':
+                    sorted.sort((a, b) => a.name_en.localeCompare(b.name_en));
+                    break;
+                case 'charge':
+                    sorted.sort((a, b) => a.charge - b.charge);
+                    break;
+                case 'default':
+                default:
+                    sorted.sort((a, b) => a.id - b.id);
+                    break;
+            }
+    
+            if (sortDirection === 'asc') {
+                sorted.reverse();
+            }
+    
+            renderSpells(sorted);
+        }
+        
+        // 重试按钮
+        retryBtn.addEventListener('click', loadSpells);
+    
+        // 初始加载数据
+        loadSpells();
+    
+        // 添加键盘快捷键
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            }
+            if (e.key === '/' && e.target !== searchInput) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+    });
+    </script>
+</body>
+</html>
