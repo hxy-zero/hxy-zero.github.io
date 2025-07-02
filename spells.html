@@ -897,7 +897,7 @@
             errorMessage.style.display = 'none';
     
             // 使用fetch加载JSON文件
-            fetch('spells.json')
+            fetch('data/spells.json')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('网络响应不正常');
