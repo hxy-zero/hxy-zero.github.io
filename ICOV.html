@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暴力庆典 - 游戏图鉴</title>
+    <link rel="shortcut icon" href="images/icov.ico" />
+    <link rel="icon" href="images/icov.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/ICOV.css?v=1.0.0" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(135deg, #0f0c1d 0%, #1a1528 50%, #0c0917 100%);
+            color: #e9dcc9;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 0, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 20%);
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23b8860b" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.2"/></svg>');
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        /* 头部样式 */
+        header {
+            text-align: center;
+            padding: 1.5rem 0;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <!-- 像素艺术装饰 -->
+    <div class="pixel-art sword"></div>
+    <div class="pixel-art shield"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="logo floating">暴力庆典</h1>
+            <div class="subtitle">IN CELEBRATION OF VIOLENCE</div>
+        </header>
+        
+        <section class="game-description">
+            <h2>游戏简介</h2>
+            <p>《暴力庆典》是由Julian Edison开发的一款游戏，最初于2016年8月12日以抢先体验版形式登陆Steam平台，完整版则于2018年2月14日正式发布。</p>
+            <p>《暴力庆典》是一款融合探索与杀戮元素的幻想动作roguelike游戏。其讲究策略性的战斗系统要求玩家在考量对手与环境因素的同时，精心规划攻击、闪避、格挡与招架动作。角色死亡后无法复活，但可通过提升属性数值及购买道具来增强后续重生后的实力。</p>
+            <p class="dev-info">—— 摘自Steam游戏介绍</p>
+        </section>
+        
+        <section class="catalog-grid">
+            <div class="catalog-item">
+                <i class="fas fa-gem"></i>
+                <h3>遗物图鉴</h3>
+                <a href="https://hxy-zero.github.io/mementos.html" class="btn">查看遗物</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>装备图鉴</h3>
+                <a href="https://hxy-zero.github.io/equipment.html" class="btn">查看装备</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-gavel"></i>
+                <h3>武器图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-user-friends"></i>
+                <h3>选角图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-map"></i>
+                <h3>地图图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-monument"></i>
+                <h3>神像图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-trophy"></i>
+                <h3>成就图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-magic"></i>
+                <h3>附魔图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-paw"></i>
+                <h3>生物图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-book-dead"></i>
+                <h3>法术图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-gift"></i>
+                <h3>掉落图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-chart-bar"></i>
+                <h3>属性图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-book-open"></i>
+                <h3>知识图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+            
+            <div class="catalog-item">
+                <i class="fas fa-gamepad"></i>
+                <h3>控制图鉴</h3>
+                <a href="#" class="btn coming-soon">即将开放</a>
+            </div>
+        </section>
+        
+        <footer>
+            <p>暴力庆典图鉴网站 © 2025 | 游戏版权归 Julian Edison 所有</p>
+            <p>本网站为粉丝作品，非官方关联</p>
+        </footer>
+    </div>
+
+    <script>
+        // 添加悬停效果增强
+        document.querySelectorAll('.catalog-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // 添加按钮点击效果
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if(this.classList.contains('coming-soon')) {
+                    e.preventDefault();
+                    const originalText = this.textContent;
+                    this.textContent = '开发中...';
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 1000);
+                }
+            });
+        });
+        
+        // 添加加载动画
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            setTimeout(() => {
+                document.querySelector('.logo').style.animation = 'glow 2s infinite alternate, float 3s ease-in-out infinite';
+            }, 500);
+        });
+    </script>
+</body>
+</html>

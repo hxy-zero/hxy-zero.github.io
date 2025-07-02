@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="images/icov.ico" />
     <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="css/mementos.css?v=2.1.3" type="text/css" rel="stylesheet" />
+    <link href="css/mementos.css?v=2.3.0" type="text/css" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -36,35 +36,15 @@
             position: relative;
             overflow-x: hidden;
         }
-
-        /* 加载动画 */
-        .loader {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px;
-        }
-
-        .loader .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 5px solid var(--accent);
-            animation: spin 1.2s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        .loader p {
-            font-size: 1.1rem;
-            color: var(--light);
-        }
     </style>
 </head>
 <body>
     <div class="decoration"></div>
+    
+    <!-- 新增：首页按钮 -->
+    <a href="https://hxy-zero.github.io/ICOV.html" class="home-button">
+        <i class="fas fa-home"></i>首页
+    </a>
 
     <div class="container">
         <header>
@@ -215,6 +195,7 @@
         let mementosData = [];
         let currentFilteredData = [];
         let sortDirection = 'desc';
+        let lastWindowWidth = window.innerWidth; // 记录初始宽度
     
         // 加载遗物数据
         function loadMementos() {
@@ -339,8 +320,14 @@
             }
         });
 
+        // 修改：只在宽度变化时刷新
         window.addEventListener('resize', function() {
-            filterMementos(); // 窗口大小变化时重新渲染
+            const currentWidth = window.innerWidth;
+            // 只有当宽度变化超过1像素时才刷新
+            if (Math.abs(currentWidth - lastWindowWidth) > 1) {
+                filterMementos();
+                lastWindowWidth = currentWidth; // 更新记录的宽度
+            }
         });
     
         // 搜索功能
