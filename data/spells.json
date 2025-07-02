@@ -6,7 +6,7 @@
       "name_cn": "火浪",
       "spell_series": "火",
       "charge": 10,
-      "description_en": "A wave of Flame that can set fire to enemies before me.",
+      "description_en": "A wave of flame that can set fire to enemies before me.",
       "description_cn": "一股能够点燃面前敌人的火焰之波。"
     },
     {
@@ -21,11 +21,11 @@
     {
       "id": 3,
       "name_en": "SUMMON FIREFLIES",
-      "name_cn": "召唤萤火虫",
+      "name_cn": "召唤火焰飞蝇",
       "spell_series": "火",
       "charge": 14,
       "description_en": "I summon a few fireflies to aid me in battle.",
-      "description_cn": "我召唤少量萤火虫在战斗中协助我。"
+      "description_cn": "召唤少量火焰飞蝇在协助我作战。"
     },
     {
       "id": 4,
@@ -75,11 +75,11 @@
     {
       "id": 9,
       "name_en": "SUMMON ICEFLIES",
-      "name_cn": "召唤冰萤",
+      "name_cn": "召唤冰霜飞蝇",
       "spell_series": "冰",
       "charge": 14,
-      "description_en": "Summon a few iceflies to aid me in battle.",
-      "description_cn": "召唤少量冰萤在战斗中协助我。"
+      "description_en": "I summon a few iceflies to aid me in battle.",
+      "description_cn": "召唤少量冰霜飞蝇在协助我作战。"
     },
     {
       "id": 10,
@@ -150,7 +150,7 @@
       "name_cn": "召唤闪电元素",
       "spell_series": "雷",
       "charge": 18,
-      "description_en": "Summon a lightning elemental to aid me.",
+      "description_en": "I summon a lightning elemental to aid me.",
       "description_cn": "召唤一个闪电元素来协助我。"
     },
     {
@@ -168,7 +168,7 @@
       "name_cn": "雷暴闪电",
       "spell_series": "雷",
       "charge": 40,
-      "description_en": "Summon a storm of terrible proportions.",
+      "description_en": "I summon a storm of terrible proportions.",
       "description_cn": "召唤一场规模可怕的雷暴。"
     },
     {
@@ -195,7 +195,7 @@
       "name_cn": "飞行",
       "spell_series": "奥术",
       "charge": 7,
-      "description_en": "Float for a period of time.",
+      "description_en": "I float for a period of time.",
       "description_cn": "悬浮一段时间。"
     },
     {
@@ -210,11 +210,11 @@
     {
       "id": 24,
       "name_en": "SUMMON MAGIFLIES",
-      "name_cn": "召唤玛吉弗莱",
+      "name_cn": "召唤奥术飞蝇",
       "spell_series": "奥术",
       "charge": 14,
-      "description_en": "Summon a fel magiflies to aid me in battle.",
-      "description_cn": "召唤一个邪能玛吉弗莱来协助我战斗。"
+      "description_en": "I summon a few magiflies to aid me in battle.",
+      "description_cn": "召唤少量奥术飞蝇在协助我作战。"
     },
     {
       "id": 25,
@@ -222,17 +222,17 @@
       "name_cn": "召唤刀锋飞蝇",
       "spell_series": "奥术",
       "charge": 16,
-      "description_en": "Summon a fel bladeflies to aid me in battle.",
-      "description_cn": "召唤邪能刀锋飞蝇协助我战斗。"
+      "description_en": "I summon a few bladeflies to aid me in battle.",
+      "description_cn": "召唤少量刀锋飞蝇在协助我作战。"
     },
     {
       "id": 26,
       "name_en": "MAGIFLY STORM",
-      "name_cn": "玛吉弗莱风暴",
+      "name_cn": "奥术飞蝇风暴",
       "spell_series": "奥术",
       "charge": 25,
       "description_en": "Summon a cloud of magiflies and immediately command them to attack.",
-      "description_cn": "召唤一群玛吉弗莱并立即命令它们发动攻击。"
+      "description_cn": "召唤一群奥术飞蝇并立即命令它们发动攻击。"
     },
     {
       "id": 27,
@@ -240,7 +240,7 @@
       "name_cn": "召唤日记",
       "spell_series": "奥术",
       "charge": 50,
-      "description_en": "Summon a diary to record my experience.",
+      "description_en": "I summon a diary to record my experience.",
       "description_cn": "召唤一本日记记录我的经历。"
     },
     {
@@ -249,7 +249,7 @@
       "name_cn": "神圣干预",
       "spell_series": "奥术",
       "charge": 50,
-      "description_en": "Summon the god Liho favored by me to intervene on my behalf.",
+      "description_en": "I summon the god Liho favored by me to intervene on my behalf.",
       "description_cn": "召唤我所信奉的神灵Liho代表我进行干预。"
     },
     {
@@ -259,7 +259,7 @@
       "spell_series": "无属性",
       "charge": 2,
       "description_en": "Enemies in the target area lose their experience.",
-      "description_cn": "目标区域内的敌人失去其经验值。"
+      "description_cn": "目标区域内的敌人丢失其经验值。"
     },
     {
       "id": 30,
@@ -303,8 +303,8 @@
       "name_cn": "潜行",
       "spell_series": "无属性",
       "charge": 10,
-      "description_en": "Turn invisible for a short period.",
-      "description_cn": "短时间内进入隐形状态。"
+      "description_en": "I turn invisible for a short period.",
+      "description_cn": "在短时间内进入隐形状态。"
     },
     {
       "id": 35,
@@ -312,7 +312,7 @@
       "name_cn": "狂暴",
       "spell_series": "无属性",
       "charge": 10,
-      "description_en": "Become enraged, increasing my aggression, speed, and strength.",
+      "description_en": "I become enraged, increasing my aggression, speed, and strength.",
       "description_cn": "陷入狂怒状态，提升攻击性、速度和力量。"
     },
     {
