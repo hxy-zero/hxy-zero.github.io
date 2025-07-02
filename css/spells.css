@@ -499,8 +499,8 @@ header {
 
 @media (max-width: 480px) {
     .charge-value {
-        top: auto;
-        bottom: 5px;
+        /* top: auto;
+        bottom: 5px; */
         font-size: 0.6rem;
         padding: 2px;
         font-weight: normal;
