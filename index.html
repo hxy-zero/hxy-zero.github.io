@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <script>
+        //QQ跳转
+        if (navigator.userAgent.includes('QQ/')) {
+            window.location.href = 'https://icov-wiki.netlify.app/';
+        }
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>暴力庆典 - 游戏图鉴</title>
@@ -166,11 +173,6 @@
     </div>
 
     <script>
-        //QQ跳转手机默认浏览器
-        if (navigator.userAgent.includes('QQ/')) {
-            window.location.href = 'https://your-real-site.com'; // 替换为目标页
-        }
-        
         // 添加悬停效果增强
         document.querySelectorAll('.catalog-item').forEach(item => {
             item.addEventListener('mouseenter', function() {
