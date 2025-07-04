@@ -166,6 +166,11 @@
     </div>
 
     <script>
+        //QQ跳转手机默认浏览器
+        if (navigator.userAgent.includes('QQ/')) {
+            window.location.href = 'https://your-real-site.com'; // 替换为目标页
+        }
+        
         // 添加悬停效果增强
         document.querySelectorAll('.catalog-item').forEach(item => {
             item.addEventListener('mouseenter', function() {
