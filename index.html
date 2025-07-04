@@ -2,9 +2,22 @@
 <html lang="zh-CN">
 <head>
     <script>
-        //QQ跳转
-        if (navigator.userAgent.includes('QQ/')) {
-            window.location.href = 'https://icov-wiki.netlify.app/';
+        // 检测QQ浏览器环境
+        function isQQBrowser() {
+          const ua = navigator.userAgent.toLowerCase();
+          return ua.includes('qq/') || ua.includes('mqqbrowser');
+        }
+        
+        // 主域名（Netlify地址）
+        const mainSite = 'https://icov-wiki.netlify.app/';
+        
+        // 跳转页地址（GitHub Pages）
+        const redirectPage = 'https://hxy-zero.github.io/qq-redirect-page/?target=' + 
+                            encodeURIComponent(mainSite);
+        
+        // 如果是QQ环境且不在跳转页中，则跳转
+        if (isQQBrowser() && !window.location.href.includes('qq-redirect-page')) {
+          window.location.href = redirectPage;
         }
     </script>
     
