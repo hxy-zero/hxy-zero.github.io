@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>遗物图鉴</title>
+    <title>遗物图鉴 - 优化版</title>
     <link rel="shortcut icon" href="images/icov.ico" />
     <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -50,7 +50,6 @@
             margin-bottom: 10px;
         }
 
-        /* 新增：首页按钮样式 */
         .home-button {
             position: absolute;
             top: 40px;
@@ -220,7 +219,7 @@
             opacity: 0.7;
         }
 
-        /* 纪念品展示区 - 确保正方形 */
+        /* 纪念品展示区 */
         .gallery {
             background-color: var(--primary);
             border-radius: 12px;
@@ -255,13 +254,16 @@
             z-index: 10;
         }
 
+        /* 关键优化：雪碧图容器 */
         .memento-sprite {
-            width: 80px;
-            height: 80px;
+            width: 100%; /* 使用百分比宽度 */
+            height: 100%; /* 使用百分比高度 */
             background-image: url('https://s21.ax1x.com/2025/07/02/pVuyADx.webp');
             background-repeat: no-repeat;
             transition: all 0.3s ease;
             border-radius: 6px;
+            background-position: 0 0;
+            background-size: 100% auto; /* 关键：使用100%宽度 */
         }
 
         .memento-item:hover .memento-sprite {
@@ -347,13 +349,15 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
+        /* 关键优化：弹窗雪碧图 */
         .modal-sprite {
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            height: 100%;
             background-image: url('https://s21.ax1x.com/2025/07/02/pVuyADx.webp');
             background-repeat: no-repeat;
             border-radius: 6px;
-            background-size: 100px auto;
+            background-size: 100% auto; /* 使用百分比尺寸 */
+            background-position: 0 0;
         }
 
         .modal-title {
@@ -468,7 +472,7 @@
             line-height: 1.4;
         }
 
-        /* 响应式设计 */
+        /* 响应式设计 - 优化移动端显示 */
         @media (max-width: 900px) {
             .navbar {
                 gap: 10px;
@@ -499,6 +503,8 @@
             .modal-image {
                 margin-right: 0;
                 margin-bottom: 20px;
+                width: 100px;
+                height: 100px;
             }
 
             .modal-title h2 {
@@ -595,11 +601,6 @@
                 width: 80px;
                 height: 80px;
             }
-            
-            .memento-sprite {
-                width: 70px;
-                height: 70px;
-            }
         }
 
         @media (max-width: 360px) {
@@ -631,11 +632,6 @@
             .memento-item {
                 width: 75px;
                 height: 75px;
-            }
-            
-            .memento-sprite {
-                width: 65px;
-                height: 65px;
             }
         }
 
@@ -822,7 +818,7 @@
 <body>
     <div class="decoration"></div>
     
-    <!-- 新增：首页按钮 -->
+    <!-- 首页按钮 -->
     <a href="https://icov-wiki.netlify.app/" class="home-button">
         <i class="fas fa-home"></i>首页
     </a>
@@ -1009,18 +1005,12 @@
                 });
         }
     
-        // 渲染遗物
+        // 渲染遗物 - 优化图片显示
         function renderMementos(mementos) {
             gallery.innerHTML = '';
             counter.textContent = mementos.length;
     
             const animationDelay = 0.04;
-
-            // 根据屏幕尺寸确定步长
-            let step;
-            if (window.innerWidth < 360) step = 65;
-            else if (window.innerWidth < 480) step = 70;
-            else step = 80;
             
             mementos.forEach((memento, index) => {
                 const item = document.createElement('div');
@@ -1030,10 +1020,9 @@
                 const sprite = document.createElement('div');
                 sprite.className = 'memento-sprite';
                 
-                // 设置背景位置和尺寸
-                const position = -(memento.id - 1) * step;
-                sprite.style.backgroundPosition = `0 ${position}px`;
-                sprite.style.backgroundSize = `${step}px auto`;
+                // 关键优化：使用百分比位置计算
+                const positionPercentage = (memento.id - 1) * 100;
+                sprite.style.backgroundPosition = `0 ${positionPercentage}%`;
     
                 const tag = document.createElement('span');
                 tag.className = 'category-tag';
@@ -1051,9 +1040,9 @@
         // 打开详情弹窗
         function openModal(memento) {
             const modalSprite = document.getElementById('modal-img');
-            // 弹窗中的图片大小固定为100px，所以位置计算为-(id-1)*100
-            const position = -(memento.id - 1) * 100;
-            modalSprite.style.backgroundPosition = `0 ${position}px`;
+            // 使用百分比定位
+            const positionPercentage = (memento.id - 1) * 100;
+            modalSprite.style.backgroundPosition = `0 ${positionPercentage}%`;
             
             document.getElementById('modal-name-cn').textContent = memento.name_cn;
             document.getElementById('modal-name-en').textContent = memento.name_en;
