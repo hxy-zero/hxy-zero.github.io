@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="images/icov.ico" />
     <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="css/mementos.css?v=3.0.0" type="text/css" rel="stylesheet" />
+    <link href="css/mementos.css?v=3.1.0" type="text/css" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -41,7 +41,6 @@
 <body>
     <div class="decoration"></div>
     
-    <!-- 新增：首页按钮 -->
     <a href="https://icov-wiki.netlify.app/" class="home-button">
         <i class="fas fa-home"></i>首页
     </a>
@@ -191,11 +190,11 @@
         const noteSection = document.getElementById('modal-note-section');
         const noteElement = document.getElementById('modal-note');
         const directionBtn = document.getElementById('sort-direction');
+        const modalImg = document.getElementById('modal-img');
     
         let mementosData = [];
         let currentFilteredData = [];
         let sortDirection = 'desc';
-        let lastWindowWidth = window.innerWidth; // 记录初始宽度
     
         // 加载遗物数据
         function loadMementos() {
@@ -235,25 +234,14 @@
     
             const animationDelay = 0.04;
 
-            // 根据屏幕尺寸确定步长
-            let step;
-            if (window.innerWidth < 360) step = 65;
-            else if (window.innerWidth < 480) step = 70;
-            else step = 80;
-            
             mementos.forEach((memento, index) => {
                 const item = document.createElement('div');
                 item.className = `memento-item category-${memento.category}`;
                 item.style.animationDelay = `${index * animationDelay}s`;
     
                 const sprite = document.createElement('div');
-                sprite.className = 'memento-sprite';
+                sprite.className = `memento-sprite memento-${memento.id}`;
                 
-                // 设置背景位置和尺寸
-                const position = -(memento.id - 1) * step;
-                sprite.style.backgroundPosition = `0 ${position}px`;
-                sprite.style.backgroundSize = `${step}px auto`;
-    
                 const tag = document.createElement('span');
                 tag.className = 'category-tag';
                 tag.textContent = memento.category;
@@ -269,10 +257,10 @@
     
         // 打开详情弹窗
         function openModal(memento) {
-            const modalSprite = document.getElementById('modal-img');
-            // 弹窗中的图片大小固定为100px，所以位置计算为-(id-1)*100
-            const position = -(memento.id - 1) * 100;
-            modalSprite.style.backgroundPosition = `0 ${position}px`;
+            // 清除之前的类
+            modalImg.className = 'modal-sprite';
+            // 添加当前遗物类
+            modalImg.classList.add(`modal-${memento.id}`);
             
             document.getElementById('modal-name-cn').textContent = memento.name_cn;
             document.getElementById('modal-name-en').textContent = memento.name_en;
@@ -321,16 +309,6 @@
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
-            }
-        });
-
-        // 修改：只在宽度变化时刷新
-        window.addEventListener('resize', function() {
-            const currentWidth = window.innerWidth;
-            // 只有当宽度变化超过1像素时才刷新
-            if (Math.abs(currentWidth - lastWindowWidth) > 1) {
-                filterMementos();
-                lastWindowWidth = currentWidth; // 更新记录的宽度
             }
         });
     
