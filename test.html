@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>遗物图鉴 - 优化版</title>
+    <title>遗物图鉴</title>
     <link rel="shortcut icon" href="images/icov.ico" />
     <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -112,7 +112,6 @@
             font-weight: bold;
         }
 
-        /* 导航栏样式 */
         .navbar {
             background-color: rgba(45, 26, 44, 0.95);
             backdrop-filter: blur(5px);
@@ -219,7 +218,6 @@
             opacity: 0.7;
         }
 
-        /* 纪念品展示区 */
         .gallery {
             background-color: var(--primary);
             border-radius: 12px;
@@ -254,23 +252,19 @@
             z-index: 10;
         }
 
-        /* 关键优化：雪碧图容器 */
         .memento-sprite {
-            width: 100%; /* 使用百分比宽度 */
-            height: 100%; /* 使用百分比高度 */
+            width: 80px;
+            height: 80px;
             background-image: url('https://s21.ax1x.com/2025/07/02/pVuyADx.webp');
             background-repeat: no-repeat;
             transition: all 0.3s ease;
             border-radius: 6px;
-            background-position: 0 0;
-            background-size: 100% auto; /* 关键：使用100%宽度 */
         }
 
         .memento-item:hover .memento-sprite {
             transform: scale(1.15);
         }
 
-        /* 详情弹窗 */
         .modal {
             display: none;
             position: fixed;
@@ -349,15 +343,13 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* 关键优化：弹窗雪碧图 */
         .modal-sprite {
-            width: 100%;
-            height: 100%;
+            width: 100px;
+            height: 100px;
             background-image: url('https://s21.ax1x.com/2025/07/02/pVuyADx.webp');
             background-repeat: no-repeat;
             border-radius: 6px;
-            background-size: 100% auto; /* 使用百分比尺寸 */
-            background-position: 0 0;
+            background-size: 100px auto;
         }
 
         .modal-title {
@@ -472,7 +464,6 @@
             line-height: 1.4;
         }
 
-        /* 响应式设计 - 优化移动端显示 */
         @media (max-width: 900px) {
             .navbar {
                 gap: 10px;
@@ -503,8 +494,6 @@
             .modal-image {
                 margin-right: 0;
                 margin-bottom: 20px;
-                width: 100px;
-                height: 100px;
             }
 
             .modal-title h2 {
@@ -596,10 +585,15 @@
                 font-size: 0.6rem;
                 padding: 1px 3px;
             }
-                            
+                        
             .memento-item {
                 width: 80px;
                 height: 80px;
+            }
+            
+            .memento-sprite {
+                width: 70px;
+                height: 70px;
             }
         }
 
@@ -633,9 +627,13 @@
                 width: 75px;
                 height: 75px;
             }
+            
+            .memento-sprite {
+                width: 65px;
+                height: 65px;
+            }
         }
 
-        /* 动画效果 */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -650,7 +648,6 @@
             animation-fill-mode: both;
         }
 
-        /* 分类标签颜色 */
         .category-属性 { background-color: rgba(255, 107, 107, 0.25); }
         .category-抗性 { background-color: rgba(6, 214, 160, 0.25); }
         .category-血量 { background-color: rgba(255, 157, 0, 0.25); }
@@ -670,7 +667,6 @@
         .category-陷阱 { background-color: rgba(255, 157, 0, 0.25); }
         .category-经验 { background-color: rgba(17, 138, 178, 0.25); }
 
-        /* 计数器 */
         .counter {
             display: inline-block;
             position: relative;
@@ -683,37 +679,11 @@
             opacity: 0.8;
         }
 
-        /* 加载动画 */
-        .loader {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            display: none;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-            margin-bottom: 15px;
-        }
-
-        .loader p {
-            color: white;
-            font-size: 1.2rem;
-        }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        /* 错误提示 */
         .error-message {
             text-align: center;
             padding: 30px;
@@ -753,7 +723,6 @@
             box-shadow: 0 5px 15px rgba(255, 82, 82, 0.3);
         }
 
-        /* 装饰元素 */
         .decoration {
             position: absolute;
             top: 0;
@@ -797,13 +766,22 @@
             100% { transform: translate(0, 0) rotate(360deg); }
         }
 
-        /* 选择容器 */
         .select-container {
             position: relative;
             width: 100%;
         }
 
-        /* 分类标签 */
+        .page-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(156, 111, 154, 0.8);
+            background: linear-gradient(90deg, #ffd166, #ef476f, #118ab2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
         .category-tag {
             position: absolute;
             bottom: 0px;
@@ -813,12 +791,521 @@
             padding: 2px 5px;
             border-radius: 4px;
         }
+        
+        /* 雪碧图定位 */
+        /* 桌面端 - 80px */
+        .memento-sprite.memento-1 { background-position: 0 0; }
+        .memento-sprite.memento-2 { background-position: 0 -80px; }
+        .memento-sprite.memento-3 { background-position: 0 -160px; }
+        .memento-sprite.memento-4 { background-position: 0 -240px; }
+        .memento-sprite.memento-5 { background-position: 0 -320px; }
+        .memento-sprite.memento-6 { background-position: 0 -400px; }
+        .memento-sprite.memento-7 { background-position: 0 -480px; }
+        .memento-sprite.memento-8 { background-position: 0 -560px; }
+        .memento-sprite.memento-9 { background-position: 0 -640px; }
+        .memento-sprite.memento-10 { background-position: 0 -720px; }
+        .memento-sprite.memento-11 { background-position: 0 -800px; }
+        .memento-sprite.memento-12 { background-position: 0 -880px; }
+        .memento-sprite.memento-13 { background-position: 0 -960px; }
+        .memento-sprite.memento-14 { background-position: 0 -1040px; }
+        .memento-sprite.memento-15 { background-position: 0 -1120px; }
+        .memento-sprite.memento-16 { background-position: 0 -1200px; }
+        .memento-sprite.memento-17 { background-position: 0 -1280px; }
+        .memento-sprite.memento-18 { background-position: 0 -1360px; }
+        .memento-sprite.memento-19 { background-position: 0 -1440px; }
+        .memento-sprite.memento-20 { background-position: 0 -1520px; }
+        .memento-sprite.memento-21 { background-position: 0 -1600px; }
+        .memento-sprite.memento-22 { background-position: 0 -1680px; }
+        .memento-sprite.memento-23 { background-position: 0 -1760px; }
+        .memento-sprite.memento-24 { background-position: 0 -1840px; }
+        .memento-sprite.memento-25 { background-position: 0 -1920px; }
+        .memento-sprite.memento-26 { background-position: 0 -2000px; }
+        .memento-sprite.memento-27 { background-position: 0 -2080px; }
+        .memento-sprite.memento-28 { background-position: 0 -2160px; }
+        .memento-sprite.memento-29 { background-position: 0 -2240px; }
+        .memento-sprite.memento-30 { background-position: 0 -2320px; }
+        .memento-sprite.memento-31 { background-position: 0 -2400px; }
+        .memento-sprite.memento-32 { background-position: 0 -2480px; }
+        .memento-sprite.memento-33 { background-position: 0 -2560px; }
+        .memento-sprite.memento-34 { background-position: 0 -2640px; }
+        .memento-sprite.memento-35 { background-position: 0 -2720px; }
+        .memento-sprite.memento-36 { background-position: 0 -2800px; }
+        .memento-sprite.memento-37 { background-position: 0 -2880px; }
+        .memento-sprite.memento-38 { background-position: 0 -2960px; }
+        .memento-sprite.memento-39 { background-position: 0 -3040px; }
+        .memento-sprite.memento-40 { background-position: 0 -3120px; }
+        .memento-sprite.memento-41 { background-position: 0 -3200px; }
+        .memento-sprite.memento-42 { background-position: 0 -3280px; }
+        .memento-sprite.memento-43 { background-position: 0 -3360px; }
+        .memento-sprite.memento-44 { background-position: 0 -3440px; }
+        .memento-sprite.memento-45 { background-position: 0 -3520px; }
+        .memento-sprite.memento-46 { background-position: 0 -3600px; }
+        .memento-sprite.memento-47 { background-position: 0 -3680px; }
+        .memento-sprite.memento-48 { background-position: 0 -3760px; }
+        .memento-sprite.memento-49 { background-position: 0 -3840px; }
+        .memento-sprite.memento-50 { background-position: 0 -3920px; }
+        .memento-sprite.memento-51 { background-position: 0 -4000px; }
+        .memento-sprite.memento-52 { background-position: 0 -4080px; }
+        .memento-sprite.memento-53 { background-position: 0 -4160px; }
+        .memento-sprite.memento-54 { background-position: 0 -4240px; }
+        .memento-sprite.memento-55 { background-position: 0 -4320px; }
+        .memento-sprite.memento-56 { background-position: 0 -4400px; }
+        .memento-sprite.memento-57 { background-position: 0 -4480px; }
+        .memento-sprite.memento-58 { background-position: 0 -4560px; }
+        .memento-sprite.memento-59 { background-position: 0 -4640px; }
+        .memento-sprite.memento-60 { background-position: 0 -4720px; }
+        .memento-sprite.memento-61 { background-position: 0 -4800px; }
+        .memento-sprite.memento-62 { background-position: 0 -4880px; }
+        .memento-sprite.memento-63 { background-position: 0 -4960px; }
+        .memento-sprite.memento-64 { background-position: 0 -5040px; }
+        .memento-sprite.memento-65 { background-position: 0 -5120px; }
+        .memento-sprite.memento-66 { background-position: 0 -5200px; }
+        .memento-sprite.memento-67 { background-position: 0 -5280px; }
+        .memento-sprite.memento-68 { background-position: 0 -5360px; }
+        .memento-sprite.memento-69 { background-position: 0 -5440px; }
+        .memento-sprite.memento-70 { background-position: 0 -5520px; }
+        .memento-sprite.memento-71 { background-position: 0 -5600px; }
+        .memento-sprite.memento-72 { background-position: 0 -5680px; }
+        .memento-sprite.memento-73 { background-position: 0 -5760px; }
+        .memento-sprite.memento-74 { background-position: 0 -5840px; }
+        .memento-sprite.memento-75 { background-position: 0 -5920px; }
+        .memento-sprite.memento-76 { background-position: 0 -6000px; }
+        .memento-sprite.memento-77 { background-position: 0 -6080px; }
+        .memento-sprite.memento-78 { background-position: 0 -6160px; }
+        .memento-sprite.memento-79 { background-position: 0 -6240px; }
+        .memento-sprite.memento-80 { background-position: 0 -6320px; }
+        .memento-sprite.memento-81 { background-position: 0 -6400px; }
+        .memento-sprite.memento-82 { background-position: 0 -6480px; }
+        .memento-sprite.memento-83 { background-position: 0 -6560px; }
+        .memento-sprite.memento-84 { background-position: 0 -6640px; }
+        .memento-sprite.memento-85 { background-position: 0 -6720px; }
+        .memento-sprite.memento-86 { background-position: 0 -6800px; }
+        .memento-sprite.memento-87 { background-position: 0 -6880px; }
+        .memento-sprite.memento-88 { background-position: 0 -6960px; }
+        .memento-sprite.memento-89 { background-position: 0 -7040px; }
+        .memento-sprite.memento-90 { background-position: 0 -7120px; }
+        .memento-sprite.memento-91 { background-position: 0 -7200px; }
+        .memento-sprite.memento-92 { background-position: 0 -7280px; }
+        .memento-sprite.memento-93 { background-position: 0 -7360px; }
+        .memento-sprite.memento-94 { background-position: 0 -7440px; }
+        .memento-sprite.memento-95 { background-position: 0 -7520px; }
+        .memento-sprite.memento-96 { background-position: 0 -7600px; }
+        .memento-sprite.memento-97 { background-position: 0 -7680px; }
+        .memento-sprite.memento-98 { background-position: 0 -7760px; }
+        .memento-sprite.memento-99 { background-position: 0 -7840px; }
+        .memento-sprite.memento-100 { background-position: 0 -7920px; }
+        .memento-sprite.memento-101 { background-position: 0 -8000px; }
+        .memento-sprite.memento-102 { background-position: 0 -8080px; }
+        .memento-sprite.memento-103 { background-position: 0 -8160px; }
+        .memento-sprite.memento-104 { background-position: 0 -8240px; }
+        .memento-sprite.memento-105 { background-position: 0 -8320px; }
+        .memento-sprite.memento-106 { background-position: 0 -8400px; }
+        .memento-sprite.memento-107 { background-position: 0 -8480px; }
+        .memento-sprite.memento-108 { background-position: 0 -8560px; }
+        .memento-sprite.memento-109 { background-position: 0 -8640px; }
+        .memento-sprite.memento-110 { background-position: 0 -8720px; }
+        .memento-sprite.memento-111 { background-position: 0 -8800px; }
+        .memento-sprite.memento-112 { background-position: 0 -8880px; }
+        .memento-sprite.memento-113 { background-position: 0 -8960px; }
+        .memento-sprite.memento-114 { background-position: 0 -9040px; }
+        .memento-sprite.memento-115 { background-position: 0 -9120px; }
+        .memento-sprite.memento-116 { background-position: 0 -9200px; }
+        .memento-sprite.memento-117 { background-position: 0 -9280px; }
+        .memento-sprite.memento-118 { background-position: 0 -9360px; }
+        .memento-sprite.memento-119 { background-position: 0 -9440px; }
+        .memento-sprite.memento-120 { background-position: 0 -9520px; }
+        .memento-sprite.memento-121 { background-position: 0 -9600px; }
+        .memento-sprite.memento-122 { background-position: 0 -9680px; }
+        .memento-sprite.memento-123 { background-position: 0 -9760px; }
+        .memento-sprite.memento-124 { background-position: 0 -9840px; }
+        
+        /* 弹窗 - 100px */
+        .modal-sprite.memento-1 { background-position: 0 0; }
+        .modal-sprite.memento-2 { background-position: 0 -100px; }
+        .modal-sprite.memento-3 { background-position: 0 -200px; }
+        .modal-sprite.memento-4 { background-position: 0 -300px; }
+        .modal-sprite.memento-5 { background-position: 0 -400px; }
+        .modal-sprite.memento-6 { background-position: 0 -500px; }
+        .modal-sprite.memento-7 { background-position: 0 -600px; }
+        .modal-sprite.memento-8 { background-position: 0 -700px; }
+        .modal-sprite.memento-9 { background-position: 0 -800px; }
+        .modal-sprite.memento-10 { background-position: 0 -900px; }
+        .modal-sprite.memento-11 { background-position: 0 -1000px; }
+        .modal-sprite.memento-12 { background-position: 0 -1100px; }
+        .modal-sprite.memento-13 { background-position: 0 -1200px; }
+        .modal-sprite.memento-14 { background-position: 0 -1300px; }
+        .modal-sprite.memento-15 { background-position: 0 -1400px; }
+        .modal-sprite.memento-16 { background-position: 0 -1500px; }
+        .modal-sprite.memento-17 { background-position: 0 -1600px; }
+        .modal-sprite.memento-18 { background-position: 0 -1700px; }
+        .modal-sprite.memento-19 { background-position: 0 -1800px; }
+        .modal-sprite.memento-20 { background-position: 0 -1900px; }
+        .modal-sprite.memento-21 { background-position: 0 -2000px; }
+        .modal-sprite.memento-22 { background-position: 0 -2100px; }
+        .modal-sprite.memento-23 { background-position: 0 -2200px; }
+        .modal-sprite.memento-24 { background-position: 0 -2300px; }
+        .modal-sprite.memento-25 { background-position: 0 -2400px; }
+        .modal-sprite.memento-26 { background-position: 0 -2500px; }
+        .modal-sprite.memento-27 { background-position: 0 -2600px; }
+        .modal-sprite.memento-28 { background-position: 0 -2700px; }
+        .modal-sprite.memento-29 { background-position: 0 -2800px; }
+        .modal-sprite.memento-30 { background-position: 0 -2900px; }
+        .modal-sprite.memento-31 { background-position: 0 -3000px; }
+        .modal-sprite.memento-32 { background-position: 0 -3100px; }
+        .modal-sprite.memento-33 { background-position: 0 -3200px; }
+        .modal-sprite.memento-34 { background-position: 0 -3300px; }
+        .modal-sprite.memento-35 { background-position: 0 -3400px; }
+        .modal-sprite.memento-36 { background-position: 0 -3500px; }
+        .modal-sprite.memento-37 { background-position: 0 -3600px; }
+        .modal-sprite.memento-38 { background-position: 0 -3700px; }
+        .modal-sprite.memento-39 { background-position: 0 -3800px; }
+        .modal-sprite.memento-40 { background-position: 0 -3900px; }
+        .modal-sprite.memento-41 { background-position: 0 -4000px; }
+        .modal-sprite.memento-42 { background-position: 0 -4100px; }
+        .modal-sprite.memento-43 { background-position: 0 -4200px; }
+        .modal-sprite.memento-44 { background-position: 0 -4300px; }
+        .modal-sprite.memento-45 { background-position: 0 -4400px; }
+        .modal-sprite.memento-46 { background-position: 0 -4500px; }
+        .modal-sprite.memento-47 { background-position: 0 -4600px; }
+        .modal-sprite.memento-48 { background-position: 0 -4700px; }
+        .modal-sprite.memento-49 { background-position: 0 -4800px; }
+        .modal-sprite.memento-50 { background-position: 0 -4900px; }
+        .modal-sprite.memento-51 { background-position: 0 -5000px; }
+        .modal-sprite.memento-52 { background-position: 0 -5100px; }
+        .modal-sprite.memento-53 { background-position: 0 -5200px; }
+        .modal-sprite.memento-54 { background-position: 0 -5300px; }
+        .modal-sprite.memento-55 { background-position: 0 -5400px; }
+        .modal-sprite.memento-56 { background-position: 0 -5500px; }
+        .modal-sprite.memento-57 { background-position: 0 -5600px; }
+        .modal-sprite.memento-58 { background-position: 0 -5700px; }
+        .modal-sprite.memento-59 { background-position: 0 -5800px; }
+        .modal-sprite.memento-60 { background-position: 0 -5900px; }
+        .modal-sprite.memento-61 { background-position: 0 -6000px; }
+        .modal-sprite.memento-62 { background-position: 0 -6100px; }
+        .modal-sprite.memento-63 { background-position: 0 -6200px; }
+        .modal-sprite.memento-64 { background-position: 0 -6300px; }
+        .modal-sprite.memento-65 { background-position: 0 -6400px; }
+        .modal-sprite.memento-66 { background-position: 0 -6500px; }
+        .modal-sprite.memento-67 { background-position: 0 -6600px; }
+        .modal-sprite.memento-68 { background-position: 0 -6700px; }
+        .modal-sprite.memento-69 { background-position: 0 -6800px; }
+        .modal-sprite.memento-70 { background-position: 0 -6900px; }
+        .modal-sprite.memento-71 { background-position: 0 -7000px; }
+        .modal-sprite.memento-72 { background-position: 0 -7100px; }
+        .modal-sprite.memento-73 { background-position: 0 -7200px; }
+        .modal-sprite.memento-74 { background-position: 0 -7300px; }
+        .modal-sprite.memento-75 { background-position: 0 -7400px; }
+        .modal-sprite.memento-76 { background-position: 0 -7500px; }
+        .modal-sprite.memento-77 { background-position: 0 -7600px; }
+        .modal-sprite.memento-78 { background-position: 0 -7700px; }
+        .modal-sprite.memento-79 { background-position: 0 -7800px; }
+        .modal-sprite.memento-80 { background-position: 0 -7900px; }
+        .modal-sprite.memento-81 { background-position: 0 -8000px; }
+        .modal-sprite.memento-82 { background-position: 0 -8100px; }
+        .modal-sprite.memento-83 { background-position: 0 -8200px; }
+        .modal-sprite.memento-84 { background-position: 0 -8300px; }
+        .modal-sprite.memento-85 { background-position: 0 -8400px; }
+        .modal-sprite.memento-86 { background-position: 0 -8500px; }
+        .modal-sprite.memento-87 { background-position: 0 -8600px; }
+        .modal-sprite.memento-88 { background-position: 0 -8700px; }
+        .modal-sprite.memento-89 { background-position: 0 -8800px; }
+        .modal-sprite.memento-90 { background-position: 0 -8900px; }
+        .modal-sprite.memento-91 { background-position: 0 -9000px; }
+        .modal-sprite.memento-92 { background-position: 0 -9100px; }
+        .modal-sprite.memento-93 { background-position: 0 -9200px; }
+        .modal-sprite.memento-94 { background-position: 0 -9300px; }
+        .modal-sprite.memento-95 { background-position: 0 -9400px; }
+        .modal-sprite.memento-96 { background-position: 0 -9500px; }
+        .modal-sprite.memento-97 { background-position: 0 -9600px; }
+        .modal-sprite.memento-98 { background-position: 0 -9700px; }
+        .modal-sprite.memento-99 { background-position: 0 -9800px; }
+        .modal-sprite.memento-100 { background-position: 0 -9900px; }
+        .modal-sprite.memento-101 { background-position: 0 -10000px; }
+        .modal-sprite.memento-102 { background-position: 0 -10100px; }
+        .modal-sprite.memento-103 { background-position: 0 -10200px; }
+        .modal-sprite.memento-104 { background-position: 0 -10300px; }
+        .modal-sprite.memento-105 { background-position: 0 -10400px; }
+        .modal-sprite.memento-106 { background-position: 0 -10500px; }
+        .modal-sprite.memento-107 { background-position: 0 -10600px; }
+        .modal-sprite.memento-108 { background-position: 0 -10700px; }
+        .modal-sprite.memento-109 { background-position: 0 -10800px; }
+        .modal-sprite.memento-110 { background-position: 0 -10900px; }
+        .modal-sprite.memento-111 { background-position: 0 -11000px; }
+        .modal-sprite.memento-112 { background-position: 0 -11100px; }
+        .modal-sprite.memento-113 { background-position: 0 -11200px; }
+        .modal-sprite.memento-114 { background-position: 0 -11300px; }
+        .modal-sprite.memento-115 { background-position: 0 -11400px; }
+        .modal-sprite.memento-116 { background-position: 0 -11500px; }
+        .modal-sprite.memento-117 { background-position: 0 -11600px; }
+        .modal-sprite.memento-118 { background-position: 0 -11700px; }
+        .modal-sprite.memento-119 { background-position: 0 -11800px; }
+        .modal-sprite.memento-120 { background-position: 0 -11900px; }
+        .modal-sprite.memento-121 { background-position: 0 -12000px; }
+        .modal-sprite.memento-122 { background-position: 0 -12100px; }
+        .modal-sprite.memento-123 { background-position: 0 -12200px; }
+        .modal-sprite.memento-124 { background-position: 0 -12300px; }
+        
+        /* 移动端适配 */
+        @media (max-width: 480px) {
+            /* 70px */
+            .memento-sprite.memento-1 { background-position: 0 0; }
+            .memento-sprite.memento-2 { background-position: 0 -70px; }
+            .memento-sprite.memento-3 { background-position: 0 -140px; }
+            .memento-sprite.memento-4 { background-position: 0 -210px; }
+            .memento-sprite.memento-5 { background-position: 0 -280px; }
+            .memento-sprite.memento-6 { background-position: 0 -350px; }
+            .memento-sprite.memento-7 { background-position: 0 -420px; }
+            .memento-sprite.memento-8 { background-position: 0 -490px; }
+            .memento-sprite.memento-9 { background-position: 0 -560px; }
+            .memento-sprite.memento-10 { background-position: 0 -630px; }
+            .memento-sprite.memento-11 { background-position: 0 -700px; }
+            .memento-sprite.memento-12 { background-position: 0 -770px; }
+            .memento-sprite.memento-13 { background-position: 0 -840px; }
+            .memento-sprite.memento-14 { background-position: 0 -910px; }
+            .memento-sprite.memento-15 { background-position: 0 -980px; }
+            .memento-sprite.memento-16 { background-position: 0 -1050px; }
+            .memento-sprite.memento-17 { background-position: 0 -1120px; }
+            .memento-sprite.memento-18 { background-position: 0 -1190px; }
+            .memento-sprite.memento-19 { background-position: 0 -1260px; }
+            .memento-sprite.memento-20 { background-position: 0 -1330px; }
+            .memento-sprite.memento-21 { background-position: 0 -1400px; }
+            .memento-sprite.memento-22 { background-position: 0 -1470px; }
+            .memento-sprite.memento-23 { background-position: 0 -1540px; }
+            .memento-sprite.memento-24 { background-position: 0 -1610px; }
+            .memento-sprite.memento-25 { background-position: 0 -1680px; }
+            .memento-sprite.memento-26 { background-position: 0 -1750px; }
+            .memento-sprite.memento-27 { background-position: 0 -1820px; }
+            .memento-sprite.memento-28 { background-position: 0 -1890px; }
+            .memento-sprite.memento-29 { background-position: 0 -1960px; }
+            .memento-sprite.memento-30 { background-position: 0 -2030px; }
+            .memento-sprite.memento-31 { background-position: 0 -2100px; }
+            .memento-sprite.memento-32 { background-position: 0 -2170px; }
+            .memento-sprite.memento-33 { background-position: 0 -2240px; }
+            .memento-sprite.memento-34 { background-position: 0 -2310px; }
+            .memento-sprite.memento-35 { background-position: 0 -2380px; }
+            .memento-sprite.memento-36 { background-position: 0 -2450px; }
+            .memento-sprite.memento-37 { background-position: 0 -2520px; }
+            .memento-sprite.memento-38 { background-position: 0 -2590px; }
+            .memento-sprite.memento-39 { background-position: 0 -2660px; }
+            .memento-sprite.memento-40 { background-position: 0 -2730px; }
+            .memento-sprite.memento-41 { background-position: 0 -2800px; }
+            .memento-sprite.memento-42 { background-position: 0 -2870px; }
+            .memento-sprite.memento-43 { background-position: 0 -2940px; }
+            .memento-sprite.memento-44 { background-position: 0 -3010px; }
+            .memento-sprite.memento-45 { background-position: 0 -3080px; }
+            .memento-sprite.memento-46 { background-position: 0 -3150px; }
+            .memento-sprite.memento-47 { background-position: 0 -3220px; }
+            .memento-sprite.memento-48 { background-position: 0 -3290px; }
+            .memento-sprite.memento-49 { background-position: 0 -3360px; }
+            .memento-sprite.memento-50 { background-position: 0 -3430px; }
+            .memento-sprite.memento-51 { background-position: 0 -3500px; }
+            .memento-sprite.memento-52 { background-position: 0 -3570px; }
+            .memento-sprite.memento-53 { background-position: 0 -3640px; }
+            .memento-sprite.memento-54 { background-position: 0 -3710px; }
+            .memento-sprite.memento-55 { background-position: 0 -3780px; }
+            .memento-sprite.memento-56 { background-position: 0 -3850px; }
+            .memento-sprite.memento-57 { background-position: 0 -3920px; }
+            .memento-sprite.memento-58 { background-position: 0 -3990px; }
+            .memento-sprite.memento-59 { background-position: 0 -4060px; }
+            .memento-sprite.memento-60 { background-position: 0 -4130px; }
+            .memento-sprite.memento-61 { background-position: 0 -4200px; }
+            .memento-sprite.memento-62 { background-position: 0 -4270px; }
+            .memento-sprite.memento-63 { background-position: 0 -4340px; }
+            .memento-sprite.memento-64 { background-position: 0 -4410px; }
+            .memento-sprite.memento-65 { background-position: 0 -4480px; }
+            .memento-sprite.memento-66 { background-position: 0 -4550px; }
+            .memento-sprite.memento-67 { background-position: 0 -4620px; }
+            .memento-sprite.memento-68 { background-position: 0 -4690px; }
+            .memento-sprite.memento-69 { background-position: 0 -4760px; }
+            .memento-sprite.memento-70 { background-position: 0 -4830px; }
+            .memento-sprite.memento-71 { background-position: 0 -4900px; }
+            .memento-sprite.memento-72 { background-position: 0 -4970px; }
+            .memento-sprite.memento-73 { background-position: 0 -5040px; }
+            .memento-sprite.memento-74 { background-position: 0 -5110px; }
+            .memento-sprite.memento-75 { background-position: 0 -5180px; }
+            .memento-sprite.memento-76 { background-position: 0 -5250px; }
+            .memento-sprite.memento-77 { background-position: 0 -5320px; }
+            .memento-sprite.memento-78 { background-position: 0 -5390px; }
+            .memento-sprite.memento-79 { background-position: 0 -5460px; }
+            .memento-sprite.memento-80 { background-position: 0 -5530px; }
+            .memento-sprite.memento-81 { background-position: 0 -5600px; }
+            .memento-sprite.memento-82 { background-position: 0 -5670px; }
+            .memento-sprite.memento-83 { background-position: 0 -5740px; }
+            .memento-sprite.memento-84 { background-position: 0 -5810px; }
+            .memento-sprite.memento-85 { background-position: 0 -5880px; }
+            .memento-sprite.memento-86 { background-position: 0 -5950px; }
+            .memento-sprite.memento-87 { background-position: 0 -6020px; }
+            .memento-sprite.memento-88 { background-position: 0 -6090px; }
+            .memento-sprite.memento-89 { background-position: 0 -6160px; }
+            .memento-sprite.memento-90 { background-position: 0 -6230px; }
+            .memento-sprite.memento-91 { background-position: 0 -6300px; }
+            .memento-sprite.memento-92 { background-position: 0 -6370px; }
+            .memento-sprite.memento-93 { background-position: 0 -6440px; }
+            .memento-sprite.memento-94 { background-position: 0 -6510px; }
+            .memento-sprite.memento-95 { background-position: 0 -6580px; }
+            .memento-sprite.memento-96 { background-position: 0 -6650px; }
+            .memento-sprite.memento-97 { background-position: 0 -6720px; }
+            .memento-sprite.memento-98 { background-position: 0 -6790px; }
+            .memento-sprite.memento-99 { background-position: 0 -6860px; }
+            .memento-sprite.memento-100 { background-position: 0 -6930px; }
+            .memento-sprite.memento-101 { background-position: 0 -7000px; }
+            .memento-sprite.memento-102 { background-position: 0 -7070px; }
+            .memento-sprite.memento-103 { background-position: 0 -7140px; }
+            .memento-sprite.memento-104 { background-position: 0 -7210px; }
+            .memento-sprite.memento-105 { background-position: 0 -7280px; }
+            .memento-sprite.memento-106 { background-position: 0 -7350px; }
+            .memento-sprite.memento-107 { background-position: 0 -7420px; }
+            .memento-sprite.memento-108 { background-position: 0 -7490px; }
+            .memento-sprite.memento-109 { background-position: 0 -7560px; }
+            .memento-sprite.memento-110 { background-position: 0 -7630px; }
+            .memento-sprite.memento-111 { background-position: 0 -7700px; }
+            .memento-sprite.memento-112 { background-position: 0 -7770px; }
+            .memento-sprite.memento-113 { background-position: 0 -7840px; }
+            .memento-sprite.memento-114 { background-position: 0 -7910px; }
+            .memento-sprite.memento-115 { background-position: 0 -7980px; }
+            .memento-sprite.memento-116 { background-position: 0 -8050px; }
+            .memento-sprite.memento-117 { background-position: 0 -8120px; }
+            .memento-sprite.memento-118 { background-position: 0 -8190px; }
+            .memento-sprite.memento-119 { background-position: 0 -8260px; }
+            .memento-sprite.memento-120 { background-position: 0 -8330px; }
+            .memento-sprite.memento-121 { background-position: 0 -8400px; }
+            .memento-sprite.memento-122 { background-position: 0 -8470px; }
+            .memento-sprite.memento-123 { background-position: 0 -8540px; }
+            .memento-sprite.memento-124 { background-position: 0 -8610px; }
+        }
+
+        @media (max-width: 360px) {
+            /* 65px */
+            .memento-sprite.memento-1 { background-position: 0 0; }
+            .memento-sprite.memento-2 { background-position: 0 -65px; }
+            .memento-sprite.memento-3 { background-position: 0 -130px; }
+            .memento-sprite.memento-4 { background-position: 0 -195px; }
+            .memento-sprite.memento-5 { background-position: 0 -260px; }
+            .memento-sprite.memento-6 { background-position: 0 -325px; }
+            .memento-sprite.memento-7 { background-position: 0 -390px; }
+            .memento-sprite.memento-8 { background-position: 0 -455px; }
+            .memento-sprite.memento-9 { background-position: 0 -520px; }
+            .memento-sprite.memento-10 { background-position: 0 -585px; }
+            .memento-sprite.memento-11 { background-position: 0 -650px; }
+            .memento-sprite.memento-12 { background-position: 0 -715px; }
+            .memento-sprite.memento-13 { background-position: 0 -780px; }
+            .memento-sprite.memento-14 { background-position: 0 -845px; }
+            .memento-sprite.memento-15 { background-position: 0 -910px; }
+            .memento-sprite.memento-16 { background-position: 0 -975px; }
+            .memento-sprite.memento-17 { background-position: 0 -1040px; }
+            .memento-sprite.memento-18 { background-position: 0 -1105px; }
+            .memento-sprite.memento-19 { background-position: 0 -1170px; }
+            .memento-sprite.memento-20 { background-position: 0 -1235px; }
+            .memento-sprite.memento-21 { background-position: 0 -1300px; }
+            .memento-sprite.memento-22 { background-position: 0 -1365px; }
+            .memento-sprite.memento-23 { background-position: 0 -1430px; }
+            .memento-sprite.memento-24 { background-position: 0 -1495px; }
+            .memento-sprite.memento-25 { background-position: 0 -1560px; }
+            .memento-sprite.memento-26 { background-position: 0 -1625px; }
+            .memento-sprite.memento-27 { background-position: 0 -1690px; }
+            .memento-sprite.memento-28 { background-position: 0 -1755px; }
+            .memento-sprite.memento-29 { background-position: 0 -1820px; }
+            .memento-sprite.memento-30 { background-position: 0 -1885px; }
+            .memento-sprite.memento-31 { background-position: 0 -1950px; }
+            .memento-sprite.memento-32 { background-position: 0 -2015px; }
+            .memento-sprite.memento-33 { background-position: 0 -2080px; }
+            .memento-sprite.memento-34 { background-position: 0 -2145px; }
+            .memento-sprite.memento-35 { background-position: 0 -2210px; }
+            .memento-sprite.memento-36 { background-position: 0 -2275px; }
+            .memento-sprite.memento-37 { background-position: 0 -2340px; }
+            .memento-sprite.memento-38 { background-position: 0 -2405px; }
+            .memento-sprite.memento-39 { background-position: 0 -2470px; }
+            .memento-sprite.memento-40 { background-position: 0 -2535px; }
+            .memento-sprite.memento-41 { background-position: 0 -2600px; }
+            .memento-sprite.memento-42 { background-position: 0 -2665px; }
+            .memento-sprite.memento-43 { background-position: 0 -2730px; }
+            .memento-sprite.memento-44 { background-position: 0 -2795px; }
+            .memento-sprite.memento-45 { background-position: 0 -2860px; }
+            .memento-sprite.memento-46 { background-position: 0 -2925px; }
+            .memento-sprite.memento-47 { background-position: 0 -2990px; }
+            .memento-sprite.memento-48 { background-position: 0 -3055px; }
+            .memento-sprite.memento-49 { background-position: 0 -3120px; }
+            .memento-sprite.memento-50 { background-position: 0 -3185px; }
+            .memento-sprite.memento-51 { background-position: 0 -3250px; }
+            .memento-sprite.memento-52 { background-position: 0 -3315px; }
+            .memento-sprite.memento-53 { background-position: 0 -3380px; }
+            .memento-sprite.memento-54 { background-position: 0 -3445px; }
+            .memento-sprite.memento-55 { background-position: 0 -3510px; }
+            .memento-sprite.memento-56 { background-position: 0 -3575px; }
+            .memento-sprite.memento-57 { background-position: 0 -3640px; }
+            .memento-sprite.memento-58 { background-position: 0 -3705px; }
+            .memento-sprite.memento-59 { background-position: 0 -3770px; }
+            .memento-sprite.memento-60 { background-position: 0 -3835px; }
+            .memento-sprite.memento-61 { background-position: 0 -3900px; }
+            .memento-sprite.memento-62 { background-position: 0 -3965px; }
+            .memento-sprite.memento-63 { background-position: 0 -4030px; }
+            .memento-sprite.memento-64 { background-position: 0 -4095px; }
+            .memento-sprite.memento-65 { background-position: 0 -4160px; }
+            .memento-sprite.memento-66 { background-position: 0 -4225px; }
+            .memento-sprite.memento-67 { background-position: 0 -4290px; }
+            .memento-sprite.memento-68 { background-position: 0 -4355px; }
+            .memento-sprite.memento-69 { background-position: 0 -4420px; }
+            .memento-sprite.memento-70 { background-position: 0 -4485px; }
+            .memento-sprite.memento-71 { background-position: 0 -4550px; }
+            .memento-sprite.memento-72 { background-position: 0 -4615px; }
+            .memento-sprite.memento-73 { background-position: 0 -4680px; }
+            .memento-sprite.memento-74 { background-position: 0 -4745px; }
+            .memento-sprite.memento-75 { background-position: 0 -4810px; }
+            .memento-sprite.memento-76 { background-position: 0 -4875px; }
+            .memento-sprite.memento-77 { background-position: 0 -4940px; }
+            .memento-sprite.memento-78 { background-position: 0 -5005px; }
+            .memento-sprite.memento-79 { background-position: 0 -5070px; }
+            .memento-sprite.memento-80 { background-position: 0 -5135px; }
+            .memento-sprite.memento-81 { background-position: 0 -5200px; }
+            .memento-sprite.memento-82 { background-position: 0 -5265px; }
+            .memento-sprite.memento-83 { background-position: 0 -5330px; }
+            .memento-sprite.memento-84 { background-position: 0 -5395px; }
+            .memento-sprite.memento-85 { background-position: 0 -5460px; }
+            .memento-sprite.memento-86 { background-position: 0 -5525px; }
+            .memento-sprite.memento-87 { background-position: 0 -5590px; }
+            .memento-sprite.memento-88 { background-position: 0 -5655px; }
+            .memento-sprite.memento-89 { background-position: 0 -5720px; }
+            .memento-sprite.memento-90 { background-position: 0 -5785px; }
+            .memento-sprite.memento-91 { background-position: 0 -5850px; }
+            .memento-sprite.memento-92 { background-position: 0 -5915px; }
+            .memento-sprite.memento-93 { background-position: 0 -5980px; }
+            .memento-sprite.memento-94 { background-position: 0 -6045px; }
+            .memento-sprite.memento-95 { background-position: 0 -6110px; }
+            .memento-sprite.memento-96 { background-position: 0 -6175px; }
+            .memento-sprite.memento-97 { background-position: 0 -6240px; }
+            .memento-sprite.memento-98 { background-position: 0 -6305px; }
+            .memento-sprite.memento-99 { background-position: 0 -6370px; }
+            .memento-sprite.memento-100 { background-position: 0 -6435px; }
+            .memento-sprite.memento-101 { background-position: 0 -6500px; }
+            .memento-sprite.memento-102 { background-position: 0 -6565px; }
+            .memento-sprite.memento-103 { background-position: 0 -6630px; }
+            .memento-sprite.memento-104 { background-position: 0 -6695px; }
+            .memento-sprite.memento-105 { background-position: 0 -6760px; }
+            .memento-sprite.memento-106 { background-position: 0 -6825px; }
+            .memento-sprite.memento-107 { background-position: 0 -6890px; }
+            .memento-sprite.memento-108 { background-position: 0 -6955px; }
+            .memento-sprite.memento-109 { background-position: 0 -7020px; }
+            .memento-sprite.memento-110 { background-position: 0 -7085px; }
+            .memento-sprite.memento-111 { background-position: 0 -7150px; }
+            .memento-sprite.memento-112 { background-position: 0 -7215px; }
+            .memento-sprite.memento-113 { background-position: 0 -7280px; }
+            .memento-sprite.memento-114 { background-position: 0 -7345px; }
+            .memento-sprite.memento-115 { background-position: 0 -7410px; }
+            .memento-sprite.memento-116 { background-position: 0 -7475px; }
+            .memento-sprite.memento-117 { background-position: 0 -7540px; }
+            .memento-sprite.memento-118 { background-position: 0 -7605px; }
+            .memento-sprite.memento-119 { background-position: 0 -7670px; }
+            .memento-sprite.memento-120 { background-position: 0 -7735px; }
+            .memento-sprite.memento-121 { background-position: 0 -7800px; }
+            .memento-sprite.memento-122 { background-position: 0 -7865px; }
+            .memento-sprite.memento-123 { background-position: 0 -7930px; }
+            .memento-sprite.memento-124 { background-position: 0 -7995px; }
+        }
     </style>
 </head>
 <body>
     <div class="decoration"></div>
     
-    <!-- 首页按钮 -->
     <a href="https://icov-wiki.netlify.app/" class="home-button">
         <i class="fas fa-home"></i>首页
     </a>
@@ -972,7 +1459,6 @@
         let mementosData = [];
         let currentFilteredData = [];
         let sortDirection = 'desc';
-        let lastWindowWidth = window.innerWidth; // 记录初始宽度
     
         // 加载遗物数据
         function loadMementos() {
@@ -1005,25 +1491,21 @@
                 });
         }
     
-        // 渲染遗物 - 优化图片显示
+        // 渲染遗物
         function renderMementos(mementos) {
             gallery.innerHTML = '';
             counter.textContent = mementos.length;
     
             const animationDelay = 0.04;
-            
+
             mementos.forEach((memento, index) => {
                 const item = document.createElement('div');
                 item.className = `memento-item category-${memento.category}`;
                 item.style.animationDelay = `${index * animationDelay}s`;
     
                 const sprite = document.createElement('div');
-                sprite.className = 'memento-sprite';
+                sprite.className = `memento-sprite memento-${memento.id}`;
                 
-                // 关键优化：使用百分比位置计算
-                const positionPercentage = (memento.id - 1) * 100;
-                sprite.style.backgroundPosition = `0 ${positionPercentage}%`;
-    
                 const tag = document.createElement('span');
                 tag.className = 'category-tag';
                 tag.textContent = memento.category;
@@ -1040,9 +1522,10 @@
         // 打开详情弹窗
         function openModal(memento) {
             const modalSprite = document.getElementById('modal-img');
-            // 使用百分比定位
-            const positionPercentage = (memento.id - 1) * 100;
-            modalSprite.style.backgroundPosition = `0 ${positionPercentage}%`;
+            // 清除之前的类
+            modalSprite.className = 'modal-sprite';
+            // 添加当前遗物类
+            modalSprite.classList.add(`memento-${memento.id}`);
             
             document.getElementById('modal-name-cn').textContent = memento.name_cn;
             document.getElementById('modal-name-en').textContent = memento.name_en;
@@ -1091,16 +1574,6 @@
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
-            }
-        });
-
-        // 修改：只在宽度变化时刷新
-        window.addEventListener('resize', function() {
-            const currentWidth = window.innerWidth;
-            // 只有当宽度变化超过1像素时才刷新
-            if (Math.abs(currentWidth - lastWindowWidth) > 1) {
-                filterMementos();
-                lastWindowWidth = currentWidth; // 更新记录的宽度
             }
         });
     
