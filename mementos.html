@@ -248,8 +248,11 @@
     
                 const sprite = document.createElement('div');
                 sprite.className = 'memento-sprite';
-                const position = -(memento.id - 1) * step; // 动态计算位置
+                
+                // 设置背景位置和尺寸
+                const position = -(memento.id - 1) * step;
                 sprite.style.backgroundPosition = `0 ${position}px`;
+                sprite.style.backgroundSize = `${step}px auto`;
     
                 const tag = document.createElement('span');
                 tag.className = 'category-tag';
@@ -267,6 +270,7 @@
         // 打开详情弹窗
         function openModal(memento) {
             const modalSprite = document.getElementById('modal-img');
+            // 弹窗中的图片大小固定为100px，所以位置计算为-(id-1)*100
             const position = -(memento.id - 1) * 100;
             modalSprite.style.backgroundPosition = `0 ${position}px`;
             
