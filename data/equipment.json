@@ -4,7 +4,7 @@
       "id": 1,
       "name_cn": "钢盾",
       "name_en": "Steel Shield",
-      "effect_cn": "一个标准的钢盾。能阻挡大部分物理攻击，但会使我易受闪电伤害。",
+      "effect_cn": "一面标准钢盾，能阻挡大部分物理攻击，但会使我易受雷电伤害。",
       "effect_en": "A standard steel shield. Blocks most physical attacks but leaves me vulnerable to lightning."
     },
     {
@@ -37,7 +37,7 @@
     },
     {
       "id": 6,
-      "name_cn": "镜子",
+      "name_cn": "镜盾",
       "name_en": "Mirror",
       "effect_cn": "一面反光镜，可用作盾牌来抵消闪电并抵抗魔法。我不敢看镜中的自己，否则可能会厌恶所见之貌。",
       "effect_en": "A reflective mirror that can be used as shield to negate lightning and resist magic. I dare not look at myself while I live or I may dislike what I see."
