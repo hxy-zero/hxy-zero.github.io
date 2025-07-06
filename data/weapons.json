@@ -9,7 +9,8 @@
       "counter_mod": 0,
       "bleed_damage": 0,
       "primary_attack": {"damage": 0, "power": 0, "speed": 0, "critical": 0},
-      "secondary_attack": {"damage": 0, "power": 0, "speed": 0, "critical": 0}
+      "secondary_attack": {"damage": 0, "power": 0, "speed": 0, "critical": 0},
+      "description": "木剑是玩家开始使用的第二件武器。农民阶级以木剑作为次要武器，后来被镰刀取代。"
     },
     {
       "id": 2,
