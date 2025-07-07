@@ -334,16 +334,6 @@
             margin-top: 10px;
         }
         
-        .modal-category {
-            display: inline-block;
-            padding: 6px 15px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 700;
-            background: rgba(163, 100, 100, 0.6);
-            color: #ffd166;
-        }
-        
         .weapon-tables {
             display: flex;
             gap: 20px;
@@ -475,6 +465,22 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* 武器分类背景色 */
+        .category-剑类 { background-color: rgba(255, 107, 107, 0.25); }
+        .category-斧类 { background-color: rgba(6, 214, 160, 0.25); }
+        .category-棍棒类 { background-color: rgba(255, 157, 0, 0.25); }
+        .category-锤类 { background-color: rgba(255, 209, 102, 0.25); }
+        .category-弯刀类 { background-color: rgba(118, 215, 196, 0.25); }
+        .category-刺剑类 { background-color: rgba(239, 71, 111, 0.25); }
+        .category-法杖类 { background-color: rgba(17, 138, 178, 0.25); }
+        .category-长矛类 { background-color: rgba(155, 93, 229, 0.25); }
+        .category-镰刀类 { background-color: rgba(255, 94, 91, 0.25); }
+        .category-匕首类 { background-color: rgba(249, 65, 68, 0.25); }
+        .category-投掷武器类 { background-color: rgba(46, 196, 182, 0.25); }
+        .category-弓类 { background-color: rgba(253, 167, 223, 0.25); }
+        .category-弩类 { background-color: rgba(83, 51, 237, 0.25); }
+        .category-攻城武器类 { background-color: rgba(0, 187, 249, 0.25); }
+        
         /* 响应式设计 */
         @media (max-width: 900px) {
             .navbar {
@@ -547,6 +553,7 @@
             .weapon-sprite {
                 width: 70px;
                 height: 70px;
+                background-size: 70px auto;
             }
             .modal-title h2 {
                 font-size: 1.6rem;
@@ -568,21 +575,149 @@
             }
         }
         
-        /* 武器分类背景色 */
-        .category-剑类 { background-color: rgba(255, 107, 107, 0.25); }
-        .category-斧类 { background-color: rgba(6, 214, 160, 0.25); }
-        .category-棍棒类 { background-color: rgba(255, 157, 0, 0.25); }
-        .category-锤类 { background-color: rgba(255, 209, 102, 0.25); }
-        .category-弯刀类 { background-color: rgba(118, 215, 196, 0.25); }
-        .category-刺剑类 { background-color: rgba(239, 71, 111, 0.25); }
-        .category-法杖类 { background-color: rgba(17, 138, 178, 0.25); }
-        .category-长矛类 { background-color: rgba(155, 93, 229, 0.25); }
-        .category-镰刀类 { background-color: rgba(255, 94, 91, 0.25); }
-        .category-匕首类 { background-color: rgba(249, 65, 68, 0.25); }
-        .category-投掷武器类 { background-color: rgba(46, 196, 182, 0.25); }
-        .category-弓类 { background-color: rgba(253, 167, 223, 0.25); }
-        .category-弩类 { background-color: rgba(83, 51, 237, 0.25); }
-        .category-攻城武器类 { background-color: rgba(0, 187, 249, 0.25); }
+        /* 为每个武器添加特定的CSS类 */
+        .weapon-1 .weapon-sprite { background-position: 0 0; }
+        .weapon-2 .weapon-sprite { background-position: 0 -80px; }
+        .weapon-3 .weapon-sprite { background-position: 0 -160px; }
+        .weapon-4 .weapon-sprite { background-position: 0 -240px; }
+        .weapon-5 .weapon-sprite { background-position: 0 -320px; }
+        .weapon-6 .weapon-sprite { background-position: 0 -400px; }
+        .weapon-7 .weapon-sprite { background-position: 0 -480px; }
+        .weapon-8 .weapon-sprite { background-position: 0 -560px; }
+        .weapon-9 .weapon-sprite { background-position: 0 -640px; }
+        .weapon-10 .weapon-sprite { background-position: 0 -720px; }
+        .weapon-11 .weapon-sprite { background-position: 0 -800px; }
+        .weapon-12 .weapon-sprite { background-position: 0 -880px; }
+        .weapon-13 .weapon-sprite { background-position: 0 -960px; }
+        .weapon-14 .weapon-sprite { background-position: 0 -1040px; }
+        .weapon-15 .weapon-sprite { background-position: 0 -1120px; }
+        .weapon-16 .weapon-sprite { background-position: 0 -1200px; }
+        .weapon-17 .weapon-sprite { background-position: 0 -1280px; }
+        .weapon-18 .weapon-sprite { background-position: 0 -1360px; }
+        .weapon-19 .weapon-sprite { background-position: 0 -1440px; }
+        .weapon-20 .weapon-sprite { background-position: 0 -1520px; }
+        .weapon-21 .weapon-sprite { background-position: 0 -1600px; }
+        .weapon-22 .weapon-sprite { background-position: 0 -1680px; }
+        .weapon-23 .weapon-sprite { background-position: 0 -1760px; }
+        .weapon-24 .weapon-sprite { background-position: 0 -1840px; }
+        .weapon-25 .weapon-sprite { background-position: 0 -1920px; }
+        .weapon-26 .weapon-sprite { background-position: 0 -2000px; }
+        .weapon-27 .weapon-sprite { background-position: 0 -2080px; }
+        .weapon-28 .weapon-sprite { background-position: 0 -2160px; }
+        .weapon-29 .weapon-sprite { background-position: 0 -2240px; }
+        .weapon-30 .weapon-sprite { background-position: 0 -2320px; }
+        .weapon-31 .weapon-sprite { background-position: 0 -2400px; }
+        .weapon-32 .weapon-sprite { background-position: 0 -2480px; }
+        .weapon-33 .weapon-sprite { background-position: 0 -2560px; }
+        .weapon-34 .weapon-sprite { background-position: 0 -2640px; }
+        .weapon-35 .weapon-sprite { background-position: 0 -2720px; }
+        .weapon-36 .weapon-sprite { background-position: 0 -2800px; }
+        .weapon-37 .weapon-sprite { background-position: 0 -2880px; }
+        .weapon-38 .weapon-sprite { background-position: 0 -2960px; }
+        .weapon-39 .weapon-sprite { background-position: 0 -3040px; }
+        .weapon-40 .weapon-sprite { background-position: 0 -3120px; }
+        .weapon-41 .weapon-sprite { background-position: 0 -3200px; }
+        .weapon-42 .weapon-sprite { background-position: 0 -3280px; }
+        .weapon-43 .weapon-sprite { background-position: 0 -3360px; }
+        .weapon-44 .weapon-sprite { background-position: 0 -3440px; }
+        .weapon-45 .weapon-sprite { background-position: 0 -3520px; }
+        .weapon-46 .weapon-sprite { background-position: 0 -3600px; }
+        .weapon-47 .weapon-sprite { background-position: 0 -3680px; }
+        .weapon-48 .weapon-sprite { background-position: 0 -3760px; }
+        .weapon-49 .weapon-sprite { background-position: 0 -3840px; }
+        .weapon-50 .weapon-sprite { background-position: 0 -3920px; }
+        .weapon-51 .weapon-sprite { background-position: 0 -4000px; }
+        .weapon-52 .weapon-sprite { background-position: 0 -4080px; }
+        .weapon-53 .weapon-sprite { background-position: 0 -4160px; }
+        .weapon-54 .weapon-sprite { background-position: 0 -4240px; }
+        .weapon-55 .weapon-sprite { background-position: 0 -4320px; }
+        .weapon-56 .weapon-sprite { background-position: 0 -4400px; }
+        .weapon-57 .weapon-sprite { background-position: 0 -4480px; }
+        .weapon-58 .weapon-sprite { background-position: 0 -4560px; }
+        .weapon-59 .weapon-sprite { background-position: 0 -4640px; }
+        .weapon-60 .weapon-sprite { background-position: 0 -4720px; }
+        .weapon-61 .weapon-sprite { background-position: 0 -4800px; }
+        .weapon-62 .weapon-sprite { background-position: 0 -4880px; }
+        .weapon-63 .weapon-sprite { background-position: 0 -4960px; }
+        .weapon-64 .weapon-sprite { background-position: 0 -5040px; }
+        .weapon-65 .weapon-sprite { background-position: 0 -5120px; }
+        .weapon-66 .weapon-sprite { background-position: 0 -5200px; }
+
+        /* 小屏幕下的武器图片调整 */
+        @media (max-width: 480px) {
+            .weapon-sprite {
+                width: 70px;
+                height: 70px;
+                background-size: 70px auto;
+            }
+            
+            .weapon-1 .weapon-sprite { background-position: 0 0; }
+            .weapon-2 .weapon-sprite { background-position: 0 -70px; }
+            .weapon-3 .weapon-sprite { background-position: 0 -140px; }
+            .weapon-4 .weapon-sprite { background-position: 0 -210px; }
+            .weapon-5 .weapon-sprite { background-position: 0 -280px; }
+            .weapon-6 .weapon-sprite { background-position: 0 -350px; }
+            .weapon-7 .weapon-sprite { background-position: 0 -420px; }
+            .weapon-8 .weapon-sprite { background-position: 0 -490px; }
+            .weapon-9 .weapon-sprite { background-position: 0 -560px; }
+            .weapon-10 .weapon-sprite { background-position: 0 -630px; }
+            .weapon-11 .weapon-sprite { background-position: 0 -700px; }
+            .weapon-12 .weapon-sprite { background-position: 0 -770px; }
+            .weapon-13 .weapon-sprite { background-position: 0 -840px; }
+            .weapon-14 .weapon-sprite { background-position: 0 -910px; }
+            .weapon-15 .weapon-sprite { background-position: 0 -980px; }
+            .weapon-16 .weapon-sprite { background-position: 0 -1050px; }
+            .weapon-17 .weapon-sprite { background-position: 0 -1120px; }
+            .weapon-18 .weapon-sprite { background-position: 0 -1190px; }
+            .weapon-19 .weapon-sprite { background-position: 0 -1260px; }
+            .weapon-20 .weapon-sprite { background-position: 0 -1330px; }
+            .weapon-21 .weapon-sprite { background-position: 0 -1400px; }
+            .weapon-22 .weapon-sprite { background-position: 0 -1470px; }
+            .weapon-23 .weapon-sprite { background-position: 0 -1540px; }
+            .weapon-24 .weapon-sprite { background-position: 0 -1610px; }
+            .weapon-25 .weapon-sprite { background-position: 0 -1680px; }
+            .weapon-26 .weapon-sprite { background-position: 0 -1750px; }
+            .weapon-27 .weapon-sprite { background-position: 0 -1820px; }
+            .weapon-28 .weapon-sprite { background-position: 0 -1890px; }
+            .weapon-29 .weapon-sprite { background-position: 0 -1960px; }
+            .weapon-30 .weapon-sprite { background-position: 0 -2030px; }
+            .weapon-31 .weapon-sprite { background-position: 0 -2100px; }
+            .weapon-32 .weapon-sprite { background-position: 0 -2170px; }
+            .weapon-33 .weapon-sprite { background-position: 0 -2240px; }
+            .weapon-34 .weapon-sprite { background-position: 0 -2310px; }
+            .weapon-35 .weapon-sprite { background-position: 0 -2380px; }
+            .weapon-36 .weapon-sprite { background-position: 0 -2450px; }
+            .weapon-37 .weapon-sprite { background-position: 0 -2520px; }
+            .weapon-38 .weapon-sprite { background-position: 0 -2590px; }
+            .weapon-39 .weapon-sprite { background-position: 0 -2660px; }
+            .weapon-40 .weapon-sprite { background-position: 0 -2730px; }
+            .weapon-41 .weapon-sprite { background-position: 0 -2800px; }
+            .weapon-42 .weapon-sprite { background-position: 0 -2870px; }
+            .weapon-43 .weapon-sprite { background-position: 0 -2940px; }
+            .weapon-44 .weapon-sprite { background-position: 0 -3010px; }
+            .weapon-45 .weapon-sprite { background-position: 0 -3080px; }
+            .weapon-46 .weapon-sprite { background-position: 0 -3150px; }
+            .weapon-47 .weapon-sprite { background-position: 0 -3220px; }
+            .weapon-48 .weapon-sprite { background-position: 0 -3290px; }
+            .weapon-49 .weapon-sprite { background-position: 0 -3360px; }
+            .weapon-50 .weapon-sprite { background-position: 0 -3430px; }
+            .weapon-51 .weapon-sprite { background-position: 0 -3500px; }
+            .weapon-52 .weapon-sprite { background-position: 0 -3570px; }
+            .weapon-53 .weapon-sprite { background-position: 0 -3640px; }
+            .weapon-54 .weapon-sprite { background-position: 0 -3710px; }
+            .weapon-55 .weapon-sprite { background-position: 0 -3780px; }
+            .weapon-56 .weapon-sprite { background-position: 0 -3850px; }
+            .weapon-57 .weapon-sprite { background-position: 0 -3920px; }
+            .weapon-58 .weapon-sprite { background-position: 0 -3990px; }
+            .weapon-59 .weapon-sprite { background-position: 0 -4060px; }
+            .weapon-60 .weapon-sprite { background-position: 0 -4130px; }
+            .weapon-61 .weapon-sprite { background-position: 0 -4200px; }
+            .weapon-62 .weapon-sprite { background-position: 0 -4270px; }
+            .weapon-63 .weapon-sprite { background-position: 0 -4340px; }
+            .weapon-64 .weapon-sprite { background-position: 0 -4410px; }
+            .weapon-65 .weapon-sprite { background-position: 0 -4480px; }
+            .weapon-66 .weapon-sprite { background-position: 0 -4550px; }
+        }
     </style>
 </head>
 <body>
@@ -830,12 +965,11 @@
                 
                 weapons.forEach((weapon, index) => {
                     const item = document.createElement('div');
-                    item.className = `weapon-item category-${weapon.category}`;
+                    item.className = `weapon-item category-${weapon.category} weapon-${weapon.id}`;
                     item.style.animationDelay = `${index * animationDelay}s`;
                     
                     const sprite = document.createElement('div');
                     sprite.className = `weapon-sprite`;
-                    sprite.style.backgroundPosition = `0 -${(weapon.id - 1) * 80}px`;
                     
                     const tag = document.createElement('span');
                     tag.className = 'category-tag';
