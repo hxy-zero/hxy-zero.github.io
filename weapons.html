@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武器图鉴 - 66种传奇武器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #a36464;
+            --dark: #5a2a2a;
+            --accent: #d4af37;
+            --light: #f5e8c9;
+            --text: #ffffff;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            z-index: 10;
+            position: relative;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .page-title {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+            background: linear-gradient(90deg, #ffd166, #d4af37, #b8860b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+            line-height: 1.8;
+            background: rgba(90, 42, 42, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        .navbar {
+            background-color: rgba(90, 42, 42, 0.95);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 10px auto 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            top: 10px;
+            z-index: 100;
+        }
+        
+        .search-group {
+            display: flex;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .search-container {
+            flex: 1;
+            position: relative;
+        }
+        
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            opacity: 0.7;
+            font-size: 1.2rem;
+        }
+        
+        .search-container input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            background: rgba(163, 100, 100, 0.3);
+            color: var(--text);
+            transition: 0.3s;
+        }
+        
+        .search-container input:focus {
+            outline: 0;
+            box-shadow: 0 0 0 2px var(--accent);
+            background: rgba(163, 100, 100, 0.5);
+        }
+        
+        .direction-btn {
+            width: 50px;
+            margin-left: 10px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: rgba(163, 100, 100, 0.3);
+            color: var(--text);
+            transition: 0.3s;
+        }
+        
+        .direction-btn:hover {
+            background: rgba(163, 100, 100, 0.5);
+            transform: scale(1.1);
+        }
+        
+        .filter-container {
+            flex: 1;
+            min-width: 160px;
+        }
+        
+        .select-container {
+            position: relative;
+            width: 100%;
+        }
+        
+        .select-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .category-select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            appearance: none;
+            cursor: pointer;
+            background: rgba(163, 100, 100, 0.3);
+            color: var(--text);
+            transition: 0.3s;
+        }
+        
+        .gallery {
+            background-color: var(--primary);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 10px;
+            min-height: 500px;
+            animation: 0.6s ease-out fadeIn;
+        }
+        
+        .weapon-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            animation: 0.4s ease-out both fadeIn;
+        }
+        
+        .weapon-item:hover {
+            transform: translateY(-7px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            z-index: 10;
+        }
+        
+        .weapon-sprite {
+            width: 80px;
+            height: 80px;
+            background-image: url('https://s21.ax1x.com/2025/07/07/pVMZfRs.webp');
+            background-repeat: no-repeat;
+            transition: 0.3s;
+            border-radius: 6px;
+            background-size: 80px auto;
+        }
+        
+        .weapon-item:hover .weapon-sprite {
+            transform: scale(1.15);
+        }
+        
+        .category-tag {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-size: 0.7rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+        
+        .modal-content {
+            background: linear-gradient(145deg, #5a2a2a, #7a3e3e);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+            border: 2px solid var(--accent);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            color: var(--light);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: 0.3s;
+            z-index: 1100;
+        }
+        
+        .close-btn:hover {
+            background-color: rgba(163, 100, 100, 0.4);
+            transform: rotate(90deg);
+        }
+        
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .modal-image {
+            width: 120px;
+            height: 120px;
+            background-color: rgba(163, 100, 100, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            flex-shrink: 0;
+            border: 2px solid var(--accent);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-sprite {
+            width: 100px;
+            height: 100px;
+            background-image: url('https://s21.ax1x.com/2025/07/07/pVMZfRs.webp');
+            background-repeat: no-repeat;
+            border-radius: 6px;
+            background-size: 100px auto;
+        }
+        
+        .modal-title {
+            flex: 1;
+        }
+        
+        .modal-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+        
+        .modal-title h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #a6c1ee;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .info-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .modal-category {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            background: rgba(163, 100, 100, 0.6);
+            color: #ffd166;
+        }
+        
+        .weapon-tables {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .weapon-table {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .weapon-table h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 1.2rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            text-align: left;
+            padding: 8px 0;
+            font-weight: 600;
+            color: #ffd166;
+        }
+        
+        td {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .description-section {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+        
+        .description-section h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+        
+        .description-section h4 i {
+            margin-right: 10px;
+            color: #d4af37;
+        }
+        
+        .description-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #e8d0e7;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+        }
+        
+        .counter {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: var(--light);
+            opacity: 0.8;
+            text-align: center;
+        }
+        
+        .decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .decoration::before,
+        .decoration::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+        }
+        
+        .decoration::before {
+            top: 20%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(163, 100, 100, 0.3) 0, transparent 70%);
+            animation: 15s linear infinite float;
+        }
+        
+        .decoration::after {
+            bottom: 15%;
+            right: 10%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(90, 42, 42, 0.3) 0, transparent 70%);
+            animation: 18s linear infinite reverse float;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0); }
+            25% { transform: translate(20px, 30px) rotate(90deg); }
+            50% { transform: translate(0, 60px) rotate(180deg); }
+            75% { transform: translate(-20px, 30px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .navbar {
+                gap: 10px;
+            }
+            .search-group {
+                flex: 100%;
+            }
+            .filter-container {
+                flex: 1;
+                min-width: calc(50% - 10px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2rem;
+            }
+            .subtitle {
+                font-size: 1.1rem;
+                padding: 12px;
+            }
+            .modal-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .modal-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .modal-title h2 {
+                font-size: 1.9rem;
+            }
+            .modal-title h3 {
+                font-size: 1.3rem;
+            }
+            .info-tags {
+                justify-content: center;
+            }
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 8px;
+                padding: 20px;
+            }
+            .weapon-tables {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+            .subtitle {
+                font-size: 0.95rem;
+                padding: 10px;
+            }
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 5px;
+                padding: 15px;
+            }
+            .modal-content {
+                padding: 20px 15px;
+            }
+            .weapon-item {
+                width: 80px;
+                height: 80px;
+            }
+            .weapon-sprite {
+                width: 70px;
+                height: 70px;
+            }
+            .modal-title h2 {
+                font-size: 1.6rem;
+            }
+            .modal-title h3 {
+                font-size: 1.1rem;
+            }
+            .modal-category {
+                padding: 4px 10px;
+                font-size: 0.9rem;
+            }
+            .category-tag {
+                font-size: 0.6rem;
+                padding: 1px 3px;
+            }
+            .description-text {
+                font-size: 0.8rem;
+                padding: 10px;
+            }
+        }
+        
+        /* 武器分类背景色 */
+        .category-剑类 { background-color: rgba(255, 107, 107, 0.25); }
+        .category-斧类 { background-color: rgba(6, 214, 160, 0.25); }
+        .category-棍棒类 { background-color: rgba(255, 157, 0, 0.25); }
+        .category-锤类 { background-color: rgba(255, 209, 102, 0.25); }
+        .category-弯刀类 { background-color: rgba(118, 215, 196, 0.25); }
+        .category-刺剑类 { background-color: rgba(239, 71, 111, 0.25); }
+        .category-法杖类 { background-color: rgba(17, 138, 178, 0.25); }
+        .category-长矛类 { background-color: rgba(155, 93, 229, 0.25); }
+        .category-镰刀类 { background-color: rgba(255, 94, 91, 0.25); }
+        .category-匕首类 { background-color: rgba(249, 65, 68, 0.25); }
+        .category-投掷武器类 { background-color: rgba(46, 196, 182, 0.25); }
+        .category-弓类 { background-color: rgba(253, 167, 223, 0.25); }
+        .category-弩类 { background-color: rgba(83, 51, 237, 0.25); }
+        .category-攻城武器类 { background-color: rgba(0, 187, 249, 0.25); }
+    </style>
+</head>
+<body>
+    <div class="decoration"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="page-title">武器图鉴</h1>
+            <p class="subtitle">探索66种传奇武器 - 从简单的木剑到强大的攻城武器</p>
+        </header>
+        
+        <nav class="navbar">
+            <div class="search-group">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input id="search-input" placeholder="搜索武器...">
+                </div>
+                <button class="direction-btn" id="sort-direction" title="切换排序方向">
+                    <i class="fas fa-sort-amount-down"></i>
+                </button>
+            </div>
+            
+            <div class="filter-container">
+                <div class="select-container">
+                    <select class="category-select" id="category-select">
+                        <option value="all">全部武器</option>
+                        <option value="剑类">剑类</option>
+                        <option value="斧类">斧类</option>
+                        <option value="棍棒类">棍棒类</option>
+                        <option value="锤类">锤类</option>
+                        <option value="弯刀类">弯刀类</option>
+                        <option value="刺剑类">刺剑类</option>
+                        <option value="法杖类">法杖类</option>
+                        <option value="长矛类">长矛类</option>
+                        <option value="镰刀类">镰刀类</option>
+                        <option value="匕首类">匕首类</option>
+                        <option value="投掷武器类">投掷武器类</option>
+                        <option value="弓类">弓类</option>
+                        <option value="弩类">弩类</option>
+                        <option value="攻城武器类">攻城武器类</option>
+                    </select>
+                    <i class="fas select-icon fa-chevron-down"></i>
+                </div>
+            </div>
+        </nav>
+        
+        <main>
+            <div class="gallery" id="weapon-gallery"></div>
+            <div class="counter" id="counter">显示 <span id="count">0</span> 种武器</div>
+        </main>
+    </div>
+    
+    <div class="modal" id="weapon-modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            
+            <div class="modal-header">
+                <div class="modal-image">
+                    <div class="modal-sprite" id="modal-img"></div>
+                </div>
+                <div class="modal-title">
+                    <h2 id="modal-name-cn"></h2>
+                    <h3 id="modal-name-en"></h3>
+                    <div class="info-tags">
+                        <span class="modal-category" id="modal-category"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="weapon-tables">
+                <div class="weapon-table">
+                    <h4>基础属性</h4>
+                    <table>
+                        <tr>
+                            <th>属性</th>
+                            <th>数值</th>
+                        </tr>
+                        <tr>
+                            <td>劈砍修正</td>
+                            <td id="cleave-mod"></td>
+                        </tr>
+                        <tr>
+                            <td>格挡修正</td>
+                            <td id="counter-mod"></td>
+                        </tr>
+                        <tr>
+                            <td>流血伤害</td>
+                            <td id="bleed-damage"></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="weapon-table">
+                    <h4>主攻属性</h4>
+                    <table>
+                        <tr>
+                            <th>属性</th>
+                            <th>数值</th>
+                        </tr>
+                        <tr>
+                            <td>伤害</td>
+                            <td id="primary-damage"></td>
+                        </tr>
+                        <tr>
+                            <td>威力</td>
+                            <td id="primary-power"></td>
+                        </tr>
+                        <tr>
+                            <td>速度</td>
+                            <td id="primary-speed"></td>
+                        </tr>
+                        <tr>
+                            <td>暴击率</td>
+                            <td id="primary-critical"></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="weapon-table">
+                    <h4>副攻属性</h4>
+                    <table>
+                        <tr>
+                            <th>属性</th>
+                            <th>数值</th>
+                        </tr>
+                        <tr>
+                            <td>伤害</td>
+                            <td id="secondary-damage"></td>
+                        </tr>
+                        <tr>
+                            <td>威力</td>
+                            <td id="secondary-power"></td>
+                        </tr>
+                        <tr>
+                            <td>速度</td>
+                            <td id="secondary-speed"></td>
+                        </tr>
+                        <tr>
+                            <td>暴击率</td>
+                            <td id="secondary-critical"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="description-section" id="description-section">
+                <h4><i class="fas fa-scroll"></i>武器描述</h4>
+                <p class="description-text" id="description-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const gallery = document.getElementById('weapon-gallery');
+            const modal = document.getElementById('weapon-modal');
+            const closeBtn = document.querySelector('.close-btn');
+            const searchInput = document.getElementById('search-input');
+            const categorySelect = document.getElementById('category-select');
+            const loader = document.getElementById('loader');
+            const counter = document.getElementById('count');
+            const directionBtn = document.getElementById('sort-direction');
+            const modalImg = document.getElementById('modal-img');
+            const descriptionSection = document.getElementById('description-section');
+            const descriptionText = document.getElementById('description-text');
+            
+            // 武器数据（添加描述）
+            const weaponsData = [
+                { id: 1, name_cn: "木剑", name_en: "Wooden Sword", category: "剑类", cleave_mod: 20, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 5, power: 25, speed: 110, critical: 1 }, secondary_attack: { damage: 4, power: 18, speed: 110, critical: 1 }, description: "木剑是玩家开始使用的第二件武器。农民阶级以木剑作为次要武器，后来被镰刀取代。" },
+                { id: 2, name_cn: "短剑", name_en: "Short Sword", category: "剑类", cleave_mod: 40, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 6, power: 35, speed: 110, critical: 6 }, secondary_attack: { damage: 5, power: 25, speed: 180, critical: 4 }, description: "平衡性极佳的短剑，适合快速攻击和精准格挡。" },
+                { id: 3, name_cn: "直剑", name_en: "Straight Sword", category: "剑类", cleave_mod: 30, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 7, power: 25, speed: 170, critical: 6 }, secondary_attack: { damage: 6, power: 20, speed: 200, critical: 5 }, description: "标准骑士用剑，平衡的攻击距离和速度。" },
+                { id: 4, name_cn: "阔剑", name_en: "Broadsword", category: "剑类", cleave_mod: 60, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 7, power: 35, speed: 80, critical: 5 }, secondary_attack: { damage: 6, power: 25, speed: 160, critical: 3 }, description: "宽大的剑身提供优秀的劈砍能力，但速度较慢。" },
+                { id: 5, name_cn: "双刃剑", name_en: "Twinblade", category: "剑类", cleave_mod: 70, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 8, power: 40, speed: 110, critical: 2 }, secondary_attack: { damage: 6, power: 30, speed: 180, critical: 3 }, description: "双刃设计可同时攻击多个目标，需要技巧掌握。" },
+                { id: 6, name_cn: "焰形剑", name_en: "Flamberge", category: "剑类", cleave_mod: 60, counter_mod: 100, bleed_damage: 6, primary_attack: { damage: 9, power: 45, speed: 60, critical: 8 }, secondary_attack: { damage: 8, power: 40, speed: 85, critical: 6 }, description: "波浪形剑刃造成额外流血伤害，精英战士的选择。" },
+                { id: 7, name_cn: "长剑", name_en: "Longsword", category: "剑类", cleave_mod: 60, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 10, power: 50, speed: 70, critical: 6 }, secondary_attack: { damage: 9, power: 40, speed: 80, critical: 3 }, description: "标准骑士用剑，平衡的攻击距离和速度。" },
+                { id: 8, name_cn: "大剑", name_en: "Claymore", category: "剑类", cleave_mod: 70, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 11, power: 60, speed: 60, critical: 4 }, secondary_attack: { damage: 10, power: 65, speed: 60, critical: 1 }, description: "双手大剑，威力巨大但攻击速度较慢。" },
+                { id: 9, name_cn: "巨剑", name_en: "Greatsword", category: "剑类", cleave_mod: 70, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 12, power: 60, speed: 60, critical: 2 }, secondary_attack: { damage: 10, power: 50, speed: 70, critical: 3 }, description: "巨大的双手剑，一击可造成毁灭性伤害。" },
+                { id: 10, name_cn: "水晶巨剑", name_en: "Crystal Greatsword", category: "剑类", cleave_mod: 65, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 11, power: 60, speed: 70, critical: 5 }, secondary_attack: { damage: 10, power: 50, speed: 90, critical: 6 }, description: "由魔法水晶锻造而成，在攻击时会产生能量波动。" },
+                { id: 12, name_cn: "切肉斧", name_en: "Cleaver", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "屠夫使用的重型砍肉斧，威力惊人。" },
+                { id: 13, name_cn: "锯斧", name_en: "Saw", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "斧刃带有锯齿，可造成持续流血伤害。" },
+                { id: 14, name_cn: "手斧", name_en: "Hatchet", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "轻便的单手斧，适合快速劈砍。" },
+                { id: 15, name_cn: "战手斧", name_en: "Hand Axe", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "专为战斗设计的平衡手斧，攻守兼备。" },
+                { id: 16, name_cn: "战斧", name_en: "Battle Axe", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "维京战士的标准武器，威力巨大。" },
+                { id: 17, name_cn: "胡须斧", name_en: "Bearded Axe", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "斧刃下部延伸的设计，可钩住敌人武器。" },
+                { id: 18, name_cn: "巨型切肉斧", name_en: "Great Cleaver", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "巨大的砍肉斧，一击可劈开最坚硬的盔甲。" },
+                { id: 19, name_cn: "戟", name_en: "Halberd", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "结合斧、矛和钩的多功能长柄武器。" },
+                { id: 20, name_cn: "巨斧", name_en: "Greataxe", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "需要巨大力量才能挥舞的双手巨斧。" },
+                { id: 21, name_cn: "短棍", name_en: "Cudgel", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "简单的硬木短棍，平民的防身武器。" },
+                { id: 22, name_cn: "钉头锤", name_en: "Mace", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "金属头部带有尖刺，对付重甲敌人特别有效。" },
+                { id: 23, name_cn: "巨钉头锤", name_en: "Great Mace", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "双手使用的巨型钉头锤，一击可粉碎盾牌。" },
+                { id: 24, name_cn: "木槌", name_en: "Mallet", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "沉重的木制大锤，主要用于攻城。" },
+                { id: 25, name_cn: "巨棍", name_en: "Great Club", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "巨大的树干制成的棍棒，简单而致命。" },
+                { id: 26, name_cn: "墓穴之锤", name_en: "Gravehammer", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "刻有墓穴符文的神秘武器，据说能吸取灵魂。" },
+                { id: 27, name_cn: "龙牙", name_en: "Dragon Tooth", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "用真正龙牙制成的传奇武器，蕴含着龙的力量。" },
+                { id: 28, name_cn: "石锤", name_en: "Stone Hammer", category: "锤类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "原始但有效的石制锤头，适合粉碎硬物。" },
+                { id: 29, name_cn: "锤", name_en: "Hammer", category: "锤类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "标准的铁匠锤，也可作为武器使用。" },
+                { id: 30, name_cn: "战锤", name_en: "War Hammer", category: "锤类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "专为战争设计的锤子，一头是锤头，另一头是尖刺。" },
+                { id: 31, name_cn: "战槌", name_en: "War Maul", category: "锤类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "巨大的双手战锤，需要超凡力量才能挥舞。" },
+                { id: 32, name_cn: "弯刀", name_en: "Cutlass", category: "弯刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "海盗的经典武器，适合在狭窄的船舱内战斗。" },
+                { id: 33, name_cn: "武士刀", name_en: "Katana", category: "弯刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "日本武士的传世之作，锋利无比且平衡完美。" },
+                { id: 34, name_cn: "偃月刀", name_en: "Falchion", category: "弯刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "单刃弯曲设计，结合了剑的切割力和斧的劈砍力。" },
+                { id: 35, name_cn: "波斯弯刀", name_en: "Scimitar", category: "弯刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "中东战士的标志性武器，设计用于马上劈砍。" },
+                { id: 36, name_cn: "砍刀", name_en: "Machete", category: "弯刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "多功能工具兼武器，适合在丛林中开路。" },
+                { id: 37, name_cn: "刺剑", name_en: "Rapier", category: "刺剑类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "优雅的决斗武器，专注于精准刺击。" },
+                { id: 38, name_cn: "骑枪", name_en: "Lance", category: "刺剑类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "骑士冲锋时使用的长枪，威力惊人。" },
+                { id: 39, name_cn: "法杖", name_en: "Staff", category: "法杖类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "魔法师的基本工具，也可作为近战武器使用。" },
+                { id: 40, name_cn: "长棍", name_en: "Quarterstaff", category: "法杖类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "简单的长棍武器，攻防兼备。" },
+                { id: 41, name_cn: "草叉", name_en: "Pitchfork", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "农具改造的武器，三叉设计可造成多处伤口。" },
+                { id: 42, name_cn: "长矛", name_en: "Spear", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "最古老的武器之一，攻击距离长且易学。" },
+                { id: 43, name_cn: "水晶长矛", name_en: "Crystal Spear", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "由魔法水晶制成的长矛，刺击时会释放能量。" },
+                { id: 44, name_cn: "三叉戟", name_en: "Trident", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "海神波塞冬的象征，可同时造成多处伤害。" },
+                { id: 45, name_cn: "标枪", name_en: "Javelin", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "轻型投掷长矛，适合远距离攻击。" },
+                { id: 46, name_cn: "戈戟", name_en: "Glaive", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "结合长矛和斧头的长柄武器，功能多样。" },
+                { id: 47, name_cn: "镰刀", name_en: "Sickle", category: "镰刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "收割作物的农具，也可作为致命武器。" },
+                { id: 48, name_cn: "战镐", name_en: "War Pick", category: "镰刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "设计用于穿透重甲的尖头武器。" },
+                { id: 49, name_cn: "长柄镰刀", name_en: "Scythe", category: "镰刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "死神的象征，可进行大范围横扫攻击。" },
+                { id: 50, name_cn: "匕首", name_en: "Dagger", category: "匕首类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "隐秘行动的完美武器，快速而致命。" },
+                { id: 51, name_cn: "水晶匕首", name_en: "Crystal Dagger", category: "匕首类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "魔法水晶制成的匕首，攻击时会留下能量痕迹。" },
+                { id: 52, name_cn: "小刀", name_en: "Knife", category: "匕首类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "多用途工具，也可作为武器使用。" },
+                { id: 53, name_cn: "简易匕首", name_en: "Shiv", category: "匕首类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "囚犯自制的简陋武器，通常由磨尖的金属片制成。" },
+                { id: 54, name_cn: "爪", name_en: "Claw", category: "匕首类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "模仿野兽利爪的武器，适合快速连击。" },
+                { id: 55, name_cn: "战斧", name_en: "Tomahawk", category: "投掷武器类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "美洲原住民使用的投掷斧，平衡性极佳。" },
+                { id: 56, name_cn: "查克拉姆", name_en: "Chakram", category: "投掷武器类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "环状投掷武器，飞行轨迹难以预测。" },
+                { id: 57, name_cn: "鱼叉", name_en: "Harpoon", category: "投掷武器类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "捕鱼工具改造的武器，带有倒刺难以拔出。" },
+                { id: 58, name_cn: "弓", name_en: "Bow", category: "弓类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "标准的远程武器，平衡的射程和威力。" },
+                { id: 59, name_cn: "短弓", name_en: "Short Bow", category: "弓类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "尺寸较小的弓，射速快但威力较小。" },
+                { id: 60, name_cn: "长弓", name_en: "Longbow", category: "弓类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "英国长弓手的标志性武器，射程远威力大。" },
+                { id: 61, name_cn: "刃弓", name_en: "Bladed Bow", category: "弓类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "弓臂带有刀刃，可同时作为近战武器使用。" },
+                { id: 62, name_cn: "巨弓", name_en: "Greatbow", category: "弓类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "巨大的弓，需要特殊支架才能使用，威力惊人。" },
+                { id: 63, name_cn: "弩", name_en: "Crossbow", category: "弩类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "机械弓，威力大但装填速度慢。" },
+                { id: 64, name_cn: "刃弩", name_en: "Bladed Crossbow", category: "弩类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "弩臂带有刀刃，可在近距离作战中使用。" },
+                { id: 65, name_cn: "弩炮", name_en: "Ballista", category: "攻城武器类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "巨型弩炮，可发射重型箭矢或石块。" },
+                { id: 66, name_cn: "攻城槌", name_en: "Battering Ram", category: "攻城武器类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "用于破坏城门和城墙的重型攻城武器。" }
+            ];
+            
+            let currentFilteredData = weaponsData;
+            let sortDirection = 'asc';
+            
+            // 渲染武器
+            function renderWeapons(weapons) {
+                gallery.innerHTML = '';
+                counter.textContent = weapons.length;
+                
+                const animationDelay = 0.04;
+                
+                weapons.forEach((weapon, index) => {
+                    const item = document.createElement('div');
+                    item.className = `weapon-item category-${weapon.category}`;
+                    item.style.animationDelay = `${index * animationDelay}s`;
+                    
+                    const sprite = document.createElement('div');
+                    sprite.className = `weapon-sprite`;
+                    sprite.style.backgroundPosition = `0 -${(weapon.id - 1) * 80}px`;
+                    
+                    const tag = document.createElement('span');
+                    tag.className = 'category-tag';
+                    tag.textContent = weapon.category;
+                    
+                    item.appendChild(sprite);
+                    item.appendChild(tag);
+                    
+                    item.addEventListener('click', () => openModal(weapon));
+                    
+                    gallery.appendChild(item);
+                });
+            }
+            
+            // 打开详情弹窗
+            function openModal(weapon) {
+                // 设置图片位置
+                modalImg.style.backgroundPosition = `0 -${(weapon.id - 1) * 100}px`;
+                
+                document.getElementById('modal-name-cn').textContent = weapon.name_cn;
+                document.getElementById('modal-name-en').textContent = weapon.name_en;
+                document.getElementById('modal-category').textContent = weapon.category;
+                
+                // 基础属性
+                document.getElementById('cleave-mod').textContent = weapon.cleave_mod + '%';
+                document.getElementById('counter-mod').textContent = weapon.counter_mod + '%';
+                document.getElementById('bleed-damage').textContent = weapon.bleed_damage || '0';
+                
+                // 主攻属性
+                document.getElementById('primary-damage').textContent = weapon.primary_attack.damage || '0';
+                document.getElementById('primary-power').textContent = weapon.primary_attack.power || '0';
+                document.getElementById('primary-speed').textContent = weapon.primary_attack.speed + '%' || '0';
+                document.getElementById('primary-critical').textContent = weapon.primary_attack.critical + '%' || '0';
+                
+                // 副攻属性
+                document.getElementById('secondary-damage').textContent = weapon.secondary_attack.damage || '0';
+                document.getElementById('secondary-power').textContent = weapon.secondary_attack.power || '0';
+                document.getElementById('secondary-speed').textContent = weapon.secondary_attack.speed + '%' || '0';
+                document.getElementById('secondary-critical').textContent = weapon.secondary_attack.critical + '%' || '0';
+                
+                // 描述部分
+                if (weapon.description && weapon.description.trim() !== '') {
+                    descriptionText.textContent = weapon.description;
+                    descriptionSection.style.display = 'block';
+                } else {
+                    descriptionSection.style.display = 'none';
+                }
+                
+                modal.style.display = 'flex';
+            }
+            
+            // 关闭弹窗
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+            
+            // 点击弹窗外区域关闭
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // 搜索功能
+            searchInput.addEventListener('input', filterWeapons);
+            
+            // 分类筛选
+            categorySelect.addEventListener('change', filterWeapons);
+            
+            // 排序方向按钮点击事件
+            directionBtn.addEventListener('click', function() {
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+                
+                const icon = directionBtn.querySelector('i');
+                if (sortDirection === 'asc') {
+                    icon.classList.remove('fa-sort-amount-down');
+                    icon.classList.add('fa-sort-amount-up');
+                } else {
+                    icon.classList.remove('fa-sort-amount-up');
+                    icon.classList.add('fa-sort-amount-down');
+                }
+                
+                filterWeapons();
+            });
+            
+            // 筛选武器
+            function filterWeapons() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categorySelect.value;
+                
+                const filtered = weaponsData.filter(weapon => {
+                    const matchesSearch = weapon.name_cn.toLowerCase().includes(searchTerm) ||
+                                         weapon.name_en.toLowerCase().includes(searchTerm);
+                    const matchesCategory = selectedCategory === 'all' || weapon.category === selectedCategory;
+                    return matchesSearch && matchesCategory;
+                });
+                
+                // 排序
+                if (sortDirection === 'asc') {
+                    filtered.sort((a, b) => a.id - b.id);
+                } else {
+                    filtered.sort((a, b) => b.id - a.id);
+                }
+                
+                currentFilteredData = filtered;
+                renderWeapons(filtered);
+            }
+            
+            // 初始渲染
+            renderWeapons(weaponsData);
+            
+            // 添加键盘快捷键
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                }
+                if (e.key === '/' && e.target !== searchInput) {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
