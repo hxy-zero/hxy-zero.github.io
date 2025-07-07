@@ -462,6 +462,37 @@
             animation: 18s linear infinite reverse float;
         }
         
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            flex-direction: column;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid var(--accent);
+            animation: spin 1s linear infinite;
+        }
+        
+        .loader-text {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: var(--light);
+        }
+        
+        .error-message {
+            background: rgba(163, 100, 100, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px;
+        }
+        
         @keyframes float {
             0% { transform: translate(0, 0) rotate(0); }
             25% { transform: translate(20px, 30px) rotate(90deg); }
@@ -473,6 +504,11 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         /* 响应式设计 */
@@ -630,7 +666,12 @@
         </nav>
         
         <main>
-            <div class="gallery" id="weapon-gallery"></div>
+            <div class="gallery" id="weapon-gallery">
+                <div class="loader">
+                    <div class="loader-spinner"></div>
+                    <div class="loader-text">正在加载武器数据...</div>
+                </div>
+            </div>
             <div class="counter" id="counter">显示 <span id="count">0</span> 种武器</div>
         </main>
     </div>
@@ -742,84 +783,53 @@
             const closeBtn = document.querySelector('.close-btn');
             const searchInput = document.getElementById('search-input');
             const categorySelect = document.getElementById('category-select');
-            const loader = document.getElementById('loader');
             const counter = document.getElementById('count');
             const directionBtn = document.getElementById('sort-direction');
             const modalImg = document.getElementById('modal-img');
             const descriptionSection = document.getElementById('description-section');
             const descriptionText = document.getElementById('description-text');
             
-            // 武器数据（添加描述）
-            const weaponsData = [
-                { id: 1, name_cn: "木剑", name_en: "Wooden Sword", category: "剑类", cleave_mod: 20, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 5, power: 25, speed: 110, critical: 1 }, secondary_attack: { damage: 4, power: 18, speed: 110, critical: 1 }, description: "木剑是玩家开始使用的第二件武器。农民阶级以木剑作为次要武器，后来被镰刀取代。" },
-                { id: 2, name_cn: "短剑", name_en: "Short Sword", category: "剑类", cleave_mod: 40, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 6, power: 35, speed: 110, critical: 6 }, secondary_attack: { damage: 5, power: 25, speed: 180, critical: 4 }, description: "平衡性极佳的短剑，适合快速攻击和精准格挡。" },
-                { id: 3, name_cn: "直剑", name_en: "Straight Sword", category: "剑类", cleave_mod: 30, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 7, power: 25, speed: 170, critical: 6 }, secondary_attack: { damage: 6, power: 20, speed: 200, critical: 5 }, description: "标准骑士用剑，平衡的攻击距离和速度。" },
-                { id: 4, name_cn: "阔剑", name_en: "Broadsword", category: "剑类", cleave_mod: 60, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 7, power: 35, speed: 80, critical: 5 }, secondary_attack: { damage: 6, power: 25, speed: 160, critical: 3 }, description: "宽大的剑身提供优秀的劈砍能力，但速度较慢。" },
-                { id: 5, name_cn: "双刃剑", name_en: "Twinblade", category: "剑类", cleave_mod: 70, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 8, power: 40, speed: 110, critical: 2 }, secondary_attack: { damage: 6, power: 30, speed: 180, critical: 3 }, description: "双刃设计可同时攻击多个目标，需要技巧掌握。" },
-                { id: 6, name_cn: "焰形剑", name_en: "Flamberge", category: "剑类", cleave_mod: 60, counter_mod: 100, bleed_damage: 6, primary_attack: { damage: 9, power: 45, speed: 60, critical: 8 }, secondary_attack: { damage: 8, power: 40, speed: 85, critical: 6 }, description: "波浪形剑刃造成额外流血伤害，精英战士的选择。" },
-                { id: 7, name_cn: "长剑", name_en: "Longsword", category: "剑类", cleave_mod: 60, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 10, power: 50, speed: 70, critical: 6 }, secondary_attack: { damage: 9, power: 40, speed: 80, critical: 3 }, description: "标准骑士用剑，平衡的攻击距离和速度。" },
-                { id: 8, name_cn: "大剑", name_en: "Claymore", category: "剑类", cleave_mod: 70, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 11, power: 60, speed: 60, critical: 4 }, secondary_attack: { damage: 10, power: 65, speed: 60, critical: 1 }, description: "双手大剑，威力巨大但攻击速度较慢。" },
-                { id: 9, name_cn: "巨剑", name_en: "Greatsword", category: "剑类", cleave_mod: 70, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 12, power: 60, speed: 60, critical: 2 }, secondary_attack: { damage: 10, power: 50, speed: 70, critical: 3 }, description: "巨大的双手剑，一击可造成毁灭性伤害。" },
-                { id: 10, name_cn: "水晶巨剑", name_en: "Crystal Greatsword", category: "剑类", cleave_mod: 65, counter_mod: 100, bleed_damage: 0, primary_attack: { damage: 11, power: 60, speed: 70, critical: 5 }, secondary_attack: { damage: 10, power: 50, speed: 90, critical: 6 }, description: "由魔法水晶锻造而成，在攻击时会产生能量波动。" },
-                { id: 12, name_cn: "切肉斧", name_en: "Cleaver", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "屠夫使用的重型砍肉斧，威力惊人。" },
-                { id: 13, name_cn: "锯斧", name_en: "Saw", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "斧刃带有锯齿，可造成持续流血伤害。" },
-                { id: 14, name_cn: "手斧", name_en: "Hatchet", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "轻便的单手斧，适合快速劈砍。" },
-                { id: 15, name_cn: "战手斧", name_en: "Hand Axe", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "专为战斗设计的平衡手斧，攻守兼备。" },
-                { id: 16, name_cn: "战斧", name_en: "Battle Axe", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "维京战士的标准武器，威力巨大。" },
-                { id: 17, name_cn: "胡须斧", name_en: "Bearded Axe", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "斧刃下部延伸的设计，可钩住敌人武器。" },
-                { id: 18, name_cn: "巨型切肉斧", name_en: "Great Cleaver", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "巨大的砍肉斧，一击可劈开最坚硬的盔甲。" },
-                { id: 19, name_cn: "戟", name_en: "Halberd", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "结合斧、矛和钩的多功能长柄武器。" },
-                { id: 20, name_cn: "巨斧", name_en: "Greataxe", category: "斧类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "需要巨大力量才能挥舞的双手巨斧。" },
-                { id: 21, name_cn: "短棍", name_en: "Cudgel", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "简单的硬木短棍，平民的防身武器。" },
-                { id: 22, name_cn: "钉头锤", name_en: "Mace", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "金属头部带有尖刺，对付重甲敌人特别有效。" },
-                { id: 23, name_cn: "巨钉头锤", name_en: "Great Mace", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "双手使用的巨型钉头锤，一击可粉碎盾牌。" },
-                { id: 24, name_cn: "木槌", name_en: "Mallet", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "沉重的木制大锤，主要用于攻城。" },
-                { id: 25, name_cn: "巨棍", name_en: "Great Club", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "巨大的树干制成的棍棒，简单而致命。" },
-                { id: 26, name_cn: "墓穴之锤", name_en: "Gravehammer", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "刻有墓穴符文的神秘武器，据说能吸取灵魂。" },
-                { id: 27, name_cn: "龙牙", name_en: "Dragon Tooth", category: "棍棒类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "用真正龙牙制成的传奇武器，蕴含着龙的力量。" },
-                { id: 28, name_cn: "石锤", name_en: "Stone Hammer", category: "锤类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "原始但有效的石制锤头，适合粉碎硬物。" },
-                { id: 29, name_cn: "锤", name_en: "Hammer", category: "锤类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "标准的铁匠锤，也可作为武器使用。" },
-                { id: 30, name_cn: "战锤", name_en: "War Hammer", category: "锤类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "专为战争设计的锤子，一头是锤头，另一头是尖刺。" },
-                { id: 31, name_cn: "战槌", name_en: "War Maul", category: "锤类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "巨大的双手战锤，需要超凡力量才能挥舞。" },
-                { id: 32, name_cn: "弯刀", name_en: "Cutlass", category: "弯刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "海盗的经典武器，适合在狭窄的船舱内战斗。" },
-                { id: 33, name_cn: "武士刀", name_en: "Katana", category: "弯刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "日本武士的传世之作，锋利无比且平衡完美。" },
-                { id: 34, name_cn: "偃月刀", name_en: "Falchion", category: "弯刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "单刃弯曲设计，结合了剑的切割力和斧的劈砍力。" },
-                { id: 35, name_cn: "波斯弯刀", name_en: "Scimitar", category: "弯刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "中东战士的标志性武器，设计用于马上劈砍。" },
-                { id: 36, name_cn: "砍刀", name_en: "Machete", category: "弯刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "多功能工具兼武器，适合在丛林中开路。" },
-                { id: 37, name_cn: "刺剑", name_en: "Rapier", category: "刺剑类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "优雅的决斗武器，专注于精准刺击。" },
-                { id: 38, name_cn: "骑枪", name_en: "Lance", category: "刺剑类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "骑士冲锋时使用的长枪，威力惊人。" },
-                { id: 39, name_cn: "法杖", name_en: "Staff", category: "法杖类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "魔法师的基本工具，也可作为近战武器使用。" },
-                { id: 40, name_cn: "长棍", name_en: "Quarterstaff", category: "法杖类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "简单的长棍武器，攻防兼备。" },
-                { id: 41, name_cn: "草叉", name_en: "Pitchfork", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "农具改造的武器，三叉设计可造成多处伤口。" },
-                { id: 42, name_cn: "长矛", name_en: "Spear", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "最古老的武器之一，攻击距离长且易学。" },
-                { id: 43, name_cn: "水晶长矛", name_en: "Crystal Spear", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "由魔法水晶制成的长矛，刺击时会释放能量。" },
-                { id: 44, name_cn: "三叉戟", name_en: "Trident", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "海神波塞冬的象征，可同时造成多处伤害。" },
-                { id: 45, name_cn: "标枪", name_en: "Javelin", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "轻型投掷长矛，适合远距离攻击。" },
-                { id: 46, name_cn: "戈戟", name_en: "Glaive", category: "长矛类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "结合长矛和斧头的长柄武器，功能多样。" },
-                { id: 47, name_cn: "镰刀", name_en: "Sickle", category: "镰刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "收割作物的农具，也可作为致命武器。" },
-                { id: 48, name_cn: "战镐", name_en: "War Pick", category: "镰刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "设计用于穿透重甲的尖头武器。" },
-                { id: 49, name_cn: "长柄镰刀", name_en: "Scythe", category: "镰刀类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "死神的象征，可进行大范围横扫攻击。" },
-                { id: 50, name_cn: "匕首", name_en: "Dagger", category: "匕首类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "隐秘行动的完美武器，快速而致命。" },
-                { id: 51, name_cn: "水晶匕首", name_en: "Crystal Dagger", category: "匕首类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "魔法水晶制成的匕首，攻击时会留下能量痕迹。" },
-                { id: 52, name_cn: "小刀", name_en: "Knife", category: "匕首类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "多用途工具，也可作为武器使用。" },
-                { id: 53, name_cn: "简易匕首", name_en: "Shiv", category: "匕首类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "囚犯自制的简陋武器，通常由磨尖的金属片制成。" },
-                { id: 54, name_cn: "爪", name_en: "Claw", category: "匕首类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "模仿野兽利爪的武器，适合快速连击。" },
-                { id: 55, name_cn: "战斧", name_en: "Tomahawk", category: "投掷武器类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "美洲原住民使用的投掷斧，平衡性极佳。" },
-                { id: 56, name_cn: "查克拉姆", name_en: "Chakram", category: "投掷武器类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "环状投掷武器，飞行轨迹难以预测。" },
-                { id: 57, name_cn: "鱼叉", name_en: "Harpoon", category: "投掷武器类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "捕鱼工具改造的武器，带有倒刺难以拔出。" },
-                { id: 58, name_cn: "弓", name_en: "Bow", category: "弓类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "标准的远程武器，平衡的射程和威力。" },
-                { id: 59, name_cn: "短弓", name_en: "Short Bow", category: "弓类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "尺寸较小的弓，射速快但威力较小。" },
-                { id: 60, name_cn: "长弓", name_en: "Longbow", category: "弓类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "英国长弓手的标志性武器，射程远威力大。" },
-                { id: 61, name_cn: "刃弓", name_en: "Bladed Bow", category: "弓类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "弓臂带有刀刃，可同时作为近战武器使用。" },
-                { id: 62, name_cn: "巨弓", name_en: "Greatbow", category: "弓类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "巨大的弓，需要特殊支架才能使用，威力惊人。" },
-                { id: 63, name_cn: "弩", name_en: "Crossbow", category: "弩类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "机械弓，威力大但装填速度慢。" },
-                { id: 64, name_cn: "刃弩", name_en: "Bladed Crossbow", category: "弩类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "弩臂带有刀刃，可在近距离作战中使用。" },
-                { id: 65, name_cn: "弩炮", name_en: "Ballista", category: "攻城武器类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "巨型弩炮，可发射重型箭矢或石块。" },
-                { id: 66, name_cn: "攻城槌", name_en: "Battering Ram", category: "攻城武器类", cleave_mod: 0, counter_mod: 0, bleed_damage: 0, primary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, secondary_attack: { damage: 0, power: 0, speed: 0, critical: 0 }, description: "用于破坏城门和城墙的重型攻城武器。" }
-            ];
-            
-            let currentFilteredData = weaponsData;
+            let weaponsData = [];
+            let currentFilteredData = [];
             let sortDirection = 'asc';
+            
+            // 从JSON文件加载武器数据
+            async function loadWeaponsData() {
+                try {
+                    const response = await fetch('data/weapons.json');
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP错误! 状态: ${response.status}`);
+                    }
+                    
+                    weaponsData = await response.json();
+                    
+                    // 移除加载指示器
+                    gallery.innerHTML = '';
+                    
+                    // 初始化页面
+                    filterWeapons();
+                } catch (error) {
+                    console.error('加载武器数据失败:', error);
+                    displayErrorMessage('加载武器数据失败，请稍后重试');
+                }
+            }
+            
+            // 显示错误信息
+            function displayErrorMessage(message) {
+                gallery.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                        <h3>${message}</h3>
+                        <p style="margin-top: 10px;">错误详情: ${error.message}</p>
+                        <button id="retry-button" style="margin-top: 20px; padding: 10px 20px; background: var(--accent); border: none; border-radius: 50px; cursor: pointer; font-weight: bold;">
+                            重试
+                        </button>
+                    </div>
+                `;
+                
+                document.getElementById('retry-button').addEventListener('click', loadWeaponsData);
+            }
             
             // 渲染武器
             function renderWeapons(weapons) {
@@ -827,6 +837,17 @@
                 counter.textContent = weapons.length;
                 
                 const animationDelay = 0.04;
+                
+                if (weapons.length === 0) {
+                    gallery.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                            <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                            <h3>未找到匹配的武器</h3>
+                            <p>请尝试其他搜索条件</p>
+                        </div>
+                    `;
+                    return;
+                }
                 
                 weapons.forEach((weapon, index) => {
                     const item = document.createElement('div');
@@ -944,9 +965,6 @@
                 renderWeapons(filtered);
             }
             
-            // 初始渲染
-            renderWeapons(weaponsData);
-            
             // 添加键盘快捷键
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && modal.style.display === 'flex') {
@@ -957,6 +975,9 @@
                     searchInput.focus();
                 }
             });
+            
+            // 初始化 - 加载武器数据
+            loadWeaponsData();
         });
     </script>
 </body>
