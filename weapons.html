@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -573,17 +574,11 @@
                 font-size: 0.8rem;
                 padding: 10px;
             }
-            
-            /* 修复弹窗图片大小问题 */
-            .modal-image {
-                width: 90px;
-                height: 90px;
-            }
-            .modal-sprite {
-                width: 70px;
-                height: 70px;
-                background-size: 70px auto;
-            }
+        }
+
+        /* 修复弹窗图片定位 */
+        .modal-sprite {
+            background-size: 100px auto; /* 保持100px大小 */
         }
         
         /* 为每个武器添加特定的CSS类 */
@@ -751,11 +746,6 @@
             border-radius: 12px;
             margin-top: 20px;
             color: #ff9e9e;
-        }
-        
-        /* 修复弹窗背景图定位问题 */
-        .modal-sprite {
-            transition: background-position 0.3s ease;
         }
     </style>
 </head>
@@ -931,123 +921,30 @@
             let currentFilteredData = [];
             let sortDirection = 'asc';
             
-            // 武器数据 - 用于演示
-            /*
-            const mockWeaponsData = {
-                weapons: [
-                    {
-                        id: 1,
-                        name_cn: "木剑",
-                        name_en: "Wooden Sword",
-                        category: "剑类",
-                        cleave_mod: 25,
-                        counter_mod: 15,
-                        bleed_damage: 5,
-                        primary_attack: {
-                            damage: 15,
-                            power: 10,
-                            speed: 85,
-                            critical: 5
-                        },
-                        secondary_attack: {
-                            damage: 10,
-                            power: 8,
-                            speed: 90,
-                            critical: 8
-                        },
-                        description: "新手冒险者的第一把武器，轻便但威力有限。"
-                    },
-                    {
-                        id: 2,
-                        name_cn: "铁斧",
-                        name_en: "Iron Axe",
-                        category: "斧类",
-                        cleave_mod: 35,
-                        counter_mod: 10,
-                        bleed_damage: 10,
-                        primary_attack: {
-                            damage: 25,
-                            power: 20,
-                            speed: 70,
-                            critical: 10
-                        },
-                        secondary_attack: {
-                            damage: 20,
-                            power: 18,
-                            speed: 75,
-                            critical: 12
-                        },
-                        description: "伐木工常用的工具，也能成为战斗中的利器。"
-                    },
-                    {
-                        id: 3,
-                        name_cn: "魔法法杖",
-                        name_en: "Magic Staff",
-                        category: "法杖类",
-                        cleave_mod: 5,
-                        counter_mod: 20,
-                        bleed_damage: 0,
-                        primary_attack: {
-                            damage: 30,
-                            power: 35,
-                            speed: 60,
-                            critical: 15
-                        },
-                        secondary_attack: {
-                            damage: 35,
-                            power: 40,
-                            speed: 55,
-                            critical: 18
-                        },
-                        description: "蕴含着神秘魔力的法杖，法师的最爱。"
-                    }
-                ]
-            };
-            */
             // 使用fetch从JSON文件加载武器数据
             function loadWeaponsData() {
-                try {
-                    // 在实际应用中，这里应该是从服务器获取真实数据
-                    // 但为了演示，我们使用模拟数据
-                    weaponsData = mockWeaponsData.weapons;
-                    currentFilteredData = weaponsData;
-                    renderWeapons(weaponsData);
-                    document.getElementById('count').textContent = weaponsData.length;
-                    loader.style.display = 'none';
-                    
-                    // 在实际应用中，取消下面注释并注释掉上面的模拟数据部分
-                    
-                    fetch('data/weapons.json')
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('网络响应错误');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            weaponsData = data.weapons;
-                            currentFilteredData = weaponsData;
-                            renderWeapons(weaponsData);
-                            document.getElementById('count').textContent = weaponsData.length;
-                            loader.style.display = 'none';
-                        })
-                        .catch(error => {
-                            console.error('加载武器数据失败:', error);
-                            loader.innerHTML = `<div class="error-message">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                <p>加载武器数据失败，请刷新页面重试</p>
-                                <p>错误信息: ${error.message}</p>
-                            </div>`;
-                        });
-                    
-                } catch (error) {
-                    console.error('加载武器数据失败:', error);
-                    loader.innerHTML = `<div class="error-message">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <p>加载武器数据失败，请刷新页面重试</p>
-                        <p>错误信息: ${error.message}</p>
-                    </div>`;
-                }
+                fetch('data/weapons.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('网络响应错误');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        weaponsData = data.weapons;
+                        currentFilteredData = weaponsData;
+                        renderWeapons(weaponsData);
+                        document.getElementById('count').textContent = weaponsData.length;
+                        loader.style.display = 'none';
+                    })
+                    .catch(error => {
+                        console.error('加载武器数据失败:', error);
+                        loader.innerHTML = `<div class="error-message">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>加载武器数据失败，请刷新页面重试</p>
+                            <p>错误信息: ${error.message}</p>
+                        </div>`;
+                    });
             }
             
             // 渲染武器
@@ -1080,9 +977,9 @@
             
             // 打开详情弹窗
             function openModal(weapon) {
-                // 设置图片位置 - 修复小屏幕下的定位问题
+                // 设置图片位置
                 const isSmallScreen = window.innerWidth <= 480;
-                const spriteSize = isSmallScreen ? 70 : 100;
+                const spriteSize = 100; // 弹窗中每个武器图片的高度是100px
                 const spritePosition = (weapon.id - 1) * spriteSize;
                 modalImg.style.backgroundPosition = `0 -${spritePosition}px`;
                 
