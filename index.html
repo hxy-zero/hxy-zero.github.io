@@ -53,6 +53,12 @@
             padding: 1.5rem 0;
             position: relative;
         }
+        
+        /* 添加处理状态样式 */
+        .btn.processing {
+            pointer-events: none;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -101,13 +107,13 @@
             <div class="catalog-item">
                 <i class="fas fa-user-friends"></i>
                 <h3>选角图鉴</h3>
-                <a href="#" class="btn coming-soon">即将开放</a>
+                <a href="#" class="btn coming-soon" data-url="https://unofficial-in-celebration-of-violence-archive.fandom.com/wiki/Characters">即将开放</a>
             </div>
             
             <div class="catalog-item">
                 <i class="fas fa-map"></i>
                 <h3>地图图鉴</h3>
-                <a href="#" class="btn coming-soon">即将开放</a>
+                <a href="#" class="btn coming-soon" data-url="https://unofficial-in-celebration-of-violence-archive.fandom.com/wiki/Locations">即将开放</a>
             </div>
             
             <div class="catalog-item">
@@ -119,7 +125,7 @@
             <div class="catalog-item">
                 <i class="fas fa-trophy"></i>
                 <h3>成就图鉴</h3>
-                <a href="https://unofficial-in-celebration-of-violence-archive.fandom.com/wiki/Achievements" class="btn coming-soon">即将开放</a>
+                <a href="#" class="btn coming-soon">即将开放</a>
             </div>
             
             <div class="catalog-item">
@@ -177,16 +183,32 @@
             });
         });
         
-        // 添加按钮点击效果
+        // 修改按钮点击效果
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 if(this.classList.contains('coming-soon')) {
                     e.preventDefault();
+                    
+                    // 防止重复点击
+                    if (this.classList.contains('processing')) return;
+                    this.classList.add('processing');
+                    
                     const originalText = this.textContent;
-                    this.textContent = '开发中...';
+                    const targetUrl = this.getAttribute('data-url');
+                    
+                    // 更新按钮文本
+                    this.textContent = '英文wiki';
+                    
                     setTimeout(() => {
+                        // 恢复原始文本
                         this.textContent = originalText;
-                    }, 1000);
+                        this.classList.remove('processing');
+                        
+                        // 在新标签页打开链接
+                        if (targetUrl) {
+                            window.open(targetUrl, '_blank');
+                        }
+                    }, 2000);  // 修改为2秒
                 }
             });
         });
