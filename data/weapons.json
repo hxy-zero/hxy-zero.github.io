@@ -10,7 +10,7 @@
       "bleed_damage": 0,
       "primary_attack": {"damage": 5, "power": 25, "speed": 110, "critical": 1},
       "secondary_attack": {"damage": 4, "power": 18, "speed": 110, "critical": 1},
-      "description": "木剑是玩家开始使用的第二件武器。农民职业开局携带木剑作为副武器，后来被镰刀取代。"
+      "description": "木剑是玩家开始使用的第二件武器。农民职业开局携带木剑作为副武器，后来被<a href="https://icov-wiki.netlify.app/weapons#weapon-47">镰刀</a>取代。"
     },
     {
       "id": 2,
