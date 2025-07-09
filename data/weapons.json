@@ -44,7 +44,7 @@
       "bleed_damage": 0,
       "primary_attack": {"damage": 7, "power": 35, "speed": 80, "critical": 5},
       "secondary_attack": {"damage": 6, "power": 25, "speed": 160, "critical": 3},
-      "description": "若已解锁“弑君者”成就，士兵职业之后开局时将携带阔剑。"
+      "description": "若已解锁“弑君者”成就，士兵职业开局时将携带阔剑。"
     },
     {
       "id": 5,
