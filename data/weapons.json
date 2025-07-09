@@ -10,7 +10,7 @@
       "bleed_damage": 0,
       "primary_attack": {"damage": 5, "power": 25, "speed": 110, "critical": 1},
       "secondary_attack": {"damage": 4, "power": 18, "speed": 110, "critical": 1},
-      "description": "木剑是玩家开始使用的第二件武器。农民阶级以木剑作为次要武器，后来被镰刀取代。"
+      "description": "木剑是玩家开始使用的第二件武器。农民职业开局携带木剑作为副武器，后来被<a target="_blank" rel="noreferrer noopener" class="text" href="https://icov-wiki.netlify.app/weapons#weapon-47">镰刀</a>取代。"
     },
     {
       "id": 2,
@@ -43,7 +43,8 @@
       "counter_mod": 100,
       "bleed_damage": 0,
       "primary_attack": {"damage": 7, "power": 35, "speed": 80, "critical": 5},
-      "secondary_attack": {"damage": 6, "power": 25, "speed": 160, "critical": 3}
+      "secondary_attack": {"damage": 6, "power": 25, "speed": 160, "critical": 3},
+      "description": "若已解锁“弑君者”成就，士兵职业之后开局时将携带阔剑。"
     },
     {
       "id": 5,
@@ -109,7 +110,8 @@
       "counter_mod": 100,
       "bleed_damage": 0,
       "primary_attack": {"damage": 11, "power": 60, "speed": 70, "critical": 5},
-      "secondary_attack": {"damage": 10, "power": 50, "speed": 90, "critical": 6}
+      "secondary_attack": {"damage": 10, "power": 50, "speed": 90, "critical": 6},
+      "description": "水晶大剑仅可通过以下方式获取：在商店以未知价格购买、在尸体旁发现、在宝箱内部获取，或向自由（折翼之神）祈祷获得。"
     },
     {
       "id": 11,
@@ -120,7 +122,8 @@
       "counter_mod": 90,
       "bleed_damage": 0,
       "primary_attack": {"damage": 12, "power": 80, "speed": 50, "critical": 1},
-      "secondary_attack": {"damage": 11, "power": 75, "speed": 60, "critical": 2}
+      "secondary_attack": {"damage": 11, "power": 75, "speed": 60, "critical": 2},
+      "description": "石制巨剑仅可通过以下方式获取：在商店以未知价格购买、在尸体旁发现、在宝箱内部获取，或向自由（折翼之神）祈祷获得。"
     },
     {
       "id": 12,
@@ -285,7 +288,8 @@
       "counter_mod": 75,
       "bleed_damage": 0,
       "primary_attack": {"damage": 10, "power": 95, "speed": 45, "critical": 0},
-      "secondary_attack": {"damage": 9, "power": 90, "speed": 50, "critical": 0}
+      "secondary_attack": {"damage": 9, "power": 90, "speed": 50, "critical": 0},
+      "description": "墓穴之锤仅可通过以下方式获取：在商店以未知价格购买、在尸体旁发现、在宝箱内部获取，或向布雷格（桎梏之神）祈祷获得。"
     },
     {
       "id": 27,
@@ -296,7 +300,8 @@
       "counter_mod": 80,
       "bleed_damage": 0,
       "primary_attack": {"damage": 10, "power": 80, "speed": 70, "critical": 1},
-      "secondary_attack": {"damage": 11, "power": 85, "speed": 60, "critical": 1}
+      "secondary_attack": {"damage": 11, "power": 85, "speed": 60, "critical": 1},
+      "description": "龙牙是一种强大的武器，通过击败局内敌人“岩石”能解锁“岩石”职业，“岩石”职业开局携带龙牙。"
     },
     {
       "id": 28,
@@ -307,7 +312,8 @@
       "counter_mod": 90,
       "bleed_damage": 0,
       "primary_attack": {"damage": 8, "power": 65, "speed": 60, "critical": 2},
-      "secondary_attack": {"damage": 7, "power": 50, "speed": 90, "critical": 1}
+      "secondary_attack": {"damage": 7, "power": 50, "speed": 90, "critical": 1},
+      "description": "石锤仅可通过以下方式获取：在商店以未知价格购买、在尸体旁发现、在宝箱内部获取，或向布雷格（桎梏之神）祈祷获得。"
     },
     {
       "id": 29,
@@ -406,7 +412,8 @@
       "counter_mod": 160,
       "bleed_damage": 0,
       "primary_attack": {"damage": 7, "power": 30, "speed": 120, "critical": 18},
-      "secondary_attack": {"damage": 4, "power": 20, "speed": 110, "critical": 10}
+      "secondary_attack": {"damage": 4, "power": 20, "speed": 110, "critical": 10},
+      "description": "懦夫职业开局携带刺剑作为主武器。"
     },
     {
       "id": 38,
@@ -450,7 +457,8 @@
       "counter_mod": 100,
       "bleed_damage": 0,
       "primary_attack": {"damage": 6, "power": 25, "speed": 150, "critical": 3},
-      "secondary_attack": {"damage": 4, "power": 20, "speed": 100, "critical": 1}
+      "secondary_attack": {"damage": 4, "power": 20, "speed": 100, "critical": 1},
+      "description": "草叉是玩家开始使用的第一件武器。农民职业开局携带草叉作为主武器。"
     },
     {
       "id": 42,
@@ -461,7 +469,8 @@
       "counter_mod": 110,
       "bleed_damage": 0,
       "primary_attack": {"damage": 7, "power": 35, "speed": 110, "critical": 6},
-      "secondary_attack": {"damage": 6, "power": 25, "speed": 150, "critical": 4}
+      "secondary_attack": {"damage": 6, "power": 25, "speed": 150, "critical": 4},
+      "description": "士兵职业开局携带长矛作为主武器。"
     },
     {
       "id": 43,
@@ -472,7 +481,8 @@
       "counter_mod": 100,
       "bleed_damage": 0,
       "primary_attack": {"damage": 6, "power": 28, "speed": 150, "critical": 8},
-      "secondary_attack": {"damage": 5, "power": 20, "speed": 170, "critical": 6}
+      "secondary_attack": {"damage": 5, "power": 20, "speed": 170, "critical": 6},
+      "description": "水晶长矛仅可通过以下方式获取：在商店以未知价格购买、在尸体旁发现、在宝箱内部获取，或向自由（折翼之神）祈祷获得。"
     },
     {
       "id": 44,
@@ -560,7 +570,8 @@
       "counter_mod": 140,
       "bleed_damage": 0,
       "primary_attack": {"damage": 4, "power": 12, "speed": 200, "critical": 12},
-      "secondary_attack": {"damage": 3, "power": 16, "speed": 200, "critical": 15}
+      "secondary_attack": {"damage": 3, "power": 16, "speed": 200, "critical": 15},
+      "description": "水晶匕首仅可通过以下方式获取：在商店以未知价格购买获得。"
     },
     {
       "id": 52,
