@@ -170,7 +170,6 @@
 .btn.coming-soon {
     background: linear-gradient(to bottom, #555, #333);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    cursor: not-allowed;
 }
 
 .btn.coming-soon:hover {
