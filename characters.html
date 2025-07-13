@@ -76,9 +76,466 @@
         <p>选角图鉴 &copy; 2025 | 共收录19位角色</p>
     </footer>
 
-    <script type="module">
-      import { greet } from '/characters.js';
-      greet();
+    <script>
+// 角色数据结构（包含属性值和描述）
+const characters = [
+    {
+        nameCN: "农民",
+        nameEN: "Peasant",
+        attributes: {
+            "敏捷": 100,
+            "攻击性": 100,
+            "力量": 80,
+            "速度": 110,
+            "机动性": 90,
+            "治疗波": 4,
+            "感知": 100,
+            "血量": 90,
+            "耐力": 100,
+            "坚韧": 120,
+            "知识": 80,
+            "统计总和": 970
+        },
+        description: "农民是玩家在游戏开始就解锁的角色。该职业开局配备一把草叉、一柄木剑和一个火把。若使用该职业击杀“盾牌”（Shield）以达成成就“庶民的复仇”（Vengeance For The Meek），则木剑会被替换为镰刀。"
+    },
+    {
+        nameCN: "士兵",
+        nameEN: "Soldier",
+        attributes: {
+            "敏捷": 100,
+            "攻击性": 120,
+            "力量": 100,
+            "速度": 100,
+            "机动性": 80,
+            "治疗波": 4,
+            "感知": 70,
+            "血量": 90,
+            "耐力": 90,
+            "坚韧": 100,
+            "知识": 60,
+            "统计总和": 910
+        },
+        description: "士兵是一个可解锁角色，其定位更侧重于武器攻击而非法术伤害。该职业初始开局装备一杆长矛和一面钢盾，并拥有少量护甲。若使用该职业击杀“布瑞格”（Brearg）以达成成就“弑君者”（Kingslayer），则额外获得一把阔剑。解锁该职业需完成“防御大师”（Defensive）成就，要求玩家按住Shift键举盾，同时格挡多次敌人的攻击。最高效的方式是将一只血史莱姆（Blood Slime）逼至角落并持续架盾防御。"
+    },
+    {
+        nameCN: "牧师",
+        nameEN: "Priest",
+        attributes: {
+            "敏捷": 80,
+            "攻击性": 80,
+            "力量": 60,
+            "速度": 100,
+            "机动性": 70,
+            "治疗波": 4,
+            "感知": 140,
+            "血量": 70,
+            "耐力": 80,
+            "坚韧": 90,
+            "知识": 140,
+            "统计总和": 910
+        },
+        description: "牧师是一个可解锁角色，其定位更侧重于法术伤害而非武器攻击。该职业开局装备一根法杖和魔法飞弹(Magic Bullet)法术。若使用该职业击杀“奥贝里斯克(Obelisk)”以达成成就“超越恩师(Surpassing The Master)”，则额外获得魔法光束(Magic Beam)法术。解锁该职业需完成“虔诚(Pious)”成就，要求玩家在祭坛处祈祷时精准提供所需资源，从而点亮祭坛周围的所有蜡烛。"
+    },
+    {
+        nameCN: "隐士",
+        nameEN: "Hermit",
+        attributes: {
+            "敏捷": 120,
+            "攻击性": 80,
+            "力量": 70,
+            "速度": 120,
+            "机动性": 120,
+            "治疗波": 4,
+            "感知": 130,
+            "血量": 80,
+            "耐力": 110,
+            "坚韧": 80,
+            "知识": 70,
+            "统计总和": 980
+        },
+        description: "隐士是一个可解锁角色，定位为弓箭手职业，使用弓箭作战。该职业开局装备一把手斧和一张长弓。解锁该职业需完成“烈焰箭诛敌(Death By Flaming Arrow)”成就，要求玩家使用燃烧的箭矢击杀一名敌人。可通过向篝火射箭，使箭矢穿过篝火点燃箭头来实现。"
+    },
+    {
+        nameCN: "懦夫",
+        nameEN: "Coward",
+        attributes: {
+            "敏捷": 100,
+            "攻击性": 80,
+            "力量": 70,
+            "速度": 120,
+            "机动性": 100,
+            "治疗波": 3,
+            "感知": 100,
+            "血量": 60,
+            "耐力": 70,
+            "坚韧": 100,
+            "知识": 120,
+            "统计总和": 920
+        },
+        description: "懦夫是一个可解锁角色，以速度和知识见长但生命值较低。该职业开局装备一柄刺剑和一名士兵同伴。解锁该职业需完成“悔不当初(Should Have Been There)”成就，要求玩家的同伴因承受过量伤害而失血死亡。"
+    },
+    {
+        nameCN: "罪犯",
+        nameEN: "Criminal",
+        attributes: {
+            "敏捷": 100,
+            "攻击性": 110,
+            "力量": 100,
+            "速度": 110,
+            "机动性": 90,
+            "治疗波": 3,
+            "感知": 80,
+            "血量": 90,
+            "耐力": 100,
+            "坚韧": 80,
+            "知识": 100,
+            "统计总和": 960
+        },
+        description: "罪犯是一个可解锁职业，属性均衡且拥有扒窃能力。该职业开局装备一根短棍、一柄匕首和“经验剥夺”法术，并附带少量护甲。解锁该职业需完成“血债累累(Bloodied Bandit)”成就，要求玩家杀害5名平民。"
+    },
+    {
+        nameCN: "隐杀者",
+        nameEN: "Misanthrope",
+        attributes: {
+            "敏捷": 120,
+            "攻击性": 110,
+            "力量": 70,
+            "速度": 130,
+            "机动性": 150,
+            "治疗波": 2,
+            "感知": 100,
+            "血量": 90,
+            "耐力": 90,
+            "坚韧": 65,
+            "知识": 120,
+            "统计总和": 1045
+        },
+        description: "隐杀者是一个可解锁职业，依赖潜行与刺杀作战。该职业开局装备一柄简易匕首和“潜行”法术。若玩家为达成成就“鬼魅无踪(Ghost)”而穿越区域全程不被敌人察觉，则额外获得纪念物普通斗篷(Ordinary Cloak)。解锁该职业需完成“暗影背刺(Backstabber)”成就，要求玩家在隐形状态下背刺敌人。"
+    },
+    {
+        nameCN: "铁匠",
+        nameEN: "Blacksmith",
+        attributes: {
+            "敏捷": 80,
+            "攻击性": 100,
+            "力量": 120,
+            "速度": 90,
+            "机动性": 70,
+            "治疗波": 3,
+            "感知": 80,
+            "血量": 110,
+            "耐力": 110,
+            "坚韧": 120,
+            "知识": 60,
+            "统计总和": 940
+        },
+        description: "铁匠是一个可解锁职业，专精拆解各类物品。该职业开局装备一把锤。若玩家锻造20件武器或累计消耗100块金属锭以达成成就“锻造大师(Weaponsmith)”，则额外获得余烬弯刀(Embered Cutlass)。解锁该职业需完成“熔炉之心(Smithy)”成就，要求玩家在单局游戏中拆解5件武器。"
+    },
+    {
+        nameCN: "商人",
+        nameEN: "Merchant",
+        attributes: {
+            "敏捷": 100,
+            "攻击性": 90,
+            "力量": 80,
+            "速度": 110,
+            "机动性": 100,
+            "治疗波": 3,
+            "感知": 110,
+            "血量": 80,
+            "耐力": 100,
+            "坚韧": 100,
+            "知识": 100,
+            "统计总和": 970
+        },
+        description: "商人是一个可解锁职业，核心机制围绕在圣所进行交易展开。该职业开局装备一把短剑、40点经验值及所有资源各20单位。若玩家购买5件武器以达成成就“军备贩子(Arms Dealer)”，则额外获得弩。解锁该职业需完成“囤积狂魔(Hoarder)”成就，要求玩家集齐全部资源（木材、金属、石材、水晶）各99单位。"
+    },
+    {
+        nameCN: "历史学家",
+        nameEN: "Historian",
+        attributes: {
+            "敏捷": 100,
+            "攻击性": 100,
+            "力量": 80,
+            "速度": 100,
+            "机动性": 100,
+            "治疗波": 3,
+            "感知": 90,
+            "血量": 120,
+            "耐力": 100,
+            "坚韧": 100,
+            "知识": 110,
+            "统计总和": 1000
+        },
+        description: "历史学家是一个可解锁职业，专注于经验积累与法术运用。该职业开局装备一柄直剑、“召唤日记”法术及纪念物“红酒?”。解锁该职业需完成“皓首穷经(Learned)”成就，要求玩家在单局游戏中研习5本典籍。"
+    },
+    {
+        nameCN: "邪教徒",
+        nameEN: "Cultist",
+        attributes: {
+            "敏捷": 80,
+            "攻击性": 90,
+            "力量": 70,
+            "速度": 100,
+            "机动性": 70,
+            "治疗波": 2,
+            "感知": 60,
+            "血量": 140,
+            "耐力": 70,
+            "坚韧": 60,
+            "知识": 125,
+            "统计总和": 865
+        },
+        description: "邪教徒是一个可解锁职业，拥有高额生命值以支持仪式与法术。该职业开局装备一把锯斧、“生命吸取”法术及纪念物“水蛭”。解锁该职业需完成“血祭之礼(The Bloody Sacrifice)”成就，要求玩家在单局游戏中激活3场仪式。"
+    },
+    {
+        nameCN: "老兵",
+        nameEN: "Veteran",
+        attributes: {
+            "敏捷": 90,
+            "攻击性": 120,
+            "力量": 120,
+            "速度": 100,
+            "机动性": 80,
+            "治疗波": 3,
+            "感知": 60,
+            "血量": 70,
+            "耐力": 80,
+            "坚韧": 70,
+            "知识": 50,
+            "统计总和": 840
+        },
+        description: "老兵是一个可解锁角色，拥有攻防兼备的作战能力。该职业初始配备一柄偃月刀与可观的护甲值。若玩家为达成成就“兵刃宗师(Weapon Mastery)”而累计装备12件不同武器，则额外获得骑枪。解锁该职业需完成“枕戈待旦(Battle Ready)”成就，要求玩家收集大量护甲（具体数值需根据游戏机制确认）。"
+    },
+    {
+        nameCN: "探险家",
+        nameEN: "Explorer",
+        attributes: {
+            "敏捷": 100,
+            "攻击性": 80,
+            "力量": 80,
+            "速度": 110,
+            "机动性": 100,
+            "治疗波": 3,
+            "感知": 150,
+            "血量": 90,
+            "耐力": 110,
+            "坚韧": 90,
+            "知识": 100,
+            "统计总和": 1020
+        },
+        description: "探险家是一个可解锁角色，专注地图探索、陷阱破解与隐秘发掘。该职业初始配备一柄弯刀及纪念物“地图卷轴”。解锁该职业需完成“探骊得珠(Treasure Hunter)”成就，要求玩家在单局游戏中挖掘4处宝藏。"
+    },
+    {
+        nameCN: "暴君",
+        nameEN: "Tyrant",
+        attributes: {
+            "敏捷": 90,
+            "攻击性": 70,
+            "力量": 70,
+            "速度": 100,
+            "机动性": 90,
+            "治疗波": 5,
+            "感知": 100,
+            "血量": 70,
+            "耐力": 80,
+            "坚韧": 100,
+            "知识": 100,
+            "统计总和": 870
+        },
+        description: "暴君是一个可解锁角色，初始属性低下。该职业开局无武器、无装备、无法术，但拥有四名士兵同伴(Soldier companions)组成防御阵线。尽管缺乏武器，暴君可使用徒手拳击(fists)攻击（伤害微乎其微）。解锁该职业需完成“假手弑神(My Hands Are Clean)”成就，要求玩家不直接攻击神明而将其击杀（允许使用法术与同伴攻击）。"
+    },
+    {
+        nameCN: "化学家",
+        nameEN: "Chemist",
+        attributes: {
+            "敏捷": 90,
+            "攻击性": 80,
+            "力量": 100,
+            "速度": 100,
+            "机动性": 60,
+            "治疗波": 3,
+            "感知": 60,
+            "血量": 100,
+            "耐力": 90,
+            "坚韧": 120,
+            "知识": 130,
+            "统计总和": 930
+        },
+        description: "化学家是一个可解锁角色，核心玩法依赖药水调配制胜。该职业初始配备一把切肉刀(Cleaver)、尘爆术(Dust)法术及三件纪念物空药剂瓶(Empty Vial)。解锁该职业需完成“百药辨明(Experimental Liquids)”成就，要求玩家在单局游戏中调配出全部10种药水。"
+    },
+    {
+        nameCN: "磐石",
+        nameEN: "Rock",
+        attributes: {
+            "敏捷": 80,
+            "攻击性": 100,
+            "力量": 130,
+            "速度": 80,
+            "机动性": 50,
+            "治疗波": 1,
+            "感知": 50,
+            "血量": 80,
+            "耐力": 120,
+            "坚韧": 150,
+            "知识": 50,
+            "统计总和": 890
+        },
+        description: "磐石是一个可解锁角色，其重型装备与《黑暗之魂》系列的哈维尔套装(Havel's Set)高度相似（或为同一套）。该职业初始配备一柄巨棍(Dragon Tooth)与一面巨盾(Greatshield)，并拥有超高护甲值。解锁该职业需完成“诅咒宿体(The Cursed One)”成就，要求玩家击败关卡中罕见出现的精英敌人岩石巨像(The Rock)。"
+    },
+    {
+        nameCN: "医生",
+        nameEN: "Doctor",
+        attributes: {
+            "敏捷": 80,
+            "攻击性": 100,
+            "力量": 80,
+            "速度": 90,
+            "机动性": 100,
+            "治疗波": "8（无回血）",
+            "感知": 110,
+            "血量": 90,
+            "耐力": 110,
+            "坚韧": 70,
+            "知识": 130,
+            "统计总和": 960
+        },
+        description: "医生是一个可解锁角色，拥有极高的毒素抗性。该职业初始配备一把解剖爪(Claw)、剧毒泥沼术(Toxic Slime)法术、纪念物香薰面具(Scented Mask)、一名血史莱姆(Blood Slime)同伴及8份急救药剂(surges)。解锁该职业需完成“米兰幸存者(I Survived The Plague)”成就，要求玩家因毒素侵蚀导致生命上限削减特定数值（具体数值需游戏内验证）。最佳策略是选用低耐力(Fortitude)角色前往沼泽(Swamp)区域达成此成就。"
+    },
+    {
+        nameCN: "殉道者",
+        nameEN: "Martyr",
+        attributes: {
+            "敏捷": 100,
+            "攻击性": 70,
+            "力量": 50,
+            "速度": 100,
+            "机动性": 90,
+            "治疗波": 5,
+            "感知": 60,
+            "血量": 60,
+            "耐力": 120,
+            "坚韧": 70,
+            "知识": 50,
+            "统计总和": 770
+        },
+        description: "该殉道者是可解锁角色，拥有极强的流血伤害承受能力。该职业初始装备为一把胡须斧、4个饱和纱布、3条老鼠尾巴及一副玫瑰色眼镜。解锁条件为达成“相互保证的死亡”成就——玩家需在流血濒死过程中击杀6名敌人。"
+    },
+    {
+        nameCN: "怪物",
+        nameEN: "Monster",
+        attributes: {
+            "敏捷": 130,
+            "攻击性": 150,
+            "力量": 140,
+            "速度": 120,
+            "机动性": 100,
+            "治疗波": "0>2",
+            "感知": 70,
+            "血量": 70,
+            "耐力": 140,
+            "坚韧": 100,
+            "知识": 80,
+            "统计总和": 1100
+        },
+        description: "怪物职业属于隐藏角色，需在千重祭坛周围蜡烛全部点燃时，通过击杀敌人或装备魔镜后死亡积累足够暴力值方可解锁。该职业初始携带小刀与狂暴咒语。与其他角色不同，怪物无法永久解锁，属于死亡即消失的临时角色。当操控该角色使用狂暴咒语击败神灵达成“血染万象”成就时，将永久获得2层治疗波效果。"
+    }
+];
+
+// 属性列表
+const attributeNames = [
+    "敏捷", "攻击性", "力量", "速度", "机动性",
+    "治疗波", "感知", "血量", "耐力", "坚韧", "知识", "统计总和"
+];
+
+// 生成角色卡片
+const charactersGrid = document.getElementById('charactersGrid');
+
+characters.forEach((character, index) => {
+    const card = document.createElement('div');
+    card.className = 'character-card';
+    card.dataset.id = index;
+    card.innerHTML = `
+        <div class="character-img"></div>
+        <div class="character-name">${character.nameCN}</div>
+    `;
+    charactersGrid.appendChild(card);
+
+    // 添加点击事件
+    card.addEventListener('click', () => openModal(character, index));
+});
+
+// 打开弹窗
+function openModal(character, id) {
+    const modal = document.getElementById('characterModal');
+    const modalImg = document.getElementById('modalCharacterImg');
+    const modalName = document.getElementById('modalName');
+    const modalNameEn = document.getElementById('modalNameEn');
+    const attributesBody = document.getElementById('attributesBody');
+    const attributeDescription = document.getElementById('attributeDescription');
+
+    // 设置角色信息
+    modalImg.style.backgroundImage = "url('https://s21.ax1x.com/2025/07/12/pVlGALF.webp')";
+    modalImg.setAttribute('data-id', id);
+    modalName.textContent = character.nameCN;
+    modalNameEn.textContent = character.nameEN;
+
+    // 生成属性表格（两列布局）
+    attributesBody.innerHTML = '';
+
+    // 每行两个属性，共六行
+    for (let i = 0; i < attributeNames.length; i += 2) {
+        const row = document.createElement('tr');
+
+        // 第一列
+        const cell1 = document.createElement('td');
+        cell1.innerHTML = `
+            <span class="attribute-name">${attributeNames[i]}</span>
+            <span class="attribute-value">${character.attributes[attributeNames[i]]}</span>
+        `;
+
+        // 第二列
+        const cell2 = document.createElement('td');
+        if (i + 1 < attributeNames.length) {
+            cell2.innerHTML = `
+                <span class="attribute-name">${attributeNames[i+1]}</span>
+                <span class="attribute-value">${character.attributes[attributeNames[i+1]]}</span>
+            `;
+        }
+
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        attributesBody.appendChild(row);
+    }
+
+    // 设置角色描述
+    attributeDescription.textContent = character.description;
+
+    // 显示弹窗
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// 关闭弹窗
+document.getElementById('closeModal').addEventListener('click', () => {
+    const modal = document.getElementById('characterModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+// 点击弹窗外部关闭
+window.addEventListener('click', (e) => {
+    const modal = document.getElementById('characterModal');
+    if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// 初始化卡片动画
+document.querySelectorAll('.character-card').forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.05}s`;
+});
     </script>
 </body>
 </html>
