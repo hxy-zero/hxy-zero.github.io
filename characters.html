@@ -562,6 +562,13 @@
                     description = description.replace(regex, `<span class="equipment">${equipment}</span>`);
                 }
             });
+
+            mementoNames.forEach(memento => {
+                if (description.includes(memento)) {
+                    const regex = new RegExp(memento, 'g');
+                    description = description.replace(regex, `<span class="memento">${memento}</span>`);
+                }
+            });
             
             attributeDescription.innerHTML = description;
 
