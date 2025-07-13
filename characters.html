@@ -32,6 +32,13 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             font-style: normal;
         }
+
+        .equipment {
+            color: #979486;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-style: normal;
+        }
     </style>
 </head>
 <body>
@@ -90,6 +97,10 @@
             "草叉", "木剑", "镰刀", "长矛", "阔剑", "法杖", "手斧", "长弓", "刺剑",
             "短棍", "匕首", "简易匕首", "锤", "弯刀", "短剑", "弩", "直剑", "锯斧", 
             "偃月刀", "骑枪", "爪刀", "切肉刀", "龙牙", "巨盾", "胡须斧", "小刀"
+        ];
+
+        const equipmentNames = [
+            "火把", "钢盾"
         ];
         
         // 角色数据结构（包含属性值和描述）
@@ -531,6 +542,13 @@
                 if (description.includes(weapon)) {
                     const regex = new RegExp(weapon, 'g');
                     description = description.replace(regex, `<span class="weapon">${weapon}</span>`);
+                }
+            });
+
+            equipmentNames.forEach(equipment => {
+                if (description.includes(equipment)) {
+                    const regex = new RegExp(equipment, 'g');
+                    description = description.replace(regex, `<span class="equipment">${equipment}</span>`);
                 }
             });
             
