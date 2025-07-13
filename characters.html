@@ -24,6 +24,32 @@
             color: #2c3e50;
             line-height: 1.6;
         }
+
+        /* 武器名称高亮样式 */
+        .weapon {
+            background: linear-gradient(45deg, #ff9d00, #ff6a00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 0 4px;
+            border-radius: 4px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .weapon::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #ff9d00, #ff6a00);
+            border-radius: 2px;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -77,6 +103,13 @@
     </footer>
 
     <script>
+        // 武器名称列表
+        const weaponNames = [
+            "草叉", "木剑", "镰刀", "长矛", "阔剑", "法杖", "手斧", 
+            "长弓", "刺剑", "短棍", "匕首", "简易匕首", "锤", "弯刀", "短剑", "弩", 
+            "直剑", "锯斧", "偃月刀", "骑枪", "爪刀", "切肉刀", "龙牙", "巨盾", "胡须斧", "小刀"
+        ];
+        
         // 角色数据结构（包含属性值和描述）
         const characters = [
             {
@@ -96,7 +129,7 @@
                     "知识": 80,
                     "统计总和": 970
                 },
-                description: "农民是玩家在游戏开始就解锁的角色。该职业开局配备一把<a>草叉</a>、一柄木剑和一个火把。若使用该职业击杀“盾牌”（Shield）以达成成就“庶民的复仇”（Vengeance For The Meek），则木剑会被替换为镰刀。"
+                description: "农民是玩家在游戏开始就解锁的角色。该职业开局配备一把草叉、一柄木剑和一个火把。若使用该职业击杀“盾牌”（Shield）以达成成就“庶民的复仇”（Vengeance For The Meek），则木剑会被替换为镰刀。"
             },
             {
                 nameCN: "士兵",
@@ -508,8 +541,18 @@
                 attributesBody.appendChild(row);
             }
 
-            // 设置角色描述
-            attributeDescription.textContent = character.description;
+            // 设置角色描述 - 高亮武器名称
+            let description = character.description;
+            
+            // 高亮所有武器名称
+            weaponNames.forEach(weapon => {
+                if (description.includes(weapon)) {
+                    const regex = new RegExp(weapon, 'g');
+                    description = description.replace(regex, `<span class="weapon">${weapon}</span>`);
+                }
+            });
+            
+            attributeDescription.innerHTML = description;
 
             // 显示弹窗
             modal.classList.add('active');
