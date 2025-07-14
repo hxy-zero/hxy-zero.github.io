@@ -1,0 +1,386 @@
+[
+    {
+        "id": 1,
+        "name_cn": "冒险启程",
+        "name_en": "Journey Begins",
+        "description": "离开起始村庄",
+        "reward": "旅行者披风",
+        "note": ""
+    },
+    {
+        "id": 2,
+        "name_cn": "怪物猎人",
+        "name_en": "Monster Hunter",
+        "description": "击败100只怪物",
+        "reward": "猎人勋章",
+        "note": "累计成就"
+    },
+    {
+        "id": 3,
+        "name_cn": "宝藏猎人",
+        "name_en": "Treasure Hunter",
+        "description": "发现10个隐藏宝箱",
+        "reward": "藏宝图",
+        "note": "探索成就"
+    },
+    {
+        "id": 4,
+        "name_cn": "元素大师",
+        "name_en": "Element Master",
+        "description": "掌握所有元素技能",
+        "reward": "元素法杖",
+        "note": "需要完成所有元素试炼"
+    },
+    {
+        "id": 5,
+        "name_cn": "速度之星",
+        "name_en": "Speed Star",
+        "description": "30秒内完成赛道",
+        "reward": "闪电靴子",
+        "note": "挑战模式"
+    },
+    {
+        "id": 6,
+        "name_cn": "完美防御",
+        "name_en": "Perfect Defense",
+        "description": "无伤通过关卡",
+        "reward": "守护者盾牌",
+        "note": "困难模式"
+    },
+    {
+        "id": 7,
+        "name_cn": "收集大师",
+        "name_en": "Collection Master",
+        "description": "收集所有稀有物品",
+        "reward": "收藏家称号",
+        "note": "需要完成所有收集任务"
+    },
+    {
+        "id": 8,
+        "name_cn": "财富自由",
+        "name_en": "Wealthy",
+        "description": "累积10000金币",
+        "reward": "金库钥匙",
+        "note": "经济成就"
+    },
+    {
+        "id": 9,
+        "name_cn": "社交达人",
+        "name_en": "Social Butterfly",
+        "description": "与所有NPC成为朋友",
+        "reward": "友谊勋章",
+        "note": "需要完成所有支线任务"
+    },
+    {
+        "id": 10,
+        "name_cn": "深渊探险",
+        "name_en": "Abyss Explorer",
+        "description": "到达深渊最底层",
+        "reward": "深渊宝石",
+        "note": "隐藏区域"
+    },
+    {
+        "id": 11,
+        "name_cn": "烹饪大师",
+        "name_en": "Master Chef",
+        "description": "烹饪所有食谱",
+        "reward": "黄金厨具",
+        "note": "需要收集所有食材"
+    },
+    {
+        "id": 12,
+        "name_cn": "无尽挑战者",
+        "name_en": "Endless Challenger",
+        "description": "通过50波无尽模式",
+        "reward": "挑战者勋章",
+        "note": "无尽模式成就"
+    },
+    {
+        "id": 13,
+        "name_cn": "守护天使",
+        "name_en": "Guardian Angel",
+        "description": "保护所有村民不被伤害",
+        "reward": "天使光环",
+        "note": "困难模式下可获得"
+    },
+    {
+        "id": 14,
+        "name_cn": "暗夜行者",
+        "name_en": "Night Walker",
+        "description": "在黑暗中完成所有任务",
+        "reward": "夜视护目镜",
+        "note": "特殊模式成就"
+    },
+    {
+        "id": 15,
+        "name_cn": "时间掌控者",
+        "name_en": "Time Master",
+        "description": "在倒计时结束前完成所有任务",
+        "reward": "时光沙漏",
+        "note": "限时挑战成就"
+    },
+    {
+        "id": 16,
+        "name_cn": "元素融合",
+        "name_en": "Element Fusion",
+        "description": "成功融合两种元素",
+        "reward": "融合核心",
+        "note": "高级元素操作"
+    },
+    {
+        "id": 17,
+        "name_cn": "空中王者",
+        "name_en": "Sky King",
+        "description": "在空中停留超过3分钟",
+        "reward": "天空之翼",
+        "note": "飞行挑战"
+    },
+    {
+        "id": 18,
+        "name_cn": "深海探险家",
+        "name_en": "Deep Sea Explorer",
+        "description": "探索所有海底区域",
+        "reward": "深海珍珠",
+        "note": "水下区域成就"
+    },
+    {
+        "id": 19,
+        "name_cn": "机械大师",
+        "name_en": "Mechanical Master",
+        "description": "修复所有古代机械",
+        "reward": "工程师手套",
+        "note": "解谜成就"
+    },
+    {
+        "id": 20,
+        "name_cn": "光明使者",
+        "name_en": "Light Bringer",
+        "description": "点亮所有黑暗区域",
+        "reward": "光明权杖",
+        "note": "探索成就"
+    },
+    {
+        "id": 21,
+        "name_cn": "迷宫征服者",
+        "name_en": "Maze Conqueror",
+        "description": "在10分钟内走出迷宫",
+        "reward": "迷宫指南针",
+        "note": "限时挑战"
+    },
+    {
+        "id": 22,
+        "name_cn": "音乐大师",
+        "name_en": "Music Maestro",
+        "description": "完美演奏所有曲目",
+        "reward": "金色麦克风",
+        "note": "节奏游戏成就"
+    },
+    {
+        "id": 23,
+        "name_cn": "考古学家",
+        "name_en": "Archaeologist",
+        "description": "发现所有古代遗迹",
+        "reward": "考古工具包",
+        "note": "探索成就"
+    },
+    {
+        "id": 24,
+        "name_cn": "驯兽师",
+        "name_en": "Beast Tamer",
+        "description": "驯服所有稀有生物",
+        "reward": "驯兽鞭",
+        "note": "收集成就"
+    },
+    {
+        "id": 25,
+        "name_cn": "冒险启程",
+        "name_en": "Journey Begins",
+        "description": "离开起始村庄",
+        "reward": "旅行者披风",
+        "note": ""
+    },
+    {
+        "id": 26,
+        "name_cn": "怪物猎人",
+        "name_en": "Monster Hunter",
+        "description": "击败100只怪物",
+        "reward": "猎人勋章",
+        "note": "累计成就"
+    },
+    {
+        "id": 27,
+        "name_cn": "宝藏猎人",
+        "name_en": "Treasure Hunter",
+        "description": "发现10个隐藏宝箱",
+        "reward": "藏宝图",
+        "note": "探索成就"
+    },
+    {
+        "id": 28,
+        "name_cn": "元素大师",
+        "name_en": "Element Master",
+        "description": "掌握所有元素技能",
+        "reward": "元素法杖",
+        "note": "需要完成所有元素试炼"
+    },
+    {
+        "id": 29,
+        "name_cn": "速度之星",
+        "name_en": "Speed Star",
+        "description": "30秒内完成赛道",
+        "reward": "闪电靴子",
+        "note": "挑战模式"
+    },
+    {
+        "id": 30,
+        "name_cn": "完美防御",
+        "name_en": "Perfect Defense",
+        "description": "无伤通过关卡",
+        "reward": "守护者盾牌",
+        "note": "困难模式"
+    },
+    {
+        "id": 31,
+        "name_cn": "收集大师",
+        "name_en": "Collection Master",
+        "description": "收集所有稀有物品",
+        "reward": "收藏家称号",
+        "note": "需要完成所有收集任务"
+    },
+    {
+        "id": 32,
+        "name_cn": "财富自由",
+        "name_en": "Wealthy",
+        "description": "累积10000金币",
+        "reward": "金库钥匙",
+        "note": "经济成就"
+    },
+    {
+        "id": 33,
+        "name_cn": "社交达人",
+        "name_en": "Social Butterfly",
+        "description": "与所有NPC成为朋友",
+        "reward": "友谊勋章",
+        "note": "需要完成所有支线任务"
+    },
+    {
+        "id": 34,
+        "name_cn": "深渊探险",
+        "name_en": "Abyss Explorer",
+        "description": "到达深渊最底层",
+        "reward": "深渊宝石",
+        "note": "隐藏区域"
+    },
+    {
+        "id": 35,
+        "name_cn": "烹饪大师",
+        "name_en": "Master Chef",
+        "description": "烹饪所有食谱",
+        "reward": "黄金厨具",
+        "note": "需要收集所有食材"
+    },
+    {
+        "id": 36,
+        "name_cn": "无尽挑战者",
+        "name_en": "Endless Challenger",
+        "description": "通过50波无尽模式",
+        "reward": "挑战者勋章",
+        "note": "无尽模式成就"
+    },
+    {
+        "id": 37,
+        "name_cn": "守护天使",
+        "name_en": "Guardian Angel",
+        "description": "保护所有村民不被伤害",
+        "reward": "天使光环",
+        "note": "困难模式下可获得"
+    },
+    {
+        "id": 38,
+        "name_cn": "暗夜行者",
+        "name_en": "Night Walker",
+        "description": "在黑暗中完成所有任务",
+        "reward": "夜视护目镜",
+        "note": "特殊模式成就"
+    },
+    {
+        "id": 39,
+        "name_cn": "时间掌控者",
+        "name_en": "Time Master",
+        "description": "在倒计时结束前完成所有任务",
+        "reward": "时光沙漏",
+        "note": "限时挑战成就"
+    },
+    {
+        "id": 40,
+        "name_cn": "元素融合",
+        "name_en": "Element Fusion",
+        "description": "成功融合两种元素",
+        "reward": "融合核心",
+        "note": "高级元素操作"
+    },
+    {
+        "id": 41,
+        "name_cn": "空中王者",
+        "name_en": "Sky King",
+        "description": "在空中停留超过3分钟",
+        "reward": "天空之翼",
+        "note": "飞行挑战"
+    },
+    {
+        "id": 42,
+        "name_cn": "深海探险家",
+        "name_en": "Deep Sea Explorer",
+        "description": "探索所有海底区域",
+        "reward": "深海珍珠",
+        "note": "水下区域成就"
+    },
+    {
+        "id": 43,
+        "name_cn": "机械大师",
+        "name_en": "Mechanical Master",
+        "description": "修复所有古代机械",
+        "reward": "工程师手套",
+        "note": "解谜成就"
+    },
+    {
+        "id": 44,
+        "name_cn": "光明使者",
+        "name_en": "Light Bringer",
+        "description": "点亮所有黑暗区域",
+        "reward": "光明权杖",
+        "note": "探索成就"
+    },
+    {
+        "id": 45,
+        "name_cn": "迷宫征服者",
+        "name_en": "Maze Conqueror",
+        "description": "在10分钟内走出迷宫",
+        "reward": "迷宫指南针",
+        "note": "限时挑战"
+    },
+    {
+        "id": 46,
+        "name_cn": "音乐大师",
+        "name_en": "Music Maestro",
+        "description": "完美演奏所有曲目",
+        "reward": "金色麦克风",
+        "note": "节奏游戏成就"
+    },
+    {
+        "id": 47,
+        "name_cn": "考古学家",
+        "name_en": "Archaeologist",
+        "description": "发现所有古代遗迹",
+        "reward": "考古工具包",
+        "note": "探索成就"
+    },
+    {
+        "id": 48,
+        "name_cn": "驯兽师",
+        "name_en": "Beast Tamer",
+        "description": "驯服所有稀有生物",
+        "reward": "驯兽鞭",
+        "note": "收集成就"
+    }
+]
