@@ -31,6 +31,7 @@
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             font-style: normal;
+            text-decoration: underline;
         }
 
         .equipment {
@@ -563,7 +564,7 @@
             weaponNames.forEach(weapon => {
                 if (description.includes(weapon)) {
                     const regex = new RegExp(weapon, 'g');
-                    description = description.replace(regex, `<span class="weapon">${weapon}</span>`);
+                    description = description.replace(regex, `<a href="weapons.html" class="weapon">${weapon}</a>`);
                 }
             });
 
