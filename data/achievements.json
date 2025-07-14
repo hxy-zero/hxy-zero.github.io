@@ -1,5 +1,13 @@
 [
     {
+        "id": 0,
+        "name_cn": "冒险启程",
+        "name_en": "Journey Begins",
+        "description": "离开起始村庄",
+        "reward": "旅行者披风",
+        "note": ""
+    },
+    {
         "id": 1,
         "name_cn": "冒险启程",
         "name_en": "Journey Begins",
@@ -374,13 +382,5 @@
         "description": "发现所有古代遗迹",
         "reward": "考古工具包",
         "note": "探索成就"
-    },
-    {
-        "id": 48,
-        "name_cn": "驯兽师",
-        "name_en": "Beast Tamer",
-        "description": "驯服所有稀有生物",
-        "reward": "驯兽鞭",
-        "note": "收集成就"
     }
 ]
