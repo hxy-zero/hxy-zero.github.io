@@ -316,6 +316,26 @@
             margin: 0 auto;
             line-height: 1.6;
         }
+
+        .loading-container {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .loading-spinner {
+            border: 5px solid rgba(129, 71, 127, 0.3);
+            border-top: 5px solid var(--neon-pink);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        .loading-text {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
         
         /* 响应式设计 */
         @media (max-width: 768px) {
@@ -395,6 +415,11 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         
         .achievement-item {
             animation: fadeIn 0.5s ease-out;
@@ -439,10 +464,13 @@
         </div>
     </div>
     
-    <div class="counter" id="counter">显示 <span id="count">48</span> 个成就</div>
+    <div class="counter" id="counter">显示 <span id="count">0</span> 个成就</div>
     
     <div class="gallery" id="achievement-gallery">
-        <!-- 成就项将由JavaScript动态生成 -->
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">正在加载成就数据...</p>
+        </div>
     </div>
     
     <div class="modal" id="achievement-modal">
@@ -485,21 +513,36 @@
             const searchInput = document.getElementById('search-input');
             const counter = document.getElementById('count');
             
-            // 成就数据
-            const achievements = [
-                { id: 0, name_cn: "初出茅庐", name_en: "Rookie", description: "完成第一个任务", reward: "新手剑", note: "主线任务自动获得" },
-                { id: 1, name_cn: "冒险启程", name_en: "Journey Begins", description: "离开起始村庄", reward: "旅行者披风", note: "" },
-                { id: 2, name_cn: "怪物猎人", name_en: "Monster Hunter", description: "击败100只怪物", reward: "猎人勋章", note: "累计成就" },
-                { id: 3, name_cn: "宝藏猎人", name_en: "Treasure Hunter", description: "发现10个隐藏宝箱", reward: "藏宝图", note: "探索成就" },
-                { id: 4, name_cn: "元素大师", name_en: "Element Master", description: "掌握所有元素技能", reward: "元素法杖", note: "需要完成所有元素试炼" },
-                { id: 5, name_cn: "速度之星", name_en: "Speed Star", description: "30秒内完成赛道", reward: "闪电靴子", note: "挑战模式" },
-                { id: 6, name_cn: "完美防御", name_en: "Perfect Defense", description: "无伤通过关卡", reward: "守护者盾牌", note: "困难模式" },
-                { id: 7, name_cn: "收集大师", name_en: "Collection Master", description: "收集所有稀有物品", reward: "收藏家称号", note: "需要完成所有收集任务" },
-                { id: 8, name_cn: "财富自由", name_en: "Wealthy", description: "累积10000金币", reward: "金库钥匙", note: "经济成就" },
-                { id: 9, name_cn: "社交达人", name_en: "Social Butterfly", description: "与所有NPC成为朋友", reward: "友谊勋章", note: "需要完成所有支线任务" },
-                { id: 10, name_cn: "深渊探险", name_en: "Abyss Explorer", description: "到达深渊最底层", reward: "深渊宝石", note: "隐藏区域" },
-                { id: 11, name_cn: "烹饪大师", name_en: "Master Chef", description: "烹饪所有食谱", reward: "黄金厨具", note: "需要收集所有食材" }
-            ];
+            // 使用fetch获取成就数据
+            fetch('data/achievements.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应异常');
+                    }
+                    return response.json();
+                })
+                .then(achievements => {
+                    // 隐藏加载提示
+                    gallery.innerHTML = '';
+                    
+                    // 渲染成就图鉴
+                    renderAchievements(achievements);
+                    
+                    // 搜索功能
+                    searchInput.addEventListener('input', () => {
+                        const term = searchInput.value.toLowerCase();
+                        const filtered = achievements.filter(ach => 
+                            ach.name_cn.toLowerCase().includes(term) || 
+                            ach.name_en.toLowerCase().includes(term) ||
+                            ach.description.toLowerCase().includes(term)
+                        );
+                        renderAchievements(filtered);
+                    });
+                })
+                .catch(error => {
+                    console.error('加载成就数据失败:', error);
+                    gallery.innerHTML = '<p class="loading-text">加载成就数据失败，请刷新页面重试</p>';
+                });
             
             // 渲染成就图鉴
             function renderAchievements(data) {
@@ -571,25 +614,12 @@
                 }
             });
             
-            // 搜索功能
-            searchInput.addEventListener('input', () => {
-                const term = searchInput.value.toLowerCase();
-                const filtered = achievements.filter(ach => 
-                    ach.name_cn.toLowerCase().includes(term) || 
-                    ach.name_en.toLowerCase().includes(term) ||
-                    ach.description.toLowerCase().includes(term)
-                );
-                renderAchievements(filtered);
-            });
-            
-            // 初始渲染
-            renderAchievements(achievements);
-            
             // 窗口大小变化时调整雪碧图位置
             window.addEventListener('resize', () => {
                 if (modal.style.display === 'flex') {
                     const currentId = document.querySelector('.achievement-item:hover')?.dataset.id;
                     if (currentId !== undefined) {
+                        // 重新打开模态框以更新图片位置
                         const achievement = achievements.find(a => a.id === parseInt(currentId));
                         if (achievement) {
                             openModal(achievement);
