@@ -25,7 +25,7 @@
             line-height: 1.6;
         }
 
-        /* 武器名称高亮样式 */
+        /* 名称高亮样式 */
         .weapon {
             color: #a36464;
             font-weight: 700;
@@ -560,10 +560,10 @@
                 attributesBody.appendChild(row);
             }
 
-            // 设置角色描述 - 高亮武器名称
+            // 设置角色描述 - 高亮名称
             let description = character.description;
             
-            // 高亮所有武器名称
+            // 高亮所有名称
             weaponNames.forEach(weapon => {
                 if (description.includes(weapon)) {
                     const regex = new RegExp(weapon, 'g');
@@ -574,7 +574,7 @@
             equipmentNames.forEach(equipment => {
                 if (description.includes(equipment)) {
                     const regex = new RegExp(equipment, 'g');
-                    description = description.replace(regex, `<a href="equipments.html" class="equipment" target="_blank">${equipment}</a>`);
+                    description = description.replace(regex, `<a href="equipment.html" class="equipment" target="_blank">${equipment}</a>`);
                 }
             });
 
