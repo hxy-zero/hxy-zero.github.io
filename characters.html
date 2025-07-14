@@ -39,6 +39,7 @@
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             font-style: normal;
+            text-decoration: underline;
         }
 
         .memento {
@@ -46,6 +47,7 @@
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             font-style: normal;
+            text-decoration: underline;
         }
 
         .spell {
@@ -53,6 +55,7 @@
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             font-style: normal;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -564,28 +567,28 @@
             weaponNames.forEach(weapon => {
                 if (description.includes(weapon)) {
                     const regex = new RegExp(weapon, 'g');
-                    description = description.replace(regex, `<a href="weapons.html" class="weapon">${weapon}</a>`);
+                    description = description.replace(regex, `<a href="weapons.html" class="weapon" target="_blank">${weapon}</a>`);
                 }
             });
 
             equipmentNames.forEach(equipment => {
                 if (description.includes(equipment)) {
                     const regex = new RegExp(equipment, 'g');
-                    description = description.replace(regex, `<span class="equipment">${equipment}</span>`);
+                    description = description.replace(regex, `<a href="equipments.html" class="equipment" target="_blank">${equipment}</a>`);
                 }
             });
 
             mementoNames.forEach(memento => {
                 if (description.includes(memento)) {
                     const regex = new RegExp(memento, 'g');
-                    description = description.replace(regex, `<span class="memento">${memento}</span>`);
+                    description = description.replace(regex, `<a href="mementos.html" class="memento" target="_blank">${memento}</a>`);
                 }
             });
 
             spellNames.forEach(spell => {
                 if (description.includes(spell)) {
                     const regex = new RegExp(spell, 'g');
-                    description = description.replace(regex, `<span class="spell">${spell}</span>`);
+                    description = description.replace(regex, `<a href="spells.html" class="spell" target="_blank">${spell}</a>`);
                 }
             });
             
