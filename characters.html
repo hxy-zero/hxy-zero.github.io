@@ -46,6 +46,13 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             font-style: normal;
         }
+
+        .spell {
+            color: #96a5bf;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-style: normal;
+        }
     </style>
 </head>
 <body>
@@ -112,6 +119,10 @@
 
         const mementoNames = [
             "寻常斗篷", "红酒?", "水蛭", "地图卷轴", "空瓶", "香氛面具", "浸血纱布", "鼠尾", "玫瑰色眼镜"
+        ];
+
+        const spellNames = [
+            "魔法子弹", "魔法光束", "经验剥夺"
         ];
         
         // 角色数据结构（包含属性值和描述）
@@ -567,6 +578,13 @@
                 if (description.includes(memento)) {
                     const regex = new RegExp(memento, 'g');
                     description = description.replace(regex, `<span class="memento">${memento}</span>`);
+                }
+            });
+
+            spellNames.forEach(spell => {
+                if (description.includes(spell)) {
+                    const regex = new RegExp(spell, 'g');
+                    description = description.replace(regex, `<span class="spell">${spell}</span>`);
                 }
             });
             
