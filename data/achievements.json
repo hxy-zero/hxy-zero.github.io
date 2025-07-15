@@ -369,18 +369,18 @@
     },
     {
         "id": 46,
-        "name_cn": "神魂破碎",
-        "name_en": "Fractured Mind",
-        "description": "记忆纷杂...吾身何人？",
-        "reward": "且任记忆自来，至少更易获取",
-        "note": "收集大量经验值；+敌人掉落更多经验值"        
-    },
-    {
-        "id": 47,
         "name_cn": "渴知成狂",
         "name_en": "Learned",
         "description": "遍阅典籍得五卷珍本，然难抑焦渴...",
         "reward": "历史学家记忆",
-        "note": "单次冒险习得五道法术；+解锁历史学家职业"        
+        "note": "单次冒险习得五道法术；+解锁历史学家职业"
+    },
+    {
+        "id": 47,
+        "name_cn": "神魂破碎",
+        "name_en": "Fractured Mind",
+        "description": "记忆纷杂...吾身何人？",
+        "reward": "且任记忆自来，至少更易获取",
+        "note": "收集大量经验值；+敌人掉落更多经验值"
     }
 ]
