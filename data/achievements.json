@@ -300,7 +300,7 @@
         "name_cn": "冰封绝杀",
         "name_en": "Cold Snap",
         "description": "寒目如炬锁吾身，冰隙贯喉血涌泉",
-        "reward": "康健有益后程",
+        "reward": "寒霜刺骨彻骨",
         "note": "击杀冻结敌人 (+提升生命上限)"
     },
     {
@@ -308,7 +308,7 @@
         "name_cn": "生机盎然",
         "name_en": "Healthy",
         "description": "需保体魄长康健",
-        "reward": "邪教记忆永存",
+        "reward": "康健有益后程",
         "note": "生命上限200并回满 (+生命值+20)"
     },
     {
@@ -316,15 +316,15 @@
         "name_cn": "血祭三环",
         "name_en": "The Bloody Sacrifice",
         "description": "今已三行血祭仪",
-        "reward": "探索记忆长存",
-        "note": "单局激活3个血圈 (+解锁邪教职业)"
+        "reward": "邪教徒记忆永存",
+        "note": "单局激活3个血圈 (+解锁邪教徒职业)"
     },
     {
         "id": 40,
         "name_cn": "秘宝猎人",
         "name_en": "Treasure Hunter",
         "description": "四张宝图待破译！",
-        "reward": "圣所传送符文现",
+        "reward": "探索者记忆长存",
         "note": "单局破解4藏宝图 (+解锁探索者职业)"
     },
     {
@@ -332,7 +332,7 @@
         "name_cn": "分秒必争",
         "name_en": "No Time To Lose",
         "description": "时限仅余十五分",
-        "reward": "拳刃威力倍增",
+        "reward": "圣所传送符文现",
         "note": "15分钟内通关 (+获得传送符文)"
     },
     {
@@ -340,15 +340,15 @@
         "name_cn": "徒手伏魔",
         "name_en": "No Weapon Required",
         "description": "诛此暴戾之物，拳掌方显本真",
-        "reward": "医者记忆永存",
+        "reward": "拳刃威力倍增",
         "note": "无武器击杀BOSS (+拳头伤害提升)"
     },
     {
         "id": 43,
         "name_cn": "瘟疫余生",
         "name_en": "I Survived The Plague",
-        "description": "六十昼夜疫噬身，寿数十不存一",
-        "reward": "圆木廿段归己用",
+        "description": "三十昼夜疫噬身，寿数十不存一",
+        "reward": "医者记忆永存",
         "note": "瘟疫减少生命上限 (+解锁医生职业)"
     },
     {
