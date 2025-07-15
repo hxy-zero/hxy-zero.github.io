@@ -177,7 +177,7 @@
     },
     {
         "id": 22,
-        "name_cn": "实验药剂师", /* 超4字 (5字) */
+        "name_cn": "实验药剂师", 
         "name_en": "Experimental Liquids",
         "description": "十瓶药水。颜色各异。让我们看看会发生什么。",
         "reward": "+化学家职业",
@@ -185,7 +185,7 @@
     },
     {
         "id": 23,
-        "name_cn": "武器大师", /* 超4字 (4字, 但"大师"通常算2字) */
+        "name_cn": "武器大师", 
         "name_en": "Weapon Mastery",
         "description": "我这儿有十几种不同的武器。随便哪件都能满足我的需求。",
         "reward": "+老兵的骑枪",
