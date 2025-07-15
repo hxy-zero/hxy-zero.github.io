@@ -168,6 +168,25 @@
         let currentFilteredData = [];
         let sortDirection = 'desc';
         let lastWindowWidth = window.innerWidth;
+
+    // 新增：自动搜索功能
+    function setupAutoSearch() {
+        // 检查是否来自特定页面的跳转
+        const searchTerm = localStorage.getItem('autoSearchTerm');
+        const targetPage = localStorage.getItem('autoSearchTarget');
+        
+        if (searchTerm && targetPage && targetPage.includes('spells.html')) {
+            // 清除存储的状态
+            localStorage.removeItem('autoSearchTerm');
+            localStorage.removeItem('autoSearchTarget');
+            
+            // 设置搜索框值
+            searchInput.value = searchTerm;
+            
+            // 触发搜索
+            filterSpells();
+        }
+    }
         
         // 获取仓库名称（从URL自动提取）
         function getRepoName() {
@@ -205,6 +224,9 @@
                     loader.style.display = 'none';
                     gallery.style.display = 'grid';
                     counter.style.display = 'block';
+
+                // 数据加载完成后执行自动搜索
+                setupAutoSearch();
                 })
                 .catch(error => {
                     console.error('加载数据失败:', error);
