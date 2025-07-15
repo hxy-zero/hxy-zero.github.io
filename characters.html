@@ -564,12 +564,16 @@
             let description = character.description;
             
             // 高亮所有名称
-            weaponNames.forEach(weapon => {
-                if (description.includes(weapon)) {
-                    const regex = new RegExp(weapon, 'g');
-                    description = description.replace(regex, `<a href="weapons.html" class="weapon" target="_blank">${weapon}</a>`);
-                }
-            });
+    weaponNames.forEach(weapon => {
+        if (description.includes(weapon)) {
+            const regex = new RegExp(weapon, 'g');
+            description = description.replace(regex, 
+                `<a href="weapons.html?search=${encodeURIComponent(weapon)}" 
+                  class="weapon" 
+                  target="_blank"
+                  data-search-term="${weapon}">${weapon}</a>`);
+        }
+    });
 
             equipmentNames.forEach(equipment => {
                 if (description.includes(equipment)) {
@@ -594,11 +598,28 @@
             
             attributeDescription.innerHTML = description;
 
+    // 添加链接点击事件监听
+    document.querySelectorAll('.modal-body a').forEach(link => {
+        link.addEventListener('click', handleLinkClick);
+    });
+            
             // 显示弹窗
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
+// 处理链接点击事件
+function handleLinkClick(event) {
+    const searchTerm = this.getAttribute('data-search-term');
+    const targetPage = this.getAttribute('href').split('?')[0];
+    
+    // 使用localStorage传递搜索词
+    localStorage.setItem('autoSearchTerm', searchTerm);
+    localStorage.setItem('autoSearchTarget', targetPage);
+    
+    // 允许默认跳转行为
+}
+        
         // 关闭弹窗
         document.getElementById('closeModal').addEventListener('click', () => {
             const modal = document.getElementById('characterModal');
