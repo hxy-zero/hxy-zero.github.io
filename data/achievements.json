@@ -121,7 +121,7 @@
     },
     {
         "id": 15,
-        "name_cn": "炎矢诛敌",
+        "name_cn": "火矢诛敌",
         "name_en": "Death By Flaming Arrow",
         "description": "觅得惊熊妙法，或可兼得晚餐",
         "reward": "弃隐者之弓，寻良器代之",
@@ -372,10 +372,8 @@
         "name_cn": "记忆裂痕",
         "name_en": "Fractured Mind",
         "description": "诸般记忆混相织，不识己身为谁",
-        "note": "收集大量经验 (+敌人掉落更多经验)",
         "reward": "且任记忆自来，获取当为易事",
-        "name_cn": "记忆裂痕",
-        "name_en": "Fractured Mind"
+        "note": "收集大量经验 (+敌人掉落更多经验)"
     },
     {
         "id": 47,
