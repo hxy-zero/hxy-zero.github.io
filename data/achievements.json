@@ -5,7 +5,7 @@
         "name_en": "The Lord Of The Flies",
         "description": "在这蝇群之中，可还有半分人形？",
         "reward": "拥有大量飞蝇/果蝇变为友善",
-        "note": ""
+        "note": "拥有大量飞蝇"
     },
     {
         "id": 1,
@@ -13,7 +13,7 @@
         "name_en": "A",
         "description": "若止不住这流血，我必死无疑。",
         "reward": "从流血中生还/+坚韧",
-        "note": ""
+        "note": "从流血中生还"
     },
     {
         "id": 2,
