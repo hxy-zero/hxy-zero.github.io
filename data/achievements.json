@@ -3,384 +3,386 @@
         "id": 0,
         "name_cn": "蝇群之主",
         "name_en": "The Lord Of The Flies",
-        "description": "在这蝇群之中，可还有半分人形？",
-        "reward": "果蝇变为友善",
-        "note": "拥有大量飞蝇/+果蝇友善"
+        "description": "在蝇群之中，可还有人的存在？",
+        "reward": "飞虫处处追随，寻常果蝇亦入我麾下",
+        "note": "拥有大量飞蝇 (+果蝇变为友好)"
     },
     {
         "id": 1,
-        "name_cn": "死幕临门",
+        "name_cn": "濒死之门",
         "name_en": "At Veil's Door",
-        "description": "若止不住这流血，我必死无疑。",
-        "reward": "+坚韧",
-        "note": "从流血中生还/+坚韧"
+        "description": "若不止血，吾命休矣",
+        "reward": "历经此劫更坚韧，体魄愈加强健",
+        "note": "流血中幸存 (+坚韧属性)"
     },
     {
         "id": 2,
         "name_cn": "高效处决",
         "name_en": "Efficient Execution",
-        "description": "挨个处决囚犯太耗时，我把他们排成一列，一刀全解决了。",
-        "reward": "+更好的劈砍效果",
-        "note": "一击杀死3个敌人/+更好的劈砍效果？"
+        "description": "囚徒众多难独戮，列阵挥刀斩三囚",
+        "reward": "刽子手当有斧，今终得偿所愿",
+        "note": "一击杀三敌 (+劈斩效果提升)"
     },
     {
         "id": 3,
-        "name_cn": "唯一解",
+        "name_cn": "万全之策",
         "name_en": "One Solution",
-        "description": "向千重祈祷吧，祈求你能继续煽动暴力。但也别太虔诚了。",
-        "reward": "+暴力上限提升至10000%",
-        "note": "向千重祈祷至死/+暴力上限提升至10000%"
+        "description": "祈千面神赐吾力，以续暴行不绝",
+        "reward": "死亡难阻杀戮心，暴力永续",
+        "note": "向千面神祈祷至死 (+暴力上限提升)"
     },
     {
         "id": 4,
-        "name_cn": "缺席之憾",
+        "name_cn": "悔不当初",
         "name_en": "Should Have Been There",
-        "description": "我无能为力...战斗结束了，但他还在大量失血，我无法阻止。我只能继续前行。",
-        "reward": "+懦夫职业",
-        "note": "有同伴因流血身亡/+懦夫职业"
+        "description": "吾已回天乏术...战虽毕而血未止",
+        "reward": "懦夫记忆永相随",
+        "note": "同伴流血身亡 (+解锁懦夫职业)"
     },
     {
         "id": 5,
-        "name_cn": "众望所归",
+        "name_cn": "万众归心",
         "name_en": "Popular",
-        "description": "我需要至少十个忠诚的追随者来支持我的事业。",
-        "reward": "+血法师追随者",
-        "note": "拥有10名追随者（非飞蝇与元素）/+血法师追随者"
+        "description": "需十忠仆护我道",
+        "reward": "似有小教派相随",
+        "note": "拥有10名追随者 (非蝇群与元素体) (+获得血法师随从)"
     },
     {
         "id": 6,
-        "name_cn": "谦卑弑神",
+        "name_cn": "凡躯弑神",
         "name_en": "Humble Godslayer",
-        "description": "我不需要任何无用的记忆来分散我执行任务的注意力。",
-        "reward": "+全属性提升10%？",
-        "note": "通关时不拾取经验（纪念品）/+全属性提升10%？"
+        "description": "无用记忆皆可弃，唯念使命在肩",
+        "reward": "弃绝凡器得超脱，全属性倍增",
+        "note": "不拾取经验完成关卡 (+全属性+10%)"
     },
     {
         "id": 7,
         "name_cn": "同归于尽",
         "name_en": "A Mutually Assured Death",
-        "description": "那半打异教徒以为我死了。我的伤可能致命，但我的决心比以往更坚定。我们没人能活着离开这房间。",
-        "reward": "+殉道者职业",
-        "note": "在流血状态下杀死6个敌人/+殉道者职业"
+        "description": "六狂徒视吾将死，创虽重而志愈坚",
+        "reward": "殉道永志不忘",
+        "note": "流血中击杀六敌 (+解锁殉道者职业)"
     },
     {
         "id": 8,
-        "name_cn": "满目猩红",
+        "name_cn": "血瞳蔽世",
         "name_en": "All I See Is Red",
-        "description": "这是我做的吗……？也许他们说的关于我的事是真的。",
-        "reward": "+1次爆发",
-        "note": "作为怪物在狂怒状态下杀死一位神/+1次爆发"
+        "description": "此室生灵无幸免",
+        "reward": "必当更进，再赐良机",
+        "note": "暴怒为兽时弑神 (+获得1次狂暴)"
     },
     {
         "id": 9,
         "name_cn": "弑君者",
         "name_en": "Kingslayer",
-        "description": "他或许身陷囹圄，但这对他犯下的罪行并非正义。我的军队会让他见识真正的正义。",
-        "reward": "+士兵的阔剑",
-        "note": "作为士兵杀死布雷格/+士兵的阔剑"
+        "description": "此事可为乎？...人所言或属实",
+        "reward": "士兵长剑贯旧王",
+        "note": "以士兵身份击杀布里格 (+获得士兵阔剑)"
     },
     {
         "id": 10,
-        "name_cn": "铜墙铁壁",
+        "name_cn": "固若金汤",
         "name_en": "Defensive",
-        "description": "我会偷得百条性命苟活，而你只会在我的盾牌上撞得粉身碎骨。",
-        "reward": "+士兵职业",
-        "note": "在短时间内格挡多次攻击/+士兵职业"
+        "description": "虽囚其躯难赎罪，吾军当示真裁断",
+        "reward": "省材未耗其身",
+        "note": "短时间内格挡大量攻击 (+更多起始资源)"
     },
     {
         "id": 11,
-        "name_cn": "返璞归真",
+        "name_cn": "兵刃精通",
         "name_en": "Simple Weapon Proficiency",
-        "description": "谁需要那些花哨的武器？我的可靠佩剑就在这儿。我叫她弑神者。甚至都没开过刃。",
-        "reward": "+更多起始资源",
-        "note": "通关全程未升级武器/+更多起始资源"
+        "description": "花式兵器何足论，唯信佩刃可屠神",
+        "reward": "磐石记忆永存",
+        "note": "全程无强化武器 (+解锁磐石职业)"
     },
     {
         "id": 12,
-        "name_cn": "宿命之敌",
+        "name_cn": "诅咒缠身",
         "name_en": "The Cursed One",
-        "description": "在这儿找到他的几率有多大？至少是百中无一。",
-        "reward": "+磐石职业",
-        "note": "击败磐石/+磐石职业"
+        "description": "于此狭路相逢时，百中仅得其一",
+        "reward": "血涌难休...然业未竟",
+        "note": "击杀巨石 (+降低流血速度)"
     },
     {
         "id": 13,
-        "name_cn": "至死方休",
+        "name_cn": "不死不休",
         "name_en": "To The Death",
-        "description": "我还没完事呢……而你，要跟我一起走！",
-        "reward": "+流血减缓？",
-        "note": "在流血状态下杀死Boss/+流血减缓？"
+        "description": "吾恨未消...尔当同赴黄泉",
+        "reward": "必缓此涌流",
+        "note": "流血状态下杀BOSS (+流血减速效果)"
     },
     {
         "id": 14,
-        "name_cn": "为弱复仇",
+        "name_cn": "锄强扶弱",
         "name_en": "Vengeance For The Meek",
-        "description": "我虽是一介农夫，但这战争贩子做得太过分了。他必须死。",
-        "reward": "+用镰刀替换农民的木质剑",
-        "note": "作为农民杀死盾哥/+用镰刀替换农民的木质剑"
+        "description": "虽为农夫亦难忍，战狂当诛义不容",
+        "reward": "叛民举镰揭竿起",
+        "note": "杀死护盾怪 (+为农民替换镰刀)"
     },
     {
         "id": 15,
-        "name_cn": "焰矢诛敌",
+        "name_cn": "炎矢诛敌",
         "name_en": "Death By Flaming Arrow",
-        "description": "我找到了一个吓退熊和其他大型野兽的好方法。运气好的话，或许还能顺便做顿晚餐。",
-        "reward": "+隐士职业",
-        "note": "用燃烧箭杀死一个敌人/+隐士职业"
+        "description": "觅得惊熊妙法，或可兼得晚餐",
+        "reward": "弃隐者之弓，寻良器代之",
+        "note": "火焰箭杀敌 (+解锁隐者职业)"
     },
     {
         "id": 16,
-        "name_cn": "完美一箭",
+        "name_cn": "百步穿杨",
         "name_en": "Perfect Shot",
-        "description": "瞄得准一点……我想我能一箭双雕。",
-        "reward": "+用长弓替换隐士的弓",
-        "note": "用一支箭杀死2个非小动物敌人/+用长弓替换隐士的弓"
+        "description": "若瞄其要害处，可一箭贯双颅",
+        "reward": "此后当觅良弓",
+        "note": "一箭杀双敌 (非虫类) (+获得长弓替换)"
     },
     {
         "id": 17,
         "name_cn": "千锤百炼",
         "name_en": "Back To The Grindstone",
-        "description": "起初它只是把简单的武器。现在我确信它能弑神。",
-        "reward": "+购买的武器自带+1升级",
-        "note": "将一件武器升级至+10/+购买的武器自带+1升级"
+        "description": "初器虽凡，然今确可弑神",
+        "reward": "从此独购神器",
+        "note": "强化武器至+10 (+购买武器自带+1强化)"
     },
     {
         "id": 18,
-        "name_cn": "元素宗师",
+        "name_cn": "元素统御",
         "name_en": "Elementalist",
-        "description": "真正欣赏魔法的唯一方式，就是掌握它的每一种形态。",
-        "reward": "+魔法抗性",
-        "note": "使用所有法术类型（火、雷、冰、土、魔法、虚无、生命、死亡）/+魔法抗性"
+        "description": "魔道真谛，尽在诸法归元",
+        "reward": "御魔之能更胜前",
+        "note": "使用全系法术 (火雷冰土魔法虚生命死) (+魔法抗性)"
     },
     {
         "id": 19,
-        "name_cn": "虔信者",
+        "name_cn": "虔心皈依",
         "name_en": "Pious",
-        "description": "我的神爱我。我一生奉献于他，此刻他定不会抛弃我。",
-        "reward": "+牧师职业",
-        "note": "在神龛祈祷直至所有蜡烛变白/+牧师职业"
+        "description": "吾神必不相弃，毕生侍奉为证",
+        "reward": "魔力俯首称臣",
+        "note": "祈祷至烛火全白 (+解锁祭司职业)"
     },
     {
         "id": 20,
         "name_cn": "青出于蓝",
         "name_en": "Surpassing The Master",
-        "description": "一块黑曜石能有多少法师的能耐？祈祷的时代结束了。现在是换新血的时候了。",
-        "reward": "+牧师的魔法光束法术",
-        "note": "用牧师杀死方尖碑/+牧师的魔法光束法术"
+        "description": "黑曜顽石怎通灵",
+        "reward": "魔光聚束破敌阵",
+        "note": "以祭司身份击杀方尖碑 (+获得魔光束法术)"
     },
     {
         "id": 21,
-        "name_cn": "破锁专家",
+        "name_cn": "开锁宗师",
         "name_en": "Masterful Lock Picking",
-        "description": "行！我不需要钥匙！我直接砸开它！",
-        "reward": "+起始多2把钥匙",
-        "note": "砸开5个上锁的箱子/+起始多2把钥匙"
+        "description": "祈时已过，当饮新血",
+        "reward": "此后必携双钥",
+        "note": "破坏5个上锁箱 (+起始获得2把钥匙)"
     },
     {
         "id": 22,
-        "name_cn": "实验药剂师", 
+        "name_cn": "药剂实验",
         "name_en": "Experimental Liquids",
-        "description": "十瓶药水。颜色各异。让我们看看会发生什么。",
-        "reward": "+化学家职业",
-        "note": "在一次游戏中发现全部十种药水/+化学家职业"
+        "description": "妙哉！无钥亦能破门",
+        "reward": "化学记忆永存",
+        "note": "单局发现10种药水 (+解锁化学家职业)"
     },
     {
         "id": 23,
-        "name_cn": "武器大师", 
+        "name_cn": "百兵皆通",
         "name_en": "Weapon Mastery",
-        "description": "我这儿有十几种不同的武器。随便哪件都能满足我的需求。",
-        "reward": "+老兵的骑枪",
-        "note": "装备12种不同的武器/+老兵的骑枪"
+        "description": "十色药液待君试",
+        "reward": "沙场老卒可驭剑矛",
+        "note": "装备12种武器 (+获得长矛)"
     },
     {
         "id": 24,
-        "name_cn": "风暴将至",
+        "name_cn": "风暴雷鸣",
         "name_en": "Storm Brewin'",
-        "description": "我几乎来不及反应。一道闪光伴着震耳欲聋的巨响。片刻之后，三个强盗就冒着烟倒在了地上。",
-        "reward": "+闪电反弹5次",
-        "note": "用闪电杀死3个敌人/+闪电反弹5次"
+        "description": "电闪雷鸣蔽五感，三匪应声化焦尘",
+        "reward": "再遇电闪必警醒",
+        "note": "闪电击杀三敌 (+闪电反弹5次)"
     },
     {
         "id": 25,
-        "name_cn": "染血盗匪",
+        "name_cn": "血染劫匪",
         "name_en": "Bloodied Bandit",
-        "description": "我现在有一大袋金币了，而代价仅仅是五条人命。",
-        "reward": "+罪犯职业",
-        "note": "杀死5名平民/+罪犯职业"
+        "description": "钱袋满盈，五命为偿",
+        "reward": "恶徒记忆长存",
+        "note": "击杀五平民 (+解锁罪犯职业)"
     },
     {
         "id": 26,
-        "name_cn": "背刺者",
+        "name_cn": "暗影背刺",
         "name_en": "Backstabber",
-        "description": "这些士兵满口战场荣誉。我还是待在阴影里吧，谢谢。死了，荣誉就一文不值了。",
-        "reward": "+厌世者职业",
-        "note": "在隐身状态下背刺敌人/+厌世者职业"
+        "description": "战场虚礼不足道，吾宁隐于暗影",
+        "reward": "厌世记忆不忘",
+        "note": "隐身背刺 (+解锁厌世者职业)"
     },
     {
         "id": 27,
-        "name_cn": "幽灵",
+        "name_cn": "踏雪无痕",
         "name_en": "Ghost",
-        "description": "我成功了……甚至没人知道我在这儿。",
-        "reward": "+厌世者的普通斗篷纪念品",
-        "note": "通关一个区域未被发现/+厌世者的普通斗篷纪念品"
+        "description": "吾行无痕...无人知晓",
+        "reward": "讽世当披素袍",
+        "note": "未被察觉完成关卡 (+获得普通披风)"
     },
     {
         "id": 28,
-        "name_cn": "斗牛士",
+        "name_cn": "斗牛勇士",
         "name_en": "Toro",
-        "description": "野猪开始冲锋了。是时候出击了！",
-        "reward": "+速度",
-        "note": "在野猪冲锋时用近战武器杀死它/+速度"
+        "description": "野猪奔袭正当时",
+        "reward": "步履愈发轻盈",
+        "note": "野猪冲锋时近战击杀 (+提升移速)"
     },
     {
         "id": 29,
         "name_cn": "枕戈待旦",
         "name_en": "Battle Ready",
-        "description": "没有盔甲绝不上战场。这套护甲保护了我五十年。",
-        "reward": "+老兵职业",
-        "note": "拥有大量护甲/+老兵职业"
+        "description": "甲胄不离身，五十载护周全",
+        "reward": "老兵记忆永存",
+        "note": "堆叠护甲值 (+解锁老兵职业)"
     },
     {
         "id": 30,
-        "name_cn": "商贾老手",
+        "name_cn": "商海浮沉",
         "name_en": "Experienced Trader",
-        "description": "我的货物足够大赚一笔了。",
-        "reward": "+商店价格更便宜",
-        "note": "交易10？资源换经验/+商店价格更便宜"
+        "description": "货盈欲贾获利丰",
+        "reward": "店铺价廉宜采买",
+        "note": "交易10资源换经验 (+解锁商人职业)"
     },
     {
         "id": 31,
-        "name_cn": "囤积狂",
+        "name_cn": "聚宝成山",
         "name_en": "Hoarder",
-        "description": "我把包里塞满了能找到的所有货物。我最终要么把它们全卖掉，要么给自己做些好武器。",
-        "reward": "+商人职业",
-        "note": "拥有99个每种资源/+商人职业"
+        "description": "囊括诸物尽其用，或售或铸皆可为",
+        "reward": "十字弩可配短剑，护货防匪称心",
+        "note": "每资源持有99 (+获得十字弩)"
     },
     {
         "id": 32,
-        "name_cn": "军火商",
+        "name_cn": "军火贩子",
         "name_en": "Arms Dealer",
-        "description": "我最近买了五件精良的武器。",
-        "reward": "+商人的十字弩",
-        "note": "作为商人购买5件武器/+商人的十字弩"
+        "description": "新购五件神兵利",
+        "reward": "终成！虽烫手却趁手",
+        "note": "购买5把武器 (+获得余烬弯刀)"
     },
     {
         "id": 33,
-        "name_cn": "铁匠",
+        "name_cn": "铁匠宗师",
         "name_en": "Weaponsmith",
-        "description": "要打造我想要的每件武器，至少需要一百块金属锭。",
-        "reward": "+铁匠的余烬弯刀",
-        "note": "作为铁匠花费100金属购买武器？/+铁匠的余烬弯刀"
+        "description": "百锭铸铁方足用",
+        "reward": "铁匠记忆长存",
+        "note": "消耗100金属购武 (+解锁铁匠职业)"
     },
     {
         "id": 34,
-        "name_cn": "打铁铺",
+        "name_cn": "金石为开",
         "name_en": "Smithy",
-        "description": "何必费劲去买去运钢锭？我直接在家分解那五六把备用的武器不就行了？",
-        "reward": "+铁匠职业",
-        "note": "分解5件武器/+铁匠职业"
+        "description": "何苦购运铁锭？家中五兵正堪拆",
+        "reward": "暴君记忆不忘",
+        "note": "分解5把武器 (+获得20起始金属)"
     },
     {
         "id": 35,
-        "name_cn": "铸甲宗师",
+        "name_cn": "神匠锻炉",
         "name_en": "Forgemaster",
-        "description": "日复一日，煅炉不息。我只有五十块金属锭，双臂却已几近脱力。",
-        "reward": "+20起始金属",
-        "note": "作为铁匠将50块石头冶炼成50块金属/+20起始金属"
+        "description": "熔炉昼夜不息，五十锭成臂欲断",
+        "reward": "严寒亦成利器",
+        "note": "熔炼50石为50金属 (+对冻结敌人必暴击)"
     },
     {
         "id": 36,
-        "name_cn": "纤尘不染",
+        "name_cn": "不染鲜血",
         "name_en": "My Hands Are Clean",
-        "description": "弑神这等琐事，无需弄脏我的手套。自会有人代劳。",
-        "reward": "+暴君职业",
-        "note": "让你的同伴替你杀死一个神/+暴君职业"
+        "description": "弑神何须污吾手？自有代劳者",
+        "reward": "寒霜刺骨彻骨",
+        "note": "随从代你杀神 (+对冻结敌人必暴击)"
     },
     {
         "id": 37,
-        "name_cn": "寒霜突袭",
+        "name_cn": "冰封绝杀",
         "name_en": "Cold Snap",
-        "description": "我知道他能看见我，用那双冰冷的眼睛。迅捷一刺，鲜血从冰窟中涌出。他毫无机会。",
-        "reward": "+对冻结敌人必暴击",
-        "note": "杀死一个被冻结的敌人/+对冻结敌人必暴击"
+        "description": "寒目如炬锁吾身，冰隙贯喉血涌泉",
+        "reward": "康健有益后程",
+        "note": "击杀冻结敌人 (+提升生命上限)"
     },
     {
         "id": 38,
-        "name_cn": "体魄强健",
+        "name_cn": "生机盎然",
         "name_en": "Healthy",
-        "description": "我需要尽可能保持健康。",
-        "reward": "+20生命值",
-        "note": "获得200点最大和当前生命值/+20生命值"
+        "description": "需保体魄长康健",
+        "reward": "邪教记忆永存",
+        "note": "生命上限200并回满 (+生命值+20)"
     },
     {
         "id": 39,
-        "name_cn": "血祭狂热",
+        "name_cn": "血祭三环",
         "name_en": "The Bloody Sacrifice",
-        "description": "我今天已经进行三次这个仪式了。",
-        "reward": "+邪教徒职业",
-        "note": "在一次游戏中激活3个血之环/+邪教徒职业"
+        "description": "今已三行血祭仪",
+        "reward": "探索记忆长存",
+        "note": "单局激活3个血圈 (+解锁邪教职业)"
     },
     {
         "id": 40,
-        "name_cn": "寻宝专家",
+        "name_cn": "秘宝猎人",
         "name_en": "Treasure Hunter",
-        "description": "我这儿有四张藏宝图。也许我能把它们全破译出来！",
-        "reward": "+探险家职业",
-        "note": "在一次游戏中破解4张藏宝图/+探险家职业"
+        "description": "四张宝图待破译！",
+        "reward": "圣所传送符文现",
+        "note": "单局破解4藏宝图 (+解锁探索者职业)"
     },
     {
         "id": 41,
-        "name_cn": "争分夺秒",
+        "name_cn": "分秒必争",
         "name_en": "No Time To Lose",
-        "description": "我只用了十五分钟就到达了旅程终点。",
-        "reward": "+圣所传送符文",
-        "note": "在15分钟内通关/+圣所传送符文"
+        "description": "时限仅余十五分",
+        "reward": "拳刃威力倍增",
+        "note": "15分钟内通关 (+获得传送符文)"
     },
     {
         "id": 42,
-        "name_cn": "赤手空拳",
+        "name_cn": "徒手伏魔",
         "name_en": "No Weapon Required",
-        "description": "武器对于这个暴力之徒来说太过疏远。我只信自己的拳头。",
-        "reward": "+拳头造成更多伤害",
-        "note": "用拳头杀死一个Boss/+拳头造成更多伤害"
+        "description": "诛此暴戾之物，拳掌方显本真",
+        "reward": "医者记忆永存",
+        "note": "无武器击杀BOSS (+拳头伤害提升)"
     },
     {
         "id": 43,
         "name_cn": "瘟疫余生",
         "name_en": "I Survived The Plague",
-        "description": "整整六十天，病痛侵蚀着我的身体，我的寿命无疑已缩减到从前的一小部分。",
-        "reward": "+医生职业",
-        "note": "因毒药失去一定量最大生命值/+医生职业"
+        "description": "六十昼夜疫噬身，寿数十不存一",
+        "reward": "圆木廿段归己用",
+        "note": "瘟疫减少生命上限 (+解锁医生职业)"
     },
     {
         "id": 44,
-        "name_cn": "世界之死", 
+        "name_cn": "乾坤倾覆",
         "name_en": "A World Dies",
-        "description": "索的子嗣将不复存在。摧毁一百五十个，且看这沉睡之神如何反应。",
-        "reward": "+20起始木材",
-        "note": "砍伐150棵树/+20起始木材"
+        "description": "百五十株伐尽，且观沉眠神醒",
+        "reward": "起始携木廿段",
+        "note": "砍伐150棵树 (+起始木材+20)"
     },
     {
         "id": 45,
-        "name_cn": "至深记忆",
-        "name_en": "The Greatest Memory",
-        "description": "结晶化的经验散落各处。我数了至少五百个。想想我将拥有多少记忆！",
-        "reward": "+起始多40经验",
-        "note": "在一次游戏中收集500经验/+起始多40经验"
+        "name_cn": "至臻回忆",
+        "name_en": "The Greatest",
+        "description": "晶化记忆散诸界，计数已逾五百",
+        "reward": "史家记忆长存",
+        "note": "单局收集500经验 (+起始经验+40)"
     },
     {
         "id": 46,
-        "name_cn": "心神破碎",
+        "name_cn": "记忆裂痕",
         "name_en": "Fractured Mind",
-        "description": "所有这些不同的记忆……我已不再认识自己。",
-        "reward": "+敌人掉落更多经验",
-        "note": "收集大量经验/+敌人掉落更多经验"
+        "description": "诸般记忆混相织，不识己身为谁",
+        "note": "收集大量经验 (+敌人掉落更多经验)",
+        "reward": "且任记忆自来，获取当为易事",
+        "name_cn": "记忆裂痕",
+        "name_en": "Fractured Mind"
     },
     {
         "id": 47,
-        "name_cn": "博学多闻",
-        "name_en": "Learned",
-        "description": "我翻遍图书馆，找到了五本应该对我大有裨益的书。现在该处理我那难耐的口渴了……",
-        "reward": "+历史学家职业",
-        "note": "在一次游戏中学习5个法术/+历史学家职业"
+        "name_cn": "融会贯通",
+        "name_en": "Memory Learned",
+        "description": "阅尽馆藏得五卷，然渴欲难消...",
+        "reward": "更多经验落敌身",
+        "note": "单局学会5法术 (+解锁历史学家职业)"
     }
 ]
