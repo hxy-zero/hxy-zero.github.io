@@ -589,12 +589,16 @@
                 }
             });
 
-            spellNames.forEach(spell => {
-                if (description.includes(spell)) {
-                    const regex = new RegExp(spell, 'g');
-                    description = description.replace(regex, `<a href="spells.html" class="spell" target="_blank">${spell}</a>`);
-                }
-            });
+    spellNames.forEach(spell => {
+        if (description.includes(spell)) {
+            const regex = new RegExp(spell, 'g');
+            description = description.replace(regex, 
+                `<a href="spells.html?search=${encodeURIComponent(spell)}" 
+                  class="spell" 
+                  target="_blank"
+                  data-search-term="${spell}">${spell}</a>`);
+        }
+    });
             
             attributeDescription.innerHTML = description;
 
