@@ -575,19 +575,27 @@
         }
     });
 
-            equipmentNames.forEach(equipment => {
-                if (description.includes(equipment)) {
-                    const regex = new RegExp(equipment, 'g');
-                    description = description.replace(regex, `<a href="equipment.html" class="equipment" target="_blank">${equipment}</a>`);
-                }
-            });
+    equipmentNames.forEach(equipment => {
+        if (description.includes(equipment)) {
+            const regex = new RegExp(equipment, 'g');
+            description = description.replace(regex, 
+                `<a href="equipment.html?search=${encodeURIComponent(equipment)}" 
+                  class="equipment" 
+                  target="_blank"
+                  data-search-term="${equipment}">${equipment}</a>`);
+        }
+    });
 
-            mementoNames.forEach(memento => {
-                if (description.includes(memento)) {
-                    const regex = new RegExp(memento, 'g');
-                    description = description.replace(regex, `<a href="mementos.html" class="memento" target="_blank">${memento}</a>`);
-                }
-            });
+    mementoNames.forEach(memento => {
+        if (description.includes(memento)) {
+            const regex = new RegExp(memento, 'g');
+            description = description.replace(regex, 
+                `<a href="mementos.html?search=${encodeURIComponent(memento)}" 
+                  class="memento" 
+                  target="_blank"
+                  data-search-term="${memento}">${memento}</a>`);
+        }
+    });
 
     spellNames.forEach(spell => {
         if (description.includes(spell)) {
