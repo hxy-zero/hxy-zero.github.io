@@ -205,25 +205,45 @@
             let currentFilteredData = [];
             let sortDirection = 'asc';
 
-    // 新增：自动搜索功能
-    function setupAutoSearch() {
-        // 检查是否来自角色页面的跳转
-        const searchTerm = localStorage.getItem('autoSearchTerm');
-        const targetPage = localStorage.getItem('autoSearchTarget');
-        
-        // 只有当目标页面是武器页面时才执行
-        if (searchTerm && targetPage === 'weapons') {
-            // 清除存储的状态
-            localStorage.removeItem('autoSearchTerm');
-            localStorage.removeItem('autoSearchTarget');
-            
-            // 设置搜索框值
-            searchInput.value = searchTerm;
-            
-            // 触发搜索
-            filterWeapons();
-        }
-    }
+            // 修复后的自动搜索功能
+            function setupAutoSearch() {
+                // 1. 检查URL参数
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlSearchTerm = urlParams.get('search');
+                
+                // 2. 检查localStorage
+                const localStorageTerm = localStorage.getItem('autoSearchTerm');
+                const targetPage = localStorage.getItem('autoSearchTarget');
+                
+                // 3. 确定要使用的搜索词
+                let searchTerm = null;
+                
+                // 优先使用URL参数
+                if (urlSearchTerm) {
+                    searchTerm = decodeURIComponent(urlSearchTerm);
+                    
+                    // 清除URL参数（可选）
+                    const cleanUrl = window.location.pathname;
+                    window.history.replaceState({}, document.title, cleanUrl);
+                } 
+                // 其次使用localStorage（如果目标页面是武器页面）
+                else if (localStorageTerm && targetPage === 'weapons') {
+                    searchTerm = localStorageTerm;
+                }
+                
+                // 如果有搜索词，则执行搜索
+                if (searchTerm) {
+                    // 清除存储的状态
+                    localStorage.removeItem('autoSearchTerm');
+                    localStorage.removeItem('autoSearchTarget');
+                    
+                    // 设置搜索框值
+                    searchInput.value = searchTerm;
+                    
+                    // 触发搜索
+                    filterWeapons();
+                }
+            }
             
             // 使用fetch从JSON文件加载武器数据
             function loadWeaponsData() {
@@ -240,11 +260,10 @@
                         renderWeapons(weaponsData);
                         document.getElementById('count').textContent = weaponsData.length;
                         loader.style.display = 'none';
-
-                // 数据加载完成后执行自动搜索
-                setupAutoSearch();                       
+                        
+                        // 数据加载完成后执行自动搜索
+                        setupAutoSearch();
                     })
-                    
                     .catch(error => {
                         console.error('加载武器数据失败:', error);
                         loader.innerHTML = `<div class="error-message">
