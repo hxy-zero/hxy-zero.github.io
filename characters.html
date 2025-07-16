@@ -564,38 +564,26 @@
             let description = character.description;
             
             // 高亮所有名称
-    weaponNames.forEach(weapon => {
-        if (description.includes(weapon)) {
-            const regex = new RegExp(weapon, 'g');
-            description = description.replace(regex, 
-                `<a href="weapons.html?search=${encodeURIComponent(weapon)}" 
-                  class="weapon" 
-                  target="_blank"
-                  data-search-term="${weapon}">${weapon}</a>`);
-        }
-    });
+            weaponNames.forEach(weapon => {
+                if (description.includes(weapon)) {
+                    const regex = new RegExp(weapon, 'g');
+                    description = description.replace(regex, `<a href="weapons.html" class="weapon" target="_blank">${weapon}</a>`);
+                }
+            });
 
-    equipmentNames.forEach(equipment => {
-        if (description.includes(equipment)) {
-            const regex = new RegExp(equipment, 'g');
-            description = description.replace(regex, 
-                `<a href="equipment.html?search=${encodeURIComponent(equipment)}" 
-                  class="equipment" 
-                  target="_blank"
-                  data-search-term="${equipment}">${equipment}</a>`);
-        }
-    });
+            equipmentNames.forEach(equipment => {
+                if (description.includes(equipment)) {
+                    const regex = new RegExp(equipment, 'g');
+                    description = description.replace(regex, `<a href="equipment.html" class="equipment" target="_blank">${equipment}</a>`);
+                }
+            });
 
-    mementoNames.forEach(memento => {
-        if (description.includes(memento)) {
-            const regex = new RegExp(memento, 'g');
-            description = description.replace(regex, 
-                `<a href="mementos.html?search=${encodeURIComponent(memento)}" 
-                  class="memento" 
-                  target="_blank"
-                  data-search-term="${memento}">${memento}</a>`);
-        }
-    });
+            mementoNames.forEach(memento => {
+                if (description.includes(memento)) {
+                    const regex = new RegExp(memento, 'g');
+                    description = description.replace(regex, `<a href="mementos.html" class="memento" target="_blank">${memento}</a>`);
+                }
+            });
 
     spellNames.forEach(spell => {
         if (description.includes(spell)) {
