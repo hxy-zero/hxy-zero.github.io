@@ -564,12 +564,16 @@
             let description = character.description;
             
             // 高亮所有名称
-            weaponNames.forEach(weapon => {
-                if (description.includes(weapon)) {
-                    const regex = new RegExp(weapon, 'g');
-                    description = description.replace(regex, `<a href="weapons.html" class="weapon" target="_blank">${weapon}</a>`);
-                }
-            });
+    weaponNames.forEach(weapon => {
+        if (description.includes(weapon)) {
+            const regex = new RegExp(weapon, 'g');
+            description = description.replace(regex, 
+                `<a href="weapons.html" 
+                  class="weapon" 
+                  target="_blank"
+                  data-search-term="${weapon}">${weapon}</a>`);
+        }
+    });
 
             equipmentNames.forEach(equipment => {
                 if (description.includes(equipment)) {
