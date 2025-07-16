@@ -221,10 +221,6 @@
                 // 优先使用URL参数
                 if (urlSearchTerm) {
                     searchTerm = decodeURIComponent(urlSearchTerm);
-                    
-                    // 清除URL参数（可选）
-                    const cleanUrl = window.location.pathname;
-                    window.history.replaceState({}, document.title, cleanUrl);
                 } 
                 // 其次使用localStorage（如果目标页面是武器页面）
                 else if (localStorageTerm && targetPage === 'weapons') {
