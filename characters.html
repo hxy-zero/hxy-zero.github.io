@@ -568,7 +568,7 @@
         if (description.includes(weapon)) {
             const regex = new RegExp(weapon, 'g');
             description = description.replace(regex, 
-                `<a href="weapons.html" 
+                `<a href="weapons.html?search=${encodeURIComponent(weapon)}" 
                   class="weapon" 
                   target="_blank"
                   data-search-term="${weapon}">${weapon}</a>`);
