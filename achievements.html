@@ -374,18 +374,6 @@
             #modal-name-cn {
                 font-size: 1.8rem;
             }
-            
-            .modal-image-container {
-                width: 80px;
-                height: 80px;
-            }
-
-            .modal-image {
-                width: 80px;
-                height: 80px;
-                background: url('https://s21.ax1x.com/2025/07/15/pV1JDzt.webp') no-repeat;
-                background-size: 3840px 80px;
-            }
         }
         
         @media (max-width: 480px) {
@@ -611,7 +599,7 @@
                 
                 // 设置雪碧图位置 - 使用与小图相同的雪碧图和计算方式
                 const modalImage = document.getElementById('modal-image');
-                modalImage.style.backgroundPosition = `-${achievement.id * 64}px 0`;
+                modalImage.style.backgroundPosition = `-${achievement.id * 100}px 0`;
                 
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
