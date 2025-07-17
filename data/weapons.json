@@ -127,7 +127,7 @@
     },
     {
       "id": 12,
-      "name_cn": "切肉斧",
+      "name_cn": "切肉刀",
       "name_en": "Cleaver",
       "category": "斧",
       "cleave_mod": 75,
@@ -138,7 +138,7 @@
     },
     {
       "id": 13,
-      "name_cn": "锯斧",
+      "name_cn": "锯",
       "name_en": "Saw",
       "category": "斧",
       "cleave_mod": 10,
@@ -193,7 +193,7 @@
     },
     {
       "id": 18,
-      "name_cn": "巨型切肉斧",
+      "name_cn": "巨型切肉刀",
       "name_en": "Great Cleaver",
       "category": "斧",
       "cleave_mod": 90,
