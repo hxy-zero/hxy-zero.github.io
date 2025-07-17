@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>成就图鉴</title>
-    <link rel="shortcut icon" href="images/icov.ico" />
-    <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://s21.ax1x.com/2025/07/15/pV1JDzt.webp" rel="preload" as="image">
     <style>
@@ -119,6 +117,11 @@
             font-size: 1.1rem;
         }
         
+        .counter span {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -170,8 +173,9 @@
             height: 64px;
             margin: 0 auto 12px;
             background: url('https://s21.ax1x.com/2025/07/15/pV1JDzt.webp') no-repeat;
-            background-size: 3072px 64px; /* 48*64=3072 */
+            background-size: 3072px 64px;
             background-color: #000;
+            border-radius: 8px;
         }
         
         .achievement-name {
@@ -239,14 +243,29 @@
             border-bottom: 1px solid rgba(129, 71, 127, 0.4);
         }
         
-        .modal-image {
+        /* 图片容器 - 修复关键 */
+        .modal-image-container {
+            position: relative;
             flex-shrink: 0;
             width: 100px;
             height: 100px;
-            background: url('https://s21.ax1x.com/2025/07/14/pV1kQdU.webp') no-repeat;
-            background-size: 4800px 100px; /* 48*100=4800 */
-            background-color: #000;
-            box-shadow: 0 0 20px rgba(129, 71, 127, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(129, 71, 127, 0.6);
+        }
+        
+        /* 弹窗图片 - 修复关键 */
+        .modal-image {
+            width: 64px;
+            height: 64px;
+            background: url('https://s21.ax1x.com/2025/07/15/pV1JDzt.webp') no-repeat;
+            background-size: 3072px 64px;
+            transform: scale(1.5); /* 放大显示 */
+            image-rendering: pixelated; /* 保持像素风格 */
         }
         
         .modal-title {
@@ -314,13 +333,15 @@
             color: var(--accent);
             font-size: 0.9rem;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 40px auto 0;
             line-height: 1.6;
+            border-top: 1px solid rgba(129, 71, 127, 0.3);
         }
 
         .loading-container {
             text-align: center;
             padding: 40px 0;
+            grid-column: 1 / -1;
         }
         
         .loading-spinner {
@@ -355,10 +376,13 @@
                 font-size: 1.8rem;
             }
             
-            .modal-image {
+            .modal-image-container {
                 width: 80px;
                 height: 80px;
-                background-size: 3840px 80px; /* 48*80=3840 */
+            }
+            
+            .modal-image {
+                transform: scale(1.8); /* 中等屏幕放大比例 */
             }
         }
         
@@ -373,27 +397,17 @@
             
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
-                gap: 5px;
+                gap: 10px;
                 padding: 0;
             }
             
-            .achievement-item {
-                border-radius: 5px;
-                padding: 10px 5px;
-            }
-
-            .achievement-item::before {
-                border-radius: 7px;
-            }
-            
-            .modal-content {
-                width: 95%;
+            .modal-image-container {
+                width: 64px;
+                height: 64px;
             }
             
             .modal-image {
-                width: 64px;
-                height: 64px;
-                background-size: 3072px 64px; /* 48*64=3072 */
+                transform: scale(2); /* 小屏幕放大比例 */
             }
             
             .modal-section {
@@ -484,7 +498,10 @@
         <div class="modal-content">
             <span class="close-btn">&times;</span>
             <div class="modal-header">
-                <div class="modal-image" id="modal-image"></div>
+                <!-- 修复后的图片容器结构 -->
+                <div class="modal-image-container">
+                    <div class="modal-image" id="modal-image"></div>
+                </div>
                 <div class="modal-title">
                     <h2 id="modal-name-cn">成就名称</h2>
                     <h3 id="modal-name-en">Achievement Name</h3>
@@ -590,24 +607,9 @@
                 document.getElementById('modal-reward').textContent = achievement.reward;
                 document.getElementById('modal-note').textContent = achievement.note || "暂无备注信息";
                 
-                // 设置雪碧图位置（修复问题）
+                // 设置雪碧图位置 - 使用与小图相同的雪碧图和计算方式
                 const modalImage = document.getElementById('modal-image');
-                
-                // 根据当前屏幕宽度计算偏移量
-                let offset;
-                if (window.innerWidth <= 480) {
-                    // 手机端：64x64 图标
-                    offset = achievement.id * 64;
-                    modalImage.style.backgroundPosition = `-${offset}px 0`;
-                } else if (window.innerWidth <= 768) {
-                    // 平板端：80x80 图标
-                    offset = achievement.id * 80;
-                    modalImage.style.backgroundPosition = `-${offset}px 0`;
-                } else {
-                    // 桌面端：100x100 图标
-                    offset = achievement.id * 100;
-                    modalImage.style.backgroundPosition = `-${offset}px 0`;
-                }
+                modalImage.style.backgroundPosition = `-${achievement.id * 64}px 0`;
                 
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
@@ -625,29 +627,6 @@
             window.addEventListener('click', (e) => {
                 if (e.target === modal) {
                     closeModal();
-                }
-            });
-            
-            // 窗口大小变化时更新图片位置
-            window.addEventListener('resize', () => {
-                if (modal.style.display === 'flex') {
-                    const currentItem = document.querySelector('.achievement-item:hover');
-                    if (currentItem) {
-                        const id = parseInt(currentItem.dataset.id);
-                        // 重新计算并设置背景位置
-                        const modalImage = document.getElementById('modal-image');
-                        let offset;
-                        if (window.innerWidth <= 480) {
-                            offset = id * 64;
-                            modalImage.style.backgroundPosition = `-${offset}px 0`;
-                        } else if (window.innerWidth <= 768) {
-                            offset = id * 80;
-                            modalImage.style.backgroundPosition = `-${offset}px 0`;
-                        } else {
-                            offset = id * 100;
-                            modalImage.style.backgroundPosition = `-${offset}px 0`;
-                        }
-                    }
                 }
             });
         });
