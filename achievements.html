@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>成就图鉴</title>
+    <link rel="shortcut icon" href="images/icov.ico" />
+    <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://s21.ax1x.com/2025/07/15/pV1JDzt.webp" rel="preload" as="image">
+    <link href=	https://s21.ax1x.com/2025/07/15/pV1JDzt.webp rel=preload as=image>
     <style>
         * {
             margin: 0;
@@ -175,7 +177,6 @@
             background: url('https://s21.ax1x.com/2025/07/15/pV1JDzt.webp') no-repeat;
             background-size: 3072px 64px;
             background-color: #000;
-            border-radius: 8px;
         }
         
         .achievement-name {
@@ -397,8 +398,17 @@
             
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
-                gap: 10px;
+                gap: 5px;
                 padding: 0;
+            }
+
+            .achievement-item {
+                border-radius: 5px;
+                padding: 10px 5px;
+            }
+
+            .achievement-item::before {
+                border-radius: 7px;
             }
             
             .modal-image-container {
