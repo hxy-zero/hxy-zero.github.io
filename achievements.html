@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="images/icov.ico" />
     <link rel="icon" href="images/icov.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href=	https://s21.ax1x.com/2025/07/15/pV1JDzt.webp rel=preload as=image>
+    <link href="https://s21.ax1x.com/2025/07/15/pV1JDzt.webp" rel="preload" as="image">
     <style>
         * {
             margin: 0;
@@ -244,7 +244,7 @@
             width: 100px;
             height: 100px;
             background: url('https://s21.ax1x.com/2025/07/14/pV1kQdU.webp') no-repeat;
-            background-size: 4800px 100px;
+            background-size: 4800px 100px; /* 48*100=4800 */
             background-color: #000;
             box-shadow: 0 0 20px rgba(129, 71, 127, 0.6);
         }
@@ -358,7 +358,7 @@
             .modal-image {
                 width: 80px;
                 height: 80px;
-                background-size: 3840px 80px;
+                background-size: 3840px 80px; /* 48*80=3840 */
             }
         }
         
@@ -393,7 +393,7 @@
             .modal-image {
                 width: 64px;
                 height: 64px;
-                background-size: 3072px 64px;
+                background-size: 3072px 64px; /* 48*64=3072 */
             }
             
             .modal-section {
@@ -590,16 +590,23 @@
                 document.getElementById('modal-reward').textContent = achievement.reward;
                 document.getElementById('modal-note').textContent = achievement.note || "暂无备注信息";
                 
-                // 设置雪碧图位置
+                // 设置雪碧图位置（修复问题）
                 const modalImage = document.getElementById('modal-image');
-                modalImage.style.backgroundPosition = `-${achievement.id * 100}px 0`;
                 
-                // 响应式调整
-                if (window.innerWidth <= 768) {
-                    modalImage.style.backgroundPosition = `-${achievement.id * 80}px 0`;
-                }
+                // 根据当前屏幕宽度计算偏移量
+                let offset;
                 if (window.innerWidth <= 480) {
-                    modalImage.style.backgroundPosition = `-${achievement.id * 64}px 0`;
+                    // 手机端：64x64 图标
+                    offset = achievement.id * 64;
+                    modalImage.style.backgroundPosition = `-${offset}px 0`;
+                } else if (window.innerWidth <= 768) {
+                    // 平板端：80x80 图标
+                    offset = achievement.id * 80;
+                    modalImage.style.backgroundPosition = `-${offset}px 0`;
+                } else {
+                    // 桌面端：100x100 图标
+                    offset = achievement.id * 100;
+                    modalImage.style.backgroundPosition = `-${offset}px 0`;
                 }
                 
                 modal.style.display = 'flex';
@@ -621,15 +628,24 @@
                 }
             });
             
-            // 窗口大小变化时调整雪碧图位置
+            // 窗口大小变化时更新图片位置
             window.addEventListener('resize', () => {
                 if (modal.style.display === 'flex') {
-                    const currentId = document.querySelector('.achievement-item:hover')?.dataset.id;
-                    if (currentId !== undefined) {
-                        // 重新打开模态框以更新图片位置
-                        const achievement = achievements.find(a => a.id === parseInt(currentId));
-                        if (achievement) {
-                            openModal(achievement);
+                    const currentItem = document.querySelector('.achievement-item:hover');
+                    if (currentItem) {
+                        const id = parseInt(currentItem.dataset.id);
+                        // 重新计算并设置背景位置
+                        const modalImage = document.getElementById('modal-image');
+                        let offset;
+                        if (window.innerWidth <= 480) {
+                            offset = id * 64;
+                            modalImage.style.backgroundPosition = `-${offset}px 0`;
+                        } else if (window.innerWidth <= 768) {
+                            offset = id * 80;
+                            modalImage.style.backgroundPosition = `-${offset}px 0`;
+                        } else {
+                            offset = id * 100;
+                            modalImage.style.backgroundPosition = `-${offset}px 0`;
                         }
                     }
                 }
