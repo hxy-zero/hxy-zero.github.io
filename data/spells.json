@@ -25,7 +25,7 @@
       "spell_series": "火",
       "charge": 14,
       "description_en": "I summon a few fireflies to aid me in battle.",
-      "description_cn": "召唤少量火焰飞蝇在协助我作战。"
+      "description_cn": "召唤少量火焰飞蝇协助我作战。"
     },
     {
       "id": 4,
@@ -79,7 +79,7 @@
       "spell_series": "冰",
       "charge": 14,
       "description_en": "I summon a few iceflies to aid me in battle.",
-      "description_cn": "召唤少量冰霜飞蝇在协助我作战。"
+      "description_cn": "召唤少量冰霜飞蝇协助我作战。"
     },
     {
       "id": 10,
@@ -97,7 +97,7 @@
       "spell_series": "土",
       "charge": 7,
       "description_en": "All attacks with the coated weapon may poison my opponent. Lost when sheathed.",
-      "description_cn": "使用涂毒武器攻击时可能使敌人中毒。收刀时效果消失。"
+      "description_cn": "给武器涂毒，攻击时可能使敌人中毒。收刀时效果消失。"
     },
     {
       "id": 12,
@@ -124,7 +124,7 @@
       "spell_series": "土",
       "charge": 20,
       "description_en": "Corrupts blood slimes into acidic oozes and compels both slimes and oozes to join me.",
-      "description_cn": "将血粘液腐蚀成酸性粘液怪，并驱使粘液和粘液怪加入我方。"
+      "description_cn": "将血史莱姆腐蚀成酸性粘液怪，并驱使史莱姆和粘液怪加入我方。"
     },
     {
       "id": 15,
@@ -214,7 +214,7 @@
       "spell_series": "奥术",
       "charge": 14,
       "description_en": "I summon a few magiflies to aid me in battle.",
-      "description_cn": "召唤少量奥术飞蝇在协助我作战。"
+      "description_cn": "召唤少量奥术飞蝇协助我作战。"
     },
     {
       "id": 25,
@@ -223,7 +223,7 @@
       "spell_series": "奥术",
       "charge": 16,
       "description_en": "I summon a few bladeflies to aid me in battle.",
-      "description_cn": "召唤少量刀锋飞蝇在协助我作战。"
+      "description_cn": "召唤少量刀锋飞蝇协助我作战。"
     },
     {
       "id": 26,
@@ -241,7 +241,7 @@
       "spell_series": "奥术",
       "charge": 50,
       "description_en": "I summon a diary to record my experience.",
-      "description_cn": "召唤一本日记记录我的经历。"
+      "description_cn": "召唤一本日记存储我的经验。"
     },
     {
       "id": 28,
@@ -250,7 +250,7 @@
       "spell_series": "奥术",
       "charge": 50,
       "description_en": "I summon the god Liho favored by me to intervene on my behalf.",
-      "description_cn": "召唤我所信奉的神灵Liho代表我进行干预。"
+      "description_cn": "召唤我所信奉的神灵Liho代表我干预战斗。"
     },
     {
       "id": 29,
@@ -259,7 +259,7 @@
       "spell_series": "无属性",
       "charge": 2,
       "description_en": "Enemies in the target area lose their experience.",
-      "description_cn": "目标区域内的敌人丢失其经验值。"
+      "description_cn": "目标区域内的敌人掉落经验。"
     },
     {
       "id": 30,
@@ -381,7 +381,7 @@
     {
       "id": 43,
       "name_en": "CORPSE EXPLOSION",
-      "name_cn": "尸体爆炸",
+      "name_cn": "尸爆术",
       "spell_series": "死亡",
       "charge": 18,
       "description_en": "Nearby corpses explode over the next few seconds.",
