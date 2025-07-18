@@ -195,7 +195,7 @@ h1:after {
     background: url('https://s21.ax1x.com/2025/07/12/pVlGALF.webp') no-repeat;
     background-size: 100px auto;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     border: 3px solid white;
 }
@@ -203,7 +203,7 @@ h1:after {
 .modal-name {
     font-size: 1.8rem;
     color: #2c3e50;
-    margin-bottom: 5px;
+    margin-bottom: -5px;
     text-align: center;
     font-weight: 700;
 }
@@ -211,7 +211,7 @@ h1:after {
 .modal-name-en {
     color: #5a6c82;
     font-size: 1.1rem;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     text-align: center;
     font-weight: 500;
     font-style: italic;
@@ -250,7 +250,7 @@ h1:after {
 }
 
 .attributes-table td {
-    padding: 12px 15px;
+    padding: 8px 15px;
     color: #444;
     border-bottom: 1px solid #eef3ff;
     width: 50%;
@@ -338,7 +338,6 @@ footer {
         width: 64px;
         height: 64px;
         background-size: 64px auto;
-        margin-bottom: 5px;
     }
 
     .characters-grid {
