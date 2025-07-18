@@ -220,7 +220,7 @@ h1:after {
 /* 属性表格样式 - 两列布局 */
 .attributes-container {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
     background: white;
     border-radius: 12px;
     overflow: hidden;
@@ -352,7 +352,7 @@ footer {
 
     .modal-name-en {
         font-size: 1rem;
-        margin-bottom: -5px;
+        margin-bottom: 0px;
     }
 
     .attributes-table td {
