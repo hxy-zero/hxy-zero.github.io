@@ -558,7 +558,7 @@ header {
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 400px) {
     .subtitle {
         font-size: 0.85rem;
     }
