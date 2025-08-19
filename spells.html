@@ -200,7 +200,7 @@
         function loadSpells() {
             loader.style.display = 'flex';
             gallery.style.display = 'none';
-            counter.style.display = 'none';
+            //counter.style.display = 'none';
             errorMessage.style.display = 'none';
             
             const repoName = getRepoName();
@@ -223,6 +223,7 @@
 
                     loader.style.display = 'none';
                     gallery.style.display = 'grid';
+                    counter.style.display = 'block';
 
                 // 数据加载完成后执行自动搜索
                 setupAutoSearch();
